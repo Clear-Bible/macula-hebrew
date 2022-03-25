@@ -8,6 +8,13 @@ This repository contains the MACULA linguistic datasets for Hebrew, including da
 3. Syntax trees developed by Clear Bible, Inc. together with the Groves Center. (Note: Clear was formerly known as Global Bible Initiative from 2014-2020 and Asia Bible Society before that.)  Recently, the Groves Center graciously released [Westminster Hebrew Syntax without Morphology](https://github.com/Clear-Bible/macula-hebrew/sources/groves) under a Creative Commons CC BY 4.0 license.
 4. Word sense data from the United Bible Societies [MARBLE](https://semanticdictionary.org/) project.
 
+During 2022, we intend to add further datasets, which are under development:
+
+5. Synonyms: Which Hebrew words are related in meaning?
+6. Semantic roles: Who does what to whom? (Agent, Verb, Patient …)
+7. Pronominal referents: Who is “he,” “she,” or “it” in this sentence?
+8. Semantic similarity: Which phrases and clauses have are semantically similar to texts found elsewhere?
+
 This data has been combined into a single set of trees.  There are two variants of the these trees, found in the following directories:
 
 1. `nodes` contains this data in a set of nested `Node` elements suitable for many NLP systems and other systems that use recursive algorithms.
