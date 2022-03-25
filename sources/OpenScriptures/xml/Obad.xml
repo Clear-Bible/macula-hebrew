@@ -1,0 +1,618 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<osis xmlns="http://www.bibletechnologies.net/2003/OSIS/namespace" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.bibletechnologies.net/2003/OSIS/namespace http://www.bibletechnologies.net/osisCore.2.1.1.xsd">
+  <osisText xml:lang="he" osisIDWork="OSHB" osisRefWork="Bible">
+    <header>
+      <revisionDesc resp="dt">
+        <date>2017.12.10</date>
+        <p>Release of full morphology</p>
+      </revisionDesc>
+      <revisionDesc resp="dt">
+        <date>2016.03.03</date>
+        <p>Updated to WLC version 4.20.</p>
+      </revisionDesc>
+      <revisionDesc resp="dt">
+        <date>2013.12.11</date>
+        <p>First release of morphology on selected portions.</p>
+      </revisionDesc>
+      <revisionDesc resp="dt">
+        <date>2013.07.10</date>
+        <p>Updated to WLC version 4.18.</p>
+      </revisionDesc>
+      <revisionDesc resp="dt">
+        <date>2012.07.18</date>
+        <p>Updated to WLC version 4.16.</p>
+      </revisionDesc>
+      <revisionDesc resp="dt">
+        <date>2011.01.21</date>
+        <p>Updated to WLC version 4.14.</p>
+      </revisionDesc>
+      <revisionDesc resp="dt">
+        <date>2008.08.08</date>
+        <p>Convert the Westminster Leningrad Codex files from TEI markup to OSIS book files.</p>
+      </revisionDesc>
+      <work osisWork="OSHB" xml:lang="he">
+        <title>Open Scriptures Hebrew Bible</title>
+        <contributor role="edt">Daniel Owens</contributor>
+        <contributor role="edt">David Troidl</contributor>
+        <date>2007.9.16</date>
+        <identifier type="URL">https://github.com/openscriptures/morphhb</identifier>
+        <rights type="x-BY">Creative Commons Attribution 4.0</rights>
+        <refSystem>Bible.MT</refSystem>
+      </work>
+      <work osisWork="WLC" xml:lang="he">
+        <title>Westminster Leningrad Codex</title>
+        <contributor role="edt">Christopher V. Kimball</contributor>
+        <date>2007.9.16</date>
+        <identifier type="URL">http://www.tanach.us/Tanach.xml</identifier>
+        <rights>Public Domain</rights>
+        <refSystem>Bible.MT</refSystem>
+      </work>
+      <work osisWork="BHS" xml:lang="he">
+        <title>BHS unaccented with Strongs</title>
+        <contributor role="edt">Joseph Planeta</contributor>
+        <contributor role="edt">Rev. Graham Nind</contributor>
+        <description>Unaccented Biblia Hebraica Stuttgartensia Hebrew with Strong's numbers by Rev. Graham.</description>
+        <identifier type="URL">http://www.faithofgod.net/</identifier>
+        <identifier type="URL">http://www.grahamnind.dsl.pipex.com/files</identifier>
+        <rights>Public Domain</rights>
+      </work>
+      <work osisWork="Strong" xml:lang="en">
+        <title>A Concise Dictionary of the Words in the Hebrew Bible</title>
+        <title type="sub">with their Renderings in the King James Version</title>
+        <contributor role="edt">David Troidl</contributor>
+        <contributor role="edt">David Instone-Brewer</contributor>
+        <creator role="edt">James Strong, LL.D., S.T.D.</creator>
+        <date>1894</date>
+        <description resp="dib">The data came from several PD sources which were full of errors. I cleaned them by comparing them to each other and (where necessary) looking at the original.</description>
+        <publisher>Hunt &amp; Eaton</publisher>
+        <identifier type="URL">www.2LetterLookup.com</identifier>
+        <source>The exhaustive concordance of the Bible:</source>
+        <rights>Public Domain</rights>
+        <refSystem>Dict.Strongs</refSystem>
+      </work>
+      <work osisWork="OSHM" xml:lang="en">
+        <title>Open Scriptures Hebrew Morphology</title>
+        <contributor role="ctb">Chapel Presson</contributor>
+        <contributor role="ctb">Daniel Owens</contributor>
+        <contributor role="ctb">David Troidl</contributor>
+        <contributor role="ctb">Jesse Griffin</contributor>
+        <contributor role="ctb">Andy Hubert</contributor>
+        <contributor role="ctb">Angela Westmoreland</contributor>
+        <contributor role="ctb">Grant Ailie</contributor>
+        <contributor role="ctb">Joel Ruark</contributor>
+        <contributor role="ctb">Kenny Hilliard</contributor>
+        <contributor role="ctb">Luong Hao Tran</contributor>
+        <contributor role="ctb">Nathan Wilson</contributor>
+        <contributor role="ctb">Ryan Davis</contributor>
+        <contributor role="ctb">Aaron Laws</contributor>
+        <contributor role="ctb">Adam Nagelvoort</contributor>
+        <contributor role="ctb">Adriel Ickler</contributor>
+        <contributor role="ctb">Agus Santoso</contributor>
+        <contributor role="ctb">Andy Hophd</contributor>
+        <contributor role="ctb">Angelo Salais</contributor>
+        <contributor role="ctb">Annie Jeong</contributor>
+        <contributor role="ctb">Ariel Tidre Ferreira</contributor>
+        <contributor role="ctb">Artsiom Vorsa</contributor>
+        <contributor role="ctb">artyom vorsa</contributor>
+        <contributor role="ctb">Ashley Whitlatch</contributor>
+        <contributor role="ctb">Austen Dutton</contributor>
+        <contributor role="ctb">Barry Smith</contributor>
+        <contributor role="ctb">Ben Dwyer</contributor>
+        <contributor role="ctb">Ben Wulpi</contributor>
+        <contributor role="ctb">Benjamin Epstein</contributor>
+        <contributor role="ctb">Bill Chaffin</contributor>
+        <contributor role="ctb">Braxton Bogard</contributor>
+        <contributor role="ctb">Bret Stewart</contributor>
+        <contributor role="ctb">Bruce Taylor</contributor>
+        <contributor role="ctb">Bryant Huang</contributor>
+        <contributor role="ctb">Caleb Maclennan</contributor>
+        <contributor role="ctb">chad buel</contributor>
+        <contributor role="ctb">Chase Parkey</contributor>
+        <contributor role="ctb">Cheryl Riddell</contributor>
+        <contributor role="ctb">Chris McKirgan</contributor>
+        <contributor role="ctb">Christof  Bucherer</contributor>
+        <contributor role="ctb">ciro izzo</contributor>
+        <contributor role="ctb">Clemens Gudenus</contributor>
+        <contributor role="ctb">Cody Kingham</contributor>
+        <contributor role="ctb">Cody Marceau</contributor>
+        <contributor role="ctb">Collin Hatcher</contributor>
+        <contributor role="ctb">Connie Andrews</contributor>
+        <contributor role="ctb">Damien Riegel</contributor>
+        <contributor role="ctb">Dan Simmons</contributor>
+        <contributor role="ctb">Daniel Bowman</contributor>
+        <contributor role="ctb">Danielle Pamela</contributor>
+        <contributor role="ctb">Darla Nine</contributor>
+        <contributor role="ctb">Darrell Smith</contributor>
+        <contributor role="ctb">Dave Jones</contributor>
+        <contributor role="ctb">Dave Whitman</contributor>
+        <contributor role="ctb">David Carr</contributor>
+        <contributor role="ctb">David Cohen</contributor>
+        <contributor role="ctb">David Laycock</contributor>
+        <contributor role="ctb">David Lewis</contributor>
+        <contributor role="ctb">David Roth</contributor>
+        <contributor role="ctb">David Uhrik</contributor>
+        <contributor role="ctb">Diana Zhang</contributor>
+        <contributor role="ctb">Diego Chaves</contributor>
+        <contributor role="ctb">Dmitriy Kashelevskiy</contributor>
+        <contributor role="ctb">doug hendren</contributor>
+        <contributor role="ctb">Eddy Yates</contributor>
+        <contributor role="ctb">Edgar Vorsa</contributor>
+        <contributor role="ctb">Eduardo Martorano</contributor>
+        <contributor role="ctb">Eiichi  Masuda </contributor>
+        <contributor role="ctb">Eliezer Abreu</contributor>
+        <contributor role="ctb">Eric Wong</contributor>
+        <contributor role="ctb">Esther Dang</contributor>
+        <contributor role="ctb">Ferenczi Kristof</contributor>
+        <contributor role="ctb">Flavio Souza</contributor>
+        <contributor role="ctb">Frederick Edelstein</contributor>
+        <contributor role="ctb">Gantumur Luvsangombo</contributor>
+        <contributor role="ctb">Gary Rickman</contributor>
+        <contributor role="ctb">Geert Kok</contributor>
+        <contributor role="ctb">Gerald Broadbent</contributor>
+        <contributor role="ctb">Gergely Juhasz</contributor>
+        <contributor role="ctb">Giancarlos Toro</contributor>
+        <contributor role="ctb">Greg Walton</contributor>
+        <contributor role="ctb">Hamidreza Hatamikasavand</contributor>
+        <contributor role="ctb">Hector Molano</contributor>
+        <contributor role="ctb">Hermanus Taute</contributor>
+        <contributor role="ctb">hermon chan</contributor>
+        <contributor role="ctb">Hyman Robles</contributor>
+        <contributor role="ctb">Hyunsoo Yang</contributor>
+        <contributor role="ctb">inhyuk lee</contributor>
+        <contributor role="ctb">Israel Andrade</contributor>
+        <contributor role="ctb">Israel Ruiz</contributor>
+        <contributor role="ctb">Jack Weinbender</contributor>
+        <contributor role="ctb">JaiHee Kwak</contributor>
+        <contributor role="ctb">James Bejon</contributor>
+        <contributor role="ctb">James Castell</contributor>
+        <contributor role="ctb">James Cuenod</contributor>
+        <contributor role="ctb">James Duguid</contributor>
+        <contributor role="ctb">Jean veran</contributor>
+        <contributor role="ctb">JeanJacques KRIEF</contributor>
+        <contributor role="ctb">Jeff Goo</contributor>
+        <contributor role="ctb">Jeong Jae Yoo</contributor>
+        <contributor role="ctb">Jeremiah Myers</contributor>
+        <contributor role="ctb">Jeremy Bullard</contributor>
+        <contributor role="ctb">jessica jones</contributor>
+        <contributor role="ctb">Jiri Richter</contributor>
+        <contributor role="ctb">Joao Luis Fedel Goncalves</contributor>
+        <contributor role="ctb">Joel Peeters</contributor>
+        <contributor role="ctb">Joel Rubin</contributor>
+        <contributor role="ctb">john knightley</contributor>
+        <contributor role="ctb">John Mellison</contributor>
+        <contributor role="ctb">John Studebaker</contributor>
+        <contributor role="ctb">jonatas margiotta</contributor>
+        <contributor role="ctb">Jonathan Walsh</contributor>
+        <contributor role="ctb">jony clynn</contributor>
+        <contributor role="ctb">Jose Martinez</contributor>
+        <contributor role="ctb">joseph lee</contributor>
+        <contributor role="ctb">Joseph Li</contributor>
+        <contributor role="ctb">Joseph MICHEL</contributor>
+        <contributor role="ctb">Judy Hendren</contributor>
+        <contributor role="ctb">Julia Tang</contributor>
+        <contributor role="ctb">Justin So</contributor>
+        <contributor role="ctb">Juswaldy Jusman</contributor>
+        <contributor role="ctb">Kap Soo LEE</contributor>
+        <contributor role="ctb">Kara Bohall</contributor>
+        <contributor role="ctb">Karel Jongeling</contributor>
+        <contributor role="ctb">Kathy Scott</contributor>
+        <contributor role="ctb">Keanan Bovie</contributor>
+        <contributor role="ctb">Keith Hanson</contributor>
+        <contributor role="ctb">Keith Kresge</contributor>
+        <contributor role="ctb">Kevin Andersson</contributor>
+        <contributor role="ctb">Kevin Johanson</contributor>
+        <contributor role="ctb">Kevin Townsend</contributor>
+        <contributor role="ctb">Kiriana Kingston</contributor>
+        <contributor role="ctb">Laurentiu Gabriel Ionescu</contributor>
+        <contributor role="ctb">LEE Arrington</contributor>
+        <contributor role="ctb">Lee Bruckner</contributor>
+        <contributor role="ctb">Len Clark</contributor>
+        <contributor role="ctb">Leng Xiong</contributor>
+        <contributor role="ctb">LENO VICTOR DE SANTANA</contributor>
+        <contributor role="ctb">libor neuman</contributor>
+        <contributor role="ctb">lisa lisa</contributor>
+        <contributor role="ctb">M Cecil Dietz</contributor>
+        <contributor role="ctb">Malkalain Greenwell</contributor>
+        <contributor role="ctb">Marc Cordova</contributor>
+        <contributor role="ctb">Marfeal Santiago</contributor>
+        <contributor role="ctb">Marianne Szpilka</contributor>
+        <contributor role="ctb">Martin Daly</contributor>
+        <contributor role="ctb">Matan Bino</contributor>
+        <contributor role="ctb">Matthew Schug</contributor>
+        <contributor role="ctb">Max Pilo</contributor>
+        <contributor role="ctb">Micahel Leong</contributor>
+        <contributor role="ctb">Michael Fenn</contributor>
+        <contributor role="ctb">Michael Nicholson</contributor>
+        <contributor role="ctb">Miguel SANTOS</contributor>
+        <contributor role="ctb">Mike Brown</contributor>
+        <contributor role="ctb">mike fenn</contributor>
+        <contributor role="ctb">mirlande amazan</contributor>
+        <contributor role="ctb">Moongui Ulbrich</contributor>
+        <contributor role="ctb">Napoleon Gasilan</contributor>
+        <contributor role="ctb">Natashia Roy</contributor>
+        <contributor role="ctb">Nathan Bierma</contributor>
+        <contributor role="ctb">Nathan Lee</contributor>
+        <contributor role="ctb">Nathan Wilson</contributor>
+        <contributor role="ctb">Neil Cadman</contributor>
+        <contributor role="ctb">Okyob Jeon</contributor>
+        <contributor role="ctb">omer omer</contributor>
+        <contributor role="ctb">Onur Yos</contributor>
+        <contributor role="ctb">Paul Cook</contributor>
+        <contributor role="ctb">Pete Myers</contributor>
+        <contributor role="ctb">pete Norcross</contributor>
+        <contributor role="ctb">Peter Erdodi</contributor>
+        <contributor role="ctb">Peter Ho</contributor>
+        <contributor role="ctb">peter zimonyi</contributor>
+        <contributor role="ctb">Petr Miencil</contributor>
+        <contributor role="ctb">Petr Vejmelka</contributor>
+        <contributor role="ctb">phyl ma</contributor>
+        <contributor role="ctb">ralph zak</contributor>
+        <contributor role="ctb">Ramos Simanjuntak</contributor>
+        <contributor role="ctb">Rebeca Martinez</contributor>
+        <contributor role="ctb">Regina Hong</contributor>
+        <contributor role="ctb">Rendhi Vianirio</contributor>
+        <contributor role="ctb">Ricardo  Luiz Pinto</contributor>
+        <contributor role="ctb">Richard Baker</contributor>
+        <contributor role="ctb">Robert Berger</contributor>
+        <contributor role="ctb">Robert Holmstedt</contributor>
+        <contributor role="ctb">robert saunders</contributor>
+        <contributor role="ctb">Roberta Potgieter</contributor>
+        <contributor role="ctb">rocket fortyfive</contributor>
+        <contributor role="ctb">Rodrigo Castro</contributor>
+        <contributor role="ctb">Ross Tenneson</contributor>
+        <contributor role="ctb">Ruairidh MacLean</contributor>
+        <contributor role="ctb">Ruben Kraiem</contributor>
+        <contributor role="ctb">Sebastien GOEURY</contributor>
+        <contributor role="ctb">Shane Pimental</contributor>
+        <contributor role="ctb">Sharon Hamel</contributor>
+        <contributor role="ctb">Shawn Goodwin</contributor>
+        <contributor role="ctb">shukai cheung</contributor>
+        <contributor role="ctb">Siew GuoFen</contributor>
+        <contributor role="ctb">silas army</contributor>
+        <contributor role="ctb">Simon Pan</contributor>
+        <contributor role="ctb">Sir Robert Burbridge</contributor>
+        <contributor role="ctb">Soliman Hanna</contributor>
+        <contributor role="ctb">Spyros Karalis</contributor>
+        <contributor role="ctb">Stephen Durkee</contributor>
+        <contributor role="ctb">Steve Beukema</contributor>
+        <contributor role="ctb">SunGyo Kim</contributor>
+        <contributor role="ctb">Talia  Smith</contributor>
+        <contributor role="ctb">Thien Tran</contributor>
+        <contributor role="ctb">Thierry Tchiakpe</contributor>
+        <contributor role="ctb">tiago thorlby</contributor>
+        <contributor role="ctb">Timothy Keiderling</contributor>
+        <contributor role="ctb">timothy yeh</contributor>
+        <contributor role="ctb">Todd Patterson</contributor>
+        <contributor role="ctb">Toe Set</contributor>
+        <contributor role="ctb">Tomas Uher</contributor>
+        <contributor role="ctb">Troy Nelson</contributor>
+        <contributor role="ctb">uriel arevalo</contributor>
+        <contributor role="ctb">Vanda Bayer</contributor>
+        <contributor role="ctb">Vladimir Polyanskia</contributor>
+        <contributor role="ctb">w s</contributor>
+        <contributor role="ctb">Wally Kimball</contributor>
+        <contributor role="ctb">walt seevers</contributor>
+        <contributor role="ctb">Wattanavadee Jitpakdee</contributor>
+        <contributor role="ctb">Wayne Buchanan</contributor>
+        <contributor role="ctb">Wellington Machado</contributor>
+        <contributor role="ctb">Wendy Kwan</contributor>
+        <contributor role="ctb">Wesley Walker</contributor>
+        <contributor role="ctb">William Pak</contributor>
+        <contributor role="ctb">william stewart</contributor>
+        <contributor role="ctb">Xi Li</contributor>
+        <contributor role="ctb">yasu shimizu</contributor>
+        <contributor role="ctb">Yoo sung  Chang</contributor>
+        <contributor role="ctb">zac rigsby</contributor>
+        <contributor role="ctb">Zack Vera</contributor>
+        <contributor role="ctb">zhishi Lin</contributor>
+        <contributor role="ctb">Zsolt Jarai</contributor>
+        <creator role="edt">Open Scriptures Hebrew Bible Project</creator>
+        <date>2019.1.13</date>
+        <identifier type="URL">https://github.com/openscriptures/morphhb</identifier>
+        <rights type="x-BY">Creative Commons Attribution 4.0</rights>
+        <refSystem>Dict.oshm</refSystem>
+      </work>
+      <workPrefix path="//w/@lemma" osisWork="Strong"/>
+      <workPrefix path="//w/@morph" osisWork="OSHM"/>
+    </header>
+    <div type="book" osisID="Obad">
+      <chapter osisID="Obad.1">
+        <verse osisID="Obad.1.1">
+          <m n="310010010011" lang="H" after=" " lemma="2377" morph="Ncmsc" id="31xeN" pos="noun" type="common" gender="masculine" number="singular" state="construct">חֲז֖וֹן</m>
+          <m n="310010010021" lang="H" after=" " lemma="5662" morph="Np" id="31Nvk" pos="noun" type="proper">עֹֽבַדְיָ֑ה</m>
+          <m n="310010010031" lang="H" after="־" lemma="3541" morph="D" id="31TyA" pos="adverb">כֹּֽה</m><seg type="x-maqqef">־</seg><m n="310010010041" lang="H" after=" " lemma="559" morph="Vqp3ms" id="31vuQ" pos="verb" stem="qal" type="qatal" person="third" gender="masculine" number="singular">אָמַר֩</m>
+          <m n="310010010051" morph="Ncmpc" lang="H" lemma="136" pos="noun" type="common" gender="masculine" number="plural" state="construct">אֲדֹנָ֨</m><m n="310010010052" morph="Sp1cs" lang="H" after=" " pos="suffix" type="pronominal" person="first" gender="common" number="singular">י</m>
+          <m n="310010010061" lang="H" after=" " lemma="3069" morph="Np" id="31k5P" pos="noun" type="proper">יְהוִ֜ה</m>
+          <m n="310010010071" morph="R" lang="H" lemma="l" pos="preposition">לֶ</m><m n="310010010072" morph="Np" lang="H" lemma="123" after=" " pos="noun" type="proper">אֱד֗וֹם</m>
+          <m n="310010010081" lang="H" after=" " lemma="8052" morph="Ncfsa" id="31LN3" pos="noun" type="common" gender="feminine" number="singular" state="absolute">שְׁמוּעָ֨ה</m>
+          <m n="310010010091" lang="H" after=" " lemma="8085" morph="Vqp1cp" id="31Qzf" pos="verb" stem="qal" type="qatal" person="first" gender="common" number="plural">שָׁמַ֜עְנוּ</m>
+          <m n="310010010101" morph="R" lang="H" lemma="m" pos="preposition">מֵ</m><m n="310010010102" morph="R" lang="H" lemma="854" after=" " pos="preposition">אֵ֤ת</m>
+          <m n="310010010111" lang="H" after=" " lemma="3068" morph="Np" id="31eYX" pos="noun" type="proper">יְהוָה֙</m>
+          <m n="310010010121" morph="C" lang="H" lemma="c" pos="conjunction">וְ</m><m n="310010010122" morph="Ncmsa" lang="H" lemma="6735 a" after=" " pos="noun" type="common" gender="masculine" number="singular" state="absolute">צִיר֙</m>
+          <m n="310010010131" morph="Rd" lang="H" lemma="b" pos="preposition">בַּ</m><m n="310010010131ה" morph="Td" lemma="d" lang="H" pos="particle" type="definite article"/><m n="310010010132" morph="Ncmpa" lang="H" lemma="1471 a" after=" " pos="noun" type="common" gender="masculine" number="plural" state="absolute">גּוֹיִ֣ם</m>
+          <m n="310010010141" lang="H" after=" " lemma="7971" morph="VPp3ms" id="31EVS" pos="verb" stem="pual" type="qatal" person="third" gender="masculine" number="singular">שֻׁלָּ֔ח</m>
+          <m n="310010010151" lang="H" after=" " lemma="6965 b" morph="Vqv2mp" id="31PB6" pos="verb" stem="qal" type="imperative" person="second" gender="masculine" number="plural">ק֛וּמוּ</m>
+          <m n="310010010161" morph="C" lang="H" lemma="c" pos="conjunction">וְ</m><m n="310010010162" morph="Vqh1cp" lang="H" lemma="6965 b" after=" " pos="verb" stem="qal" type="cohortative" person="first" gender="common" number="plural">נָק֥וּמָה</m>
+          <m n="310010010171" morph="R" lang="H" lemma="5921 a" pos="preposition">עָלֶי</m><m n="310010010172" morph="Sp3fs" lang="H" after="" pos="suffix" type="pronominal" person="third" gender="feminine" number="singular">הָ</m>
+          <note n="Q">Marks a place where we agree with BHQ against BHS in reading L. </note>
+          <note n="c">We read one or more accents in L differently than BHS. Often this notation indicates a typographical error in BHS. </note>
+          <note n="n">Marks an anomalous form. </note>
+          <m n="310010010181" morph="Rd" lang="H" lemma="l" pos="preposition">לַ</m><m n="310010010181ה" morph="Td" lemma="d" lang="H" pos="particle" type="definite article"/><m n="310010010182" morph="Ncfsa" lang="H" lemma="4421" after="׃" pos="noun" type="common" gender="feminine" number="singular" state="absolute">מִּלְחָמָֽה</m><seg type="x-sof-pasuq">׃</seg>
+        </verse>
+        <verse osisID="Obad.1.2">
+          <m n="310010020011" lang="H" after=" " lemma="2009" morph="Tm" id="3129t" pos="particle" type="demonstrative">הִנֵּ֥ה</m>
+          <m n="310010020021" lang="H" after=" " lemma="6996 b" morph="Aamsa" id="31KZG" pos="adjective" type="adjective" gender="masculine" number="singular" state="absolute">קָטֹ֛ן</m>
+          <m n="310010020031" morph="Vqp1cs" lang="H" lemma="5414" pos="verb" stem="qal" type="qatal" person="first" gender="common" number="singular">נְתַתִּ֖י</m><m n="310010020032" morph="Sp2ms" lang="H" after=" " pos="suffix" type="pronominal" person="second" gender="masculine" number="singular">ךָ</m>
+          <m n="310010020041" morph="Rd" lang="H" lemma="b" pos="preposition">בַּ</m><m n="310010020041ה" morph="Td" lemma="d" lang="H" pos="particle" type="definite article"/><m n="310010020042" morph="Ncmpa" lang="H" lemma="1471 a" after=" " pos="noun" type="common" gender="masculine" number="plural" state="absolute">גּוֹיִ֑ם</m>
+          <m n="310010020051" lang="H" after=" " lemma="959" morph="Vqsmsa" id="31JM7" pos="verb" stem="qal" type="participle passive" gender="masculine" number="singular" state="absolute">בָּז֥וּי</m>
+          <m n="310010020061" lang="H" after=" " lemma="859 a" morph="Pp2ms" id="31fpo" pos="pronoun" type="personal" person="second" gender="masculine" number="singular">אַתָּ֖ה</m>
+          <m n="310010020071" lang="H" after="׃" lemma="3966" morph="D" id="31W26" pos="adverb">מְאֹֽד</m><seg type="x-sof-pasuq">׃</seg>
+        </verse>
+        <verse osisID="Obad.1.3">
+          <m n="310010030011" lang="H" after=" " lemma="2087" morph="Ncmsc" id="31yw4" pos="noun" type="common" gender="masculine" number="singular" state="construct">זְד֤וֹן</m>
+          <m n="310010030021" morph="Ncmsc" lang="H" lemma="3820 a" pos="noun" type="common" gender="masculine" number="singular" state="construct">לִבְּ</m><m n="310010030022" morph="Sp2ms" lang="H" after=" " pos="suffix" type="pronominal" person="second" gender="masculine" number="singular">ךָ֙</m>
+          <m n="310010030031" morph="Vhp3ms" lang="H" lemma="5377" pos="verb" stem="hiphil" type="qatal" person="third" gender="masculine" number="singular">הִשִּׁיאֶ֔</m><m n="310010030032" morph="Sp2ms" lang="H" after=" " pos="suffix" type="pronominal" person="second" gender="masculine" number="singular">ךָ</m>
+          <m n="310010030041" lang="H" after=" " lemma="7931" morph="Vqrmsc" id="31v6U" pos="verb" stem="qal" type="participle active" gender="masculine" number="singular" state="construct">שֹׁכְנִ֥י</m>
+          <m n="310010030051" morph="R" lang="H" lemma="b" pos="preposition">בְ</m><m n="310010030052" morph="Ncmpc" lang="H" lemma="2288" after="־" pos="noun" type="common" gender="masculine" number="plural" state="construct">חַגְוֵי</m><seg type="x-maqqef">־</seg><m n="310010030061" lang="H" after=" " lemma="5553" morph="Ncmsa" id="31GzE" pos="noun" type="common" gender="masculine" number="singular" state="absolute">סֶּ֖לַע</m>
+          <m n="310010030071" lang="H" after=" " lemma="4791" morph="Ncmsc" id="31qCU" pos="noun" type="common" gender="masculine" number="singular" state="construct">מְר֣וֹם</m>
+          <m n="310010030081" morph="Ncfsc" lang="H" lemma="7675" pos="noun" type="common" gender="feminine" number="singular" state="construct">שִׁבְתּ֑</m><m n="310010030082" morph="Sp3ms" lang="H" after=" " pos="suffix" type="pronominal" person="third" gender="masculine" number="singular">וֹ</m>
+          <m n="310010030091" lang="H" after=" " lemma="559" morph="Vqrmsa" id="31jQb" pos="verb" stem="qal" type="participle active" gender="masculine" number="singular" state="absolute">אֹמֵ֣ר</m>
+          <m n="310010030101" morph="R" lang="H" lemma="b" pos="preposition">בְּ</m><m n="310010030102" morph="Ncmsc" lang="H" lemma="3820 a" pos="noun" type="common" gender="masculine" number="singular" state="construct">לִבּ֔</m><m n="310010030103" morph="Sp3ms" lang="H" after=" " pos="suffix" type="pronominal" person="third" gender="masculine" number="singular">וֹ</m>
+          <m n="310010030111" lang="H" after=" " lemma="4310" morph="Ti" id="31CsU" pos="particle" type="interrogative">מִ֥י</m>
+          <m n="310010030121" morph="Vhi3ms" lang="H" lemma="3381" pos="verb" stem="hiphil" type="yiqtol" person="third" gender="masculine" number="singular">יוֹרִדֵ֖</m><m n="310010030122" morph="Sp1cs" lang="H" after=" " pos="suffix" type="pronominal" person="first" gender="common" number="singular">נִי</m>
+          <m n="310010030131" lang="H" after="׃" lemma="776" morph="Ncbsa" id="31KvS" pos="noun" type="common" gender="both" number="singular" state="absolute">אָֽרֶץ</m><seg type="x-sof-pasuq">׃</seg>
+        </verse>
+        <verse osisID="Obad.1.4">
+          <m n="310010040011" lang="H" after="־" lemma="518 a" morph="C" id="31dBc" pos="conjunction">אִם</m><seg type="x-maqqef">־</seg><m n="310010040021" lang="H" after=" " lemma="1361" morph="Vhi2ms" id="31nAB" pos="verb" stem="hiphil" type="yiqtol" person="second" gender="masculine" number="singular">תַּגְבִּ֣יהַּ</m>
+          <m n="310010040031" morph="Rd" lang="H" lemma="k" pos="preposition">כַּ</m><m n="310010040031ה" morph="Td" lemma="d" lang="H" pos="particle" type="definite article"/><m n="310010040032" morph="Ncmsa" lang="H" lemma="5404" after=" " pos="noun" type="common" gender="masculine" number="singular" state="absolute">נֶּ֔שֶׁר</m>
+          <m n="310010040041" morph="C" lang="H" lemma="c" pos="conjunction">וְ</m><m n="310010040042" morph="C" lang="H" lemma="518 a" after="־" pos="conjunction">אִם</m><seg type="x-maqqef">־</seg><m n="310010040051" lang="H" after=" " lemma="996" morph="R" id="31wrL" pos="preposition">בֵּ֥ין</m>
+          <m n="310010040061" lang="H" after=" " lemma="3556" morph="Ncmpa" id="313TL" pos="noun" type="common" gender="masculine" number="plural" state="absolute">כּֽוֹכָבִ֖ים</m>
+          <m n="310010040071" lang="H" after=" " lemma="7760 a" morph="Vqsmsa" id="31LeN" pos="verb" stem="qal" type="participle passive" gender="masculine" number="singular" state="absolute">שִׂ֣ים</m>
+          <m n="310010040081" morph="Ncmsc" lang="H" lemma="7064" pos="noun" type="common" gender="masculine" number="singular" state="construct">קִנֶּ֑</m><m n="310010040082" morph="Sp2ms" lang="H" after=" " pos="suffix" type="pronominal" person="second" gender="masculine" number="singular">ךָ</m>
+          <m n="310010040091" morph="R" lang="H" lemma="m" pos="preposition">מִ</m><m n="310010040092" morph="D" lang="H" lemma="8033" after=" " pos="adverb">שָּׁ֥ם</m>
+          <m n="310010040101" morph="Vhi1cs" lang="H" lemma="3381" pos="verb" stem="hiphil" type="yiqtol" person="first" gender="common" number="singular">אוֹרִֽידְ</m><m n="310010040102" morph="Sp2ms" lang="H" after=" " pos="suffix" type="pronominal" person="second" gender="masculine" number="singular">ךָ֖</m>
+          <m n="310010040111" lang="H" after="־" lemma="5002" morph="Ncmsc" id="31uLf" pos="noun" type="common" gender="masculine" number="singular" state="construct">נְאֻם</m><seg type="x-maqqef">־</seg><m n="310010040121" lang="H" after="׃" lemma="3068" morph="Np" id="31kA7" pos="noun" type="proper">יְהוָֽה</m><seg type="x-sof-pasuq">׃</seg>
+        </verse>
+        <verse osisID="Obad.1.5">
+          <m n="310010050011" lang="H" after="־" lemma="518 a" morph="C" id="313TS" pos="conjunction">אִם</m><seg type="x-maqqef">־</seg><m n="310010050021" lang="H" after=" " lemma="1590" morph="Ncmpa" id="31NFp" pos="noun" type="common" gender="masculine" number="plural" state="absolute">גַּנָּבִ֤ים</m>
+          <m n="310010050031" lang="H" after="־" lemma="935" morph="Vqp3cp" id="317am" pos="verb" stem="qal" type="qatal" person="third" gender="common" number="plural">בָּאֽוּ</m><seg type="x-maqqef">־</seg><m n="310010050041" morph="R" lang="H" lemma="l" pos="preposition">לְ</m><m n="310010050042" morph="Sp2ms" lang="H" after=" " pos="suffix" type="pronominal" person="second" gender="masculine" number="singular">ךָ֙</m>
+          <m n="310010050051" lang="H" after="־" lemma="518 a" morph="C" id="31BsK" pos="conjunction">אִם</m><seg type="x-maqqef">־</seg><m n="310010050061" lang="H" after=" " lemma="7703" morph="Vqrmpc" id="31fsu" pos="verb" stem="qal" type="participle active" gender="masculine" number="plural" state="construct">שׁ֣וֹדְדֵי</m>
+          <m n="310010050071" lang="H" after=" " lemma="3915" morph="Ncmsa" id="318M6" pos="noun" type="common" gender="masculine" number="singular" state="absolute">לַ֔יְלָה</m>
+          <m n="310010050081" lang="H" after=" " lemma="349 a" morph="Ti" id="31wM5" pos="particle" type="interrogative">אֵ֣יךְ</m>
+          <m n="310010050091" lang="H" after=" " lemma="1820" morph="VNp2ms" id="31qty" pos="verb" stem="niphal" type="qatal" person="second" gender="masculine" number="singular">נִדְמֵ֔יתָה</m>
+          <m n="310010050101" morph="Ti" lang="H" lemma="i" pos="particle" type="interrogative">הֲ</m><m n="310010050102" morph="Tn" lang="H" lemma="3808" after=" " pos="particle" type="negative">ל֥וֹא</m>
+          <m n="310010050111" lang="H" after=" " lemma="1589" morph="Vqi3mp" id="31Xw6" pos="verb" stem="qal" type="yiqtol" person="third" gender="masculine" number="plural">יִגְנְב֖וּ</m>
+          <m n="310010050121" morph="Ncmsc" lang="H" lemma="1767" pos="noun" type="common" gender="masculine" number="singular" state="construct">דַּיָּ֑</m><m n="310010050122" morph="Sp3mp" lang="H" after=" " pos="suffix" type="pronominal" person="third" gender="masculine" number="plural">ם</m>
+          <m n="310010050131" lang="H" after="־" lemma="518 a" morph="C" id="31H6L" pos="conjunction">אִם</m><seg type="x-maqqef">־</seg><m n="310010050141" lang="H" after=" " lemma="1219" morph="Vqrmpa" id="31bmv" pos="verb" stem="qal" type="participle active" gender="masculine" number="plural" state="absolute">בֹּֽצְרִים֙</m>
+          <m n="310010050151" lang="H" after=" " lemma="935" morph="Vqp3cp" id="31FV9" pos="verb" stem="qal" type="qatal" person="third" gender="common" number="plural">בָּ֣אוּ</m>
+          <m n="310010050161" morph="R" lang="H" lemma="l" pos="preposition">לָ֔</m><m n="310010050162" morph="Sp2fs" lang="H" after=" " pos="suffix" type="pronominal" person="second" gender="feminine" number="singular">ךְ</m>
+          <m n="310010050171" morph="Ti" lang="H" lemma="i" pos="particle" type="interrogative">הֲ</m><m n="310010050172" morph="Tn" lang="H" lemma="3808" after=" " pos="particle" type="negative">ל֖וֹא</m>
+          <m n="310010050181" lang="H" after=" " lemma="7604" morph="Vhi3mp" id="31goK" pos="verb" stem="hiphil" type="yiqtol" person="third" gender="masculine" number="plural">יַשְׁאִ֥ירוּ</m>
+          <m n="310010050191" lang="H" after="׃" lemma="5955" morph="Ncfpa" id="31CyH" pos="noun" type="common" gender="feminine" number="plural" state="absolute">עֹלֵלֽוֹת</m><seg type="x-sof-pasuq">׃</seg>
+        </verse>
+        <verse osisID="Obad.1.6">
+          <m n="310010060011" lang="H" after=" " lemma="349 a" morph="Ti" id="31A4a" pos="particle" type="interrogative">אֵ֚יךְ</m>
+          <m n="310010060021" lang="H" after=" " lemma="2664" morph="VNp3cp" id="315Pr" pos="verb" stem="niphal" type="qatal" person="third" gender="common" number="plural">נֶחְפְּשׂ֣וּ</m>
+          <m n="310010060031" lang="H" after=" " lemma="6215" morph="Np" id="31L4k" pos="noun" type="proper">עֵשָׂ֔ו</m>
+          <m n="310010060041" lang="H" after=" " lemma="1158" morph="VNp3cp" id="31Mnv" pos="verb" stem="niphal" type="qatal" person="third" gender="common" number="plural">נִבְע֖וּ</m>
+          <m n="310010060051" morph="Ncmpc" lang="H" lemma="4710" pos="noun" type="common" gender="masculine" number="plural" state="construct">מַצְפֻּנָֽי</m><m n="310010060052" morph="Sp3ms" lang="H" after="׃" pos="suffix" type="pronominal" person="third" gender="masculine" number="singular">ו</m><seg type="x-sof-pasuq">׃</seg>
+        </verse>
+        <verse osisID="Obad.1.7">
+          <m n="310010070011" lang="H" after="־" lemma="5704" morph="R" id="31tKT" pos="preposition">עַֽד</m><seg type="x-maqqef">־</seg><m n="310010070021" morph="Td" lang="H" lemma="d" pos="particle" type="definite article">הַ</m><m n="310010070022" morph="Ncmsa" lang="H" lemma="1366" after=" " pos="noun" type="common" gender="masculine" number="singular" state="absolute">גְּב֣וּל</m>
+          <m n="310010070031" morph="Vpp3cp" lang="H" lemma="7971" pos="verb" stem="piel" type="qatal" person="third" gender="common" number="plural">שִׁלְּח֗וּ</m><m n="310010070032" morph="Sp2ms" lang="H" after=" " pos="suffix" type="pronominal" person="second" gender="masculine" number="singular">ךָ</m>
+          <m n="310010070041" lang="H" after=" " lemma="3605" morph="Ncmsc" id="31Wxq" pos="noun" type="common" gender="masculine" number="singular" state="construct">כֹּ֚ל</m>
+          <m n="310010070051" lang="H" after=" " lemma="376" morph="Ncmpc" id="319qY" pos="noun" type="common" gender="masculine" number="plural" state="construct">אַנְשֵׁ֣י</m>
+          <m n="310010070061" morph="Ncfsc" lang="H" lemma="1285" pos="noun" type="common" gender="feminine" number="singular" state="construct">בְרִיתֶ֔</m><m n="310010070062" morph="Sp2ms" lang="H" after=" " pos="suffix" type="pronominal" person="second" gender="masculine" number="singular">ךָ</m>
+          <m n="310010070071" morph="Vhp3cp" lang="H" lemma="5377" pos="verb" stem="hiphil" type="qatal" person="third" gender="common" number="plural">הִשִּׁיא֛וּ</m><m n="310010070072" morph="Sp2ms" lang="H" after=" " pos="suffix" type="pronominal" person="second" gender="masculine" number="singular">ךָ</m>
+          <m n="310010070081" lang="H" after=" " lemma="3201" morph="Vqp3cp" id="31fQr" pos="verb" stem="qal" type="qatal" person="third" gender="common" number="plural">יָכְל֥וּ</m>
+          <m n="310010070091" morph="R" lang="H" lemma="l" pos="preposition">לְ</m><m n="310010070092" morph="Sp2ms" lang="H" after=" " pos="suffix" type="pronominal" person="second" gender="masculine" number="singular">ךָ֖</m>
+          <m n="310010070101" lang="H" after=" " lemma="376" morph="Ncmpc" id="31A74" pos="noun" type="common" gender="masculine" number="plural" state="construct">אַנְשֵׁ֣י</m>
+          <m n="310010070111" morph="Ncmsc" lang="H" lemma="7965" pos="noun" type="common" gender="masculine" number="singular" state="construct">שְׁלֹמֶ֑</m><m n="310010070112" morph="Sp2ms" lang="H" after=" " pos="suffix" type="pronominal" person="second" gender="masculine" number="singular">ךָ</m>
+          <m n="310010070121" morph="Ncbsc" lang="H" lemma="3899" pos="noun" type="common" gender="both" number="singular" state="construct">לַחְמְ</m><m n="310010070122" morph="Sp2ms" lang="H" after=" " pos="suffix" type="pronominal" person="second" gender="masculine" number="singular">ךָ֗</m>
+          <m n="310010070131" lang="H" after=" " lemma="7760 a" morph="Vqi3mp" id="31AYg" pos="verb" stem="qal" type="yiqtol" person="third" gender="masculine" number="plural">יָשִׂ֤ימוּ</m>
+          <m n="310010070141" lang="H" after=" " lemma="4204" morph="Ncmsa" id="31Ls9" pos="noun" type="common" gender="masculine" number="singular" state="absolute">מָזוֹר֙</m>
+          <m n="310010070151" morph="R" lang="H" lemma="8478" pos="preposition">תַּחְתֶּ֔י</m><m n="310010070152" morph="Sp2ms" lang="H" after=" " pos="suffix" type="pronominal" person="second" gender="masculine" number="singular">ךָ</m>
+          <m n="310010070161" lang="H" after=" " lemma="369" morph="Tn" id="3187B" pos="particle" type="negative">אֵ֥ין</m>
+          <m n="310010070171" lang="H" after=" " lemma="8394" morph="Ncfsa" id="31nLp" pos="noun" type="common" gender="feminine" number="singular" state="absolute">תְּבוּנָ֖ה</m>
+          <m n="310010070181" morph="R" lang="H" lemma="b" pos="preposition">בּֽ</m><m n="310010070182" morph="Sp3ms" lang="H" after="׃" pos="suffix" type="pronominal" person="third" gender="masculine" number="singular">וֹ</m><seg type="x-sof-pasuq">׃</seg>
+        </verse>
+        <verse osisID="Obad.1.8">
+          <m n="310010080011" morph="Ti" lang="H" lemma="i" pos="particle" type="interrogative">הֲ</m><m n="310010080012" morph="Tn" lang="H" lemma="3808" after=" " pos="particle" type="negative">ל֛וֹא</m>
+          <m n="310010080021" morph="Rd" lang="H" lemma="b" pos="preposition">בַּ</m><m n="310010080021ה" morph="Td" lemma="d" lang="H" pos="particle" type="definite article"/><m n="310010080022" morph="Ncmsa" lang="H" lemma="3117" after=" " pos="noun" type="common" gender="masculine" number="singular" state="absolute">יּ֥וֹם</m>
+          <m n="310010080031" morph="Td" lang="H" lemma="d" pos="particle" type="definite article">הַ</m><m n="310010080032" morph="Pp3ms" lang="H" lemma="1931" after=" " pos="pronoun" type="personal" person="third" gender="masculine" number="singular">ה֖וּא</m>
+          <m n="310010080041" lang="H" after="־" lemma="5002" morph="Ncmsc" id="31LJh" pos="noun" type="common" gender="masculine" number="singular" state="construct">נְאֻם</m><seg type="x-maqqef">־</seg><m n="310010080051" lang="H" after=" " lemma="3068" morph="Np" id="31tRR" pos="noun" type="proper">יְהוָ֑ה</m>
+          <m n="310010080061" morph="C" lang="H" lemma="c" pos="conjunction">וְ</m><m n="310010080062" morph="Vhq1cs" lang="H" lemma="6" after=" " pos="verb" stem="hiphil" type="weqatal" person="first" gender="common" number="singular">הַאֲבַדְתִּ֤י</m>
+          <m n="310010080071" lang="H" after=" " lemma="2450" morph="Aampa" id="31dv1" pos="adjective" type="adjective" gender="masculine" number="plural" state="absolute">חֲכָמִים֙</m>
+          <m n="310010080081" morph="R" lang="H" lemma="m" pos="preposition">מֵֽ</m><m n="310010080082" morph="Np" lang="H" lemma="123" after=" " pos="noun" type="proper">אֱד֔וֹם</m>
+          <m n="310010080091" morph="C" lang="H" lemma="c" pos="conjunction">וּ</m><m n="310010080092" morph="Ncfsa" lang="H" lemma="8394" after=" " pos="noun" type="common" gender="feminine" number="singular" state="absolute">תְבוּנָ֖ה</m>
+          <m n="310010080101" morph="R" lang="H" lemma="m" pos="preposition">מֵ</m><m n="310010080102" morph="Ncmsc" lang="H" lemma="2022" after=" " pos="noun" type="common" gender="masculine" number="singular" state="construct">הַ֥ר</m>
+          <m n="310010080111" lang="H" after="׃" lemma="6215" morph="Np" id="31GLz" pos="noun" type="proper">עֵשָֽׂו</m><seg type="x-sof-pasuq">׃</seg>
+        </verse>
+        <verse osisID="Obad.1.9">
+          <m n="310010090011" morph="C" lang="H" lemma="c" pos="conjunction">וְ</m><m n="310010090012" morph="Vqq3cp" lang="H" lemma="2865" after=" " pos="verb" stem="qal" type="weqatal" person="third" gender="common" number="plural">חַתּ֥וּ</m>
+          <m n="310010090021" morph="Aampc" lang="H" lemma="1368" pos="adjective" type="adjective" gender="masculine" number="plural" state="construct">גִבּוֹרֶ֖י</m><m n="310010090022" morph="Sp2ms" lang="H" after=" " pos="suffix" type="pronominal" person="second" gender="masculine" number="singular">ךָ</m>
+          <m n="310010090031" lang="H" after=" " lemma="8487" morph="Np" id="31zQ2" pos="noun" type="proper">תֵּימָ֑ן</m>
+          <m n="310010090041" lang="H" after=" " lemma="4616" morph="R" id="31Wxx" pos="preposition">לְמַ֧עַן</m>
+          <m n="310010090051" lang="H" after="־" lemma="3772" morph="VNi3ms" id="31jQ8" pos="verb" stem="niphal" type="yiqtol" person="third" gender="masculine" number="singular">יִכָּֽרֶת</m><seg type="x-maqqef">־</seg><m n="310010090061" lang="H" after=" " lemma="376" morph="Ncmsa" id="31Haa" pos="noun" type="common" gender="masculine" number="singular" state="absolute">אִ֛ישׁ</m>
+          <m n="310010090071" morph="R" lang="H" lemma="m" pos="preposition">מֵ</m><m n="310010090072" morph="Ncmsc" lang="H" lemma="2022" after=" " pos="noun" type="common" gender="masculine" number="singular" state="construct">הַ֥ר</m>
+          <m n="310010090081" lang="H" after=" " lemma="6215" morph="Np" id="319KV" pos="noun" type="proper">עֵשָׂ֖ו</m>
+          <m n="310010090091" morph="R" lang="H" lemma="m" pos="preposition">מִ</m><m n="310010090092" morph="Ncmsa" lang="H" lemma="6993" after="׃" pos="noun" type="common" gender="masculine" number="singular" state="absolute">קָּֽטֶל</m><seg type="x-sof-pasuq">׃</seg>
+        </verse>
+        <verse osisID="Obad.1.10">
+          <m n="310010100011" morph="R" lang="H" lemma="m" pos="preposition">מֵ</m><m n="310010100012" morph="Ncmsc" lang="H" lemma="2555" after=" " pos="noun" type="common" gender="masculine" number="singular" state="construct">חֲמַ֛ס</m>
+          <m n="310010100021" morph="Ncmsc" lang="H" lemma="251" pos="noun" type="common" gender="masculine" number="singular" state="construct">אָחִ֥י</m><m n="310010100022" morph="Sp2ms" lang="H" after=" " pos="suffix" type="pronominal" person="second" gender="masculine" number="singular">ךָ</m>
+          <m n="310010100031" lang="H" after=" " lemma="3290" morph="Np" id="31nRZ" pos="noun" type="proper">יַעֲקֹ֖ב</m>
+          <m n="310010100041" morph="Vpi3fs" lang="H" lemma="3680" pos="verb" stem="piel" type="yiqtol" person="third" gender="feminine" number="singular">תְּכַסְּ</m><m n="310010100042" morph="Sp2ms" lang="H" after=" " pos="suffix" type="pronominal" person="second" gender="masculine" number="singular">ךָ֣</m>
+          <m n="310010100051" lang="H" after=" " lemma="955" morph="Ncfsa" id="31zio" pos="noun" type="common" gender="feminine" number="singular" state="absolute">בוּשָׁ֑ה</m>
+          <m n="310010100061" morph="C" lang="H" lemma="c" pos="conjunction">וְ</m><m n="310010100062" morph="VNq2ms" lang="H" lemma="3772" after=" " pos="verb" stem="niphal" type="weqatal" person="second" gender="masculine" number="singular">נִכְרַ֖תָּ</m>
+          <m n="310010100071" morph="R" lang="H" lemma="l" pos="preposition">לְ</m><m n="310010100072" morph="Ncmsa" lang="H" lemma="5769" after="׃" pos="noun" type="common" gender="masculine" number="singular" state="absolute">עוֹלָֽם</m><seg type="x-sof-pasuq">׃</seg>
+        </verse>
+        <verse osisID="Obad.1.11">
+          <m n="310010110011" morph="R" lang="H" lemma="b" pos="preposition">בְּ</m><m n="310010110012" morph="Ncmsc" lang="H" lemma="3117" after=" " pos="noun" type="common" gender="masculine" number="singular" state="construct">יוֹם֙</m>
+          <m n="310010110021" morph="Vqc" lang="H" lemma="5975" pos="verb" stem="qal" type="infinitive construct">עֲמָֽדְ</m><m n="310010110022" morph="Sp2ms" lang="H" after=" " pos="suffix" type="pronominal" person="second" gender="masculine" number="singular">ךָ֣</m>
+          <m n="310010110031" morph="R" lang="H" lemma="m" pos="preposition">מִ</m><m n="310010110032" morph="R" lang="H" lemma="5048" after=" " pos="preposition">נֶּ֔גֶד</m>
+          <m n="310010110041" morph="R" lang="H" lemma="b" pos="preposition">בְּ</m><m n="310010110042" morph="Ncmsc" lang="H" lemma="3117" after=" " pos="noun" type="common" gender="masculine" number="singular" state="construct">י֛וֹם</m>
+          <m n="310010110051" lang="H" after=" " lemma="7617" morph="Vqc" id="31fV3" pos="verb" stem="qal" type="infinitive construct">שְׁב֥וֹת</m>
+          <m n="310010110061" lang="H" after=" " lemma="2114 a" morph="Aampa" id="31Sov" pos="adjective" type="adjective" gender="masculine" number="plural" state="absolute">זָרִ֖ים</m>
+          <m n="310010110071" morph="Ncmsc" lang="H" lemma="2428" pos="noun" type="common" gender="masculine" number="singular" state="construct">חֵיל֑</m><m n="310010110072" morph="Sp3ms" lang="H" after=" " pos="suffix" type="pronominal" person="third" gender="masculine" number="singular">וֹ</m>
+          <m n="310010110081" morph="C" lang="H" lemma="c" pos="conjunction">וְ</m><m n="310010110082" morph="Aampa" lang="H" lemma="5237" after=" " pos="adjective" type="adjective" gender="masculine" number="plural" state="absolute">נָכְרִ֞ים</m>
+          <m n="310010110091" lang="H" after=" " lemma="935" morph="Vqp3cp" id="317ZG" pos="verb" stem="qal" type="qatal" person="third" gender="common" number="plural">בָּ֣אוּ</m>
+          <m n="310010110111" morph="Ncmpc" lang="H" lemma="8179" pos="noun" type="common" gender="masculine" number="plural" state="construct">שְׁעָרָ֗י</m><m n="310010110112" morph="Sp3ms" lang="H" after=" " pos="suffix" type="pronominal" person="third" gender="masculine" number="singular">ו</m>
+          <m n="310010110121" morph="C" lang="H" lemma="c" pos="conjunction">וְ</m><m n="310010110122" morph="R" lang="H" lemma="5921 a" after="־" pos="preposition">עַל</m><seg type="x-maqqef">־</seg><m n="310010110131" lang="H" after=" " lemma="3389" morph="Np" id="31G83" pos="noun" type="proper">יְרוּשָׁלִַ֨ם֙</m>
+          <m n="310010110141" lang="H" after=" " lemma="3032" morph="Vqp3cp" id="31vzS" pos="verb" stem="qal" type="qatal" person="third" gender="common" number="plural">יַדּ֣וּ</m>
+          <m n="310010110151" lang="H" after=" " lemma="1486" morph="Ncmsa" id="31Gq9" pos="noun" type="common" gender="masculine" number="singular" state="absolute">גוֹרָ֔ל</m>
+          <m n="310010110161" lang="H" after="־" lemma="1571" morph="Ta" id="313y8" pos="particle" type="affirmation">גַּם</m><seg type="x-maqqef">־</seg><m n="310010110171" lang="H" after=" " lemma="859 a" morph="Pp2ms" id="31TXw" pos="pronoun" type="personal" person="second" gender="masculine" number="singular">אַתָּ֖ה</m>
+          <m n="310010110181" morph="R" lang="H" lemma="k" pos="preposition">כְּ</m><m n="310010110182" morph="Acmsc" lang="H" lemma="259" after=" " pos="adjective" type="cardinal number" gender="masculine" number="singular" state="construct">אַחַ֥ד</m>
+          <m n="310010110191" morph="R" lang="H" lemma="m" pos="preposition">מֵ</m><m n="310010110192" morph="Sp3mp" lang="H" after="׃" pos="suffix" type="pronominal" person="third" gender="masculine" number="plural">הֶֽם</m><seg type="x-sof-pasuq">׃</seg>
+        </verse>
+        <verse osisID="Obad.1.12">
+          <m n="310010120011" morph="C" lang="H" lemma="c" pos="conjunction">וְ</m><m n="310010120012" morph="Tn" lang="H" lemma="408" after="־" pos="particle" type="negative">אַל</m><seg type="x-maqqef">־</seg><m n="310010120021" lang="H" after=" " lemma="7200" morph="Vqj2ms" id="31Cof" pos="verb" stem="qal" type="jussive" person="second" gender="masculine" number="singular">תֵּ֤רֶא</m>
+          <m n="310010120031" morph="R" lang="H" lemma="b" pos="preposition">בְ</m><m n="310010120032" morph="Ncmsc" lang="H" lemma="3117" after="־" pos="noun" type="common" gender="masculine" number="singular" state="construct">יוֹם</m><seg type="x-maqqef">־</seg><m n="310010120041" morph="Ncmsc" lang="H" lemma="251" pos="noun" type="common" gender="masculine" number="singular" state="construct">אָחִ֨י</m><m n="310010120042" morph="Sp2ms" lang="H" after=" " pos="suffix" type="pronominal" person="second" gender="masculine" number="singular">ךָ֙</m>
+          <m n="310010120051" morph="R" lang="H" lemma="b" pos="preposition">בְּ</m><m n="310010120052" morph="Ncmsc" lang="H" lemma="3117" after=" " pos="noun" type="common" gender="masculine" number="singular" state="construct">י֣וֹם</m>
+          <m n="310010120061" morph="Ncmsc" lang="H" lemma="5235" pos="noun" type="common" gender="masculine" number="singular" state="construct">נָכְר֔</m><m n="310010120062" morph="Sp3ms" lang="H" after=" " pos="suffix" type="pronominal" person="third" gender="masculine" number="singular">וֹ</m>
+          <m n="310010120071" morph="C" lang="H" lemma="c" pos="conjunction">וְ</m><m n="310010120072" morph="Tn" lang="H" lemma="408" after="־" pos="particle" type="negative">אַל</m><seg type="x-maqqef">־</seg><m n="310010120081" lang="H" after=" " lemma="8055" morph="Vqj2ms" id="319Hv" pos="verb" stem="qal" type="jussive" person="second" gender="masculine" number="singular">תִּשְׂמַ֥ח</m>
+          <m n="310010120091" morph="R" lang="H" lemma="l" pos="preposition">לִ</m><m n="310010120092" morph="Ncmpc" lang="H" lemma="1121 a" after="־" pos="noun" type="common" gender="masculine" number="plural" state="construct">בְנֵֽי</m><seg type="x-maqqef">־</seg><m n="310010120101" lang="H" after=" " lemma="3063" morph="Np" id="31J9J" pos="noun" type="proper">יְהוּדָ֖ה</m>
+          <m n="310010120111" morph="R" lang="H" lemma="b" pos="preposition">בְּ</m><m n="310010120112" morph="Ncmsc" lang="H" lemma="3117" after=" " pos="noun" type="common" gender="masculine" number="singular" state="construct">י֣וֹם</m>
+          <m n="310010120121" morph="Vqc" lang="H" lemma="6" pos="verb" stem="qal" type="infinitive construct">אָבְדָ֑</m><m n="310010120122" morph="Sp3mp" lang="H" after=" " pos="suffix" type="pronominal" person="third" gender="masculine" number="plural">ם</m>
+          <m n="310010120131" morph="C" lang="H" lemma="c" pos="conjunction">וְ</m><m n="310010120132" morph="Tn" lang="H" lemma="408" after="־" pos="particle" type="negative">אַל</m><seg type="x-maqqef">־</seg><m n="310010120141" lang="H" after=" " lemma="1431" morph="Vhj2ms" id="31SWL" pos="verb" stem="hiphil" type="jussive" person="second" gender="masculine" number="singular">תַּגְדֵּ֥ל</m>
+          <m n="310010120151" morph="Ncmsc" lang="H" lemma="6310" pos="noun" type="common" gender="masculine" number="singular" state="construct">פִּ֖י</m><m n="310010120152" morph="Sp2ms" lang="H" after=" " pos="suffix" type="pronominal" person="second" gender="masculine" number="singular">ךָ</m>
+          <m n="310010120161" morph="R" lang="H" lemma="b" pos="preposition">בְּ</m><m n="310010120162" morph="Ncmsc" lang="H" lemma="3117" after=" " pos="noun" type="common" gender="masculine" number="singular" state="construct">י֥וֹם</m>
+          <m n="310010120171" lang="H" after="׃" lemma="6869 b" morph="Ncfsa" id="31Qa3" pos="noun" type="common" gender="feminine" number="singular" state="absolute">צָרָֽה</m><seg type="x-sof-pasuq">׃</seg>
+        </verse>
+        <verse osisID="Obad.1.13">
+          <m n="310010130011" lang="H" after="־" lemma="408" morph="Tn" id="31WTe" pos="particle" type="negative">אַל</m><seg type="x-maqqef">־</seg><m n="310010130021" lang="H" after=" " lemma="935" morph="Vqj2ms" id="316VM" pos="verb" stem="qal" type="jussive" person="second" gender="masculine" number="singular">תָּב֤וֹא</m>
+          <m n="310010130031" morph="R" lang="H" lemma="b" pos="preposition">בְ</m><m n="310010130032" morph="Ncmsc" lang="H" lemma="8179" after="־" pos="noun" type="common" gender="masculine" number="singular" state="construct">שַֽׁעַר</m><seg type="x-maqqef">־</seg><m n="310010130041" morph="Ncmsc" lang="H" lemma="5971 a" pos="noun" type="common" gender="masculine" number="singular" state="construct">עַמִּ</m><m n="310010130042" morph="Sp1cs" lang="H" after=" " pos="suffix" type="pronominal" person="first" gender="common" number="singular">י֙</m>
+          <m n="310010130051" morph="R" lang="H" lemma="b" pos="preposition">בְּ</m><m n="310010130052" morph="Ncmsc" lang="H" lemma="3117" after=" " pos="noun" type="common" gender="masculine" number="singular" state="construct">י֣וֹם</m>
+          <m n="310010130061" morph="Ncmsc" lang="H" lemma="343" pos="noun" type="common" gender="masculine" number="singular" state="construct">אֵידָ֔</m><m n="310010130062" morph="Sp3mp" lang="H" after=" " pos="suffix" type="pronominal" person="third" gender="masculine" number="plural">ם</m>
+          <m n="310010130071" lang="H" after="־" lemma="408" morph="Tn" id="31CEu" pos="particle" type="negative">אַל</m><seg type="x-maqqef">־</seg><m n="310010130081" lang="H" after=" " lemma="7200" morph="Vqj2ms" id="31zpy" pos="verb" stem="qal" type="jussive" person="second" gender="masculine" number="singular">תֵּ֧רֶא</m>
+          <m n="310010130091" lang="H" after="־" lemma="1571" morph="D" id="31FiN" pos="adverb">גַם</m><seg type="x-maqqef">־</seg><m n="310010130101" lang="H" after=" " lemma="859 a" morph="Pp2ms" id="31cLk" pos="pronoun" type="personal" person="second" gender="masculine" number="singular">אַתָּ֛ה</m>
+          <m n="310010130111" morph="R" lang="H" lemma="b" pos="preposition">בְּ</m><m n="310010130112" morph="Ncfsc" lang="H" lemma="7451 c" pos="noun" type="common" gender="feminine" number="singular" state="construct">רָעָת֖</m><m n="310010130113" morph="Sp3ms" lang="H" after=" " pos="suffix" type="pronominal" person="third" gender="masculine" number="singular">וֹ</m>
+          <m n="310010130121" morph="R" lang="H" lemma="b" pos="preposition">בְּ</m><m n="310010130122" morph="Ncmsc" lang="H" lemma="3117" after=" " pos="noun" type="common" gender="masculine" number="singular" state="construct">י֣וֹם</m>
+          <m n="310010130131" morph="Ncmsc" lang="H" lemma="343" pos="noun" type="common" gender="masculine" number="singular" state="construct">אֵיד֑</m><m n="310010130132" morph="Sp3ms" lang="H" after=" " pos="suffix" type="pronominal" person="third" gender="masculine" number="singular">וֹ</m>
+          <m n="310010130141" morph="C" lang="H" lemma="c" pos="conjunction">וְ</m><m n="310010130142" morph="Tn" lang="H" lemma="408" after="־" pos="particle" type="negative">אַל</m><seg type="x-maqqef">־</seg><m n="310010130151" lang="H" after=" " lemma="7971" morph="Vqj2fp" id="31Bx7" pos="verb" stem="qal" type="jussive" person="second" gender="feminine" number="plural">תִּשְׁלַ֥חְנָה</m>
+          <m n="310010130161" morph="R" lang="H" lemma="b" pos="preposition">בְ</m><m n="310010130162" morph="Ncmsc" lang="H" lemma="2428" pos="noun" type="common" gender="masculine" number="singular" state="construct">חֵיל֖</m><m n="310010130163" morph="Sp3ms" lang="H" after=" " pos="suffix" type="pronominal" person="third" gender="masculine" number="singular">וֹ</m>
+          <m n="310010130171" morph="R" lang="H" lemma="b" pos="preposition">בְּ</m><m n="310010130172" morph="Ncmsc" lang="H" lemma="3117" after=" " pos="noun" type="common" gender="masculine" number="singular" state="construct">י֥וֹם</m>
+          <m n="310010130181" morph="Ncmsc" lang="H" lemma="343" pos="noun" type="common" gender="masculine" number="singular" state="construct">אֵידֽ</m><m n="310010130182" morph="Sp3ms" lang="H" after="׃" pos="suffix" type="pronominal" person="third" gender="masculine" number="singular">וֹ</m><seg type="x-sof-pasuq">׃</seg>
+        </verse>
+        <verse osisID="Obad.1.14">
+          <m n="310010140011" morph="C" lang="H" lemma="c" pos="conjunction">וְ</m><m n="310010140012" morph="Tn" lang="H" lemma="408" after="־" pos="particle" type="negative">אַֽל</m><seg type="x-maqqef">־</seg><m n="310010140021" lang="H" after=" " lemma="5975" morph="Vqj2ms" id="31Axb" pos="verb" stem="qal" type="jussive" person="second" gender="masculine" number="singular">תַּעֲמֹד֙</m>
+          <m n="310010140031" lang="H" after="־" lemma="5921 a" morph="R" id="31xva" pos="preposition">עַל</m><seg type="x-maqqef">־</seg><m n="310010140041" morph="Td" lang="H" lemma="d" pos="particle" type="definite article">הַ</m><m n="310010140042" morph="Ncmsa" lang="H" lemma="6563" after=" " pos="noun" type="common" gender="masculine" number="singular" state="absolute">פֶּ֔רֶק</m>
+          <m n="310010140051" morph="R" lang="H" lemma="l" pos="preposition">לְ</m><m n="310010140052" morph="Vhc" lang="H" lemma="3772" after=" " pos="verb" stem="hiphil" type="infinitive construct">הַכְרִ֖ית</m>
+          <m n="310010140061" lang="H" after="־" lemma="853" morph="To" id="31372" pos="particle" type="direct object marker">אֶת</m><seg type="x-maqqef">־</seg><m n="310010140071" morph="Ncmpc" lang="H" lemma="6412 a" pos="noun" type="common" gender="masculine" number="plural" state="construct">פְּלִיטָ֑י</m><m n="310010140072" morph="Sp3ms" lang="H" after=" " pos="suffix" type="pronominal" person="third" gender="masculine" number="singular">ו</m>
+          <m n="310010140081" morph="C" lang="H" lemma="c" pos="conjunction">וְ</m><m n="310010140082" morph="Tn" lang="H" lemma="408" after="־" pos="particle" type="negative">אַל</m><seg type="x-maqqef">־</seg><m n="310010140091" lang="H" after=" " lemma="5462" morph="Vhj2ms" id="314W9" pos="verb" stem="hiphil" type="jussive" person="second" gender="masculine" number="singular">תַּסְגֵּ֥ר</m>
+          <m n="310010140101" morph="Ncmpc" lang="H" lemma="8300" pos="noun" type="common" gender="masculine" number="plural" state="construct">שְׂרִידָ֖י</m><m n="310010140102" morph="Sp3ms" lang="H" after=" " pos="suffix" type="pronominal" person="third" gender="masculine" number="singular">ו</m>
+          <m n="310010140111" morph="R" lang="H" lemma="b" pos="preposition">בְּ</m><m n="310010140112" morph="Ncmsc" lang="H" lemma="3117" after=" " pos="noun" type="common" gender="masculine" number="singular" state="construct">י֥וֹם</m>
+          <m n="310010140121" lang="H" after="׃" lemma="6869 b" morph="Ncfsa" id="31CQo" pos="noun" type="common" gender="feminine" number="singular" state="absolute">צָרָֽה</m><seg type="x-sof-pasuq">׃</seg>
+        </verse>
+        <verse osisID="Obad.1.15">
+          <m n="310010150011" lang="H" after="־" lemma="3588 a" morph="C" id="31XyU" pos="conjunction">כִּֽי</m><seg type="x-maqqef">־</seg><m n="310010150021" lang="H" after=" " lemma="7138" morph="Aamsa" id="31BG4" pos="adjective" type="adjective" gender="masculine" number="singular" state="absolute">קָר֥וֹב</m>
+          <m n="310010150031" lang="H" after="־" lemma="3117" morph="Ncmsc" id="31YHH" pos="noun" type="common" gender="masculine" number="singular" state="construct">יוֹם</m><seg type="x-maqqef">־</seg><m n="310010150041" lang="H" after=" " lemma="3068" morph="Np" id="31sHf" pos="noun" type="proper">יְהוָ֖ה</m>
+          <m n="310010150051" lang="H" after="־" lemma="5921 a" morph="R" id="31iee" pos="preposition">עַל</m><seg type="x-maqqef">־</seg><m n="310010150061" lang="H" after="־" lemma="3605" morph="Ncmsc" id="313eS" pos="noun" type="common" gender="masculine" number="singular" state="construct">כָּל</m><seg type="x-maqqef">־</seg><m n="310010150071" morph="Td" lang="H" lemma="d" pos="particle" type="definite article">הַ</m><m n="310010150072" morph="Ncmpa" lang="H" lemma="1471 a" after=" " pos="noun" type="common" gender="masculine" number="plural" state="absolute">גּוֹיִ֑ם</m>
+          <m n="310010150081" morph="R" lang="H" lemma="k" pos="preposition">כַּ</m><m n="310010150082" morph="Tr" lang="H" lemma="834 d" after=" " pos="particle" type="relative">אֲשֶׁ֤ר</m>
+          <m n="310010150091" lang="H" after=" " lemma="6213 a" morph="Vqp2ms" id="31TW6" pos="verb" stem="qal" type="qatal" person="second" gender="masculine" number="singular">עָשִׂ֨יתָ֙</m>
+          <m n="310010150101" lang="H" after=" " lemma="6213 a" morph="VNi3ms" id="31PVx" pos="verb" stem="niphal" type="yiqtol" person="third" gender="masculine" number="singular">יֵעָ֣שֶׂה</m>
+          <m n="310010150111" morph="R" lang="H" lemma="l" pos="preposition">לָּ֔</m><m n="310010150112" morph="Sp2fs" lang="H" after=" " pos="suffix" type="pronominal" person="second" gender="feminine" number="singular">ךְ</m>
+          <m n="310010150121" morph="Ncmsc" lang="H" lemma="1576" pos="noun" type="common" gender="masculine" number="singular" state="construct">גְּמֻלְ</m><m n="310010150122" morph="Sp2ms" lang="H" after=" " pos="suffix" type="pronominal" person="second" gender="masculine" number="singular">ךָ֖</m>
+          <m n="310010150131" lang="H" after=" " lemma="7725" morph="Vqi3ms" id="31dSQ" pos="verb" stem="qal" type="yiqtol" person="third" gender="masculine" number="singular">יָשׁ֥וּב</m>
+          <m n="310010150141" morph="R" lang="H" lemma="b" pos="preposition">בְּ</m><m n="310010150142" morph="Ncmsc" lang="H" lemma="7218 a" pos="noun" type="common" gender="masculine" number="singular" state="construct">רֹאשֶֽׁ</m><m n="310010150143" morph="Sp2ms" lang="H" after="׃" pos="suffix" type="pronominal" person="second" gender="masculine" number="singular">ךָ</m><seg type="x-sof-pasuq">׃</seg>
+        </verse>
+        <verse osisID="Obad.1.16">
+          <m n="310010160011" lang="H" after=" " lemma="3588 a" morph="C" id="31ndZ" pos="conjunction">כִּ֗י</m>
+          <m n="310010160021" morph="R" lang="H" lemma="k" pos="preposition">כַּֽ</m><m n="310010160022" morph="Tr" lang="H" lemma="834 d" after=" " pos="particle" type="relative">אֲשֶׁ֤ר</m>
+          <m n="310010160031" lang="H" after=" " lemma="8354" morph="Vqp2mp" id="313yJ" pos="verb" stem="qal" type="qatal" person="second" gender="masculine" number="plural">שְׁתִיתֶם֙</m>
+          <m n="310010160041" lang="H" after="־" lemma="5921 a" morph="R" id="31B6c" pos="preposition">עַל</m><seg type="x-maqqef">־</seg><m n="310010160051" lang="H" after=" " lemma="2022" morph="Ncmsc" id="31bju" pos="noun" type="common" gender="masculine" number="singular" state="construct">הַ֣ר</m>
+          <m n="310010160061" morph="Ncmsc" lang="H" lemma="6944" pos="noun" type="common" gender="masculine" number="singular" state="construct">קָדְשִׁ֔</m><m n="310010160062" morph="Sp1cs" lang="H" after=" " pos="suffix" type="pronominal" person="first" gender="common" number="singular">י</m>
+          <m n="310010160071" lang="H" after=" " lemma="8354" morph="Vqi3mp" id="317mS" pos="verb" stem="qal" type="yiqtol" person="third" gender="masculine" number="plural">יִשְׁתּ֥וּ</m>
+          <m n="310010160081" lang="H" after="־" lemma="3605" morph="Ncmsc" id="31dJe" pos="noun" type="common" gender="masculine" number="singular" state="construct">כָֽל</m><seg type="x-maqqef">־</seg><m n="310010160091" morph="Td" lang="H" lemma="d" pos="particle" type="definite article">הַ</m><m n="310010160092" morph="Ncmpa" lang="H" lemma="1471 a" after=" " pos="noun" type="common" gender="masculine" number="plural" state="absolute">גּוֹיִ֖ם</m>
+          <m n="310010160101" lang="H" after=" " lemma="8548" morph="Ncmsa" id="31RXg" pos="noun" type="common" gender="masculine" number="singular" state="absolute">תָּמִ֑יד</m>
+          <m n="310010160111" morph="C" lang="H" lemma="c" pos="conjunction">וְ</m><m n="310010160112" morph="Vqq3cp" lang="H" lemma="8354" after=" " pos="verb" stem="qal" type="weqatal" person="third" gender="common" number="plural">שָׁת֣וּ</m>
+          <m n="310010160121" morph="C" lang="H" lemma="c" pos="conjunction">וְ</m><m n="310010160122" morph="Vqq3cp" lang="H" lemma="3886 a" after=" " pos="verb" stem="qal" type="weqatal" person="third" gender="common" number="plural">לָע֔וּ</m>
+          <m n="310010160131" morph="C" lang="H" lemma="c" pos="conjunction">וְ</m><m n="310010160132" morph="Vqq3cp" lang="H" lemma="1961" after=" " pos="verb" stem="qal" type="weqatal" person="third" gender="common" number="plural">הָי֖וּ</m>
+          <m n="310010160141" morph="R" lang="H" lemma="k" pos="preposition">כְּ</m><m n="310010160142" morph="Tn" lang="H" lemma="3808" after=" " pos="particle" type="negative">ל֥וֹא</m>
+          <m n="310010160151" lang="H" after="׃" lemma="1961" morph="Vqp3cp" id="318ro" pos="verb" stem="qal" type="qatal" person="third" gender="common" number="plural">הָיֽוּ</m><seg type="x-sof-pasuq">׃</seg>
+        </verse>
+        <verse osisID="Obad.1.17">
+          <m n="310010170011" morph="C" lang="H" lemma="c" pos="conjunction">וּ</m><m n="310010170012" morph="R" lang="H" lemma="b" pos="preposition">בְ</m><m n="310010170013" morph="Ncmsc" lang="H" lemma="2022" after=" " pos="noun" type="common" gender="masculine" number="singular" state="construct">הַ֥ר</m>
+          <m n="310010170021" lang="H" after=" " lemma="6726" morph="Np" id="31bCC" pos="noun" type="proper">צִיּ֛וֹן</m>
+          <m n="310010170031" lang="H" after=" " lemma="1961" morph="Vqi3fs" id="316By" pos="verb" stem="qal" type="yiqtol" person="third" gender="feminine" number="singular">תִּהְיֶ֥ה</m>
+          <m n="310010170041" lang="H" after=" " lemma="6413" morph="Ncfsa" id="31CZB" pos="noun" type="common" gender="feminine" number="singular" state="absolute">פְלֵיטָ֖ה</m>
+          <m n="310010170051" morph="C" lang="H" lemma="c" pos="conjunction">וְ</m><m n="310010170052" morph="Vqq3ms" lang="H" lemma="1961" after=" " pos="verb" stem="qal" type="weqatal" person="third" gender="masculine" number="singular">הָ֣יָה</m>
+          <m n="310010170061" lang="H" after=" " lemma="6944" morph="Ncmsa" id="316qf" pos="noun" type="common" gender="masculine" number="singular" state="absolute">קֹ֑דֶשׁ</m>
+          <m n="310010170071" morph="C" lang="H" lemma="c" pos="conjunction">וְ</m><m n="310010170072" morph="Vqq3cp" lang="H" lemma="3423" after=" " pos="verb" stem="qal" type="weqatal" person="third" gender="common" number="plural">יָֽרְשׁוּ֙</m>
+          <m n="310010170081" lang="H" after=" " lemma="1004 b" morph="Ncmsc" id="31QG5" pos="noun" type="common" gender="masculine" number="singular" state="construct">בֵּ֣ית</m>
+          <m n="310010170091" lang="H" after=" " lemma="3290" morph="Np" id="313k3" pos="noun" type="proper">יַֽעֲקֹ֔ב</m>
+          <m n="310010170101" lang="H" after=" " lemma="853" morph="To" id="311rL" pos="particle" type="direct object marker">אֵ֖ת</m>
+          <m n="310010170111" morph="Ncmpc" lang="H" lemma="4180" pos="noun" type="common" gender="masculine" number="plural" state="construct">מוֹרָֽשֵׁי</m><m n="310010170112" morph="Sp3mp" lang="H" after="׃" pos="suffix" type="pronominal" person="third" gender="masculine" number="plural">הֶם</m><seg type="x-sof-pasuq">׃</seg>
+          <note n="U">We agree with both BHS 1997 and BHQ on an unexpected reading. </note>
+        </verse>
+        <verse osisID="Obad.1.18">
+          <m n="310010180011" morph="C" lang="H" lemma="c" pos="conjunction">וְ</m><m n="310010180012" morph="Vqq3ms" lang="H" lemma="1961" after=" " pos="verb" stem="qal" type="weqatal" person="third" gender="masculine" number="singular">הָיָה֩</m>
+          <m n="310010180021" lang="H" after="־" lemma="1004 b" morph="Ncmsc" id="31zfc" pos="noun" type="common" gender="masculine" number="singular" state="construct">בֵית</m><seg type="x-maqqef">־</seg><m n="310010180031" lang="H" after=" " lemma="3290" morph="Np" id="31sYp" pos="noun" type="proper">יַעֲקֹ֨ב</m>
+          <m n="310010180041" lang="H" after=" " lemma="784" morph="Ncbsa" id="31GvF" pos="noun" type="common" gender="both" number="singular" state="absolute">אֵ֜שׁ</m>
+          <m n="310010180051" morph="C" lang="H" lemma="c" pos="conjunction">וּ</m><m n="310010180052" morph="Ncmsc" lang="H" lemma="1004 b" after=" " pos="noun" type="common" gender="masculine" number="singular" state="construct">בֵ֧ית</m>
+          <m n="310010180061" lang="H" after=" " lemma="3130" morph="Np" id="31i4W" pos="noun" type="proper">יוֹסֵ֣ף</m>
+          <m n="310010180071" lang="H" after=" " lemma="3852" morph="Ncfsa" id="31chR" pos="noun" type="common" gender="feminine" number="singular" state="absolute">לֶהָבָ֗ה</m>
+          <m n="310010180081" morph="C" lang="H" lemma="c" pos="conjunction">וּ</m><m n="310010180082" morph="Ncmsc" lang="H" lemma="1004 b" after=" " pos="noun" type="common" gender="masculine" number="singular" state="construct">בֵ֤ית</m>
+          <m n="310010180091" lang="H" after=" " lemma="6215" morph="Np" id="31dSp" pos="noun" type="proper">עֵשָׂו֙</m>
+          <m n="310010180101" morph="R" lang="H" lemma="l" pos="preposition">לְ</m><m n="310010180102" morph="Ncmsa" lang="H" lemma="7179" after=" " pos="noun" type="common" gender="masculine" number="singular" state="absolute">קַ֔שׁ</m>
+          <m n="310010180111" morph="C" lang="H" lemma="c" pos="conjunction">וְ</m><m n="310010180112" morph="Vqq3cp" lang="H" lemma="1814" after=" " pos="verb" stem="qal" type="weqatal" person="third" gender="common" number="plural">דָלְק֥וּ</m>
+          <m n="310010180121" morph="R" lang="H" lemma="b" pos="preposition">בָ</m><m n="310010180122" morph="Sp3mp" lang="H" after=" " pos="suffix" type="pronominal" person="third" gender="masculine" number="plural">הֶ֖ם</m>
+          <m n="310010180131" morph="C" lang="H" lemma="c" pos="conjunction">וַ</m><m n="310010180132" morph="Vqq3cp" lang="H" lemma="398" pos="verb" stem="qal" type="weqatal" person="third" gender="common" number="plural">אֲכָל֑וּ</m><m n="310010180133" morph="Sp3mp" lang="H" after=" " pos="suffix" type="pronominal" person="third" gender="masculine" number="plural">ם</m>
+          <m n="310010180141" morph="C" lang="H" lemma="c" pos="conjunction">וְ</m><m n="310010180142" morph="Tn" lang="H" lemma="3808" after="־" pos="particle" type="negative">לֹֽא</m><seg type="x-maqqef">־</seg><m n="310010180151" lang="H" after="" lemma="1961" morph="Vqi3ms" id="31Czz" pos="verb" stem="qal" type="yiqtol" person="third" gender="masculine" number="singular">יִֽהְיֶ֤ה</m>
+          <note n="C">We read one or more accents in L differently from BHQ. </note>
+          <note n="c">We read one or more accents in L differently than BHS. Often this notation indicates a typographical error in BHS. </note>
+          <m n="310010180161" lang="H" after=" " lemma="8300" morph="Ncmsa" id="31uXX" pos="noun" type="common" gender="masculine" number="singular" state="absolute">שָׂרִיד֙</m>
+          <m n="310010180171" morph="R" lang="H" lemma="l" pos="preposition">לְ</m><m n="310010180172" morph="Ncmsc" lang="H" lemma="1004 b" after=" " pos="noun" type="common" gender="masculine" number="singular" state="construct">בֵ֣ית</m>
+          <m n="310010180181" lang="H" after=" " lemma="6215" morph="Np" id="31Qnr" pos="noun" type="proper">עֵשָׂ֔ו</m>
+          <m n="310010180191" lang="H" after=" " lemma="3588 a" morph="C" id="316kU" pos="conjunction">כִּ֥י</m>
+          <m n="310010180201" lang="H" after=" " lemma="3068" morph="Np" id="31qry" pos="noun" type="proper">יְהוָ֖ה</m>
+          <m n="310010180211" lang="H" after="׃" lemma="1696" morph="Vpp3ms" id="31bvP" pos="verb" stem="piel" type="qatal" person="third" gender="masculine" number="singular">דִּבֵּֽר</m><seg type="x-sof-pasuq">׃</seg>
+        </verse>
+        <verse osisID="Obad.1.19">
+          <m n="310010190011" morph="C" lang="H" lemma="c" pos="conjunction">וְ</m><m n="310010190012" morph="Vqq3cp" lang="H" lemma="3423" after=" " pos="verb" stem="qal" type="weqatal" person="third" gender="common" number="plural">יָרְשׁ֨וּ</m>
+          <m n="310010190021" morph="Td" lang="H" lemma="d" pos="particle" type="definite article">הַ</m><m n="310010190022" morph="Ncmsa" lang="H" lemma="5045" after=" " pos="noun" type="common" gender="masculine" number="singular" state="absolute">נֶּ֜גֶב</m>
+          <m n="310010190031" lang="H" after="־" lemma="853" morph="To" id="31hEs" pos="particle" type="direct object marker">אֶת</m><seg type="x-maqqef">־</seg><m n="310010190041" lang="H" after=" " lemma="2022" morph="Ncmsc" id="31xAF" pos="noun" type="common" gender="masculine" number="singular" state="construct">הַ֣ר</m>
+          <m n="310010190051" lang="H" after=" " lemma="6215" morph="Np" id="31qg1" pos="noun" type="proper">עֵשָׂ֗ו</m>
+          <m n="310010190061" morph="C" lang="H" lemma="c" pos="conjunction">וְ</m><m n="310010190062" morph="Td" lang="H" lemma="d" pos="particle" type="definite article">הַ</m><m n="310010190063" morph="Ncfsa" lang="H" lemma="8219" after=" " pos="noun" type="common" gender="feminine" number="singular" state="absolute">שְּׁפֵלָה֙</m>
+          <m n="310010190071" lang="H" after="־" lemma="853" morph="To" id="31wA4" pos="particle" type="direct object marker">אֶת</m><seg type="x-maqqef">־</seg><m n="310010190081" lang="H" after=" " lemma="6430" morph="Ngmpa" id="31ibe" pos="noun" type="gentilic" gender="masculine" number="plural" state="absolute">פְּלִשְׁתִּ֔ים</m>
+          <m n="310010190091" morph="C" lang="H" lemma="c" pos="conjunction">וְ</m><m n="310010190092" morph="Vqq3cp" lang="H" lemma="3423" after=" " pos="verb" stem="qal" type="weqatal" person="third" gender="common" number="plural">יָרְשׁוּ֙</m>
+          <m n="310010190101" lang="H" after="־" lemma="853" morph="To" id="31T2S" pos="particle" type="direct object marker">אֶת</m><seg type="x-maqqef">־</seg><m n="310010190111" lang="H" after=" " lemma="7704 b" morph="Ncmsc" id="31tkJ" pos="noun" type="common" gender="masculine" number="singular" state="construct">שְׂדֵ֣ה</m>
+          <m n="310010190121" lang="H" after=" " lemma="669" morph="Np" id="31EXL" pos="noun" type="proper">אֶפְרַ֔יִם</m>
+          <m n="310010190131" morph="C" lang="H" lemma="c" pos="conjunction">וְ</m><m n="310010190132" morph="To" lang="H" lemma="853" after=" " pos="particle" type="direct object marker">אֵ֖ת</m>
+          <m n="310010190141" lang="H" after=" " lemma="7704 b" morph="Ncmsc" id="31q1G" pos="noun" type="common" gender="masculine" number="singular" state="construct">שְׂדֵ֣ה</m>
+          <m n="310010190151" lang="H" after=" " lemma="8111" morph="Np" id="31bYD" pos="noun" type="proper">שֹׁמְר֑וֹן</m>
+          <m n="310010190161" morph="C" lang="H" lemma="c" pos="conjunction">וּ</m><m n="310010190162" morph="Np" lang="H" lemma="1144" after=" " pos="noun" type="proper">בִנְיָמִ֖ן</m>
+          <m n="310010190171" lang="H" after="־" lemma="853" morph="To" id="317vt" pos="particle" type="direct object marker">אֶת</m><seg type="x-maqqef">־</seg><m n="310010190181" morph="Td" lang="H" lemma="d" pos="particle" type="definite article">הַ</m><m n="310010190182" morph="Np" lang="H" lemma="1568" after="׃" pos="noun" type="proper">גִּלְעָֽד</m><seg type="x-sof-pasuq">׃</seg>
+        </verse>
+        <verse osisID="Obad.1.20">
+          <m n="310010200011" morph="C" lang="H" lemma="c" pos="conjunction">וְ</m><m n="310010200012" morph="Ncfsc" lang="H" lemma="1546" after=" " pos="noun" type="common" gender="feminine" number="singular" state="construct">גָלֻ֣ת</m>
+          <m n="310010200021" morph="Td" lang="H" lemma="d" pos="particle" type="definite article">הַֽ</m><m n="310010200022" morph="Ncmsa" lang="H" lemma="2426" after="־" pos="noun" type="common" gender="masculine" number="singular" state="absolute">חֵל</m><seg type="x-maqqef">־</seg><m n="310010200031" morph="Td" lang="H" lemma="d" pos="particle" type="definite article">הַ֠</m><m n="310010200032" morph="Pdxms" lang="H" lemma="2088" after=" " pos="pronoun" type="demonstrative" person="unknown: x" gender="masculine" number="singular">זֶּה</m>
+          <m n="310010200041" morph="R" lang="H" lemma="l" pos="preposition">לִ</m><m n="310010200042" morph="Ncmpc" lang="H" lemma="1121 a" after=" " pos="noun" type="common" gender="masculine" number="plural" state="construct">בְנֵ֨י</m>
+          <m n="310010200051" lang="H" after=" " lemma="3478" morph="Np" id="31WPn" pos="noun" type="proper">יִשְׂרָאֵ֤ל</m>
+          <m n="310010200061" lang="H" after="־" lemma="834 a" morph="Tr" id="311jv" pos="particle" type="relative">אֲשֶֽׁר</m><seg type="x-maqqef">־</seg><m n="310010200071" lang="H" after=" " lemma="3669 a" morph="Ngmpa" id="31cK8" pos="noun" type="gentilic" gender="masculine" number="plural" state="absolute">כְּנַעֲנִים֙</m>
+          <m n="310010200081" lang="H" after="־" lemma="5704" morph="R" id="31DDb" pos="preposition">עַד</m><seg type="x-maqqef">־</seg><m n="310010200091" lang="H" after=" " lemma="6886" morph="Np" id="31RCg" pos="noun" type="proper">צָ֣רְפַ֔ת</m>
+          <m n="310010200101" morph="C" lang="H" lemma="c" pos="conjunction">וְ</m><m n="310010200102" morph="Ncfsc" lang="H" lemma="1546" after=" " pos="noun" type="common" gender="feminine" number="singular" state="construct">גָלֻ֥ת</m>
+          <m n="310010200111" lang="H" after=" " lemma="3389" morph="Np" id="31qVd" pos="noun" type="proper">יְרוּשָׁלִַ֖ם</m>
+          <m n="310010200121" lang="H" after=" " lemma="834 a" morph="Tr" id="31koG" pos="particle" type="relative">אֲשֶׁ֣ר</m>
+          <m n="310010200131" morph="R" lang="H" lemma="b" pos="preposition">בִּ</m><m n="310010200132" morph="Np" lang="H" lemma="5614" after=" " pos="noun" type="proper">סְפָרַ֑ד</m>
+          <m n="310010200141" lang="H" after=" " lemma="3423" morph="Vqi3mp" id="318GY" pos="verb" stem="qal" type="yiqtol" person="third" gender="masculine" number="plural">יִֽרְשׁ֕וּ</m>
+          <m n="310010200151" lang="H" after=" " lemma="853" morph="To" id="31GpK" pos="particle" type="direct object marker">אֵ֖ת</m>
+          <m n="310010200161" lang="H" after=" " lemma="5892 b" morph="Ncfpc" id="3168C" pos="noun" type="common" gender="feminine" number="plural" state="construct">עָרֵ֥י</m>
+          <m n="310010200171" morph="Td" lang="H" lemma="d" pos="particle" type="definite article">הַ</m><m n="310010200172" morph="Ncmsa" lang="H" lemma="5045" after="׃" pos="noun" type="common" gender="masculine" number="singular" state="absolute">נֶּֽגֶב</m><seg type="x-sof-pasuq">׃</seg>
+        </verse>
+        <verse osisID="Obad.1.21">
+          <m n="310010210011" morph="C" lang="H" lemma="c" pos="conjunction">וְ</m><m n="310010210012" morph="Vqq3cp" lang="H" lemma="5927" after=" " pos="verb" stem="qal" type="weqatal" person="third" gender="common" number="plural">עָל֤וּ</m>
+          <m n="310010210021" lang="H" after=" " lemma="3467" morph="Vhrmpa" id="31ta1" pos="verb" stem="hiphil" type="participle active" gender="masculine" number="plural" state="absolute">מֽוֹשִׁעִים֙</m>
+          <m n="310010210031" morph="R" lang="H" lemma="b" pos="preposition">בְּ</m><m n="310010210032" morph="Ncmsc" lang="H" lemma="2022" after=" " pos="noun" type="common" gender="masculine" number="singular" state="construct">הַ֣ר</m>
+          <m n="310010210041" lang="H" after=" " lemma="6726" morph="Np" id="31jfz" pos="noun" type="proper">צִיּ֔וֹן</m>
+          <m n="310010210051" morph="R" lang="H" lemma="l" pos="preposition">לִ</m><m n="310010210052" morph="Vqc" lang="H" lemma="8199" after=" " pos="verb" stem="qal" type="infinitive construct">שְׁפֹּ֖ט</m>
+          <m n="310010210061" lang="H" after="־" lemma="853" morph="To" id="314fv" pos="particle" type="direct object marker">אֶת</m><seg type="x-maqqef">־</seg><m n="310010210071" lang="H" after=" " lemma="2022" morph="Ncmsc" id="31yDv" pos="noun" type="common" gender="masculine" number="singular" state="construct">הַ֣ר</m>
+          <m n="310010210081" lang="H" after=" " lemma="6215" morph="Np" id="31jyT" pos="noun" type="proper">עֵשָׂ֑ו</m>
+          <m n="310010210091" morph="C" lang="H" lemma="c" pos="conjunction">וְ</m><m n="310010210092" morph="Vqq3fs" lang="H" lemma="1961" after=" " pos="verb" stem="qal" type="weqatal" person="third" gender="feminine" number="singular">הָיְתָ֥ה</m>
+          <m n="310010210101" morph="R" lang="H" lemma="l" pos="preposition">לַֽ</m><m n="310010210102" morph="Np" lang="H" lemma="3068" after=" " pos="noun" type="proper">יהוָ֖ה</m>
+          <m n="310010210111" morph="Td" lang="H" lemma="d" pos="particle" type="definite article">הַ</m><m n="310010210112" morph="Ncfsa" lang="H" lemma="4410" after="׃" pos="noun" type="common" gender="feminine" number="singular" state="absolute">מְּלוּכָֽה</m><seg type="x-sof-pasuq">׃</seg>
+        </verse>
+      </chapter>
+    </div>
+  </osisText>
+</osis>
