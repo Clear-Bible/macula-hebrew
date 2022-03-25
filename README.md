@@ -12,7 +12,7 @@ During 2022, we intend to add further datasets, which are under development:
 
 5. Synonyms: Which Hebrew words are related in meaning?
 6. Semantic roles: Who does what to whom? (Agent, Verb, Patient …)
-7. Pronominal referents: Who is “he,” “she,” or “it” in this sentence?
+7. Participant referents: Who is “he,” “she,” or “it” in this sentence?
 8. Semantic similarity: Which phrases and clauses have are semantically similar to texts found elsewhere?
 
 This data has been combined into a single set of trees.  There are two variants of the these trees, found in the following directories:
