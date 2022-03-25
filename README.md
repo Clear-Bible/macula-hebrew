@@ -1,7 +1,7 @@
 # macula-hebrew
 ## Syntax trees, morphology, and linguistic annotations for the Hebrew Bible
 
-This repository contains the MACULA datasets for Hebrew, including data from:
+This repository contains the MACULA linguistic datasets for Hebrew, including data from:
 
 1. The text of the Westminster Leningrad Codex, released into the public domain by the [Groves Center](http://www.grovescenter.org/), and available at [tanach.us](tanach.us).
 2. Morphology from the [Open Scriptures Hebrew Bible](https://hb.openscriptures.org), available on [Github](https://github.com/openscriptures/morphhb/).
