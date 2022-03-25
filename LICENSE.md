@@ -1,0 +1,1 @@
+[MACULA Hebrew Linguistic Datasets](http://github.com/Clear-Bible/macula-hebrew/) © 2022 by [Clear Bible, Inc](http://www.clear.bible) is licensed under [CC BY 4.0 ](http://creativecommons.org/licenses/by/4.0/).
