@@ -166,7 +166,7 @@
                     </Node>
                   </Node>
                   <Node Cat="np" Rule="N2NP" Head="0" nodeId="100240010530051">
-                    <Node n="100240010161" Cat="noun" morphId="100240010161" Unicode="׃יְהוּדָֽה" nodeId="100240010530050">
+                    <Node n="100240010161" Cat="noun" morphId="100240010161" Unicode="יְהוּדָֽה" nodeId="100240010530050">
                       <m n="100240010161" lang="H" after="׃" lemma="3063" morph="Np" id="10YHJ" pos="noun" type="proper">יְהוּדָֽה</m>
                     </Node>
                   </Node>
@@ -336,8 +336,8 @@
                     <Node Cat="np" Rule="N2NP" Head="0" nodeId="100240020510061">
                       <Node Cat="noun" morphId="100240020161" Unicode="בְּאֵ֣ר שֶׁ֔בַע" nodeId="100240020510060">
                         <c>
-                          <m n="100240020161" Unicode="בְּאֵ֣ר"/>
-                          <m n="100240020171" Unicode="שֶׁ֔בַע"/>
+                          <m n="100240020161" lang="H" after=" " lemma="884+" morph="Np" id="10fq2" pos="noun" type="proper">בְּאֵ֣ר</m>
+                          <m n="100240020171" lang="H" after=" " lemma="884" morph="Acfsa" id="10d4b" pos="adjective" type="cardinal number" gender="feminine" number="singular" state="absolute">שֶׁ֔בַע</m>
                         </c>
                       </Node>
                     </Node>
@@ -409,7 +409,7 @@
                         <m n="100240020241" morph="Td" lang="H" lemma="d" pos="particle" type="definite article">הָ</m>
                       </Node>
                       <Node Cat="np" Rule="N2NP" Head="0" nodeId="100240020800021">
-                        <Node n="100240020242" Cat="noun" morphId="100240020232" Unicode="׃עָֽם" nodeId="100240020800020">
+                        <Node n="100240020242" Cat="noun" morphId="100240020232" Unicode="עָֽם" nodeId="100240020800020">
                           <m n="100240020242" morph="Ncmsa" lang="H" lemma="5971 a" after="׃ס" pos="noun" type="common" gender="masculine" number="singular" state="absolute">עָֽם</m>
                         </Node>
                       </Node>
@@ -691,7 +691,7 @@
                           <m n="100240030231" morph="Td" lang="H" lemma="d" pos="particle" type="definite article">הַ</m>
                         </Node>
                         <Node Cat="adjp" Rule="Adj2Adjp" Head="0" nodeId="100240030870021">
-                          <Node n="100240030232" Cat="adj" morphId="100240030232" Unicode="׃זֶּֽה" nodeId="100240030870020">
+                          <Node n="100240030232" Cat="adj" morphId="100240030232" Unicode="זֶּֽה" nodeId="100240030870020">
                             <m n="100240030232" morph="Pdxms" lang="H" lemma="2088" after="׃" pos="pronoun" type="demonstrative" person="unknown: x" gender="masculine" number="singular">זֶּֽה</m>
                           </Node>
                         </Node>
@@ -899,7 +899,7 @@
                           </Node>
                         </Node>
                         <Node Cat="np" Rule="N2NP" Head="0" nodeId="100240040640051">
-                          <Node n="100240040191" Cat="noun" morphId="100240040191" Unicode="׃יִשְׂרָאֵֽל" nodeId="100240040640050">
+                          <Node n="100240040191" Cat="noun" morphId="100240040191" Unicode="יִשְׂרָאֵֽל" nodeId="100240040640050">
                             <m n="100240040191" lang="H" after="׃" lemma="3478" morph="Np" id="10mhn" pos="noun" type="proper">יִשְׂרָאֵֽל</m>
                           </Node>
                         </Node>
@@ -1050,7 +1050,7 @@
                                 </Node>
                               </Node>
                               <Node Cat="np" Rule="N2NP" Head="0" nodeId="100240050500041">
-                                <Node n="100240050131" Cat="noun" morphId="100240050131" Unicode="׃יַעְזֵֽר" nodeId="100240050500040">
+                                <Node n="100240050131" Cat="noun" morphId="100240050131" Unicode="יַעְזֵֽר" nodeId="100240050500040">
                                   <m n="100240050131" lang="H" after="׃" lemma="3270" morph="Np" id="10Esn" pos="noun" type="proper">יַעְזֵֽר</m>
                                 </Node>
                               </Node>
@@ -1073,41 +1073,57 @@
       <Tree>
         <Node Cat="S" Head="0" nodeId="100240060010490">
           <Node Cat="cjp" Rule="Cj2Cjp" Head="0" nodeId="100240060010011">
-            <Node Cat="cj" morphId="100240060011" Unicode="וַ" nodeId="100240060010010">WA</Node>
+            <Node n="100240060011" Cat="cj" morphId="100240060011" Unicode="וַ" nodeId="100240060010010">
+              <m n="100240060011" morph="C" lang="H" lemma="c" pos="conjunction">וַ</m>
+            </Node>
           </Node>
           <Node Cat="CL" Rule="V-PP" Head="0" nodeId="100240060020250">
             <Node Cat="V" Rule="Vp2V" Head="0" nodeId="100240060020042">
               <Node Cat="vp" Rule="V2VP" Head="0" nodeId="100240060020041">
-                <Node Cat="verb" morphId="100240060012" Unicode="יָּבֹ֙אוּ֙" nodeId="100240060020040">Y.FBO33)W.03</Node>
+                <Node n="100240060012" Cat="verb" morphId="100240060012" Unicode="יָּבֹ֙אוּ֙" nodeId="100240060020040">
+                  <m n="100240060012" morph="Vqw3mp" lang="H" lemma="935" after=" " pos="verb" stem="qal" type="wayyiqtol" person="third" gender="masculine" number="plural">יָּבֹ֨אוּ֙</m>
+                </Node>
               </Node>
             </Node>
             <Node Cat="PP" Rule="Pp2PP" Head="0" nodeId="100240060060211">
               <Node Cat="pp" Rule="PPandPP" Head="2" nodeId="100240060060210">
                 <Node Cat="pp" Rule="Np2Pp" Head="0" nodeId="100240060060061">
                   <Node Cat="np" Rule="DetNP" Head="1" nodeId="100240060060060">
-                    <Node Cat="art" morphId="100240060021" Unicode="הַ" nodeId="100240060060010">HA</Node>
+                    <Node n="100240060021" Cat="art" morphId="100240060021" Unicode="הַ" nodeId="100240060060010">
+                      <m n="100240060021" morph="Td" lang="H" lemma="d" pos="particle" type="definite article">הַ</m>
+                    </Node>
                     <Node Cat="np" Rule="NounX" Head="0" nodeId="100240060070050">
-                      <Node Cat="noun" morphId="100240060022" Unicode="גִּלְעָ֔ד" nodeId="100240060070040">G.IL:(F80D</Node>
-                      <Node Cat="x" morphId="100240060023" Unicode="ָה" nodeId="100240060110010">FH</Node>
+                      <Node n="100240060022" Cat="noun" morphId="100240060022" Unicode="גִּלְעָ֔ד" nodeId="100240060070040">
+                        <m n="100240060022" morph="Np" lang="H" lemma="1568" pos="noun" type="proper">גִּלְעָ֔דָ</m>
+                      </Node>
+                      <Node n="100240060023" Cat="x" morphId="100240060023" Unicode="ָה" nodeId="100240060110010">
+                        <m n="100240060023" morph="Sd" lang="H" after=" " pos="suffix" type="directional he">ה</m>
+                      </Node>
                     </Node>
                   </Node>
                 </Node>
                 <Node Cat="cjp" Rule="Cj2Cjp" Head="0" nodeId="100240060120011">
-                  <Node Cat="cj" morphId="100240060031" Unicode="וְ" nodeId="100240060120010">W:</Node>
+                  <Node n="100240060031" Cat="cj" morphId="100240060031" Unicode="וְ" nodeId="100240060120010">
+                    <m n="100240060031" morph="C" lang="H" lemma="c" pos="conjunction">וְ</m>
+                  </Node>
                 </Node>
                 <Node Cat="pp" Rule="PrepNp" Head="1" nodeId="100240060130140">
                   <Node Cat="pp" Rule="P2PP" Head="0" nodeId="100240060130021">
-                    <Node Cat="prep" morphId="100240060032" Unicode="אֶל־" nodeId="100240060130020">)EL-</Node>
+                    <Node n="100240060032" Cat="prep" morphId="100240060032" Unicode="אֶל־" nodeId="100240060130020">
+                      <m n="100240060032" morph="R" lang="H" lemma="413" after="־" pos="preposition">אֶל</m>
+                    </Node>
                   </Node>
                   <Node Cat="np" Rule="NPofNP" Head="0" nodeId="100240060150120">
                     <Node Cat="np" Rule="N2NP" Head="0" nodeId="100240060150031">
-                      <Node Cat="noun" morphId="100240060041" Unicode="אֶ֥רֶץ" nodeId="100240060150030">)E71REC</Node>
+                      <Node n="100240060041" Cat="noun" morphId="100240060041" Unicode="אֶ֥רֶץ" nodeId="100240060150030">
+                        <m n="100240060041" lang="H" after=" " lemma="776" morph="Ncbsc" id="106dt" pos="noun" type="common" gender="both" number="singular" state="construct">אֶ֥רֶץ</m>
+                      </Node>
                     </Node>
                     <Node Cat="np" Rule="N2NP" Head="0" nodeId="100240060180091">
                       <Node Cat="noun" morphId="100240060051" Unicode="תַּחְתִּ֖ימ חָדְשִׁ֑י" nodeId="100240060180090">
                         <c>
-                          <m Unicode="תַּחְתִּ֖ימ"/>
-                          <m Unicode="חָדְשִׁ֑י"/>
+                          <m n="100240060051" lang="H" after=" " lemma="8483+" morph="Np" id="10VgD" pos="noun" type="proper">תַּחְתִּ֖ים</m>
+                          <m n="100240060061" lang="H" after=" " lemma="8483" morph="Np" id="10Jos" pos="noun" type="proper">חָדְשִׁ֑י</m>
                         </c>
                       </Node>
                     </Node>
@@ -1117,42 +1133,55 @@
             </Node>
           </Node>
           <Node Cat="cjp" Rule="Cj2Cjp" Head="0" nodeId="100240060270011">
-            <Node Cat="cj" morphId="100240060061" Unicode="וַ" nodeId="100240060270010">WA</Node>
+            <Node n="100240060071" Cat="cj" morphId="100240060061" Unicode="וַ" nodeId="100240060270010">
+              <m n="100240060071" morph="C" lang="H" lemma="c" pos="conjunction">וַ</m>
+            </Node>
           </Node>
           <Node Cat="CL" Rule="CLaCL" Head="0" nodeId="100240060280220">
             <Node Cat="CL" Rule="V-O" Head="0" nodeId="100240060280100">
               <Node Cat="V" Rule="Vp2V" Head="0" nodeId="100240060280042">
                 <Node Cat="vp" Rule="V2VP" Head="0" nodeId="100240060280041">
-                  <Node Cat="verb" morphId="100240060062" Unicode="יָּבֹ֙אוּ֙" nodeId="100240060280040">Y.FBO33)W.03</Node>
+                  <Node n="100240060072" Cat="verb" morphId="100240060062" Unicode="יָּבֹ֙אוּ֙" nodeId="100240060280040">
+                    <m n="100240060072" morph="Vqw3mp" lang="H" lemma="935" after=" " pos="verb" stem="qal" type="wayyiqtol" person="third" gender="masculine" number="plural">יָּבֹ֨אוּ֙</m>
+                  </Node>
                 </Node>
               </Node>
               <Node Cat="O" Rule="Np2O" Head="0" nodeId="100240060320062">
                 <Node Cat="np" Rule="N2NP" Head="0" nodeId="100240060320061">
                   <Node Cat="noun" morphId="100240060071" Unicode="דָּ֣נָה יַּ֔עַן" nodeId="100240060320060">
                     <c>
-                      <m Unicode="דָּ֣נָה"/>
-                      <m Unicode="יַּ֔עַן"/>
+                      <m n="100240060081" morph="Np" lang="H" lemma="1842+" pos="noun" type="proper">דָּ֣נָ</m>
+                      <m n="100240060082" morph="Sd" lang="H" after=" " pos="suffix" type="directional he">ה</m>
+                      <m n="100240060091" lang="H" after=" " lemma="1842" morph="Np" id="10KHG" pos="noun" type="proper">יַּ֔עַן</m>
                     </c>
                   </Node>
                 </Node>
               </Node>
             </Node>
             <Node Cat="cjp" Rule="Cj2Cjp" Head="0" nodeId="100240060380011">
-              <Node Cat="cj" morphId="100240060081" Unicode="וְ" nodeId="100240060380010">W:</Node>
+              <Node n="100240060101" Cat="cj" morphId="100240060081" Unicode="וְ" nodeId="100240060380010">
+                <m n="100240060101" morph="C" lang="H" lemma="c" pos="conjunction">וְ</m>
+              </Node>
             </Node>
             <Node Cat="CL" Rule="ADV-PP" Head="0" nodeId="100240060390110">
               <Node Cat="ADV" Rule="Advp2ADV" Head="0" nodeId="100240060390042">
                 <Node Cat="advp" Rule="Adv2Advp" Head="0" nodeId="100240060390041">
-                  <Node Cat="adv" morphId="100240060082" Unicode="סָבִ֖יב" nodeId="100240060390040">SFBI73YB</Node>
+                  <Node n="100240060102" Cat="adv" morphId="100240060082" Unicode="סָבִ֖יב" nodeId="100240060390040">
+                    <m n="100240060102" morph="Ncbsa" lang="H" lemma="5439" after=" " pos="noun" type="common" gender="both" number="singular" state="absolute">סָבִ֖יב</m>
+                  </Node>
                 </Node>
               </Node>
               <Node Cat="PP" Rule="Pp2PP" Head="0" nodeId="100240060430071">
                 <Node Cat="pp" Rule="PrepNp" Head="1" nodeId="100240060430070">
                   <Node Cat="pp" Rule="P2PP" Head="0" nodeId="100240060430021">
-                    <Node Cat="prep" morphId="100240060091" Unicode="אֶל־" nodeId="100240060430020">)EL-</Node>
+                    <Node n="100240060111" Cat="prep" morphId="100240060091" Unicode="אֶל־" nodeId="100240060430020">
+                      <m n="100240060111" lang="H" after="־" lemma="413" morph="R" id="10qiL" pos="preposition">אֶל</m>
+                    </Node>
                   </Node>
                   <Node Cat="np" Rule="N2NP" Head="0" nodeId="100240060450051">
-                    <Node Cat="noun" morphId="100240060101" Unicode="׃צִידֽוֹן" nodeId="100240060450050">CIYDO75WN00</Node>
+                    <Node n="100240060121" Cat="noun" morphId="100240060101" Unicode="צִידֽוֹן" nodeId="100240060450050">
+                      <m n="100240060121" lang="H" after="׃" lemma="6721" morph="Np" id="10YQt" pos="noun" type="proper">צִידֽוֹן</m>
+                    </Node>
                   </Node>
                 </Node>
               </Node>
@@ -1278,10 +1307,10 @@
             </Node>
             <Node Cat="ADV" Rule="Np2ADV" Head="0" nodeId="100240070440062">
               <Node Cat="np" Rule="N2NP" Head="0" nodeId="100240070440061">
-                <Node Cat="noun" morphId="100240070121" Unicode="׃בְּאֵ֥ר שָֽׁבַע" nodeId="100240070440060">
+                <Node Cat="noun" morphId="100240070121" Unicode="בְּאֵ֥ר שָֽׁבַע" nodeId="100240070440060">
                   <c>
-                    <m n="100240070121" Unicode="׃בְּאֵ֥ר"/>
-                    <m n="100240070131" Unicode="שָֽׁבַע"/>
+                    <m n="100240070121" lang="H" after=" " lemma="884+" morph="Np" id="1091p" pos="noun" type="proper">בְּאֵ֥ר</m>
+                    <m n="100240070131" lang="H" after="׃" lemma="884" morph="Np" id="10B6v" pos="noun" type="proper">שָֽׁבַע</m>
                   </c>
                 </Node>
               </Node>
@@ -1397,7 +1426,7 @@
             </Node>
             <Node Cat="ADV" Rule="Np2ADV" Head="0" nodeId="100240080400062">
               <Node Cat="np" Rule="N2NP" Head="0" nodeId="100240080400061">
-                <Node n="100240080101" Cat="noun" morphId="100240080101" Unicode="׃יְרוּשָׁלִָֽם" nodeId="100240080400060">
+                <Node n="100240080101" Cat="noun" morphId="100240080101" Unicode="יְרוּשָׁלִָֽם" nodeId="100240080400060">
                   <m n="100240080101" lang="H" after="׃" lemma="3389" morph="Np" id="10xNu" pos="noun" type="proper">יְרוּשָׁלִָֽם</m>
                 </Node>
               </Node>
@@ -1603,7 +1632,7 @@
                     </Node>
                   </Node>
                   <Node Cat="np" Rule="N2NP" Head="0" nodeId="100240090790031">
-                    <Node n="100240090231" Cat="noun" morphId="100240090231" Unicode="׃אִֽישׁ" nodeId="100240090790030">
+                    <Node n="100240090231" Cat="noun" morphId="100240090231" Unicode="אִֽישׁ" nodeId="100240090790030">
                       <m n="100240090231" lang="H" after="׃" lemma="376" morph="Ncmsa" id="10Re9" pos="noun" type="common" gender="masculine" number="singular" state="absolute">אִֽישׁ</m>
                     </Node>
                   </Node>
@@ -1854,7 +1883,7 @@
             </Node>
             <Node Cat="ADV" Rule="Advp2ADV" Head="0" nodeId="100240100880032">
               <Node Cat="advp" Rule="Adv2Advp" Head="0" nodeId="100240100880031">
-                <Node n="100240100271" Cat="adv" morphId="100240100281" Unicode="׃מְאֹֽד" nodeId="100240100880030">
+                <Node n="100240100271" Cat="adv" morphId="100240100281" Unicode="מְאֹֽד" nodeId="100240100880030">
                   <m n="100240100271" lang="H" after="׃" lemma="3966" morph="D" id="1086m" pos="adverb">מְאֹֽד</m>
                 </Node>
               </Node>
@@ -1985,7 +2014,7 @@
                 <Node Cat="CL" Rule="V2CL" Head="0" nodeId="100240110400033">
                   <Node Cat="V" Rule="Vp2V" Head="0" nodeId="100240110400032">
                     <Node Cat="vp" Rule="V2VP" Head="0" nodeId="100240110400031">
-                      <Node n="100240110122" Cat="verb" morphId="100240110132" Unicode="׃אמֹֽר" nodeId="100240110400030">
+                      <Node n="100240110122" Cat="verb" morphId="100240110132" Unicode="אמֹֽר" nodeId="100240110400030">
                         <m n="100240110122" morph="Vqc" lang="H" lemma="559" after="׃" pos="verb" stem="qal" type="infinitive construct">אמֹֽר</m>
                       </Node>
                     </Node>
@@ -2171,7 +2200,7 @@
                     </Node>
                   </Node>
                   <Node Cat="np" Rule="Pron2NP" Head="0" nodeId="100240120560011">
-                    <Node n="100240120172" Cat="pron" morphId="100240120172" Unicode="׃ָֽךְ" nodeId="100240120560010">
+                    <Node n="100240120172" Cat="pron" morphId="100240120172" Unicode="ָֽךְ" nodeId="100240120560010">
                       <m n="100240120172" morph="Sp2fs" lang="H" after="׃" pos="suffix" type="pronominal" person="second" gender="feminine" number="singular">ךְ</m>
                     </Node>
                   </Node>
@@ -2567,7 +2596,7 @@
                 </Node>
                 <Node Cat="O2" Rule="Np2O2" Head="0" nodeId="100240131190032">
                   <Node Cat="np" Rule="N2NP" Head="0" nodeId="100240131190031">
-                    <Node n="100240130351" Cat="noun" morphId="100240130351" Unicode="׃דָּבָֽר" nodeId="100240131190030">
+                    <Node n="100240130351" Cat="noun" morphId="100240130351" Unicode="דָּבָֽר" nodeId="100240131190030">
                       <m n="100240130351" lang="H" after="׃ס" lemma="1697" morph="Ncmsa" id="10fka" pos="noun" type="common" gender="masculine" number="singular" state="absolute">דָּבָֽר</m>
                     </Node>
                   </Node>
@@ -2749,7 +2778,7 @@
             </Node>
             <Node Cat="V" Rule="Vp2V" Head="0" nodeId="100240140570042">
               <Node Cat="vp" Rule="V2VP" Head="0" nodeId="100240140570041">
-                <Node n="100240140191" Cat="verb" morphId="100240140191" Unicode="׃אֶפֹּֽלָה" nodeId="100240140570040">
+                <Node n="100240140191" Cat="verb" morphId="100240140191" Unicode="אֶפֹּֽלָה" nodeId="100240140570040">
                   <m n="100240140191" lang="H" after="׃" lemma="5307" morph="Vqh1cs" id="10nZ9" pos="verb" stem="qal" type="cohortative" person="first" gender="common" number="singular">אֶפֹּֽלָה</m>
                 </Node>
               </Node>
@@ -2910,8 +2939,8 @@
                   <Node Cat="np" Rule="N2NP" Head="0" nodeId="100240150470061">
                     <Node Cat="noun" morphId="100240150141" Unicode="בְּאֵ֣ר שֶׁ֔בַע" nodeId="100240150470060">
                       <c>
-                        <m n="100240150141" Unicode="בְּאֵ֣ר"/>
-                        <m n="100240150151" Unicode="שֶׁ֔בַע"/>
+                        <m n="100240150141" lang="H" after=" " lemma="884+" morph="Np" id="10aw8" pos="noun" type="proper">בְּאֵ֣ר</m>
+                        <m n="100240150151" lang="H" after=" " lemma="884" morph="Acfsa" id="10TMX" pos="adjective" type="cardinal number" gender="feminine" number="singular" state="absolute">שֶׁ֔בַע</m>
                       </c>
                     </Node>
                   </Node>
@@ -2933,7 +2962,7 @@
                   </Node>
                 </Node>
                 <Node Cat="np" Rule="N2NP" Head="0" nodeId="100240150610031">
-                  <Node n="100240150181" Cat="noun" morphId="100240150171" Unicode="׃אִֽישׁ" nodeId="100240150610030">
+                  <Node n="100240150181" Cat="noun" morphId="100240150171" Unicode="אִֽישׁ" nodeId="100240150610030">
                     <m n="100240150181" lang="H" after="׃" lemma="376" morph="Ncmsa" id="10pPf" pos="noun" type="common" gender="masculine" number="singular" state="absolute">אִֽישׁ</m>
                   </Node>
                 </Node>
@@ -3221,7 +3250,7 @@
                         <m n="100240160251" morph="Td" lang="H" lemma="d" pos="particle" type="definite article">הַ</m>
                       </Node>
                       <Node Cat="np" Rule="N2NP" Head="0" nodeId="100240161000041">
-                        <Node n="100240160252" Cat="noun" morphId="100240160252" Unicode="׃יְבֻסִֽי" nodeId="100240161000040">
+                        <Node n="100240160252" Cat="noun" morphId="100240160252" Unicode="יְבֻסִֽי" nodeId="100240161000040">
                           <m n="100240160252" morph="Ngmsa" lang="H" lemma="2983" after="׃ס" pos="noun" type="gentilic" gender="masculine" number="singular" state="absolute">יְבֻסִֽי</m>
                         </Node>
                       </Node>
@@ -3524,7 +3553,7 @@
                         </Node>
                       </Node>
                       <Node Cat="np" Rule="Pron2NP" Head="0" nodeId="100240170920011">
-                        <Node n="100240170252" Cat="pron" morphId="100240170252" Unicode="׃ִֽי" nodeId="100240170920010">
+                        <Node n="100240170252" Cat="pron" morphId="100240170252" Unicode="ִֽי" nodeId="100240170920010">
                           <m n="100240170252" morph="Sp1cs" lang="H" after="׃פ" pos="suffix" type="pronominal" person="first" gender="common" number="singular">י</m>
                         </Node>
                       </Node>
@@ -3699,7 +3728,7 @@
                           <m n="100240180161" morph="Td" lang="H" lemma="d" pos="particle" type="definite article">הַ</m>
                         </Node>
                         <Node Cat="np" Rule="N2NP" Head="0" nodeId="100240180570041">
-                          <Node n="100240180162" Cat="noun" morphId="100240180162" Unicode="׃יְבֻסִֽי" nodeId="100240180570040">
+                          <Node n="100240180162" Cat="noun" morphId="100240180162" Unicode="יְבֻסִֽי" nodeId="100240180570040">
                             <m n="100240180162" morph="Ngmsa" lang="H" lemma="2983" after="׃" pos="noun" type="gentilic" gender="masculine" number="singular" state="absolute">יְבֻסִֽי</m>
                           </Node>
                         </Node>
@@ -3780,7 +3809,7 @@
                     </Node>
                     <Node Cat="S" Rule="Np2S" Head="0" nodeId="100240190210042">
                       <Node Cat="np" Rule="N2NP" Head="0" nodeId="100240190210041">
-                        <Node n="100240190071" Cat="noun" morphId="100240190071" Unicode="׃יְהוָֽה" nodeId="100240190210040">
+                        <Node n="100240190071" Cat="noun" morphId="100240190071" Unicode="יְהוָֽה" nodeId="100240190210040">
                           <m n="100240190071" lang="H" after="׃" lemma="3068" morph="Np" id="10Cr7" pos="noun" type="proper">יְהוָֽה</m>
                         </Node>
                       </Node>
@@ -3975,7 +4004,7 @@
                 <Node n="100240200151" Cat="noun" morphId="100240200151" Unicode="אָֽרְצ" nodeId="100240200610030">
                   <m n="100240200151" morph="Ncbsa" lang="H" lemma="776" pos="noun" type="common" gender="both" number="singular" state="absolute">אָֽרְצָ</m>
                 </Node>
-                <Node n="100240200152" Cat="x" morphId="100240200152" Unicode="׃ָה" nodeId="100240200640010">
+                <Node n="100240200152" Cat="x" morphId="100240200152" Unicode="ָה" nodeId="100240200640010">
                   <m n="100240200152" morph="Sd" lang="H" after="׃" pos="suffix" type="directional he">ה</m>
                 </Node>
               </Node>
@@ -4237,7 +4266,7 @@
                     <m n="100240210211" morph="Td" lang="H" lemma="d" pos="particle" type="definite article">הָ</m>
                   </Node>
                   <Node Cat="np" Rule="N2NP" Head="0" nodeId="100240210820021">
-                    <Node n="100240210212" Cat="noun" morphId="100240210212" Unicode="׃עָֽם" nodeId="100240210820020">
+                    <Node n="100240210212" Cat="noun" morphId="100240210212" Unicode="עָֽם" nodeId="100240210820020">
                       <m n="100240210212" morph="Ncmsa" lang="H" lemma="5971 a" after="׃" pos="noun" type="common" gender="masculine" number="singular" state="absolute">עָֽם</m>
                     </Node>
                   </Node>
@@ -4467,7 +4496,7 @@
                       <m n="100240220181ה" morph="Td" lemma="d" lang="H" pos="particle" type="definite article"/>
                     </Node>
                     <Node Cat="np" Rule="N2NP" Head="0" nodeId="100240220730041">
-                      <Node n="100240220182" Cat="noun" morphId="100240220183" Unicode="׃עֵצִֽים" nodeId="100240220730040">
+                      <Node n="100240220182" Cat="noun" morphId="100240220183" Unicode="עֵצִֽים" nodeId="100240220730040">
                         <m n="100240220182" morph="Ncmpa" lang="H" lemma="6086" after="׃" pos="noun" type="common" gender="masculine" number="plural" state="absolute">עֵצִֽים</m>
                       </Node>
                     </Node>
@@ -4616,7 +4645,7 @@
             </Node>
             <Node Cat="O" Rule="Np2O" Head="0" nodeId="100240230490012">
               <Node Cat="np" Rule="Pron2NP" Head="0" nodeId="100240230490011">
-                <Node n="100240230122" Cat="pron" morphId="100240230132" Unicode="׃ֶֽךָ" nodeId="100240230490010">
+                <Node n="100240230122" Cat="pron" morphId="100240230132" Unicode="ֶֽךָ" nodeId="100240230490010">
                   <m n="100240230122" morph="Sp2ms" lang="H" after="׃" pos="suffix" type="pronominal" person="second" gender="masculine" number="singular">ךָ</m>
                 </Node>
               </Node>
@@ -4883,7 +4912,7 @@
                       </Node>
                     </Node>
                     <Node Cat="nump" Rule="Num2Nump" Head="0" nodeId="100240240900051">
-                      <Node n="100240240251" Cat="num" morphId="100240240251" Unicode="׃חֲמִשִּֽׁים" nodeId="100240240900050">
+                      <Node n="100240240251" Cat="num" morphId="100240240251" Unicode="חֲמִשִּֽׁים" nodeId="100240240900050">
                         <m n="100240240251" lang="H" after="׃" lemma="2572" morph="Acbpa" id="10V4z" pos="adjective" type="cardinal number" gender="both" number="plural" state="absolute">חֲמִשִּֽׁים</m>
                       </Node>
                     </Node>
@@ -5062,7 +5091,7 @@
                   </Node>
                 </Node>
                 <Node Cat="np" Rule="N2NP" Head="0" nodeId="100240250590051">
-                  <Node n="100240250151" Cat="noun" morphId="100240250151" Unicode="׃יִשְׂרָאֵֽל" nodeId="100240250590050">
+                  <Node n="100240250151" Cat="noun" morphId="100240250151" Unicode="יִשְׂרָאֵֽל" nodeId="100240250590050">
                     <m n="100240250151" lang="H" after="׃" lemma="3478" morph="Np" id="106mj" pos="noun" type="proper">יִשְׂרָאֵֽל</m>
                   </Node>
                 </Node>
