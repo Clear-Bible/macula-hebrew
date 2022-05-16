@@ -1,0 +1,185 @@
+/* hebrew-treedown.css */
+
+* {
+  direction: rtl;
+}
+
+sentence::after {
+  /* add horizontal rule after each sentence */
+  content: "";
+  display: block;
+  border-bottom: 1px solid black;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+p {
+  opacity: 0;
+}
+p:hover {
+  opacity: 1;
+}
+
+wg[class=header] {
+    display: block;
+    position: fixed;
+    width: 6em;
+    top: 5px;
+    right: 5px;
+    background-color: white;
+    opacity: 1;
+    overflow: scroll;
+}
+
+milestone {
+    color: blue;
+    display: block;
+    padding-left: 6px;
+}
+
+p {
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+div[class=book]  {
+  margin-top: 1in;
+  margin-right: 1in;
+  margin-bottom: 1in;
+  line-height: 1.2;
+  background-color: white;
+  opacity: 1;
+}
+
+book, passage,root {
+  line-height: 1.5;
+  margin-right: 5em;
+  margin-left: 10em;
+  /* background: linen; */
+}
+
+
+/* WGs */
+
+wg[class=sentence]{}
+
+wg[class=cl] {
+  padding-top: 0.25em;
+  padding-bottom: 0.25em;
+  display: block;
+}
+
+wg[rule=that-VP],
+wg[rule=sub-CL],
+wg[role] {
+    position: relative;
+    display: block;
+}
+
+/* Words */
+
+w[role] {
+    position: relative;
+    display: block;
+}
+
+w[case=vocative] {
+    position: relative;
+    display: block;
+}
+
+/* Generated Text */
+
+/*
+  Spacing problem:  generated text usually belongs on the previous level,
+  not on the new indent leve.  Not sure how to do that with CSS.
+*/
+
+wg[class=sentence] wg[class=cl]::before {
+  content: initial;
+}
+
+wg[role]::before {
+  color: cadetblue;
+  content: attr(role);
+}
+
+wg[rule=that-VP]::before,
+wg[rule=sub-CL]::before,
+wg[role=adv]::before {
+  color: cadetblue;
+  content: "+ ";
+}
+
+
+w[role=v][mood=participle]::before {
+  color: cadetblue;
+  content: "v.part ";
+}
+
+w[role=v][mood=infinitive]::before {
+  color: cadetblue;
+  content: "v.inf ";
+}
+
+w[role]::before {
+  color: cadetblue;
+  content: attr(role) " ";
+}
+
+w[role=adv]::before {
+  color: cadetblue;
+  content: "+ ";
+}
+
+w[discontinuous]::after {
+  content: "*";
+  vertical-align: super;
+  color: cadetblue;
+  font-size: small;
+}
+
+w[case=vocative]::before {
+  color: cadetblue;
+  content: "voc" " ";
+}
+
+
+/* -----  Experimental stuff goes here -------- */
+
+/* Apposition */
+
+wg[rule=Np-Appos] > wg:not(:first-child)::before,
+wg[rule=Np-Appos] > w:not(:first-child)::before {
+    content: ": ";
+    color: cadetblue;
+    margin-right: 1em;
+}
+
+wg[rule=Np-Appos] > wg:not(:first-child),
+wg[rule=Np-Appos] > w:not(:first-child) {
+    display: block;
+}
+
+/* Probably want to put brackets around single words, but left now it cascades badly. */
+
+wg[rule=Np-Appos] > wg:first-child::before {
+    content: "[";
+    color: cadetblue;
+}
+
+wg[rule=Np-Appos]> wg:first-child::after {
+    content: "]";
+    color: cadetblue;
+}
+
+pc::before {
+    content: initial;
+}
+
+/* ------ right spacing --------- */
+
+wg[class=cl] {
+  margin-right: 1em;
+  position: relative;
+}

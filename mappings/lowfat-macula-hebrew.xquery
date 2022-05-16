@@ -20,6 +20,9 @@ declare variable $retain-singletons := false();
 
 declare function local:osisBook($nodeId)
 {
+if(string-length($nodeId) < 1)
+then "error5"
+else
     switch (xs:integer(substring($nodeId, 1, 2)))
         case 01
             return
@@ -204,6 +207,9 @@ declare function local:attributes($node)
 
 declare function local:osisId($nodeId)
 {
+if(string-length($nodeId) < 1) 
+then "error6NoIDFoundInNode"
+else
     concat(local:osisBook($nodeId),
     ".",
     xs:integer(substring($nodeId, 3, 3)),
@@ -217,6 +223,9 @@ declare function local:osisId($nodeId)
 
 declare function local:osisVerseId($nodeId)
 {
+if(string-length($nodeId) < 1) 
+then "error7"
+else
     concat(local:osisBook($nodeId),
     ".",
     xs:integer(substring($nodeId, 3, 3)),
@@ -388,7 +397,8 @@ declare function local:word-with-role($node, $role)
                     substring($node, 1, string-length($node) - 1)
                 }
             </w>,
-            <pu>{substring($node, string-length($node), 1)}</pu>
+            <error8PunctuationShouldComeFromAfterAttr>{substring($node, string-length($node), 1)
+            }</error8PunctuationShouldComeFromAfterAttr>
             )
         else
             <w osisId='{local:osisId($node/@nodeId)}'>
@@ -484,7 +494,7 @@ declare function local:straight-text($node)
     for $n at $i in $node//Node[local:node-type(.) = 'word']
         order by $n/@morphId
     return
-        string($n/m/text()), 'hi'
+        string($n/m/text())
 };
 
 declare function local:sentence($node)
@@ -518,8 +528,8 @@ declare function local:sentence($node)
     </sentence>
 };
 
-processing-instruction xml-stylesheet {'href="treedown.css"'},
-processing-instruction xml-stylesheet {'href="boxwood.css"'},
+processing-instruction xml-stylesheet {'href="hebrew-treedown.css"'},
+processing-instruction xml-stylesheet {'href="hebrew-boxwood.css"'},
 <book>
     {
         (:
