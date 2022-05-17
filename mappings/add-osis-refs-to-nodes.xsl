@@ -170,9 +170,8 @@
         </xsl:copy>
     </xsl:template>    
     
-    <xsl:template match="Node[m]">
-        <!-- Add an osisId to every Node that has an m child -->
-        <xsl:variable name="osisId" select="macula:osisId(data(./m/@n))"/>
+    <xsl:template match="m">
+        <xsl:variable name="osisId" select="macula:osisId(data(./@n))"/>
         <xsl:copy>
             <xsl:attribute name="osisId"><xsl:value-of select="$osisId"/></xsl:attribute>
             <xsl:apply-templates select="@*|node()" />
