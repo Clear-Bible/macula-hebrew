@@ -6573,24 +6573,18 @@
                after=" ">יְהוָ֗ה</w>
          </wg>
          <wg class="cl" Head="false" nodeId="0700801900810040" Rule="ptclcl">
-            <error3>
-               <Node Cat="ptcl" Rule="pp2ptcl" Head="0" nodeId="0700801900810012">
-                  <Node Cat="pp" Rule="P2PP" Head="0" nodeId="0700801900810011">
-                     <Node n="070080190081"
-                           Cat="prep"
-                           morphId="070080190081"
-                           Unicode="ל֚וּ"
-                           nodeId="0700801900810010">
-                        <m n="070080190081"
-                           lang="H"
-                           after=" "
-                           lemma="3863"
-                           morph="C"
-                           pos="conjunction">ל֚וּ</m>
-                     </Node>
-                  </Node>
-               </Node>
-            </error3>
+            <Node n="070080190081"
+                  Cat="prep"
+                  morphId="070080190081"
+                  Unicode="ל֚וּ"
+                  nodeId="0700801900810010">
+                  <m n="070080190081"
+                  lang="H"
+                  after=" "
+                  lemma="3863"
+                  morph="C"
+                  pos="conjunction">ל֚וּ</m>
+                </Node>
             <wg class="cl" Head="true" nodeId="0700801900910030" Rule="v-o">
                <w osisId="Jdg.8.19!9"
                   role="v"
@@ -11236,11 +11230,32 @@
                      lemma="6084"
                      pos="noun"
                      after=" ">עָפְרָ֖ה</w>
-                  <w osisId="Jdg.8.32!12"
-                     morphId="070080320121"
-                     Cat="noun"
-                     Unicode="אֲבִ֥י הָֽעֶזְרִֽי"
-                     nodeId="0700803201210010"/>
+                  <wg class="np" Head="true" nodeId="0700803201210011" Rule="n2np">
+                     <wg class="compound">
+                        <w osisId="Jdg.8.32!12"
+                           morphId="070080320121"
+                           Cat="noun"
+                           Unicode="אֲבִ֥י הָֽעֶזְרִֽי"
+                           nodeId="0700803201210010"
+                           n="070080320121"
+                           morph="Np"
+                           lang="H"
+                           lemma="33+"
+                           pos="noun"
+                           after=" ">אֲבִ֥י</w>
+                        <w osisId="Jdg.8.32!12"
+                           morphId="070080320121"
+                           Cat="noun"
+                           Unicode="אֲבִ֥י הָֽעֶזְרִֽי"
+                           nodeId="0700803201210010"
+                           n="070080320131"
+                           morph="Np"
+                           lang="H"
+                           lemma="33"
+                           pos="noun"
+                           after="׃פ">הָֽעֶזְרִֽי</w>
+                     </wg>
+                  </wg>
                </wg>
             </wg>
          </wg>
@@ -11527,12 +11542,36 @@
                   person="third"
                   after=" ">הֶ֛ם</w>
             </wg>
-            <w osisId="Jdg.8.33!13"
-               role="o"
-               morphId="070080330131"
-               Cat="noun"
-               Unicode="בַּ֥עַל בְּרִ֖ית"
-               nodeId="0700803301310010"/>
+            <wg role="o"
+                class="np"
+                Head="true"
+                nodeId="0700803301310011"
+                Rule="n2np">
+               <wg class="compound">
+                  <w osisId="Jdg.8.33!13"
+                     morphId="070080330131"
+                     Cat="noun"
+                     Unicode="בַּ֥עַל בְּרִ֖ית"
+                     nodeId="0700803301310010"
+                     n="070080330131"
+                     morph="Np"
+                     lang="H"
+                     lemma="1170+"
+                     pos="noun"
+                     after=" ">בַּ֥עַל</w>
+                  <w osisId="Jdg.8.33!13"
+                     morphId="070080330131"
+                     Cat="noun"
+                     Unicode="בַּ֥עַל בְּרִ֖ית"
+                     nodeId="0700803301310010"
+                     n="070080330141"
+                     morph="Np"
+                     lang="H"
+                     lemma="1170"
+                     pos="noun"
+                     after=" ">בְּרִ֖ית</w>
+               </wg>
+            </wg>
             <wg role="pp"
                 class="pp"
                 Head="false"

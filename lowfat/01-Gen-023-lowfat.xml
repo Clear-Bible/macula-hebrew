@@ -294,11 +294,35 @@
                   lemma="b"
                   pos="preposition">בְּ</w>
                <wg class="np" Head="true" nodeId="0102300200320030" Rule="npcl">
-                  <w osisId="Gen.23.2!3"
-                     morphId="010230020032"
-                     Cat="noun"
-                     Unicode="קִרְיַ֥ת אַרְבַּ֛ע"
-                     nodeId="0102300200320010"/>
+                  <wg class="np" Head="true" nodeId="0102300200320011" Rule="n2np">
+                     <wg class="compound">
+                        <w osisId="Gen.23.2!3"
+                           morphId="010230020032"
+                           Cat="noun"
+                           Unicode="קִרְיַ֥ת אַרְבַּ֛ע"
+                           nodeId="0102300200320010"
+                           n="010230020032"
+                           morph="Np"
+                           lang="H"
+                           lemma="7153+"
+                           pos="noun"
+                           after=" ">קִרְיַ֥ת</w>
+                        <w osisId="Gen.23.2!3"
+                           morphId="010230020032"
+                           Cat="noun"
+                           Unicode="קִרְיַ֥ת אַרְבַּ֛ע"
+                           nodeId="0102300200320010"
+                           n="010230020041"
+                           morph="Acfsa"
+                           lang="H"
+                           lemma="7153"
+                           pos="adjective"
+                           gender="feminine"
+                           number="singular"
+                           state="absolute"
+                           after=" ">אַרְבַּ֛ע</w>
+                     </wg>
+                  </wg>
                   <wg class="cl" Head="false" nodeId="0102300200510020" Rule="s-p">
                      <w osisId="Gen.23.2!5"
                         role="s"
@@ -4026,24 +4050,18 @@
                      after=" ">אַתָּ֥ה</w>
                </wg>
                <wg class="cl" Head="false" nodeId="0102301301110030" Rule="ptclcl">
-                  <error3>
-                     <Node Cat="ptcl" Rule="pp2ptcl" Head="0" nodeId="0102301301110012">
-                        <Node Cat="pp" Rule="P2PP" Head="0" nodeId="0102301301110011">
-                           <Node n="010230130111"
-                                 Cat="prep"
-                                 morphId="010230130111"
-                                 Unicode="ל֖וּ"
-                                 nodeId="0102301301110010">
-                              <m n="010230130111"
-                                 lang="H"
-                                 after=" "
-                                 lemma="3863"
-                                 morph="C"
-                                 pos="conjunction">ל֖וּ</m>
-                           </Node>
-                        </Node>
-                     </Node>
-                  </error3>
+                  <Node n="010230130111"
+                        Cat="prep"
+                        morphId="010230130111"
+                        Unicode="ל֖וּ"
+                        nodeId="0102301301110010">
+                        <m n="010230130111"
+                        lang="H"
+                        after=" "
+                        lemma="3863"
+                        morph="C"
+                        pos="conjunction">ל֖וּ</m>
+                      </Node>
                   <wg class="cl" Head="true" nodeId="0102301301210020" Rule="v-o">
                      <w osisId="Gen.23.13!12"
                         role="v"
@@ -5696,216 +5714,214 @@
    <sentence>
       <p>
          <milestone unit="verse" id="Gen.23.18">Gen.23.18</milestone> לְ אַבְרָהָ֥ם לְ מִקְנָ֖ה לְ עֵינֵ֣י בְנֵי חֵ֑ת בְּ כֹ֖ל בָּאֵ֥י שַֽׁעַר עִירֽ וֹ</p>
-      <wg role="cl">
-         <wg class="cl"
-             Head="true"
-             nodeId="0102301800110140"
-             Rule="pp-pp-pp-pp">
-            <wg role="pp"
-                class="pp"
-                Head="false"
-                nodeId="0102301800110020"
-                Rule="prepnp">
-               <w osisId="Gen.23.18!1"
-                  morphId="010230180011"
-                  Cat="prep"
-                  Unicode="לְ"
-                  nodeId="0102301800110010"
-                  n="010230180011"
-                  morph="R"
-                  lang="H"
-                  lemma="l"
-                  pos="preposition">לְ</w>
-               <w osisId="Gen.23.18!1"
-                  morphId="010230180012"
-                  Cat="noun"
-                  Unicode="אַבְרָהָ֥ם"
-                  nodeId="0102301800120010"
-                  n="010230180012"
-                  morph="Np"
-                  lang="H"
-                  lemma="85"
-                  pos="noun"
-                  after=" ">אַבְרָהָ֥ם</w>
-            </wg>
-            <wg role="pp"
-                class="pp"
-                Head="false"
-                nodeId="0102301800210020"
-                Rule="prepnp">
-               <w osisId="Gen.23.18!2"
-                  morphId="010230180021"
-                  Cat="prep"
-                  Unicode="לְ"
-                  nodeId="0102301800210010"
-                  n="010230180021"
-                  morph="R"
-                  lang="H"
-                  lemma="l"
-                  pos="preposition">לְ</w>
-               <w osisId="Gen.23.18!2"
-                  morphId="010230180022"
-                  Cat="noun"
-                  Unicode="מִקְנָ֖ה"
-                  nodeId="0102301800220010"
-                  n="010230180022"
-                  morph="Ncfsa"
-                  lang="H"
-                  lemma="4736"
-                  pos="noun"
-                  gender="feminine"
-                  number="singular"
-                  state="absolute"
-                  after=" ">מִקְנָ֖ה</w>
-            </wg>
-            <wg role="pp"
-                class="pp"
-                Head="false"
-                nodeId="0102301800310040"
-                Rule="prepnp">
+      <wg class="cl"
+          Head="true"
+          nodeId="0102301800110140"
+          Rule="pp-pp-pp-pp">
+         <wg role="pp"
+             class="pp"
+             Head="false"
+             nodeId="0102301800110020"
+             Rule="prepnp">
+            <w osisId="Gen.23.18!1"
+               morphId="010230180011"
+               Cat="prep"
+               Unicode="לְ"
+               nodeId="0102301800110010"
+               n="010230180011"
+               morph="R"
+               lang="H"
+               lemma="l"
+               pos="preposition">לְ</w>
+            <w osisId="Gen.23.18!1"
+               morphId="010230180012"
+               Cat="noun"
+               Unicode="אַבְרָהָ֥ם"
+               nodeId="0102301800120010"
+               n="010230180012"
+               morph="Np"
+               lang="H"
+               lemma="85"
+               pos="noun"
+               after=" ">אַבְרָהָ֥ם</w>
+         </wg>
+         <wg role="pp"
+             class="pp"
+             Head="false"
+             nodeId="0102301800210020"
+             Rule="prepnp">
+            <w osisId="Gen.23.18!2"
+               morphId="010230180021"
+               Cat="prep"
+               Unicode="לְ"
+               nodeId="0102301800210010"
+               n="010230180021"
+               morph="R"
+               lang="H"
+               lemma="l"
+               pos="preposition">לְ</w>
+            <w osisId="Gen.23.18!2"
+               morphId="010230180022"
+               Cat="noun"
+               Unicode="מִקְנָ֖ה"
+               nodeId="0102301800220010"
+               n="010230180022"
+               morph="Ncfsa"
+               lang="H"
+               lemma="4736"
+               pos="noun"
+               gender="feminine"
+               number="singular"
+               state="absolute"
+               after=" ">מִקְנָ֖ה</w>
+         </wg>
+         <wg role="pp"
+             class="pp"
+             Head="false"
+             nodeId="0102301800310040"
+             Rule="prepnp">
+            <w osisId="Gen.23.18!3"
+               morphId="010230180031"
+               Cat="prep"
+               Unicode="לְ"
+               nodeId="0102301800310010"
+               n="010230180031"
+               morph="R"
+               lang="H"
+               lemma="l"
+               pos="preposition">לְ</w>
+            <wg class="np" Head="true" nodeId="0102301800320030" Rule="npofnp">
                <w osisId="Gen.23.18!3"
-                  morphId="010230180031"
-                  Cat="prep"
-                  Unicode="לְ"
-                  nodeId="0102301800310010"
-                  n="010230180031"
-                  morph="R"
+                  morphId="010230180032"
+                  Cat="noun"
+                  Unicode="עֵינֵ֣י"
+                  nodeId="0102301800320010"
+                  n="010230180032"
+                  morph="Ncbdc"
                   lang="H"
-                  lemma="l"
-                  pos="preposition">לְ</w>
-               <wg class="np" Head="true" nodeId="0102301800320030" Rule="npofnp">
-                  <w osisId="Gen.23.18!3"
-                     morphId="010230180032"
+                  lemma="5869 a"
+                  pos="noun"
+                  gender="both"
+                  number="dual"
+                  state="construct"
+                  after=" ">עֵינֵ֣י</w>
+               <wg class="np" Head="true" nodeId="0102301800410020" Rule="npofnp">
+                  <w osisId="Gen.23.18!4"
+                     morphId="010230180041"
                      Cat="noun"
-                     Unicode="עֵינֵ֣י"
-                     nodeId="0102301800320010"
-                     n="010230180032"
-                     morph="Ncbdc"
+                     Unicode="בְנֵי־"
+                     nodeId="0102301800410010"
+                     n="010230180041"
+                     morph="Ncmpc"
                      lang="H"
-                     lemma="5869 a"
-                     pos="noun"
-                     gender="both"
-                     number="dual"
-                     state="construct"
-                     after=" ">עֵינֵ֣י</w>
-                  <wg class="np" Head="true" nodeId="0102301800410020" Rule="npofnp">
-                     <w osisId="Gen.23.18!4"
-                        morphId="010230180041"
-                        Cat="noun"
-                        Unicode="בְנֵי־"
-                        nodeId="0102301800410010"
-                        n="010230180041"
-                        morph="Ncmpc"
-                        lang="H"
-                        lemma="1121 a"
-                        pos="noun"
-                        gender="masculine"
-                        number="plural"
-                        state="construct"
-                        after="־">בְנֵי</w>
-                     <w osisId="Gen.23.18!5"
-                        morphId="010230180051"
-                        Cat="noun"
-                        Unicode="חֵ֑ת"
-                        nodeId="0102301800510010"
-                        n="010230180051"
-                        morph="Np"
-                        lang="H"
-                        lemma="2845"
-                        pos="noun"
-                        after=" ">חֵ֑ת</w>
-                  </wg>
-               </wg>
-            </wg>
-            <wg role="pp"
-                class="pp"
-                Head="false"
-                nodeId="0102301800610060"
-                Rule="prepnp">
-               <w osisId="Gen.23.18!6"
-                  morphId="010230180061"
-                  Cat="prep"
-                  Unicode="בְּ"
-                  nodeId="0102301800610010"
-                  n="010230180061"
-                  morph="R"
-                  lang="H"
-                  lemma="b"
-                  pos="preposition">בְּ</w>
-               <wg class="np" Head="false" nodeId="0102301800620050" Rule="quannp">
-                  <w osisId="Gen.23.18!6"
-                     morphId="010230180062"
-                     Cat="noun"
-                     Unicode="כֹ֖ל"
-                     nodeId="0102301800620010"
-                     n="010230180062"
-                     morph="Ncmsc"
-                     lang="H"
-                     lemma="3605"
+                     lemma="1121 a"
                      pos="noun"
                      gender="masculine"
-                     number="singular"
+                     number="plural"
                      state="construct"
-                     after=" ">כֹ֖ל</w>
-                  <wg class="np" Head="true" nodeId="0102301800710040" Rule="npofnp">
-                     <w osisId="Gen.23.18!7"
-                        morphId="010230180071"
-                        Cat="verb"
-                        Unicode="בָּאֵ֥י"
-                        nodeId="0102301800710010"
-                        n="010230180071"
-                        morph="Vqrmpc"
+                     after="־">בְנֵי</w>
+                  <w osisId="Gen.23.18!5"
+                     morphId="010230180051"
+                     Cat="noun"
+                     Unicode="חֵ֑ת"
+                     nodeId="0102301800510010"
+                     n="010230180051"
+                     morph="Np"
+                     lang="H"
+                     lemma="2845"
+                     pos="noun"
+                     after=" ">חֵ֑ת</w>
+               </wg>
+            </wg>
+         </wg>
+         <wg role="pp"
+             class="pp"
+             Head="false"
+             nodeId="0102301800610060"
+             Rule="prepnp">
+            <w osisId="Gen.23.18!6"
+               morphId="010230180061"
+               Cat="prep"
+               Unicode="בְּ"
+               nodeId="0102301800610010"
+               n="010230180061"
+               morph="R"
+               lang="H"
+               lemma="b"
+               pos="preposition">בְּ</w>
+            <wg class="np" Head="false" nodeId="0102301800620050" Rule="quannp">
+               <w osisId="Gen.23.18!6"
+                  morphId="010230180062"
+                  Cat="noun"
+                  Unicode="כֹ֖ל"
+                  nodeId="0102301800620010"
+                  n="010230180062"
+                  morph="Ncmsc"
+                  lang="H"
+                  lemma="3605"
+                  pos="noun"
+                  gender="masculine"
+                  number="singular"
+                  state="construct"
+                  after=" ">כֹ֖ל</w>
+               <wg class="np" Head="true" nodeId="0102301800710040" Rule="npofnp">
+                  <w osisId="Gen.23.18!7"
+                     morphId="010230180071"
+                     Cat="verb"
+                     Unicode="בָּאֵ֥י"
+                     nodeId="0102301800710010"
+                     n="010230180071"
+                     morph="Vqrmpc"
+                     lang="H"
+                     lemma="935"
+                     pos="verb"
+                     gender="masculine"
+                     number="plural"
+                     state="construct"
+                     stem="qal"
+                     after=" ">בָּאֵ֥י</w>
+                  <wg class="np" Head="true" nodeId="0102301800810030" Rule="npofnp">
+                     <w osisId="Gen.23.18!8"
+                        morphId="010230180081"
+                        Cat="noun"
+                        Unicode="שַֽׁעַר־"
+                        nodeId="0102301800810010"
+                        n="010230180081"
+                        morph="Ncmsc"
                         lang="H"
-                        lemma="935"
-                        pos="verb"
+                        lemma="8179"
+                        pos="noun"
                         gender="masculine"
-                        number="plural"
+                        number="singular"
                         state="construct"
-                        stem="qal"
-                        after=" ">בָּאֵ֥י</w>
-                     <wg class="np" Head="true" nodeId="0102301800810030" Rule="npofnp">
-                        <w osisId="Gen.23.18!8"
-                           morphId="010230180081"
+                        after="־">שַֽׁעַר</w>
+                     <wg class="np" Head="true" nodeId="0102301800910020" Rule="npofnp">
+                        <w osisId="Gen.23.18!9"
+                           morphId="010230180091"
                            Cat="noun"
-                           Unicode="שַֽׁעַר־"
-                           nodeId="0102301800810010"
-                           n="010230180081"
-                           morph="Ncmsc"
+                           Unicode="עִיר"
+                           nodeId="0102301800910010"
+                           n="010230180091"
+                           morph="Ncfsc"
                            lang="H"
-                           lemma="8179"
+                           lemma="5892 b"
                            pos="noun"
+                           gender="feminine"
+                           number="singular"
+                           state="construct">עִירֽ</w>
+                        <w osisId="Gen.23.18!9"
+                           morphId="010230180092"
+                           Cat="pron"
+                           Unicode="ֽוֹ"
+                           nodeId="0102301800920010"
+                           n="010230180092"
+                           morph="Sp3ms"
+                           lang="H"
+                           pos="suffix"
                            gender="masculine"
                            number="singular"
-                           state="construct"
-                           after="־">שַֽׁעַר</w>
-                        <wg class="np" Head="true" nodeId="0102301800910020" Rule="npofnp">
-                           <w osisId="Gen.23.18!9"
-                              morphId="010230180091"
-                              Cat="noun"
-                              Unicode="עִיר"
-                              nodeId="0102301800910010"
-                              n="010230180091"
-                              morph="Ncfsc"
-                              lang="H"
-                              lemma="5892 b"
-                              pos="noun"
-                              gender="feminine"
-                              number="singular"
-                              state="construct">עִירֽ</w>
-                           <w osisId="Gen.23.18!9"
-                              morphId="010230180092"
-                              Cat="pron"
-                              Unicode="ֽוֹ"
-                              nodeId="0102301800920010"
-                              n="010230180092"
-                              morph="Sp3ms"
-                              lang="H"
-                              pos="suffix"
-                              gender="masculine"
-                              number="singular"
-                              person="third"
-                              after="׃">וֹ</w>
-                        </wg>
+                           person="third"
+                           after="׃">וֹ</w>
                      </wg>
                   </wg>
                </wg>

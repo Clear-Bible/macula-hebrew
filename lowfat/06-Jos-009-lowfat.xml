@@ -2217,22 +2217,18 @@
              nodeId="0600900700710120"
              Rule="clandcl2">
             <wg class="cl" Head="false" nodeId="0600900700710060" Rule="ptclcl">
-               <error3>
-                  <Node Cat="ptcl" Rule="Adv2Ptcl" Head="0" nodeId="0600900700710011">
-                     <Node n="060090070071"
-                           Cat="adv"
-                           morphId="060090070071"
-                           Unicode="אוּלַ֗י"
-                           nodeId="0600900700710010">
-                        <m n="060090070071"
-                           lang="H"
-                           after=" "
-                           lemma="194"
-                           morph="D"
-                           pos="adverb">אוּלַ֗י</m>
-                     </Node>
-                  </Node>
-               </error3>
+               <Node n="060090070071"
+                     Cat="adv"
+                     morphId="060090070071"
+                     Unicode="אוּלַ֗י"
+                     nodeId="0600900700710010">
+                  <m n="060090070071"
+                     lang="H"
+                     after=" "
+                     lemma="194"
+                     morph="D"
+                     pos="adverb">אוּלַ֗י</m>
+                </Node>
                <wg class="cl" Head="false" nodeId="0600900700810050" Rule="pp-s-v">
                   <wg role="pp"
                       class="pp"
@@ -6081,11 +6077,32 @@
                   lang="H"
                   lemma="c"
                   pos="conjunction">וְ</w>
-               <w osisId="Jos.9.17!13"
-                  morphId="060090170132"
-                  Cat="noun"
-                  Unicode="קִרְיַ֥ת יְעָרִֽים"
-                  nodeId="0600901701320010"/>
+               <wg class="np" Head="true" nodeId="0600901701320011" Rule="n2np">
+                  <wg class="compound">
+                     <w osisId="Jos.9.17!13"
+                        morphId="060090170132"
+                        Cat="noun"
+                        Unicode="קִרְיַ֥ת יְעָרִֽים"
+                        nodeId="0600901701320010"
+                        n="060090170132"
+                        morph="Np"
+                        lang="H"
+                        lemma="7157+"
+                        pos="noun"
+                        after=" ">קִרְיַ֥ת</w>
+                     <w osisId="Jos.9.17!13"
+                        morphId="060090170132"
+                        Cat="noun"
+                        Unicode="קִרְיַ֥ת יְעָרִֽים"
+                        nodeId="0600901701320010"
+                        n="060090170141"
+                        morph="Np"
+                        lang="H"
+                        lemma="7157"
+                        pos="noun"
+                        after="׃">יְעָרִֽים</w>
+                  </wg>
+               </wg>
             </wg>
          </wg>
       </wg>

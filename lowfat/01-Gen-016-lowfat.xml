@@ -512,22 +512,18 @@
                </wg>
             </wg>
             <wg class="cl" Head="false" nodeId="0101600201410040" Rule="ptclcl">
-               <error3>
-                  <Node Cat="ptcl" Rule="Adv2Ptcl" Head="0" nodeId="0101600201410011">
-                     <Node n="010160020141"
-                           Cat="adv"
-                           morphId="010160020141"
-                           Unicode="אוּלַ֥י"
-                           nodeId="0101600201410010">
-                        <m n="010160020141"
-                           lang="H"
-                           after=" "
-                           lemma="194"
-                           morph="D"
-                           pos="adverb">אוּלַ֥י</m>
-                     </Node>
-                  </Node>
-               </error3>
+               <Node n="010160020141"
+                     Cat="adv"
+                     morphId="010160020141"
+                     Unicode="אוּלַ֥י"
+                     nodeId="0101600201410010">
+                  <m n="010160020141"
+                     lang="H"
+                     after=" "
+                     lemma="194"
+                     morph="D"
+                     pos="adverb">אוּלַ֥י</m>
+                </Node>
                <wg class="cl" Head="true" nodeId="0101600201510030" Rule="v-pp">
                   <w osisId="Gen.16.2!15"
                      role="v"
@@ -4462,12 +4458,47 @@
                      after=" ">בְּאֵ֔ר</w>
                </wg>
             </wg>
-            <w osisId="Gen.16.14!5"
-               role="o"
-               morphId="010160140051"
-               Cat="noun"
-               Unicode="בְּאֵ֥ר לַחַ֖י רֹאִ֑י"
-               nodeId="0101601400510010"/>
+            <wg role="o"
+                class="np"
+                Head="true"
+                nodeId="0101601400510011"
+                Rule="n2np">
+               <wg class="compound">
+                  <w osisId="Gen.16.14!5"
+                     morphId="010160140051"
+                     Cat="noun"
+                     Unicode="בְּאֵ֥ר לַחַ֖י רֹאִ֑י"
+                     nodeId="0101601400510010"
+                     n="010160140051"
+                     morph="Np"
+                     lang="H"
+                     lemma="883+"
+                     pos="noun"
+                     after=" ">בְּאֵ֥ר</w>
+                  <w osisId="Gen.16.14!5"
+                     morphId="010160140051"
+                     Cat="noun"
+                     Unicode="בְּאֵ֥ר לַחַ֖י רֹאִ֑י"
+                     nodeId="0101601400510010"
+                     n="010160140061"
+                     morph="Np"
+                     lang="H"
+                     lemma="883+"
+                     pos="noun"
+                     after=" ">לַחַ֖י</w>
+                  <w osisId="Gen.16.14!5"
+                     morphId="010160140051"
+                     Cat="noun"
+                     Unicode="בְּאֵ֥ר לַחַ֖י רֹאִ֑י"
+                     nodeId="0101601400510010"
+                     n="010160140071"
+                     morph="Np"
+                     lang="H"
+                     lemma="883"
+                     pos="noun"
+                     after=" ">רֹאִ֑י</w>
+               </wg>
+            </wg>
          </wg>
          <wg class="cl" Head="false" nodeId="0101601400810060" Rule="clcl2">
             <wg class="cl" Head="true" nodeId="0101601400810012" Rule="intj2cl">

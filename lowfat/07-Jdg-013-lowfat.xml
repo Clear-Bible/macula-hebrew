@@ -8101,24 +8101,18 @@
             </wg>
          </wg>
          <wg class="cl" Head="false" nodeId="0701302300410060" Rule="ptclcl">
-            <error3>
-               <Node Cat="ptcl" Rule="pp2ptcl" Head="0" nodeId="0701302300410012">
-                  <Node Cat="pp" Rule="P2PP" Head="0" nodeId="0701302300410011">
-                     <Node n="070130230041"
-                           Cat="prep"
-                           morphId="070130230041"
-                           Unicode="לוּ֩"
-                           nodeId="0701302300410010">
-                        <m n="070130230041"
-                           lang="H"
-                           after=" "
-                           lemma="3863"
-                           morph="C"
-                           pos="conjunction">לוּ֩</m>
-                     </Node>
-                  </Node>
-               </Node>
-            </error3>
+            <Node n="070130230041"
+                  Cat="prep"
+                  morphId="070130230041"
+                  Unicode="לוּ֩"
+                  nodeId="0701302300410010">
+                  <m n="070130230041"
+                  lang="H"
+                  after=" "
+                  lemma="3863"
+                  morph="C"
+                  pos="conjunction">לוּ֩</m>
+                </Node>
             <wg class="cl" Head="true" nodeId="0701302300510050" Rule="v-s-pp">
                <w osisId="Jdg.13.23!5"
                   role="v"
@@ -8945,11 +8939,32 @@
                         lang="H"
                         lemma="b"
                         pos="preposition">בְּ</w>
-                     <w osisId="Jdg.13.25!5"
-                        morphId="070130250052"
-                        Cat="noun"
-                        Unicode="מַחֲנֵה־דָ֑ן"
-                        nodeId="0701302500520010"/>
+                     <wg class="np" Head="true" nodeId="0701302500520011" Rule="n2np">
+                        <wg class="compound">
+                           <w osisId="Jdg.13.25!5"
+                              morphId="070130250052"
+                              Cat="noun"
+                              Unicode="מַחֲנֵה־דָ֑ן"
+                              nodeId="0701302500520010"
+                              n="070130250052"
+                              morph="Np"
+                              lang="H"
+                              lemma="4264"
+                              pos="noun"
+                              after="־">מַחֲנֵה</w>
+                           <w osisId="Jdg.13.25!5"
+                              morphId="070130250052"
+                              Cat="noun"
+                              Unicode="מַחֲנֵה־דָ֑ן"
+                              nodeId="0701302500520010"
+                              n="070130250061"
+                              morph="Np"
+                              lang="H"
+                              lemma="1835"
+                              pos="noun"
+                              after=" ">דָ֑ן</w>
+                        </wg>
+                     </wg>
                   </wg>
                   <wg role="pp"
                       class="pp"

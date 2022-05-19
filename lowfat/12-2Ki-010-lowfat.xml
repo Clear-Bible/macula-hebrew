@@ -5123,12 +5123,47 @@
                number="singular"
                person="third"
                after=" ">ה֛וּא</w>
-            <w osisId="2Ki.10.12!6"
-               role="adv"
-               morphId="120100120061"
-               Cat="noun"
-               Unicode="בֵּֽית־עֵ֥קֶד הָרֹעִ֖ים"
-               nodeId="1201001200610010"/>
+            <wg role="adv"
+                class="np"
+                Head="true"
+                nodeId="1201001200610011"
+                Rule="n2np">
+               <wg class="compound">
+                  <w osisId="2Ki.10.12!6"
+                     morphId="120100120061"
+                     Cat="noun"
+                     Unicode="בֵּֽית־עֵ֥קֶד הָרֹעִ֖ים"
+                     nodeId="1201001200610010"
+                     n="120100120061"
+                     morph="Np"
+                     lang="H"
+                     lemma="1044+"
+                     pos="noun"
+                     after="־">בֵּֽית</w>
+                  <w osisId="2Ki.10.12!6"
+                     morphId="120100120061"
+                     Cat="noun"
+                     Unicode="בֵּֽית־עֵ֥קֶד הָרֹעִ֖ים"
+                     nodeId="1201001200610010"
+                     n="120100120071"
+                     morph="Np"
+                     lang="H"
+                     lemma="1044"
+                     pos="noun"
+                     after=" ">עֵ֥קֶד</w>
+                  <w osisId="2Ki.10.12!6"
+                     morphId="120100120061"
+                     Cat="noun"
+                     Unicode="בֵּֽית־עֵ֥קֶד הָרֹעִ֖ים"
+                     nodeId="1201001200610010"
+                     n="120100120081"
+                     morph="Np"
+                     lang="H"
+                     lemma="7462 a"
+                     pos="noun"
+                     after=" ">הָרֹעִ֖ים</w>
+               </wg>
+            </wg>
             <wg role="pp"
                 class="pp"
                 Head="false"
@@ -5791,11 +5826,32 @@
                         number="singular"
                         state="construct"
                         after=" ">בּ֣וֹר</w>
-                     <w osisId="2Ki.10.14!9"
-                        morphId="120100140091"
-                        Cat="noun"
-                        Unicode="בֵּֽית־עֵ֗קֶד"
-                        nodeId="1201001400910010"/>
+                     <wg class="np" Head="true" nodeId="1201001400910011" Rule="n2np">
+                        <wg class="compound">
+                           <w osisId="2Ki.10.14!9"
+                              morphId="120100140091"
+                              Cat="noun"
+                              Unicode="בֵּֽית־עֵ֗קֶד"
+                              nodeId="1201001400910010"
+                              n="120100140091"
+                              morph="Np"
+                              lang="H"
+                              lemma="1044+"
+                              pos="noun"
+                              after="־">בֵּֽית</w>
+                           <w osisId="2Ki.10.14!9"
+                              morphId="120100140091"
+                              Cat="noun"
+                              Unicode="בֵּֽית־עֵ֗קֶד"
+                              nodeId="1201001400910010"
+                              n="120100140101"
+                              morph="Np"
+                              lang="H"
+                              lemma="1044"
+                              pos="noun"
+                              after=" ">עֵ֗קֶד</w>
+                        </wg>
+                     </wg>
                   </wg>
                </wg>
             </wg>
@@ -11906,12 +11962,38 @@
                         pos="particle"
                         after=" ">אֲשֶׁ֥ר</w>
                      <wg class="cl" Head="true" nodeId="1201002901710014" Rule="p2cl">
-                        <w osisId="2Ki.10.29!17"
-                           role="p"
-                           morphId="120100290171"
-                           Cat="noun"
-                           Unicode="בֵּֽית־אֵ֖ל"
-                           nodeId="1201002901710010"/>
+                        <wg role="p"
+                            class="pp"
+                            Head="true"
+                            nodeId="1201002901710012"
+                            Rule="np2pp">
+                           <wg class="np" Head="true" nodeId="1201002901710011" Rule="n2np">
+                              <wg class="compound">
+                                 <w osisId="2Ki.10.29!17"
+                                    morphId="120100290171"
+                                    Cat="noun"
+                                    Unicode="בֵּֽית־אֵ֖ל"
+                                    nodeId="1201002901710010"
+                                    n="120100290171"
+                                    morph="Np"
+                                    lang="H"
+                                    lemma="1008+"
+                                    pos="noun"
+                                    after="־">בֵּֽית</w>
+                                 <w osisId="2Ki.10.29!17"
+                                    morphId="120100290171"
+                                    Cat="noun"
+                                    Unicode="בֵּֽית־אֵ֖ל"
+                                    nodeId="1201002901710010"
+                                    n="120100290181"
+                                    morph="Np"
+                                    lang="H"
+                                    lemma="1008"
+                                    pos="noun"
+                                    after=" ">אֵ֖ל</w>
+                              </wg>
+                           </wg>
+                        </wg>
                      </wg>
                   </wg>
                   <w osisId="2Ki.10.29!19"

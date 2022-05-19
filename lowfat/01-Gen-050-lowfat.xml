@@ -2896,11 +2896,35 @@
                   pos="preposition"
                   after="־">עַד</w>
                <wg class="np" Head="true" nodeId="0105001000310060" Rule="nprelp">
-                  <w osisId="Gen.50.10!3"
-                     morphId="010500100031"
-                     Cat="noun"
-                     Unicode="גֹּ֣רֶנ הָאָטָ֗ד"
-                     nodeId="0105001000310010"/>
+                  <wg class="np" Head="true" nodeId="0105001000310011" Rule="n2np">
+                     <wg class="compound">
+                        <w osisId="Gen.50.10!3"
+                           morphId="010500100031"
+                           Cat="noun"
+                           Unicode="גֹּ֣רֶנ הָאָטָ֗ד"
+                           nodeId="0105001000310010"
+                           n="010500100031"
+                           morph="Ncbsc"
+                           lang="H"
+                           lemma="1637"
+                           pos="noun"
+                           gender="both"
+                           number="singular"
+                           state="construct"
+                           after=" ">גֹּ֣רֶן</w>
+                        <w osisId="Gen.50.10!3"
+                           morphId="010500100031"
+                           Cat="noun"
+                           Unicode="גֹּ֣רֶנ הָאָטָ֗ד"
+                           nodeId="0105001000310010"
+                           n="010500100041"
+                           morph="Td"
+                           lang="H"
+                           lemma="329"
+                           pos="particle"
+                           after=" ">הָאָטָ֗ד</w>
+                     </wg>
+                  </wg>
                   <wg clauseType="relative"
                       class="relp"
                       Head="false"
@@ -3393,11 +3417,35 @@
                   lang="H"
                   lemma="b"
                   pos="preposition">בְּ</w>
-               <w osisId="Gen.50.11!7"
-                  morphId="010500110072"
-                  Cat="noun"
-                  Unicode="גֹ֙רֶנ֙ הָֽאָטָ֔ד"
-                  nodeId="0105001100720010"/>
+               <wg class="np" Head="true" nodeId="0105001100720011" Rule="n2np">
+                  <wg class="compound">
+                     <w osisId="Gen.50.11!7"
+                        morphId="010500110072"
+                        Cat="noun"
+                        Unicode="גֹ֙רֶנ֙ הָֽאָטָ֔ד"
+                        nodeId="0105001100720010"
+                        n="010500110072"
+                        morph="Ncbsc"
+                        lang="H"
+                        lemma="1637"
+                        pos="noun"
+                        gender="both"
+                        number="singular"
+                        state="construct"
+                        after=" ">גֹ֨רֶן֙</w>
+                     <w osisId="Gen.50.11!7"
+                        morphId="010500110072"
+                        Cat="noun"
+                        Unicode="גֹ֙רֶנ֙ הָֽאָטָ֔ד"
+                        nodeId="0105001100720010"
+                        n="010500110081"
+                        morph="Np"
+                        lang="H"
+                        lemma="329"
+                        pos="noun"
+                        after=" ">הָֽאָטָ֔ד</w>
+                  </wg>
+               </wg>
             </wg>
          </wg>
          <w osisId="Gen.50.11!9"
@@ -3586,11 +3634,32 @@
                 Head="true"
                 nodeId="0105001101810060"
                 Rule="nprelp">
-               <w osisId="Gen.50.11!18"
-                  morphId="010500110171"
-                  Cat="noun"
-                  Unicode="אָבֵ֣ל מִצְרַ֔יִם"
-                  nodeId="0105001101810010"/>
+               <wg class="np" Head="true" nodeId="0105001101810011" Rule="n2np">
+                  <wg class="compound">
+                     <w osisId="Gen.50.11!18"
+                        morphId="010500110171"
+                        Cat="noun"
+                        Unicode="אָבֵ֣ל מִצְרַ֔יִם"
+                        nodeId="0105001101810010"
+                        n="010500110181"
+                        morph="Np"
+                        lang="H"
+                        lemma="67+"
+                        pos="noun"
+                        after=" ">אָבֵ֣ל</w>
+                     <w osisId="Gen.50.11!18"
+                        morphId="010500110171"
+                        Cat="noun"
+                        Unicode="אָבֵ֣ל מִצְרַ֔יִם"
+                        nodeId="0105001101810010"
+                        n="010500110191"
+                        morph="Np"
+                        lang="H"
+                        lemma="67"
+                        pos="noun"
+                        after=" ">מִצְרַ֔יִם</w>
+                  </wg>
+               </wg>
                <wg clauseType="relative"
                    class="relp"
                    Head="false"
@@ -4916,24 +4985,18 @@
                after=" ">יֹּ֣אמְר֔וּ</w>
          </wg>
          <wg class="cl" Head="false" nodeId="0105001500810170" Rule="ptclcl">
-            <error3>
-               <Node Cat="ptcl" Rule="pp2ptcl" Head="0" nodeId="0105001500810012">
-                  <Node Cat="pp" Rule="P2PP" Head="0" nodeId="0105001500810011">
-                     <Node n="010500150081"
-                           Cat="prep"
-                           morphId="010500150081"
-                           Unicode="ל֥וּ"
-                           nodeId="0105001500810010">
-                        <m n="010500150081"
-                           lang="H"
-                           after=" "
-                           lemma="3863"
-                           morph="C"
-                           pos="conjunction">ל֥וּ</m>
-                     </Node>
-                  </Node>
-               </Node>
-            </error3>
+            <Node n="010500150081"
+                  Cat="prep"
+                  morphId="010500150081"
+                  Unicode="ל֥וּ"
+                  nodeId="0105001500810010">
+                  <m n="010500150081"
+                  lang="H"
+                  after=" "
+                  lemma="3863"
+                  morph="C"
+                  pos="conjunction">ל֥וּ</m>
+                </Node>
             <wg class="cl" Head="true" nodeId="0105001500910160" Rule="clacl">
                <wg class="cl" Head="true" nodeId="0105001500910030" Rule="v-o-s">
                   <w osisId="Gen.50.15!9"
