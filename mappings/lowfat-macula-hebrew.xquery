@@ -321,12 +321,23 @@ declare function local:rclause($node)
         $node/Node ! local:node(.)
 };
 
+declare function local:compound($nodeWithCChild)
+{
+(: If a node has a <c> child, it is the only child :)
+    <wg
+        class='compound'>
+        {
+            local:attributes($nodeWithCChild),
+            $nodeWithCChild//m ! local:m(.)
+        }
+    </wg>
+};
 
 declare function local:phrase($node)
 {
     if (local:oneword($node))
     then
-        (local:word(local:oneword($node)))
+        (local:m(local:oneword($node)/m)) (: PICKING UP: running into problems with oneword - probably when it hits a <c> element :)
     else
         <wg>
             {
@@ -348,7 +359,7 @@ declare function local:role($node)
     return
         if (local:oneword($node))
         then
-            (local:word-with-role(local:oneword($node), $role))
+            (local:m-with-role(local:oneword($node)/m, $role))
         else
             if (count($node/Node) > 1)
             then
@@ -368,55 +379,48 @@ declare function local:role($node)
                 </wg>
 };
 
-declare function local:word($node)
+declare function local:m($m as element(m))
 {
-    local:word-with-role($node, ())
+    local:m-with-role($m, ()) 
 };
 
-declare function local:word-with-role($node, $role)
+declare function local:m-with-role($m as element(), $role)
 (: $role can contain a role attribute or a null sequence :)
 {
-    if ($node/Node)
+    if(name($m) = 'Node')
     then
-        (element error1 {$role, $node})
+        element error10 {$role, $m, 'error location id:', data($m/@n)}
+    else if(name($m) = 'c')
+    then
+        element error12 {$role, $m, 'error location id:', data($m/@n)}    
+    else if ($m/*)
+    then
+        (element error1 {$role, $m})
     else
-        if (string-length($node) = string-length($node/@Unicode) + 1)
-        then
-            (: place punctuation in a separate node :)
-            (
-            <w osisId='{local:osisId($node/@nodeId)
-            (: NOTE: There has got to be a more idiomatic way to assign this attribute and value to the new element. I am running into an error when I try to add it to the set of braces just below these current ones. :)
-            }'>
-                {
-                    $role,
-                    $node/@morphId,
-                    $node/@Cat,
-                    $node/@Unicode,
-                    $node/@nodeId, (: NOTE: this @nodeId comes from the parent Node, which is a word element, and adds it to the morphological <m> node :)
-                    local:attributes($node/m),
-                    substring($node, 1, string-length($node) - 1)
-                }
-            </w>,
-            <error8PunctuationShouldComeFromAfterAttr>{substring($node, string-length($node), 1)
-            }</error8PunctuationShouldComeFromAfterAttr>
-            )
-        else
-            <w osisId='{local:osisId($node/@nodeId)}'>
-                {
-                    $role,
-                    $node/@morphId,
-                    $node/@Cat,
-                    $node/@Unicode,
-                    $node/@nodeId,
-                    local:attributes($node/m),
-                    string($node/m/text())
-                }
-            </w>
+        <w osisId='{local:osisId($m/ancestor::Node[1]/@nodeId)}'>
+            {
+                (: get the @Cat etc. from the ancestor::Node[1] :)
+                $role,
+                $m/ancestor::Node[1]/@morphId,
+                $m/ancestor::Node[1]/@Cat,
+                $m/ancestor::Node[1]/@Unicode,
+                $m/ancestor::Node[1]/@nodeId,
+                local:attributes($m),
+                string($m/text()),
+                'parent: ',
+                $m//parent::*,
+                ':parent'
+                
+            }
+        </w>
 };
 
 declare function local:node-type($node as element(Node))
 {
-    if ($node/m)
+    if ($node/c)
+    then 
+        "compound"
+    else if ($node/m and not($node/c))
     then
         "word"
     else
@@ -470,9 +474,12 @@ declare function local:node-type($node as element(Node))
 declare function local:node($node as element(Node))
 {
     switch (local:node-type($node))
+        case "compound"
+            return
+                local:compound($node/c)
         case "word"
             return
-                local:word($node)
+                local:m($node/m)
         case "phrase"
             return
                 local:phrase($node)
@@ -517,7 +524,8 @@ declare function local:sentence($node)
                 {local:straight-text($node)}
             </p>,
             
-            if (count($node/Node) > 1 or not($node/Node/@node = 'CL'))
+            if (count($node/Node) > 1 or not($node/Node/@Cat = 'CL'))
+            (: If the current node has multiple node children, OR it does not have a clause child :)
             then
                 <wg
                     role="cl">{$node/Node ! local:node(.)}</wg>
