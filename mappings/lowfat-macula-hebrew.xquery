@@ -496,7 +496,7 @@ declare function local:node($node as element(Node))
                 local:clause($node)
         case "nonPhrase"
             return
-                local:node($node)
+                local:oneword($node)
         default
         return <error3>{$node}</error3>
 };
