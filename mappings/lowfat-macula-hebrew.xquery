@@ -234,7 +234,7 @@ else
     )
 };
 
-declare function local:oneword($node)
+declare function local:oneword($node as element(Node))
 (: If the Node governs a single word, return that word. :)
 {
     if (count($node/Node) > 1)
@@ -245,7 +245,10 @@ declare function local:oneword($node)
         then
             local:oneword($node/Node)
         else
-            $node
+            if ($node/c)
+            then
+                ()
+            else $node
 };
 
 declare function local:sub-CL-adjunct($node)
@@ -406,10 +409,7 @@ declare function local:m-with-role($m as element(), $role)
                 $m/ancestor::Node[1]/@Unicode,
                 $m/ancestor::Node[1]/@nodeId,
                 local:attributes($m),
-                string($m/text()),
-                'parent: ',
-                $m//parent::*,
-                ':parent'
+                string($m/text())
                 
             }
         </w>
@@ -453,6 +453,7 @@ declare function local:node-type($node as element(Node))
                 return
                     "phrase"
             case "prep"
+            case "ptcl"
             case "noun"
             case "verb"
             case "om"
@@ -464,6 +465,7 @@ declare function local:node-type($node as element(Node))
             case "pron"
             case "adv"
             case "ij"
+            case "x"
                 return
                     "nonPhrase"
             default
@@ -492,6 +494,9 @@ declare function local:node($node as element(Node))
         case "clause"
             return
                 local:clause($node)
+        case "nonPhrase"
+            return
+                local:node($node)
         default
         return <error3>{$node}</error3>
 };
