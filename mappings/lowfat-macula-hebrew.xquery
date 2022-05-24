@@ -543,7 +543,7 @@ declare function local:sentence($node)
 
 processing-instruction xml-stylesheet {'href="hebrew-treedown.css"'},
 processing-instruction xml-stylesheet {'href="hebrew-boxwood.css"'},
-<book>
+<chapter id="{/Sentences/Sentence[1]/Trees[1]/Tree[1]/Node[1]/local:osisBook(@nodeId)}">
     {
         (:
             If a sentence has multiple interpretations, Sentence/Trees may contain
@@ -554,4 +554,4 @@ processing-instruction xml-stylesheet {'href="hebrew-boxwood.css"'},
         return
             local:sentence($sentence)
     }
-</book>
+</chapter>
