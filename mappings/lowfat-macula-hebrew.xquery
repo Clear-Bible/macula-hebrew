@@ -18,131 +18,79 @@
 
 declare variable $retain-singletons := false();
 
-declare function local:osisBook($nodeId)
+declare function local:USFMBook($nodeId)
 {
 if(string-length($nodeId) < 1)
 then "error5"
 else
     switch (xs:integer(substring($nodeId, 1, 2)))
-        case 01
-            return
-                "Gen"
-        case 02
-            return
-                "Exo"
-        case 03
-            return
-                "Lev"
-        case 04
-            return
-                "Num"
-        case 05
-            return
-                "Deu"
-        case 06
-            return
-                "Jos"
-        case 07
-            return
-                "Jdg"
-        case 08
-            return
-                "Rut"
-        case 09
-            return
-                "1Sa"
-        case 10
-            return
-                "2Sa"
-        case 11
-            return
-                "1Ki"
-        case 12
-            return
-                "2Ki"
-        case 13
-            return
-                "1Ch"
-        case 14
-            return
-                "2Ch"
-        case 15
-            return
-                "Ezr"
-        case 16
-            return
-                "Neh"
-        case 17
-            return
-                "Est"
-        case 18
-            return
-                "Job"
-        case 19
-            return
-                "Psa"
-        case 20
-            return
-                "Pro"
-        case 21
-            return
-                "Ecc"
-        case 22
-            return
-                "Sng"
-        case 23
-            return
-                "Isa"
-        case 24
-            return
-                "Jer"
-        case 25
-            return
-                "Lam"
-        case 26
-            return
-                "Ezk"
-        case 27
-            return
-                "Dan"
-        case 28
-            return
-                "HOS"
-        case 29
-            return
-                "Jol"
-        case 30
-            return
-                "Amo"
-        case 31
-            return
-                "Oba"
-        case 32
-            return
-                "Jon"
-        case 33
-            return
-                "Mic"
-        case 34
-            return
-                "Nam"
-        case 35
-            return
-                "Hab"
-        case 36
-            return
-                "Zep"
-        case 37
-            return
-                "Hag"
-        case 38
-            return
-                "Zec"
-        case 39
-            return
-                "Mal"
-        default return
-            "###"
+        case 01 return "GEN"
+        case 02 return "EXO"
+        case 03 return "LEV"
+        case 04 return "NUM"
+        case 05 return "DEU"
+        case 06 return "JOS"
+        case 07 return "JDG"
+        case 08 return "RUT"
+        case 09 return "1SA"
+        case 10 return "2SA"
+        case 11 return "1KI"
+        case 12 return "2KI"
+        case 13 return "1CH"
+        case 14 return "2CH"
+        case 15 return "EZR"
+        case 16 return "NEH"
+        case 17 return "EST"
+        case 18 return "JOB"
+        case 19 return "PSA"
+        case 20 return "PRO"
+        case 21 return "ECC"
+        case 22 return "SNG"
+        case 23 return "ISA"
+        case 24 return "JER"
+        case 25 return "LAM"
+        case 26 return "EZK"
+        case 27 return "DAN"
+        case 28 return "HOS"
+        case 29 return "JOL"
+        case 30 return "AMO"
+        case 31 return "OBA"
+        case 32 return "JON"
+        case 33 return "MIC"
+        case 34 return "NAM"
+        case 35 return "HAB"
+        case 36 return "ZEP"
+        case 37 return "HAG"
+        case 38 return "ZEC"
+        case 39 return "MAL"
+        case 40 return "MAT"
+        case 41 return "MRK"
+        case 42 return "LUK"
+        case 43 return "JHN"
+        case 44 return "ACT"
+        case 45 return "ROM"
+        case 46 return "1CO"
+        case 47 return "2CO"
+        case 48 return "GAL"
+        case 49 return "EPH"
+        case 50 return "PHP"
+        case 51 return "COL"
+        case 52 return "1TH"
+        case 53 return "2TH"
+        case 54 return "1TI"
+        case 55 return "2TI"
+        case 56 return "TIT"
+        case 57 return "PHM"
+        case 58 return "HEB"
+        case 59 return "JAS"
+        case 60 return "1PE"
+        case 61 return "2PE"
+        case 62 return "1JN"
+        case 63 return "2JN"
+        case 64 return "3JN"
+        case 65 return "JUD"
+        case 66 return "REV"
+        default return "###"
 };
 
 declare function local:verbal-noun-type($node)
@@ -205,15 +153,16 @@ declare function local:attributes($node)
     $node/@after
 };
 
-declare function local:osisId($nodeId)
+(: TODO: the USFM id does not need to be computed from the Nodes trees, since USFM ids are now included on verses and words :)
+declare function local:USFMId($nodeId)
 {
 if(string-length($nodeId) < 1) 
 then "error6NoIDFoundInNode"
 else
-    concat(local:osisBook($nodeId),
-    ".",
+    concat(local:USFMBook($nodeId),
+    " ",
     xs:integer(substring($nodeId, 3, 3)),
-    ".",
+    ":",
     xs:integer(substring($nodeId, 6, 3)),
     "!",
     xs:integer(substring($nodeId, 9, 3))
@@ -221,12 +170,12 @@ else
 };
 
 
-declare function local:osisVerseId($nodeId)
+declare function local:USFMVerseId($nodeId)
 {
 if(string-length($nodeId) < 1) 
 then "error7"
 else
-    concat(local:osisBook($nodeId),
+    concat(local:USFMBook($nodeId),
     ".",
     xs:integer(substring($nodeId, 3, 3)),
     ".",
@@ -400,7 +349,7 @@ declare function local:m-with-role($m as element(), $role)
     then
         (element error1 {$role, $m})
     else
-        <w osisId='{local:osisId($m/ancestor::Node[1]/@nodeId)}'>
+        <w USFMId='{local:USFMId($m/ancestor::Node[1]/@nodeId)}'>
             {
                 (: get the @Cat etc. from the ancestor::Node[1] :)
                 $role,
@@ -515,7 +464,7 @@ declare function local:sentence($node)
         {
             <p>
                 {
-                    for $verse in distinct-values($node//Node/@morphId ! local:osisVerseId(.))
+                    for $verse in distinct-values($node//Node/@morphId ! local:USFMVerseId(.))
                     return
                         (
                         <milestone
@@ -543,7 +492,7 @@ declare function local:sentence($node)
 
 processing-instruction xml-stylesheet {'href="hebrew-treedown.css"'},
 processing-instruction xml-stylesheet {'href="hebrew-boxwood.css"'},
-<book>
+<chapter id="{/Sentences/Sentence[1]/Trees[1]/Tree[1]/Node[1]/local:USFMBook(@nodeId)}">
     {
         (:
             If a sentence has multiple interpretations, Sentence/Trees may contain
@@ -554,4 +503,4 @@ processing-instruction xml-stylesheet {'href="hebrew-boxwood.css"'},
         return
             local:sentence($sentence)
     }
-</book>
+</chapter>
