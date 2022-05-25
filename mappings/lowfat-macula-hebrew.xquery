@@ -176,9 +176,9 @@ if(string-length($nodeId) < 1)
 then "error7"
 else
     concat(local:USFMBook($nodeId),
-    ".",
+    " ",
     xs:integer(substring($nodeId, 3, 3)),
-    ".",
+    ":",
     xs:integer(substring($nodeId, 6, 3))
     )
 };
