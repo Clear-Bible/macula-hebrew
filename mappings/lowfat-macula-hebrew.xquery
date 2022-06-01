@@ -453,9 +453,10 @@ declare function local:node($node as element(Node))
 declare function local:straight-text($node)
 {
     for $n at $i in $node//Node[local:node-type(.) = 'word']
+        let $afterValue := string($n/m/@after)
+        let $textValue := string($n/m/text())
         order by $n/@morphId
-    return
-        string($n/m/text())
+    return ($textValue, if (string-length($afterValue) > 0) then $afterValue else 'NOAFTERVALUE')
 };
 
 declare function local:sentence($node)
@@ -475,7 +476,7 @@ declare function local:sentence($node)
                         " "
                         )
                 }
-                {local:straight-text($node)}
+                {replace(string-join(local:straight-text($node)), 'NOAFTERVALUE', '')}
             </p>,
             
             if (count($node/Node) > 1 or not($node/Node/@Cat = 'CL'))
