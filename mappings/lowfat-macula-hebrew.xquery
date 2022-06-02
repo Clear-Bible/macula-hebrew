@@ -133,13 +133,11 @@ declare function local:head($node)
 
 declare function local:attributes($node)
 {
-    $node/@ID ! attribute ID {lower-case(.)},
     $node/@Cat ! attribute class {lower-case(.)},
     $node/@Head ! attribute Head {if (. = '0') then true() else false()},
-    $node/@nodeId ! attribute nodeId {lower-case(.)},
+    $node/@nodeId ! attribute n {lower-case(.)},
     $node/@Rule ! attribute Rule {lower-case(.)},
     $node/@n ! attribute n {lower-case(.)},
-    $node/@morphId ! attribute morphId {lower-case(.)},
     $node/@Unicode ! attribute Unicode {lower-case(.)},
     $node/@morph ! attribute morph {.},
     $node/@lang ! attribute lang {.},
@@ -354,13 +352,10 @@ declare function local:m-with-role($m as element(), $role)
             {
                 (: get the @Cat etc. from the ancestor::Node[1] :)
                 $role,
-                $m/ancestor::Node[1]/@morphId,
                 $m/ancestor::Node[1]/@Cat,
                 $m/ancestor::Node[1]/@Unicode,
-                $m/ancestor::Node[1]/@nodeId,
                 local:attributes($m),
                 string($m/text())
-                
             }
         </w>
 };
