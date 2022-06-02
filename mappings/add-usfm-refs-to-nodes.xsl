@@ -258,7 +258,7 @@
     <xsl:template match="m">
         <xsl:variable name="USFMId" select="macula:USFMId(data(./@n))"/>
         <xsl:copy>
-            <xsl:attribute name="USFMId">
+            <xsl:attribute name="word">
                 <xsl:value-of select="$USFMId"/>
             </xsl:attribute>
             <xsl:apply-templates select="@* | node()"/>
@@ -268,13 +268,13 @@
     <xsl:template match="Sentence">
         <xsl:variable name="USFMId" select="macula:USFMVerseId(data(./Trees/Tree/Node/@nodeId))"/>
         <xsl:copy>
-            <xsl:attribute name="USFMId">
+            <xsl:attribute name="verse">
                 <xsl:value-of select="$USFMId"/>
             </xsl:attribute>
             <xsl:apply-templates select="@* | node()"/>
         </xsl:copy>
     </xsl:template>
     
-    <xsl:template match="@osisId | @ID"/> <!-- Remove obsolete IDs -->
+    <xsl:template match="@osisId | @ID | @USFMId | @usfmRef"/> <!-- Remove obsolete IDs in case they exist -->
 
 </xsl:stylesheet>

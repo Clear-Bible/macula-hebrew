@@ -133,13 +133,11 @@ declare function local:head($node)
 
 declare function local:attributes($node)
 {
-    $node/@ID ! attribute ID {lower-case(.)},
     $node/@Cat ! attribute class {lower-case(.)},
     $node/@Head ! attribute Head {if (. = '0') then true() else false()},
-    $node/@nodeId ! attribute nodeId {lower-case(.)},
+    $node/@nodeId ! attribute n {lower-case(.)},
     $node/@Rule ! attribute Rule {lower-case(.)},
     $node/@n ! attribute n {lower-case(.)},
-    $node/@morphId ! attribute morphId {lower-case(.)},
     $node/@Unicode ! attribute Unicode {lower-case(.)},
     $node/@morph ! attribute morph {.},
     $node/@lang ! attribute lang {.},
@@ -349,17 +347,15 @@ declare function local:m-with-role($m as element(), $role)
     then
         (element error1 {$role, $m})
     else
-        <w USFMId='{local:USFMId($m/ancestor::Node[1]/@nodeId)}'>
+        (:<w ref='{local:USFMId($m/ancestor::Node[1]/@nodeId)}'> NOTE: use this line to recalculate refs from @nodeIds :)
+        <w ref='{$m/@word}'>
             {
                 (: get the @Cat etc. from the ancestor::Node[1] :)
                 $role,
-                $m/ancestor::Node[1]/@morphId,
                 $m/ancestor::Node[1]/@Cat,
                 $m/ancestor::Node[1]/@Unicode,
-                $m/ancestor::Node[1]/@nodeId,
                 local:attributes($m),
                 string($m/text())
-                
             }
         </w>
 };
@@ -453,9 +449,10 @@ declare function local:node($node as element(Node))
 declare function local:straight-text($node)
 {
     for $n at $i in $node//Node[local:node-type(.) = 'word']
+        let $afterValue := string($n/m/@after)
+        let $textValue := string($n/m/text())
         order by $n/@morphId
-    return
-        string($n/m/text())
+    return ($textValue, if (string-length($afterValue) > 0) then $afterValue else 'NOAFTERVALUE')
 };
 
 declare function local:sentence($node)
@@ -475,7 +472,7 @@ declare function local:sentence($node)
                         " "
                         )
                 }
-                {local:straight-text($node)}
+                {replace(string-join(local:straight-text($node)), 'NOAFTERVALUE', '')}
             </p>,
             
             if (count($node/Node) > 1 or not($node/Node/@Cat = 'CL'))
@@ -492,7 +489,7 @@ declare function local:sentence($node)
 
 processing-instruction xml-stylesheet {'href="hebrew-treedown.css"'},
 processing-instruction xml-stylesheet {'href="hebrew-boxwood.css"'},
-<chapter id="{/Sentences/Sentence[1]/Trees[1]/Tree[1]/Node[1]/local:USFMBook(@nodeId)}">
+<chapter id="{(//Sentence)[1]/substring(@verse, 1, 5)}">
     {
         (:
             If a sentence has multiple interpretations, Sentence/Trees may contain
