@@ -349,7 +349,8 @@ declare function local:m-with-role($m as element(), $role)
     then
         (element error1 {$role, $m})
     else
-        <w USFMId='{local:USFMId($m/ancestor::Node[1]/@nodeId)}'>
+        (:<w ref='{local:USFMId($m/ancestor::Node[1]/@nodeId)}'> NOTE: use this line to recalculate refs from @nodeIds :)
+        <w ref='{$m/@word}'>
             {
                 (: get the @Cat etc. from the ancestor::Node[1] :)
                 $role,
@@ -493,7 +494,7 @@ declare function local:sentence($node)
 
 processing-instruction xml-stylesheet {'href="hebrew-treedown.css"'},
 processing-instruction xml-stylesheet {'href="hebrew-boxwood.css"'},
-<chapter id="{/Sentences/Sentence[1]/Trees[1]/Tree[1]/Node[1]/local:USFMBook(@nodeId)}">
+<chapter id="{(//Sentence)[1]/substring(@verse, 1, 5)}">
     {
         (:
             If a sentence has multiple interpretations, Sentence/Trees may contain
