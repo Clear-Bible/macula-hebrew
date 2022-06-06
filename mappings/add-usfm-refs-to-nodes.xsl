@@ -264,7 +264,7 @@
 
     <xsl:template match="@n">
         <xsl:variable name="bookNumber" select="macula:node-book-number(data(.))"/>
-        <xsl:attribute name="n">
+        <xsl:attribute name="xml:id">
             <xsl:choose>
                 <xsl:when test="$bookNumber > 39">
                     <!-- 'n' prefix for NT books -->
