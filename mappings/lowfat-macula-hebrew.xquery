@@ -135,9 +135,8 @@ declare function local:attributes($node)
 {
     $node/@Cat ! attribute class {lower-case(.)},
     $node/@Head ! attribute Head {if (. = '0') then true() else false()},
-    $node/@nodeId ! attribute n {lower-case(.)},
+    $node/@nodeId ! attribute xml:id {lower-case(.)},
     $node/@Rule ! attribute Rule {lower-case(.)},
-    $node/@n ! attribute n {lower-case(.)},
     $node/@Unicode ! attribute Unicode {lower-case(.)},
     $node/@morph ! attribute morph {.},
     $node/@lang ! attribute lang {.},
@@ -339,10 +338,10 @@ declare function local:m-with-role($m as element(), $role)
 {
     if(name($m) = 'Node')
     then
-        element error10 {$role, $m, 'error location id:', data($m/@n)}
+        element error10 {$role, $m, 'error location id:', data($m/@xml:id)}
     else if(name($m) = 'c')
     then
-        element error12 {$role, $m, 'error location id:', data($m/@n)}    
+        element error12 {$role, $m, 'error location id:', data($m/@xml:id)}    
     else if ($m/*)
     then
         (element error1 {$role, $m})
@@ -352,6 +351,7 @@ declare function local:m-with-role($m as element(), $role)
             {
                 (: get the @Cat etc. from the ancestor::Node[1] :)
                 $role,
+                $m/@xml:id,
                 $m/ancestor::Node[1]/@Cat,
                 $m/ancestor::Node[1]/@Unicode,
                 local:attributes($m),

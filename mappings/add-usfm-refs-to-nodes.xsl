@@ -5,11 +5,18 @@
     <!-- declare macula namespace -->
     <xsl:namespace-alias stylesheet-prefix="xs" result-prefix="xsl"/>
 
+    <xsl:function name="macula:node-book-number">
+        <xsl:param name="nodeBookId"/>
+        <xsl:if test="string-length($nodeBookId) > 0">
+            <xsl:value-of select="substring($nodeBookId, 1, 2)"/>
+        </xsl:if>
+    </xsl:function>
+
     <xsl:function name="macula:USFMBook">
         <xsl:param name="nodeBookId"/>
         <xsl:if test="string-length($nodeBookId) > 0">
             <xsl:variable name="nodeBookNumber">
-                <xsl:value-of select="substring($nodeBookId, 1, 2)"/>
+                <xsl:value-of select="macula:node-book-number($nodeBookId)"/>
             </xsl:variable>
             <xsl:choose>
                 <xsl:when test="$nodeBookNumber = '01'">
@@ -255,6 +262,34 @@
         </xsl:copy>
     </xsl:template>
 
+    <xsl:template match="@n">
+        <xsl:variable name="bookNumber" select="macula:node-book-number(data(.))"/>
+        <xsl:attribute name="xml:id">
+            <xsl:choose>
+                <xsl:when test="$bookNumber > 39">
+                    <!-- 'n' prefix for NT books -->
+                    <xsl:value-of select="concat('n', .)"/>
+                </xsl:when>
+                <xsl:when test="$bookNumber &lt; 40">
+                    <!-- 'o' prefix for OT books -->
+                    <xsl:value-of select="concat('o', .)"/>
+                </xsl:when>
+                <!-- TEST FOR LXX BOOKS?
+                    <xsl:when test=""> 
+                        <!-/- 'l' prefix for LXX books -/->
+                        <xsl:value-of select="concat('o', .)"/>
+                    </xsl:when>
+                -->
+                <!-- TEST FOR VULGATE BOOKS? etc.
+                    <xsl:when test=""> 
+                        <!-/- 'v' prefix for Vulgate books -/->
+                        <xsl:value-of select="concat('o', .)"/>
+                    </xsl:when>
+                -->
+            </xsl:choose>
+        </xsl:attribute>
+    </xsl:template>
+
     <xsl:template match="m">
         <xsl:variable name="USFMId" select="macula:USFMId(data(./@n))"/>
         <xsl:copy>
@@ -274,7 +309,8 @@
             <xsl:apply-templates select="@* | node()"/>
         </xsl:copy>
     </xsl:template>
-    
-    <xsl:template match="@osisId | @ID | @USFMId | @usfmRef"/> <!-- Remove obsolete IDs in case they exist -->
+
+    <xsl:template match="@osisId | @ID | @USFMId | @usfmRef | @word | @verse"/>
+    <!-- Remove obsolete or existing IDs in case they exist -->
 
 </xsl:stylesheet>
