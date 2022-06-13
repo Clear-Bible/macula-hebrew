@@ -147,7 +147,14 @@ declare function local:attributes($node)
     $node/@state ! attribute state {lower-case(.)},
     $node/@stem ! attribute stem {lower-case(.)},
     $node/@person ! attribute person {lower-case(.)},
-    $node/@after
+    $node/@after,
+    $node/@english,
+    $node/@mandarin,
+    $node/@SDBH,
+    $node/@Greek,
+    $node/@GreekStrong,
+    $node/@StrongNumberX,
+    $node/@SenseNumber
 };
 
 (: TODO: the USFM id does not need to be computed from the Nodes trees, since USFM ids are now included on verses and words :)
@@ -489,7 +496,7 @@ declare function local:sentence($node)
 
 processing-instruction xml-stylesheet {'href="hebrew-treedown.css"'},
 processing-instruction xml-stylesheet {'href="hebrew-boxwood.css"'},
-<chapter id="{(//Sentence)[1]/substring(@verse, 1, 5)}">
+<chapter id="{(//Sentence)[1]/tokenize(@verse, ':')[1]}">
     {
         (:
             If a sentence has multiple interpretations, Sentence/Trees may contain
