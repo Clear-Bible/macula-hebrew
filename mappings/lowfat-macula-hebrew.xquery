@@ -344,6 +344,7 @@ return
                 $m/@xml:id,
                 $m/@mandarin,
                 $m/@english,
+                $m/@SDBH,
                 $m/ancestor::Node[1]/@Greek,
                 $m/ancestor::Node[1]/@StrongNumberX,
                 $m/ancestor::Node[1]/@Cat,
