@@ -135,7 +135,7 @@ declare function local:attributes($node)
 {
     $node/@Cat ! attribute class {lower-case(.)},
     $node/@Head ! attribute Head {if (. = '0') then true() else false()},
-    $node/@nodeId ! attribute xml:id {lower-case(.)},
+    (:$node/@nodeId ! attribute xml:id {concat('o', lower-case(.))}, (\: NOTE: corpus-specific prefix 'o' is added to nodeIds here :\):)
     $node/@Rule ! attribute Rule {lower-case(.)},
     $node/@Unicode ! attribute Unicode {lower-case(.)},
     $node/@morph ! attribute morph {.},
@@ -352,6 +352,10 @@ declare function local:m-with-role($m as element(), $role)
                 (: get the @Cat etc. from the ancestor::Node[1] :)
                 $role,
                 $m/@xml:id,
+                $m/@mandarin,
+                $m/@english,
+                $m/ancestor::Node[1]/@Greek,
+                $m/ancestor::Node[1]/@StrongNumberX,
                 $m/ancestor::Node[1]/@Cat,
                 $m/ancestor::Node[1]/@Unicode,
                 local:attributes($m),
