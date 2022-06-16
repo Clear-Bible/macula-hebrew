@@ -194,7 +194,10 @@ declare function local:oneword($node as element(Node))
             if ($node/c)
             then
                 ()
-            else $node
+            else
+                if ($node/m)
+                then $node ! local:node(.)
+                else <error13>{$node}</error13>
 };
 
 declare function local:sub-CL-adjunct($node)
@@ -255,21 +258,6 @@ declare function local:clause($node)
         $node/Node ! local:node(.)
 };
 
-declare function local:rclause($node)
-{
-    if (local:is-worth-preserving($node))
-    then
-        <wg
-            clauseType='relative'>
-            {
-                local:attributes($node),
-                $node/Node ! local:node(.)
-            }
-        </wg>
-    else
-        $node/Node ! local:node(.)
-};
-
 declare function local:compound($nodeWithCChild)
 {
 (: If a node has a <c> child, it is the only child :)
@@ -284,7 +272,7 @@ declare function local:compound($nodeWithCChild)
 
 declare function local:phrase($node)
 {
-    if (local:oneword($node))
+    if (local:oneword($node)/m)
     then
         (local:m(local:oneword($node)/m)) (: PICKING UP: running into problems with oneword - probably when it hits a <c> element :)
     else
@@ -306,7 +294,7 @@ declare function local:role($node)
 {
     let $role := attribute role {lower-case($node/@Cat)}
     return
-        if (local:oneword($node))
+        if (local:oneword($node)/m)
         then
             (local:m-with-role(local:oneword($node)/m, $role))
         else
@@ -336,6 +324,8 @@ declare function local:m($m as element(m))
 declare function local:m-with-role($m as element(), $role)
 (: $role can contain a role attribute or a null sequence :)
 {
+let $roleAttr := if ($role) then attribute role {$role} else attribute role {$m/ancestor::Node[1]/@Cat}
+return 
     if(name($m) = 'Node')
     then
         element error10 {$role, $m, 'error location id:', data($m/@xml:id)}
@@ -350,7 +340,7 @@ declare function local:m-with-role($m as element(), $role)
         <w ref='{$m/@word}'>
             {
                 (: get the @Cat etc. from the ancestor::Node[1] :)
-                $role,
+                $roleAttr,
                 $m/@xml:id,
                 $m/@mandarin,
                 $m/@english,
@@ -362,6 +352,7 @@ declare function local:m-with-role($m as element(), $role)
                 string($m/text())
             }
         </w>
+       
 };
 
 declare function local:node-type($node as element(Node))
@@ -387,8 +378,6 @@ declare function local:node-type($node as element(Node))
                 return
                     "role"
             case "relp"
-                return
-                    "rclause"
             case "pp"
             case "np"
             case "vp"
@@ -434,9 +423,6 @@ declare function local:node($node as element(Node))
         case "phrase"
             return
                 local:phrase($node)
-        case "rclause"
-            return
-                local:rclause($node)
         case "role"
             return
                 local:role($node)
