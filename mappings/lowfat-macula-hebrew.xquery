@@ -354,6 +354,7 @@ return
                 $m/@mandarin,
                 $m/@english,
                 $m/@Domain ! attribute domain {.},
+                $m/@Extends ! attribute extends {.},
                 $m/ancestor::Node[1]/@Greek ! attribute greek {.},
                 $m/ancestor::Node[1]/@StrongNumberX ! attribute strongnumberx {.},
                 $m/ancestor::Node[1]/@Cat ! attribute class {.},
