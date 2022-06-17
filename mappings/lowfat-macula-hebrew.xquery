@@ -152,11 +152,7 @@ declare function local:attributes($node)
     $node/@Ref ! attribute ref {.},
     $node/@SubjRef ! attribute subjref {.},
     $node/@StrongNumberX ! attribute strongnumberx {.},
-    $node/@Greek ! attribute greek {.},
-    $node/@english,
-    $node/@mandarin,
-    $node/@Domain ! attribute domain {.},
-    $node/@Extends ! attribute extends {.}
+    $node/@Greek ! attribute greek {.}
 };
 
 (: TODO: the USFM id does not need to be computed from the Nodes trees, since USFM ids are now included on verses and words :)
@@ -333,8 +329,6 @@ declare function local:m($m as element(m))
 declare function local:m-with-role($m as element(), $role)
 (: $role can contain a role attribute or a null sequence :)
 {
-let $roleAttr := if ($role) then attribute role {$role} else attribute role {$m/ancestor::Node[1]/@Cat}
-return 
     if(name($m) = 'Node')
     then
         element error10 {$role, $m, 'error location id:', data($m/@xml:id)}
@@ -349,7 +343,7 @@ return
         <w ref='{$m/@word}'>
             {
                 (: get the @Cat etc. from the ancestor::Node[1] :)
-                $roleAttr,
+                $role,
                 $m/@xml:id,
                 $m/@mandarin,
                 $m/@english,
