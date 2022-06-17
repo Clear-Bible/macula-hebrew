@@ -147,7 +147,16 @@ declare function local:attributes($node)
     $node/@state ! attribute state {lower-case(.)},
     $node/@stem ! attribute stem {lower-case(.)},
     $node/@person ! attribute person {lower-case(.)},
-    $node/@after
+    $node/@after,
+    $node/@Frame ! attribute frame {.},
+    $node/@Ref ! attribute ref {.},
+    $node/@SubjRef ! attribute subjref {.},
+    $node/@StrongNumberX ! attribute strongnumberx {.},
+    $node/@Greek ! attribute greek {.},
+    $node/@english,
+    $node/@mandarin,
+    $node/@domain,
+    $node/@extend
 };
 
 (: TODO: the USFM id does not need to be computed from the Nodes trees, since USFM ids are now included on verses and words :)
