@@ -134,10 +134,10 @@ declare function local:head($node)
 declare function local:attributes($node)
 {
     $node/@Cat ! attribute class {lower-case(.)},
-    $node/@Head ! attribute Head {if (. = '0') then true() else false()},
+    $node/@Head ! attribute head {if (. = '0') then true() else false()},
     (:$node/@nodeId ! attribute xml:id {concat('o', lower-case(.))}, (\: NOTE: corpus-specific prefix 'o' is added to nodeIds here :\):)
-    $node/@Rule ! attribute Rule {lower-case(.)},
-    $node/@Unicode ! attribute Unicode {lower-case(.)},
+    $node/@Rule ! attribute rule {lower-case(.)},
+    $node/@Unicode ! attribute unicode {.},
     $node/@morph ! attribute morph {.},
     $node/@lang ! attribute lang {.},
     $node/@lemma ! attribute lemma {.},
@@ -353,11 +353,11 @@ return
                 $m/@xml:id,
                 $m/@mandarin,
                 $m/@english,
-                $m/@SDBH,
-                $m/ancestor::Node[1]/@Greek,
-                $m/ancestor::Node[1]/@StrongNumberX,
-                $m/ancestor::Node[1]/@Cat,
-                $m/ancestor::Node[1]/@Unicode,
+                $m/@Domain ! attribute domain {.},
+                $m/ancestor::Node[1]/@Greek ! attribute greek {.},
+                $m/ancestor::Node[1]/@StrongNumberX ! attribute strongnumberx {.},
+                $m/ancestor::Node[1]/@Cat ! attribute class {.},
+                $m/ancestor::Node[1]/@Unicode ! attribute unicode {.},
                 local:attributes($m),
                 string($m/text())
             }
