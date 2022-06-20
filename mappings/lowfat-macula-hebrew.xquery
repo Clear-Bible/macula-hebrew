@@ -134,10 +134,10 @@ declare function local:head($node)
 declare function local:attributes($node)
 {
     $node/@Cat ! attribute class {lower-case(.)},
-    $node/@Head ! attribute Head {if (. = '0') then true() else false()},
+    $node/@Head ! attribute head {if (. = '0') then true() else false()},
     (:$node/@nodeId ! attribute xml:id {concat('o', lower-case(.))}, (\: NOTE: corpus-specific prefix 'o' is added to nodeIds here :\):)
-    $node/@Rule ! attribute Rule {lower-case(.)},
-    $node/@Unicode ! attribute Unicode {lower-case(.)},
+    $node/@Rule ! attribute rule {lower-case(.)},
+    $node/@Unicode ! attribute unicode {.},
     $node/@morph ! attribute morph {.},
     $node/@lang ! attribute lang {.},
     $node/@lemma ! attribute lemma {.},
@@ -147,7 +147,12 @@ declare function local:attributes($node)
     $node/@state ! attribute state {lower-case(.)},
     $node/@stem ! attribute stem {lower-case(.)},
     $node/@person ! attribute person {lower-case(.)},
-    $node/@after
+    $node/@after,
+    $node/@Frame ! attribute frame {.},
+    $node/@Ref ! attribute participantref {.},
+    $node/@SubjRef ! attribute subjref {.},
+    $node/@StrongNumberX ! attribute strongnumberx {.},
+    $node/@Greek ! attribute greek {.}
 };
 
 (: TODO: the USFM id does not need to be computed from the Nodes trees, since USFM ids are now included on verses and words :)
@@ -324,8 +329,6 @@ declare function local:m($m as element(m))
 declare function local:m-with-role($m as element(), $role)
 (: $role can contain a role attribute or a null sequence :)
 {
-let $roleAttr := if ($role) then attribute role {$role} else attribute role {$m/ancestor::Node[1]/@Cat}
-return 
     if(name($m) = 'Node')
     then
         element error10 {$role, $m, 'error location id:', data($m/@xml:id)}
@@ -340,15 +343,20 @@ return
         <w ref='{$m/@word}'>
             {
                 (: get the @Cat etc. from the ancestor::Node[1] :)
-                $roleAttr,
+                $role,
                 $m/@xml:id,
                 $m/@mandarin,
                 $m/@english,
-                $m/@SDBH,
-                $m/ancestor::Node[1]/@Greek,
-                $m/ancestor::Node[1]/@StrongNumberX,
-                $m/ancestor::Node[1]/@Cat,
-                $m/ancestor::Node[1]/@Unicode,
+                $m/@Domain ! attribute domain {.},
+                $m/@Extends ! attribute extends {.},
+                $m/@SDBH ! attribute sdbh {.},
+                $m/@Frame ! attribute frame {.},
+                $m/@Ref ! attribute participantref {.},
+                $m/@SubjRef ! attribute subjref {.},
+                $m/ancestor::Node[1]/@Greek ! attribute greek {.},
+                $m/ancestor::Node[1]/@StrongNumberX ! attribute strongnumberx {.},
+                $m/ancestor::Node[1]/@Cat ! attribute class {.},
+                $m/ancestor::Node[1]/@Unicode ! attribute unicode {.},
                 local:attributes($m),
                 string($m/text())
             }
