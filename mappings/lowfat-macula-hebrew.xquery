@@ -148,9 +148,6 @@ declare function local:attributes($node)
     $node/@stem ! attribute stem {lower-case(.)},
     $node/@person ! attribute person {lower-case(.)},
     $node/@after,
-    $node/@Frame ! attribute frame {.},
-    $node/@Ref ! attribute ref {.},
-    $node/@SubjRef ! attribute subjref {.},
     $node/@StrongNumberX ! attribute strongnumberx {.},
     $node/@Greek ! attribute greek {.}
 };
@@ -349,6 +346,10 @@ declare function local:m-with-role($m as element(), $role)
                 $m/@english,
                 $m/@Domain ! attribute domain {.},
                 $m/@Extends ! attribute extends {.},
+                $m/ancestor::Node[1]/@SenseNumber ! attribute sensenumber {.},
+                $m/ancestor::Node[1]/@Frame ! attribute frame {.},
+                $m/ancestor::Node[1]/@Ref ! attribute referent {.},
+                $m/ancestor::Node[1]/@SubjRef ! attribute subjref {.},
                 $m/ancestor::Node[1]/@Greek ! attribute greek {.},
                 $m/ancestor::Node[1]/@StrongNumberX ! attribute strongnumberx {.},
                 $m/ancestor::Node[1]/@Cat ! attribute class {.},
