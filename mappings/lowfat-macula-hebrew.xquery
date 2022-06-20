@@ -149,7 +149,7 @@ declare function local:attributes($node)
     $node/@person ! attribute person {lower-case(.)},
     $node/@after,
     $node/@Frame ! attribute frame {.},
-    $node/@Ref ! attribute ref {.},
+    $node/@Ref ! attribute participantref {.},
     $node/@SubjRef ! attribute subjref {.},
     $node/@StrongNumberX ! attribute strongnumberx {.},
     $node/@Greek ! attribute greek {.}
