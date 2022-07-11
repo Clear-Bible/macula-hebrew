@@ -347,6 +347,7 @@ declare function local:m-with-role($m as element(), $role)
                 $m/@xml:id,
                 $m/@mandarin,
                 $m/@english,
+                $m/@gloss,
                 $m/@Domain ! attribute domain {.},
                 $m/@Extends ! attribute extends {.},
                 $m/@SDBH ! attribute sdbh {.},
