@@ -148,9 +148,6 @@ declare function local:attributes($node)
     $node/@stem ! attribute stem {lower-case(.)},
     $node/@person ! attribute person {lower-case(.)},
     $node/@after,
-    $node/@Frame ! attribute frame {.},
-    $node/@Ref ! attribute participantref {.},
-    $node/@SubjRef ! attribute subjref {.},
     $node/@StrongNumberX ! attribute strongnumberx {.},
     $node/@Greek ! attribute greek {.}
 };
@@ -201,7 +198,7 @@ declare function local:oneword($node as element(Node))
                 ()
             else
                 if ($node/m)
-                then $node ! local:node(.)
+                then $node ! local:m(./m)
                 else <error13>{$node}</error13>
 };
 
@@ -277,9 +274,9 @@ declare function local:compound($nodeWithCChild)
 
 declare function local:phrase($node)
 {
-    if (local:oneword($node)/m)
+    if (local:oneword($node) and $node[m])
     then
-        (local:m(local:oneword($node)/m)) (: PICKING UP: running into problems with oneword - probably when it hits a <c> element :)
+        (local:m($node/m))
     else
         <wg>
             {
@@ -349,10 +346,10 @@ declare function local:m-with-role($m as element(), $role)
                 $m/@english,
                 $m/@Domain ! attribute domain {.},
                 $m/@Extends ! attribute extends {.},
-                $m/@SDBH ! attribute sdbh {.},
-                $m/@Frame ! attribute frame {.},
-                $m/@Ref ! attribute participantref {.},
-                $m/@SubjRef ! attribute subjref {.},
+                $m/ancestor::Node[1]/@SenseNumber ! attribute sensenumber {.},
+                $m/ancestor::Node[1]/@Frame ! attribute frame {.},
+                $m/ancestor::Node[1]/@Ref ! attribute participantref {.},
+                $m/ancestor::Node[1]/@SubjRef ! attribute subjref {.},
                 $m/ancestor::Node[1]/@Greek ! attribute greek {.},
                 $m/ancestor::Node[1]/@StrongNumberX ! attribute strongnumberx {.},
                 $m/ancestor::Node[1]/@Cat ! attribute class {.},
