@@ -1,0 +1,28 @@
+/* hebrew-boxwood.css */
+
+wg[class=cl] {
+    direction: rtl;
+    /* 
+      The nub of the spacing problem: 
+    
+      You really want spacing down to the last role before a word.
+      After that, you really don't want it.  Is there some way to
+      have it both ways with .css?
+    */
+    /*
+    position: relative;
+    display: block; 
+    */
+    padding: 0.25em 1em 0.25em 0;
+    display: block;
+  
+    border-right: 1px inset grey;
+    border-top: 1px inset grey;
+    border-bottom: 1px inset grey; 
+  }
+  
+  /* sentence>wg[class="cl"] {
+    border-left: none;
+    border-top: none;
+    border-bottom: none;   
+  } */
