@@ -344,13 +344,19 @@ declare function local:m-with-role($m as element(), $role)
                 $m/@xml:id,
                 $m/@mandarin,
                 $m/@english,
-                $m/@Domain ! attribute domain {.},
+                $m/@morph,
+                $m/@pos,
+                $m/@after,
+                $m/@type,
+                $m/@lemma ! attribute stronglemma {.},
+                $m/@LexDomain ! attribute lexdomain {.},
                 $m/@Extends ! attribute extends {.},
                 $m/ancestor::Node[1]/@SenseNumber ! attribute sensenumber {.},
                 $m/ancestor::Node[1]/@Frame ! attribute frame {.},
                 $m/ancestor::Node[1]/@Ref ! attribute participantref {.},
                 $m/ancestor::Node[1]/@SubjRef ! attribute subjref {.},
                 $m/ancestor::Node[1]/@Greek ! attribute greek {.},
+                $m/ancestor::Node[1]/@GreekStrong ! attribute greekstrong {.},
                 $m/ancestor::Node[1]/@StrongNumberX ! attribute strongnumberx {.},
                 $m/ancestor::Node[1]/@Cat ! attribute class {.},
                 $m/ancestor::Node[1]/@Unicode ! attribute unicode {.},
@@ -358,7 +364,6 @@ declare function local:m-with-role($m as element(), $role)
                 string($m/text())
             }
         </w>
-       
 };
 
 declare function local:node-type($node as element(Node))
