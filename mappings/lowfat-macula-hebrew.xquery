@@ -133,23 +133,45 @@ declare function local:head($node)
 
 declare function local:attributes($node)
 {
-    $node/@Cat ! attribute class {lower-case(.)},
-    $node/@Head ! attribute head {if (. = '0') then true() else false()},
-    (:$node/@nodeId ! attribute xml:id {concat('o', lower-case(.))}, (\: NOTE: corpus-specific prefix 'o' is added to nodeIds here :\):)
-    $node/@Rule ! attribute rule {lower-case(.)},
-    $node/@Unicode ! attribute unicode {.},
-    $node/@morph ! attribute morph {.},
-    $node/@lang ! attribute lang {.},
-    $node/@lemma ! attribute lemma {.},
-    $node/@pos ! attribute pos {lower-case(.)},
-    $node/@gender ! attribute gender {lower-case(.)},
-    $node/@number ! attribute number {lower-case(.)},
-    $node/@state ! attribute state {lower-case(.)},
-    $node/@stem ! attribute stem {lower-case(.)},
-    $node/@person ! attribute person {lower-case(.)},
-    $node/@after,
-    $node/@StrongNumberX ! attribute strongnumberx {.},
-    $node/@Greek ! attribute greek {.}
+    if (local:node-type($node) = 'm')
+        then
+        (
+            $node/@xml:id,
+            $node/@mandarin,
+            $node/@english,
+            $node/@morph,
+            $node/@pos,
+            $node/@after,
+            $node/@type,
+            $node/@SDBH ! attribute sdbh {.},
+            $node/@lemma ! attribute stronglemma {.},
+            $node/@LexDomain ! attribute lexdomain {.},
+            $node/@Extends ! attribute extends {.},
+            $node/ancestor::Node[1]/@SenseNumber ! attribute sensenumber {.},
+            $node/ancestor::Node[1]/@Frame ! attribute frame {.},
+            $node/ancestor::Node[1]/@Ref ! attribute participantref {.},
+            $node/ancestor::Node[1]/@SubjRef ! attribute subjref {.},
+            $node/ancestor::Node[1]/@Greek ! attribute greek {.},
+            $node/ancestor::Node[1]/@GreekStrong ! attribute greekstrong {.},
+            $node/ancestor::Node[1]/@StrongNumberX ! attribute strongnumberx {.},
+            $node/ancestor::Node[1]/@Cat ! attribute class {.},
+            $node/ancestor::Node[1]/@Unicode ! attribute unicode {.}
+        )
+    else 
+        $node/@Cat ! attribute class {lower-case(.)},
+        $node/@Head ! attribute head {if (. = '0') then true() else false()},
+        (:$node/@nodeId ! attribute xml:id {concat('o', lower-case(.))}, (\: NOTE: corpus-specific prefix 'o' is added to nodeIds here :\):)
+        $node/@Rule ! attribute rule {lower-case(.)},
+        $node/@Unicode ! attribute unicode {.},
+        $node/@lang ! attribute lang {.},
+        $node/@lemma ! attribute lemma {.},
+        $node/@gender ! attribute gender {lower-case(.)},
+        $node/@number ! attribute number {lower-case(.)},
+        $node/@state ! attribute state {lower-case(.)},
+        $node/@stem ! attribute stem {lower-case(.)},
+        $node/@person ! attribute person {lower-case(.)},
+        $node/@StrongNumberX ! attribute strongnumberx {.},
+        $node/@Greek ! attribute greek {.}
 };
 
 (: TODO: the USFM id does not need to be computed from the Nodes trees, since USFM ids are now included on verses and words :)
@@ -341,34 +363,18 @@ declare function local:m-with-role($m as element(), $role)
             {
                 (: get the @Cat etc. from the ancestor::Node[1] :)
                 $role,
-                $m/@xml:id,
-                $m/@mandarin,
-                $m/@english,
-                $m/@morph,
-                $m/@pos,
-                $m/@after,
-                $m/@type,
-                $m/@lemma ! attribute stronglemma {.},
-                $m/@LexDomain ! attribute lexdomain {.},
-                $m/@Extends ! attribute extends {.},
-                $m/ancestor::Node[1]/@SenseNumber ! attribute sensenumber {.},
-                $m/ancestor::Node[1]/@Frame ! attribute frame {.},
-                $m/ancestor::Node[1]/@Ref ! attribute participantref {.},
-                $m/ancestor::Node[1]/@SubjRef ! attribute subjref {.},
-                $m/ancestor::Node[1]/@Greek ! attribute greek {.},
-                $m/ancestor::Node[1]/@GreekStrong ! attribute greekstrong {.},
-                $m/ancestor::Node[1]/@StrongNumberX ! attribute strongnumberx {.},
-                $m/ancestor::Node[1]/@Cat ! attribute class {.},
-                $m/ancestor::Node[1]/@Unicode ! attribute unicode {.},
                 local:attributes($m),
                 string($m/text())
             }
         </w>
 };
 
-declare function local:node-type($node as element(Node))
+declare function local:node-type($node as element())
 {
-    if ($node/c)
+    if (name($node) = "m")
+    then
+        "m"
+    else if ($node/c)
     then 
         "compound"
     else if ($node/m and not($node/c))
