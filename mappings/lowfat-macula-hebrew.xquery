@@ -198,7 +198,7 @@ declare function local:oneword($node as element(Node))
                 ()
             else
                 if ($node/m)
-                then $node ! local:m(./m)
+                then $node ! local:node(.)
                 else <error13>{$node}</error13>
 };
 
@@ -274,9 +274,9 @@ declare function local:compound($nodeWithCChild)
 
 declare function local:phrase($node)
 {
-    if (local:oneword($node) and $node[m])
+    if (local:oneword($node))
     then
-        (local:m($node/m))
+        (local:oneword($node)) (: PICKING UP: running into problems with oneword - probably when it hits a <c> element :)
     else
         <wg>
             {
