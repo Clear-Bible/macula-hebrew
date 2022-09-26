@@ -10,7 +10,7 @@ pd.options.mode.chained_assignment = None  # default='warn'
 # single tsv file. 
 
 OT_WRITE_FILE = 'UTN-figures-of-speech-OT.tsv'
-NT_WRITE_FILE = 'UTN-figures-of-speech-OT.tsv'
+NT_WRITE_FILE = 'UTN-figures-of-speech-NT.tsv'
 
 BOOK_NAMES = {
     'OT': {
