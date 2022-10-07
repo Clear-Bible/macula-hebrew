@@ -23,9 +23,9 @@ def test_file_is_valid_xml(lowfat_file):
     assert etree.parse(lowfat_file)
 
 
-def test_number_of_words():
+def test_number_of_lowfat_words():
     total_count = 0
     for lowfat_file in __lowfat_files__:
         count = run_xpath_for_file("//w", lowfat_file)
         total_count += len(count)
-    assert total_count == 475810
+    assert total_count == 475911

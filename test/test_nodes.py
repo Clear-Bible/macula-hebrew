@@ -23,7 +23,7 @@ def test_file_is_valid_xml(node_file):
     assert etree.parse(node_file)
 
 
-def test_number_of_words():
+def test_number_of_nodes_words():
     total_count = 0
     for node_file in __nodes_files__:
         count = run_xpath_for_file("//m", node_file)
