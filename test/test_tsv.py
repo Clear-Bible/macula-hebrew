@@ -21,3 +21,8 @@ def test_tsv_row_has_id():
         id = tsv_row["xml:id"]
         assert id != ""
         assert id[0] == "o"
+
+
+def test_tsv_row_count():
+    total_count = len(__macula_hebrew_tsv_rows__)
+    assert total_count == 475911
