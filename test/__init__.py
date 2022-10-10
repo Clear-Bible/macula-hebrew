@@ -952,11 +952,13 @@ __nodes_files__ = list(map(lambda x: nodes_path + x, desired_filenames))
 tei_path = "../Nestle1904/tei/"
 __tei_files__ = list(map(lambda x: tei_path + x, desired_filenames))
 
-__tsv_rows__ = []
-headers = {}
+__macula_hebrew_tsv_rows__ = []
 
 tsv_path = "../TSV/macula-hebrew.tsv"
+__tsv_files__ = [tsv_path]
+
 with open(tsv_path) as file:
+    headers = {}
     tsv_file = csv.reader(file, delimiter="\t")
     for index, line in enumerate(tsv_file):
         if index == 0:
@@ -967,7 +969,7 @@ with open(tsv_path) as file:
             for index, row_item in enumerate(line):
                 new_row[headers[index]] = row_item
             # print(new_row)
-            __tsv_rows__.append(new_row)
+            __macula_hebrew_tsv_rows__.append(new_row)
 
 
 def run_xpath_for_file(xpath, file):
