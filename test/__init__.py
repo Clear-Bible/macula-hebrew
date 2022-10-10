@@ -958,18 +958,9 @@ tsv_path = "../TSV/macula-hebrew.tsv"
 __tsv_files__ = [tsv_path]
 
 with open(tsv_path) as file:
-    headers = {}
-    tsv_file = csv.reader(file, delimiter="\t")
-    for index, line in enumerate(tsv_file):
-        if index == 0:
-            for index, header in enumerate(line):
-                headers[index] = header
-        else:
-            new_row = {}
-            for index, row_item in enumerate(line):
-                new_row[headers[index]] = row_item
-            # print(new_row)
-            __macula_hebrew_tsv_rows__.append(new_row)
+    reader = csv.DictReader(file, delimiter="\t")
+    for row in reader:
+        __macula_hebrew_tsv_rows__.append(row)
 
 
 def run_xpath_for_file(xpath, file):
