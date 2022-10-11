@@ -47,6 +47,9 @@ def test_required_attrs_exist_on_w_elements(lowfat_file):
             assert attr in node.attrib
 
 
+# Expected failure.
+# See: https://github.com/Clear-Bible/symphony-team/issues/207
+@pytest.mark.xfail
 def test_number_of_lowfat_words():
     total_count = 0
     for lowfat_file in __lowfat_files__:
