@@ -1,0 +1,50 @@
+name: Pull Request Actions
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+jobs:
+  # Poetry and dependencies are cached to improve performance.
+  # Caching cribbed from https://jacobian.org/til/github-actions-poetry/
+  Run-Tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.10' 
+      - name: cache poetry installation
+        uses: actions/cache@v2
+        with:
+          path: ~/.local
+          key: poetry-1.1.14-2
+      - name: install poetry
+        uses: snok/install-poetry@v1
+        with:
+          version: 1.1.14
+          virtualenvs-create: true
+          virtualenvs-in-project: true
+      - name: cache dependencies
+        id: cache-deps
+        uses: actions/cache@v2
+        with:
+          path: ./test/.venv
+          key: pydeps-${{ hashFiles('**/poetry.lock') }}-2
+      - name: install dependencies
+        run: poetry install --no-interaction
+        working-directory: ./test
+        if: steps.cache-deps.outputs.cache-hit != 'true'
+      - name: execute pytest
+        working-directory: ./test
+        # `tee` obscures exit code.
+        # `-o pipefail` forces an early fail.
+        run: set -o pipefail; poetry run pytest | tee output.log
+      - name: Archive test run output
+        uses: actions/upload-artifact@v3
+        with:
+          name: test-run-output
+          path: ./test/output.log
+          retention-days: 8
