@@ -17,7 +17,8 @@ def test_file_is_valid_utf8(tsv_file):
 
 
 def test_tsv_row_has_id():
-    for tsv_row in __macula_hebrew_tsv_rows__:
+    for idx, tsv_row in enumerate(__macula_hebrew_tsv_rows__):
+        print(idx)
         id = tsv_row["xml:id"]
         assert id != ""
         assert id[0] == "o"
