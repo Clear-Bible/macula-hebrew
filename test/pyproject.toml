@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "macula-hebrew"
+version = "0.1.0"
+description = "Syntax trees, morphology, and linguistic annotations for the Hebrew Bible."
+authors = ["Mike Brinker <themikejr@gmail.com>"]
+license = "CC BY 4.0"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+
+[tool.poetry.dev-dependencies]
+lxml = "^4.9.1"
+pytest = "^7.1.3"
+black = "^22.10.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
