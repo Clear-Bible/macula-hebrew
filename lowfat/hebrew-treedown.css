@@ -78,13 +78,17 @@ wg[role] {
 /* Words */
 
 w[role] {
-    position: relative;
-    display: block;
+  position: relative;
+  display: block;
 }
 
-w[case=vocative] {
-    position: relative;
-    display: block;
+w[case='vocative'] {
+  position: relative;
+  display: block;
+}
+
+w + w[pos='suffix'] {
+  margin-right: -0.2rem;
 }
 
 /* Generated Text */
