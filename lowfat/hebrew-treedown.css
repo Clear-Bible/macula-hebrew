@@ -45,19 +45,18 @@ wg[class='header'] {
 }
 
 milestone {
-    color: blue;
-    display: block;
+  color: blue;
+  display: block;
   padding-right: 6px;
   font-size: 1rem;
 }
 
 p {
-    margin-top: 1em;
-    margin-bottom: 1em;
-    color: #666;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 
-div[class=book]  {
+div[class='book'] {
   margin-top: 1in;
   margin-left: 1in;
   margin-bottom: 1in;
@@ -66,22 +65,23 @@ div[class=book]  {
   opacity: 1;
 }
 
-book, passage,root {
+book,
+passage,
+root {
   line-height: 1.5;
   margin-left: 5rem;
   margin-right: 10rem;
   /* background: linen; */
 }
 
-
 /* WGs */
 
 wg[class=sentence]{}
 
-wg[class=cl] {
   padding-top: 0.25em;
   padding-bottom: 0.25em;
   display: block;
+wg > wg[class='cl'],
 }
 
 wg[rule=that-VP],
