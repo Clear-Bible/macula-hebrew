@@ -15,15 +15,14 @@ wg[class='header'] {
 }
 
 w:not([after]) {
-  margin-left: -0.3rem;
+  margin-left: -0.2em;
 }
 
 /* Ryder: for breaking lines on VAVs */
 wg:not([class='cl']) > w[class='cj'][unicode^='ו']::before {
   /* Add carriage return before VAV */
   /* FIXME: Ryder is using an underscore (which is a 1-em character)
-  to add an additional 1em/rem right margin before the content
-  that is placed on the next line. This ought to be handled differently,
+  to add an additional 1em/rem right margin before the content  that is placed on the next line. This ought to be handled differently,
   since it adds extra text content (though it does not appear to
   show up while copying and pasting the text).  */
   content: '\A_';
