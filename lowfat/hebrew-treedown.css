@@ -47,7 +47,7 @@ wg[class='header'] {
 milestone {
     color: blue;
     display: block;
-    padding-left: 6px;
+  padding-right: 6px;
   font-size: 1rem;
 }
 
@@ -59,7 +59,7 @@ p {
 
 div[class=book]  {
   margin-top: 1in;
-  margin-right: 1in;
+  margin-left: 1in;
   margin-bottom: 1in;
   line-height: 1.2;
   background-color: white;
@@ -68,8 +68,8 @@ div[class=book]  {
 
 book, passage,root {
   line-height: 1.5;
-  margin-right: 5em;
-  margin-left: 10em;
+  margin-left: 5rem;
+  margin-right: 10rem;
   /* background: linen; */
 }
 
@@ -182,7 +182,7 @@ wg[rule=Np-Appos] > wg:not(:first-child)::before,
 wg[rule=Np-Appos] > w:not(:first-child)::before {
     content: ": ";
     color: cadetblue;
-    margin-right: 1em;
+  margin-left: 1em;
 }
 
 wg[rule=Np-Appos] > wg:not(:first-child),
