@@ -13,24 +13,35 @@ wg[class='header'] {
   font-size: 1.4rem;
 }
 
-sentence::after {
-  /* add horizontal rule after each sentence */
-  content: "";
-  display: block;
-  border-bottom: 1px solid black;
-  margin-top: 0.5em;
-  margin-bottom: 0.5em;
+w:not([after]) {
+  margin-left: -0.3rem;
 }
 
-wg[class=header] {
-    display: block;
-    position: fixed;
-    width: 6em;
-    top: 5px;
-    right: 5px;
-    background-color: white;
-    opacity: 1;
-    overflow: scroll;
+/* ------ right spacing --------- */
+
+wg[class='cl'] {
+  margin-right: 1em;
+  position: relative;
+}
+
+
+sentence > wg {
+  display: flex;
+  flex-direction: column;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  padding-left: 1rem;
+}
+
+wg[class='header'] {
+  display: block;
+  position: fixed;
+  width: 6rem;
+  top: 5px;
+  left: 5px;
+  background-color: white;
+  opacity: 1;
+  overflow: scroll;
 }
 
 milestone {
