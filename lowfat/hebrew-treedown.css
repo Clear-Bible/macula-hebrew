@@ -22,7 +22,8 @@ w:not([after]) {
 wg:not([class='cl']) > w[class='cj'][unicode^='ו']::before {
   /* Add carriage return before VAV */
   /* FIXME: Ryder is using an underscore (which is a 1-em character)
-  to add an additional 1em/rem right margin before the content  that is placed on the next line. This ought to be handled differently,
+  to add an additional 1em/rem right margin before the content
+  that is placed on the next line. This ought to be handled differently,
   since it adds extra text content (though it does not appear to
   show up while copying and pasting the text).  */
   content: '\A_';
@@ -47,7 +48,6 @@ wg[class='cl'] {
   position: relative;
 }
 
-
 sentence > wg {
   display: flex;
   flex-direction: column;
@@ -55,13 +55,15 @@ sentence > wg {
   padding-bottom: 1rem;
   padding-left: 1rem;
 }
+
 wg[class='header'] {
   display: block;
   position: fixed;
   width: 6rem;
   top: 5px;
   left: 5px;
-  background-color: white;  opacity: 1;
+  background-color: white;
+  opacity: 1;
   overflow: scroll;
 }
 
@@ -97,7 +99,6 @@ root {
 
 /* WGs */
 
-wg[class=sentence]{}
 
   padding-top: 0.25em;
   padding-bottom: 0.25em;
@@ -128,12 +129,12 @@ w + w[pos='suffix'] {
   margin-right: -0.2rem;
 }
 
-/* Generated Text */
+/* Roles */
 
-/*
-  Spacing problem:  generated text usually belongs on the previous level,
-  not on the new indent leve.  Not sure how to do that with CSS.
-*/
+wg[class='cl'] > *[role] {
+  position: relative;
+  display: block;
+}
 
 wg[class=sentence] wg[class=cl]::before {
   content: initial;
@@ -157,9 +158,12 @@ wg[role=pp]::before {
 
   font-size: 1rem;
 
-w[role=v][mood=participle]::before {
+wg[class='cl'] > wg[role='adv']::before,
+wg[class='cl'] > wg[role='pp']::before,
+wg[class='cl'] > w[role='adv']::before,
+wg[class='cl'] > w[role='pp']::before {
   color: cadetblue;
-  content: "v.part ";
+  content: '+ ';
   font-size: 1rem;
 }
 
