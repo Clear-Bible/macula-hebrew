@@ -10,7 +10,7 @@ wg[class='header'] {
 
 * {
   direction: rtl;
-  font-size: 18pt;
+  font-size: 1.4rem;
 }
 
 sentence::after {
@@ -37,6 +37,7 @@ milestone {
     color: blue;
     display: block;
     padding-left: 6px;
+  font-size: 1rem;
 }
 
 p {
@@ -104,11 +105,13 @@ w + w[pos='suffix'] {
 
 wg[class=sentence] wg[class=cl]::before {
   content: initial;
+  font-size: 1rem;
 }
 
 wg[role]::before {
   color: cadetblue;
   content: attr(role);
+  font-size: 1rem;
 }
 
 wg[rule=that-VP]::before,
@@ -117,27 +120,33 @@ wg[role=adv]::before,
 wg[role=pp]::before {
   color: cadetblue;
   content: "+ ";
+  font-size: 1rem;
 }
 
+  font-size: 1rem;
 
 w[role=v][mood=participle]::before {
   color: cadetblue;
   content: "v.part ";
+  font-size: 1rem;
 }
 
 w[role=v][mood=infinitive]::before {
   color: cadetblue;
   content: "v.inf ";
+  font-size: 1rem;
 }
 
 w[role]::before {
   color: cadetblue;
   content: attr(role) " ";
+  font-size: 1rem;
 }
 
 w[role=adv]::before {
   color: cadetblue;
   content: "+ ";
+  font-size: 1rem;
 }
 
 w[discontinuous]::after {
@@ -145,6 +154,7 @@ w[discontinuous]::after {
   vertical-align: super;
   color: cadetblue;
   font-size: small;
+  font-size: 1rem;
 }
 
 w[case=vocative]::before {
