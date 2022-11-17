@@ -18,6 +18,29 @@ w:not([after]) {
   margin-left: -0.3rem;
 }
 
+/* Ryder: for breaking lines on VAVs */
+wg:not([class='cl']) > w[class='cj'][unicode^='ו']::before {
+  /* Add carriage return before VAV */
+  /* FIXME: Ryder is using an underscore (which is a 1-em character)
+  to add an additional 1em/rem right margin before the content
+  that is placed on the next line. This ought to be handled differently,
+  since it adds extra text content (though it does not appear to
+  show up while copying and pasting the text).  */
+  content: '\A_';
+  opacity: 0;
+  white-space: pre;
+}
+wg:not([class='cl']) > w[class='cj'][unicode^='ו'] {
+  /* Make VAV inline */
+  display: inline;
+  vertical-align: top;
+  margin-right: 1em;
+}
+wg:not([class='cl']) > w[class='cj'][unicode^='ו'] + * {
+  /* Make subsequent sibling inline block */
+  display: inline-block;
+}
+
 /* ------ right spacing --------- */
 
 wg[class='cl'] {
@@ -39,8 +62,7 @@ wg[class='header'] {
   width: 6rem;
   top: 5px;
   left: 5px;
-  background-color: white;
-  opacity: 1;
+  background-color: white;  opacity: 1;
   overflow: scroll;
 }
 
