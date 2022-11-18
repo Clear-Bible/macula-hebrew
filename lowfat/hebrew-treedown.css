@@ -136,27 +136,40 @@ wg[class='cl'] > *[role] {
   display: block;
 }
 
-wg[class=sentence] wg[class=cl]::before {
-  content: initial;
+wg[class='cl'] > wg[class='cl'][role]::before,
+wg[class='cl'] > wg[class='wg'][role]::before {
+  /* Move the role for constituent clauses outside of the clause border */
+  margin-left: -1rem;
+  margin-top: -1.5rem;
+  margin-bottom: 1rem;
+  position: absolute;
+  display: block;
   font-size: 1rem;
 }
 
-wg[role]::before {
+wg[class='cl'] > wg[class='cl'][role],
+wg[class='cl'] > wg[class='wg'][role],
+wg[class='cl'] > w[role] {
+  margin-left: 0.8rem;
+  margin-top: 1.5rem;
+}
+
+wg[class='cl'] > wg[role]::before {
   color: cadetblue;
   content: attr(role);
   font-size: 1rem;
 }
 
-wg[rule=that-VP]::before,
-wg[rule=sub-CL]::before,
-wg[role=adv]::before,
-wg[role=pp]::before {
+wg[class='cl'] > w[role]::before {
   color: cadetblue;
-  content: "+ ";
+  content: attr(role) ' ';
   font-size: 1rem;
 }
 
+wg[class='cl'] > wg[role='g']::before {
+  content: '';
   font-size: 1rem;
+}
 
 wg[class='cl'] > wg[role='adv']::before,
 wg[class='cl'] > wg[role='pp']::before,
@@ -167,73 +180,74 @@ wg[class='cl'] > w[role='pp']::before {
   font-size: 1rem;
 }
 
-w[role=v][mood=infinitive]::before {
+w[role='aux']::before,
+wg[role='aux']::before,
+wg[class='cl'] > w[role='aux']::before,
+wg[class='cl'] > wg[role='aux']::before {
+  /* Ryder: Unlike most other roles, auxiliaries should be displayed even when they are not children of clauses.
+     thus, these are not prefixed with the `wg[class=cl] >` path. */
   color: cadetblue;
-  content: "v.inf ";
+  content: '~'' ';
   font-size: 1rem;
 }
 
-w[role]::before {
+/* ----- Participles and infinitives ----- */
+
+*[role='v']:has(> w[mood='participle'])::before {
   color: cadetblue;
-  content: attr(role) " ";
+  content: 'v.part ';
   font-size: 1rem;
 }
 
-w[role=adv]::before {
+*[role='v']:has(> w[mood='infinitive'])::before {
   color: cadetblue;
-  content: "+ ";
+  content: 'v.inf ';
   font-size: 1rem;
 }
 
 w[discontinuous]::after {
-  content: "*";
+  content: '*';
   vertical-align: super;
   color: cadetblue;
   font-size: small;
-  font-size: 1rem;
 }
 
-w[case=vocative]::before {
-  color: cadetblue;
-  content: "voc" " ";
-}
-
-
-/* -----  Experimental stuff goes here -------- */
+/* ----- Apposition - this ain't quite right, but better than nothing ---------*/
 
 /* Apposition */
 
-wg[rule=Np-Appos] > wg:not(:first-child)::before,
-wg[rule=Np-Appos] > w:not(:first-child)::before {
-    content: ": ";
-    color: cadetblue;
+wg[rule='Np-Appos'] > wg:not(:first-child)::before,
+wg[rule='Np-Appos'] > w:not(:first-child)::before {
+  content: ': ';
+  color: cadetblue;
   margin-left: 1em;
 }
 
-wg[rule=Np-Appos] > wg:not(:first-child),
-wg[rule=Np-Appos] > w:not(:first-child) {
-    display: block;
+wg[rule='Np-Appos'] > wg:not(:first-child),
+wg[rule='Np-Appos'] > w:not(:first-child) {
+  display: block;
 }
 
-/* Probably want to put brackets around single words, but left now it cascades badly. */
+/* -----  Experimental stuff goes here -------- */
 
-wg[rule=Np-Appos] > wg:first-child::before {
-    content: "[";
-    color: cadetblue;
+/* 
+  RYDER: the additional wg[class=group] predicate is 
+  needed for some instances like the last wg/group of Luke 1.19 
+*/
+
+wg[role='g'] > w,
+wg[class='group'] > w {
+  display: block;
+  margin-top: 1rem;
 }
 
-wg[rule=Np-Appos]> wg:first-child::after {
-    content: "]";
-    color: cadetblue;
+wg[class='group'] wg[class='group'] {
+  margin-top: 0;
 }
 
-pc::before {
-    content: initial;
-}
-
-/* ------ right spacing --------- */
-
-wg[class=cl] {
-  margin-right: 1em;
-  position: relative;
+wg[rule='sub-CL']:not(> *[role])::before {
+  /* Ryder: in sub-CL clauses, the conjunction drops to a new line below the role
+      and the clause is further indented. This rule horizontally aligns the conj
+      and the role of the sub-CL wg. E.g. διότι in Luke 2.7 */
+  position: absolute;
 }
