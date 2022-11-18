@@ -99,34 +99,60 @@ root {
 
 /* WGs */
 
+wg > wg[class='wg'] {
+  display: flex;
+  flex-direction: column;
+  margin-left: 1rem;
+}
 
-  padding-top: 0.25em;
-  padding-bottom: 0.25em;
-  display: block;
 wg > wg[class='cl'],
+wg:not(wg[class='cl']) > wg:has(wg[class='cl']) + wg,
+wg:not(wg[class='np']):not(wg[class='wg']):has(> wg[class='cl']) > w {
+  margin-left: 0.8rem;
 }
 
-wg[rule=that-VP],
-wg[rule=sub-CL],
-wg[role] {
-    position: relative;
-    display: block;
+wg:not(wg[class='cl'])
+ > wg /* Ryder: Firefox doesn't support the :has() selector by default. */
+ + wg {
+  margin-left: 0.8rem;
 }
 
-/* Words */
+wg:has(wg[class='cl']) + wg[class='cl'] {
+  /* Ryder: sometimes a deeply nested wg[class=cl] is followed by a wg[class=cl] that is not nested. 
+     Without this additional margin, there is a double line since the clause adjacency 
+     is not obvious based on the other rules. */
+  margin-top: 1rem;
+}
 
-w[role] {
+wg[class='cl']:has(+ wg[class='group']) {
+  margin-bottom: 1rem;
+}
+
+wg[class='cl'],
+wg[class='wg'] {
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+  padding-left: 0.25em;
+  display: flex;
+  flex-direction: column;
   position: relative;
-  display: block;
 }
 
-w[case='vocative'] {
-  position: relative;
-  display: block;
+wg[class='cl'] + wg[class='cl'],
+wg[class='cl'] + wg[class='wg'] {
+  margin-top: 1rem;
 }
 
-w + w[pos='suffix'] {
-  margin-right: -0.2rem;
+wg[class='minor'] > wg[class='minor'][role],
+wg[class='wg'] > wg[class='minor'] {
+  display: block;
+  margin-left: 1rem;
+}
+
+wg[class='wg'] > wg[class='minor'] > wg[class='minor'] {
+  /* Ryder: sometimes a second level of minor clause 
+  exists, and it should not be further indented. */
+  margin-left: 0;
 }
 
 /* Roles */
