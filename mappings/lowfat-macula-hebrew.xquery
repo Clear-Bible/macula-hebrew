@@ -11,7 +11,7 @@ declare variable $headed-structure-rule := ('AdjX', 'AdjpAdvp', 'AdjpDet', 'Adjp
 
 declare variable $complex-clause-rule := ('2CLaCL', '2CLaCLaCL', 'CLa2CL', 'CLandCL2', 'ClCl', 'ClCl2', 'aCLaCL', 'aCLaCLaCL', 'cjpCLx', 'ppCL', 'AdvpCL', 'PtclCL');
 (: Ryder: operator clause rules are a subset of complex clause rules. They involve "wrapper" or "operator" scope of the initial operator. 'ppCL' for example are typically subordinate clauses :)
-declare variable $operator-clause-rule := ('AdvpCL', 'cjpCLx',  'PtclCL', 'ppCL');
+declare variable $operator-clause-rule := ('AdvpCL', 'cjpCLx', 'PtclCL', 'ppCL');
 (: 
 - 'aCLaCL' includes many 'if x or y' constructions. Some of these could be analyzed as operators wrapping junction.
 - 'CLa2CL' includes some apparent clause complexes (e.g., JOS 10:1), whereas others seem to be independant clauses. I assume '2CLaCL' is similar.
@@ -33,6 +33,7 @@ declare function local:is-clause-rule($rule as node())
 declare function local:build-dependency-tree($unprocessedElement as element())
 {
     (: end condition for recursion is when leaf node is encountered:)
+    
     
     
     
@@ -240,24 +241,26 @@ declare function local:USFMVerseId($nodeId)
 declare function local:process-clause-complex($node, $passed-role)
 {
     for $constituent at $index in $node
-    return 
+    return
         (: Ryder: if constituent is cjp, embed immediately following sibling :)
-        if ($constituent/@Cat = ('cjp', 'relp')) then
-            <wg class='scope'>{
-                $constituent/@Rule ! attribute rule {.},
-                attribute role {$passed-role},
-                $constituent/following-sibling::element()[1] ! local:node(.)
-            }</wg>
-        else 
+        if ($constituent/@Cat = ('cjp', 'rel')) then (: FIXME Ryder: this only fires on 'relp', not 'rel' or 'cjp'. Need to refactor starting from local:node-type() :)
+            <wg
+                class='scope'>{
+                    attribute role {$passed-role},
+                    $constituent, (: Ryder: embed the operator. I can't do local:node() here or it loops infinitely :)
+                    $constituent/following-sibling::element()[1] ! local:node(.) (: Ryder: embed the subsequent sibling :)
+                }</wg>
+        else
             (: Ryder: handle sibling following cjp :)
             if ($constituent/preceding-sibling::element()[1]/@Cat = ('cjp', 'relp')) then
                 <precedingSiblingWasCjp/>
-        else
-            <wg class='complex'>{
-                $node/@Rule ! attribute rule {.},
-                attribute role {$passed-role},
-                $node/element() ! local:node(.)
-            }</wg>
+            else
+                <wg
+                    class='complex'>{
+                        $node/@Rule ! attribute rule {.},
+                        attribute role {$passed-role},
+                        $node/element() ! local:node(.)
+                    }</wg>
 };
 
 declare function local:process-complex-node($node, $passed-role)
@@ -265,26 +268,33 @@ declare function local:process-complex-node($node, $passed-role)
     (: check for $headed-structure-rule or $group-rule :)
     if ($node/@Rule = $headed-structure-rule) then
         (: Complex node has a head; subordinate siblings :)
-            
+        
         (: Ryder: I believe every @Head value is 0-indexed, whereas XPath positions are 1-indexed, so add 1 to @Head :)
         let $headIndex := $node/@Head + 1
         let $headChild := $node/child::Node[$headIndex]
         let $childrenBeforeHead := $headChild/preceding-sibling::*
         let $childrenAfterHead := $headChild/following-sibling::*
         return
-            <wg class="headed">{
-(:                $headChild/@*, (\: Ryder: Promote head child attributes :\):)
-                $node/@Rule ! attribute rule {.}, (: Ryder: TEMPORARY copy rule :)
-                attribute role {$passed-role},
-                
-                (: Ryder: Subordinate all other non-head children :)
-                $childrenBeforeHead ! <wg role="mod">{local:node(.)}</wg>,
-                $headChild/element() ! local:node(.),
-                $childrenAfterHead ! <wg role="mod">{local:node(.)}</wg>
-            }</wg>
+            <wg
+                class="headed">{
+                    (:                $headChild/@*, (\: Ryder: Promote head child attributes :\):)
+                    $node/@Rule ! attribute rule {.}, (: Ryder: TEMPORARY copy rule :)
+                    attribute role {$passed-role},
+                    
+                    (: Ryder: Subordinate all other non-head children :)
+                    
+                    $headChild/element() ! local:node(.),
+                    <wg
+                        class="dependents">{
+                            $childrenBeforeHead ! <wg
+                                role="mod">{local:node(.)}</wg>,
+                            $childrenAfterHead ! <wg
+                                role="mod">{local:node(.)}</wg>
+                        }</wg>
+                }</wg>
     else
         if ($node/@Rule = $group-rule) then
-        (: Complex node does not have a head; coordinate siblings :)
+            (: Complex node does not have a head; coordinate siblings :)
             <wg
                 class='g'>{
                     $node/@Rule ! attribute rule {.},
@@ -303,7 +313,7 @@ declare function local:node-type($node as element())
         (: Ryder: if a "clause" does not have a clause-function rule (e.g., 'S-V-O'), it is a clause complex :)
         if ($node/@Cat = 'CL' and not(local:is-clause-rule($node/@Rule)) or $node/@Rule = $headed-structure-rule) then
             'clause-complex'
-        else 
+        else
             if (local:is-clause-rule($node/@Rule)) then
                 'clause'
             else
@@ -371,7 +381,7 @@ declare function local:node($node as element(), $passed-role as xs:string?)
 declare function local:straight-text($node)
 {
     for $n at $i in $node//Node[local:node-type(.) = 'word']
-        let $afterValue := string($n/m/@after)
+    let $afterValue := string($n/m/@*[name() = 'after']) (: Ryder: convoluted attribute name here allows me to format and indent the file in oxygen... :)
     let $textValue := string($n/m/text())
         order by $n/@morphId
     return
@@ -417,6 +427,7 @@ declare function local:sentence($node)
 
 (:~~~ execution ~~~:)
 
+processing-instruction xml-stylesheet {'href="../../macula-greek/Nestle1904/lowfat/treedown.css"'},
 processing-instruction xml-stylesheet {'href="hebrew-treedown.css"'},
 processing-instruction xml-stylesheet {'href="hebrew-boxwood.css"'},
 <chapter
