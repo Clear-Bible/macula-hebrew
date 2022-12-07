@@ -12,11 +12,20 @@ declare variable $group-rule := ('12Np', '2Advp_h1', '2Advp_h2', '2CLaCL', '2CLa
     2. those that only group constituents without indicating modifier dependency structure
     :)
 declare variable $modifier-structure-rule := ('AdjX', 'AdjpAdvp', 'AdjpNp', 'AdjpPp', 'AdjpofNp', 'AdvX', 'AdvpAdjp', 'AdvpCL', 'AdvpNp', 'AdvpNp2advp', 'AdvpNump', 'AdvpPp', 'AdvpPp2', 'AdvpRelp', 'AdvpandPp', 'CjpAdjp', 'CjpAdvp2Advp', 'IjpX', 'NPandPP2np', 'NounX', 'NpAdjp', 'NpAdvp', 'NpCL', 'NpInf', 'NpNump', 'NpPart', 'NpPp', 'NpRelp', 'NumX', 'NumpAdjp', 'NumpNP', 'NumpPp', 'OmpNP', 'OmpRelp', 'PpAdvp', 'PpNp2Np', 'PpNump', 'PpNump2', 'PpRelp', 'PpandAdvp', 'PrepCL', 'PrepNp', 'PrepX', 'PtclCL', 'RelpNp', 'VerbX', 'advpCLtoAdvp', 'cjpCLx', 'relNp', 'NPofNP');
+(: Ryder: complex clauses are clauses (i.e., @Cat='CL') that do not have clause-function rules (e.g., 'S-V-O'). Note that you still need to check whether the node with the @Rule is indeed @Cat='CL', since these rules can show up elsewhere. :)
 declare variable $complex-clause-rule := ('2CLaCL', '2CLaCLaCL', 'CLa2CL', 'CLandCL2', 'ClCl', 'ClCl2', 'aCLaCL', 'aCLaCLaCL', 'cjpCLx', 'ppCL', 'AdvpCL', 'PtclCL');
-(: Ryder: operator clause rules are a subset of complex clause rules. They involve "wrapper" or "operator" scope of the initial operator. 'ppCL' for example are typically subordinate clauses :)
-declare variable $operator-clause-rule := ('AdvpCL', 'cjpCLx', 'PtclCL', 'ppCL');
+(: Ryder: operator clause rules are a subset of complex clause rules. They involve "wrapper" or "operator" scope of the initial marker. 'ppCL' for example are typically subordinate clauses with a preposition marker. :)
+declare variable $operator-clause-rule := ('AdvpCL', 'cjpCLx', 'PtclCL', 'ppCL', 'relCL');
+(: Ryder: marker scope rules are just like operator clause rules, but they involve wrapping of any non-clause unit. :)
+declare variable $marker-scope-rule := ('cjpNp', 'cjpPp', 'ppCL', 'QuanNP');
+
+declare variable $apposition-rule := ('Np-Appos');
+
 (: 
-- 'aCLaCL' includes many 'if x or y' constructions. Some of these could be analyzed as operators wrapping junction.
+
+Ryder notes:
+
+- 'aCLaCL' (but not 'aCLaCLaCL', which has one instance) includes many 'if x or y' constructions. Some of these could be analyzed as operators wrapping junction. They should then be removed from $group-rule.
 - 'CLa2CL' includes some apparent clause complexes (e.g., JOS 10:1), whereas others seem to be independant clauses. I assume '2CLaCL' is similar.
 
 :)
