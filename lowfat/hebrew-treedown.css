@@ -1,59 +1,8 @@
 /* hebrew-treedown.css */
-
 chapter {
   padding: 2em;
-}
-
-wg[class='header'] {
-  padding: 2em;
-}
-
-* {
   direction: rtl;
-  font-size: 1.3rem;
-  font-family: 'SBL Hebrew', 'Ezra-SIL', 'Times New Roman', serif;
-}
-
-w:not([after]) {
-  margin-left: -0.2rem;
-}
-
-/* Ryder: for breaking lines on VAVs */
-wg:not([class='cl']) > w[class='cj'][unicode^='ו']::before {
-  /* Add carriage return before VAV */
-  /* FIXME: Ryder is using an underscore (which is a 1-em character)
-  to add an additional 1em/rem right margin before the content
-  that is placed on the next line. This ought to be handled differently,
-  since it adds extra text content (though it does not appear to
-  show up while copying and pasting the text).  */
-  content: '\A_';
-  opacity: 0;
-  white-space: pre;
-}
-wg:not([class='cl']) > w[class='cj'][unicode^='ו'] {
-  /* Make VAV inline */
-  display: inline;
-  vertical-align: top;
-  margin-right: 1em;
-}
-wg:not([class='cl']) > w[class='cj'][unicode^='ו'] + * {
-  /* Make subsequent sibling inline block */
-  display: inline-block;
-}
-
-/* ------ right spacing --------- */
-
-wg[class='cl'] {
-  margin-right: 1em;
-  position: relative;
-}
-
-sentence > wg {
-  display: flex;
-  flex-direction: column;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-  padding-left: 1rem;
+  font-size: 18pt;
 }
 
 wg[class='header'] {
@@ -71,7 +20,6 @@ milestone {
   color: blue;
   display: block;
   padding-right: 6px;
-  font-size: 1rem;
 }
 
 p {
@@ -99,6 +47,14 @@ root {
 
 /* WGs */
 
+sentence > wg {
+  display: flex;
+  flex-direction: column;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  padding-left: 1rem;
+}
+
 wg > wg[class='wg'] {
   display: flex;
   flex-direction: column;
@@ -108,12 +64,6 @@ wg > wg[class='wg'] {
 wg > wg[class='cl'],
 wg:not(wg[class='cl']) > wg:has(wg[class='cl']) + wg,
 wg:not(wg[class='np']):not(wg[class='wg']):has(> wg[class='cl']) > w {
-  margin-left: 0.8rem;
-}
-
-wg:not(wg[class='cl'])
- > wg /* Ryder: Firefox doesn't support the :has() selector by default. */
- + wg {
   margin-left: 0.8rem;
 }
 
@@ -155,66 +105,91 @@ wg[class='wg'] > wg[class='minor'] > wg[class='minor'] {
   margin-left: 0;
 }
 
-/* Roles */
+wg[class='cl'] + wg:not([role]):not([class='conjuncted-wg']) > wg[class='cl'] {
+  margin-top: 1rem;
+  background: red;
+}
 
-wg[class='cl'] > *[role] {
+/* Words */
+
+w[after]::after {
+  content: attr(after);
+  font-size: 0.8em;
+  color: gray;
+}
+
+w[role] {
   position: relative;
   display: block;
 }
 
-wg[class='cl'] > wg[class='cl'][role]::before,
-wg[class='cl'] > wg[class='wg'][role]::before {
+w[case='vocative'] {
+  position: relative;
+  display: block;
+}
+
+w + w {
+  /* margin-inline-start: 0.2em; */
+}
+
+/* Roles */
+
+*[role] {
+  position: relative;
+  display: block;
+}
+
+wg[class='cl'][role]::before,
+wg[class='wg'][role]::before {
   /* Move the role for constituent clauses outside of the clause border */
   margin-left: -1rem;
-  margin-top: -1.5rem;
+  /* Ryder: commented these lines because they were adding a blank line before, e.g., Ἐπειδήπερ in Luke 1.4 */
+  /* margin-top: -1.5rem; */
+  /* display: block; */
   margin-bottom: 1rem;
   position: absolute;
-  display: block;
-  font-size: 1rem;
 }
 
-wg[class='cl'] > wg[class='cl'][role],
-wg[class='cl'] > wg[class='wg'][role],
-wg[class='cl'] > w[role] {
+wg[class='cl'][role],
+wg[class='wg'][role],
+w[role] {
   margin-left: 0.8rem;
-  margin-top: 1.5rem;
+  /* margin-top: 1.5rem; */
 }
 
-wg[class='cl'] > wg[role]::before {
+wg[role]::before {
   color: cadetblue;
   content: attr(role);
-  font-size: 1rem;
 }
 
-wg[class='cl'] > w[role]::before {
+w[role]::before {
   color: cadetblue;
   content: attr(role) ' ';
-  font-size: 1rem;
 }
 
-wg[class='cl'] > wg[role='g']::before {
+wg[role='g']::before {
   content: '';
-  font-size: 1rem;
 }
 
-wg[class='cl'] > wg[role='adv']::before,
-wg[class='cl'] > wg[role='pp']::before,
-wg[class='cl'] > w[role='adv']::before,
-wg[class='cl'] > w[role='pp']::before {
+wg[role='adv']::before,
+wg[role='pp']::before {
   color: cadetblue;
   content: '+ ';
-  font-size: 1rem;
+}
+
+w[role='adv']::before {
+  color: cadetblue;
+  content: '+ ';
 }
 
 w[role='aux']::before,
 wg[role='aux']::before,
-wg[class='cl'] > w[role='aux']::before,
-wg[class='cl'] > wg[role='aux']::before {
+w[role='aux']::before,
+wg[role='aux']::before {
   /* Ryder: Unlike most other roles, auxiliaries should be displayed even when they are not children of clauses.
      thus, these are not prefixed with the `wg[class=cl] >` path. */
   color: cadetblue;
   content: '~'' ';
-  font-size: 1rem;
 }
 
 /* ----- Participles and infinitives ----- */
@@ -222,13 +197,11 @@ wg[class='cl'] > wg[role='aux']::before {
 *[role='v']:has(> w[mood='participle'])::before {
   color: cadetblue;
   content: 'v.part ';
-  font-size: 1rem;
 }
 
 *[role='v']:has(> w[mood='infinitive'])::before {
   color: cadetblue;
   content: 'v.inf ';
-  font-size: 1rem;
 }
 
 w[discontinuous]::after {
@@ -246,7 +219,7 @@ wg[rule='Np-Appos'] > wg:not(:first-child)::before,
 wg[rule='Np-Appos'] > w:not(:first-child)::before {
   content: ': ';
   color: cadetblue;
-  margin-left: 1em;
+  margin-inline-start: 1rem;
 }
 
 wg[rule='Np-Appos'] > wg:not(:first-child),
@@ -276,4 +249,16 @@ wg[rule='sub-CL']:not(> *[role])::before {
       and the clause is further indented. This rule horizontally aligns the conj
       and the role of the sub-CL wg. E.g. διότι in Luke 2.7 */
   position: absolute;
+}
+
+/* ------ right spacing --------- */
+
+wg[class='cl'] {
+  margin-right: 1em;
+  position: relative;
+}
+
+wg[type='conjuncted-wg'] {
+  display: block;
+  margin-inline-start: 1rem;
 }
