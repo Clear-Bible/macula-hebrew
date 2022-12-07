@@ -36,7 +36,7 @@ declare variable $nominalized-clause-rule := ('CL2Adjp', 'CL2NP', 'Np2CL' (: Ryd
 
 declare function local:is-clause-rule($rule as node())
 {
-    if (contains($rule, '-')) then
+    if (not($rule = 'Np-Appos') and contains($rule, '-')) then
         true()
     else
         false()
