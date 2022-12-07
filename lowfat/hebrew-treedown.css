@@ -77,6 +77,20 @@ wg[role] {
 
 /* Words */
 
+w:not([after])::after {
+  content: '-';
+  color: lightgrey;
+  margin-left: -0.2em;
+  /* add a light grey border between morphemes */
+  /* border-left: 4px solid #ccc; */
+}
+
+w[after='־']::after {
+  /* hebrew maqqef */
+  content: attr(after);
+  /* override default morpheme spacing display */
+}
+
 w[role] {
     position: relative;
     display: block;
