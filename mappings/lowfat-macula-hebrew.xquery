@@ -29,6 +29,9 @@ Ryder notes:
 - 'CLa2CL' includes some apparent clause complexes (e.g., JOS 10:1), whereas others seem to be independant clauses. I assume '2CLaCL' is similar.
 
 :)
+declare variable $aramaic-determiner-rule := ('NPDet', 'NumpDet', 'AdjpDet');
+declare variable $hebrew-determiner-rule := ('DetAdjp', 'DetNP', 'DetNump', 'DetVp'); (: Ryder: The dependency tree for these are handled nicely in the GBI trees already. :)
+declare variable $aramaic-structure-rule := ('vpVp2V2', 'Vpvp2V1');
 
 declare function local:is-clause-rule($rule as node())
 {
