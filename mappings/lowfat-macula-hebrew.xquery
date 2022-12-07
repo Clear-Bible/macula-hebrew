@@ -44,17 +44,6 @@ declare function local:is-clause-rule($rule as node())
 
 (:~~~ function definitions ~~~:)
 
-(: build dependency relationship using @Head :)
-(: figure out whether I can FIRST process the entire tree and restore dependency, or whether I should do so only at certain points in the more fine-grained processing :)
-declare function local:build-dependency-tree($unprocessedElement as element())
-{
-    (: end condition for recursion is when leaf node is encountered:)
-    
-    
-    
-    
-};
-
 (: verse functions :)
 
 declare function local:USFMBook($nodeId)
@@ -443,7 +432,7 @@ declare function local:sentence($node)
 
 (:~~~ execution ~~~:)
 
-processing-instruction xml-stylesheet {'href="../../macula-greek/Nestle1904/lowfat/treedown.css"'},
+(:processing-instruction xml-stylesheet {'href="../../macula-greek/Nestle1904/lowfat/treedown.css"'},:)
 processing-instruction xml-stylesheet {'href="hebrew-treedown.css"'},
 processing-instruction xml-stylesheet {'href="hebrew-boxwood.css"'},
 <chapter
