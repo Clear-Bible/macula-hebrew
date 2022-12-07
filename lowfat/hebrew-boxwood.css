@@ -1,15 +1,18 @@
 wg[class='cl'] {
-  padding-top: 0.25em;
-  padding-bottom: 0.25em;
-  padding-right: 0.25em;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+  padding-inline-start: 0.25rem;
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
   display: block;
   border-right: 1px inset grey;
   border-top: 1px inset grey;
   border-bottom: 1px inset grey;
+  border-left: none;
 }
 
 wg[class='cl'][role]::before {
-  /* Ryder: the addition of a right border means the role needs to shift 0.1rem */
+  /* Ryder: the addition of a left border means the role needs to shift 0.1rem */
   margin-right: -1.1rem;
 }
 
