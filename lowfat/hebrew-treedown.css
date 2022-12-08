@@ -112,10 +112,23 @@ wg[class='cl'] + wg:not([role]):not([class='conjuncted-wg']) > wg[class='cl'] {
 
 /* Words */
 
-w[after]::after {
+w:not([after])::after {
+  content: '-';
+  color: lightgrey;
+  margin-left: -0.2em;
+  /* add a light grey border between morphemes */
+  /* border-left: 4px solid #ccc; */
+}
+w:not([after]):empty::after {
+  content: 'ה-';
+  color: lightgrey;
+  margin-left: -0.2em;
+}
+
+w[after='־']::after {
+  /* hebrew maqqef */
   content: attr(after);
-  font-size: 0.8em;
-  color: gray;
+  /* override default morpheme spacing display */
 }
 
 w[role] {
