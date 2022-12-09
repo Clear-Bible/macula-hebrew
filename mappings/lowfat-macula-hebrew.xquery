@@ -640,48 +640,35 @@ declare function local:node($node as element()) {
 };
 declare function local:node($node as element(), $passed-role as xs:string?)
 {
-    switch (local:node-type($node))
-        case "non-rule-node"
-            return
-                if ($node/m) then
-                    $node/m ! <w>{
-                            attribute role {$passed-role},
-                            ./text()
-                        }</w>
-                else
-                    if ($node/c) then
-                        $node/c/m ! <w>{
-                                attribute role {$passed-role},
-                                ./text()
-                            }</w>
-                    else
-                        $node/element() ! local:node(., $passed-role)
-        
-        case "clause"
-            return
-                let $clause-roles := tokenize(lower-case($node/@Rule), '-')
-                return
-                    <wg
-                        class='cl'>{
-                            $node/@Rule ! attribute rule {.},
-                            for $clause-constituent at $index in $node/element()
-                            let $constituent-role := $clause-roles[$index]
-                            return
-                                local:node($clause-constituent, $constituent-role)
-                        }</wg>
-        case "clause-complex"
-            return
-                local:process-clause-complex($node, $passed-role)
-        case "atomic"
-            return
-                $node/element() ! local:node(., $passed-role)
-        
-        case "complex"
-            return
-                local:process-complex-node($node, $passed-role)
-        default
-        return
-            <error3>{$node}</error3>
+	if (count($node) gt 1) then
+		<error_too_many_nodes>{$node}</error_too_many_nodes>
+	else
+		if ($node/@Cat = 'S') then
+			(: Ryder: in the Hebrew trees, top-level clauses may have conjunction AND clause siblings. These need to be processed to properly attach the conjunctions to their conjuncted siblings. :)
+			local:process-conjunctions($node, $passed-role)
+		else
+			switch (local:node-type($node))
+				case "non-rule-node"
+					return 
+						local:process-word($node, $passed-role)
+				case "conjunctions-to-be-processed"
+					return
+						local:process-conjunctions($node, $passed-role)
+				case "clause"
+					return
+						local:clause($node, $passed-role)
+				case "atomic"
+					return
+						$node/element() ! local:node(., $passed-role)
+				case "group"
+					return
+						<nodeGroup>{local:process-group($node, $passed-role)}</nodeGroup>
+				case "complex"
+					return
+						local:process-complex-node($node, $passed-role)
+				default
+				return
+					<error_unknown_node_type>{$node/@*}</error_unknown_node_type>
 };
 
 (: sentence :)
