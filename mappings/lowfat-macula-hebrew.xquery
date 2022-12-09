@@ -450,6 +450,19 @@ declare function local:process-conjunctions($node, $passed-role)
 					}</wg>
 			}</wg>
 };:)
+
+declare function local:process-wrapper-clause($node, $passed-role)
+{
+	<wg
+		type="wrapper-clause-scope">{
+			local:attributes($node),
+			if ($passed-role) then
+				attribute role {$passed-role}
+			else
+				(),
+			$node/element() ! local:node(.)
+		}</wg>
+};
 };
 
 declare function local:process-complex-node($node, $passed-role)
