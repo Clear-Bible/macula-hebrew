@@ -424,6 +424,32 @@ declare function local:process-conjunctions($node, $passed-role)
 						$constituent ! local:node(.)
 		}</wg>
 };
+
+(:declare function local:process-wrapper($node, $passed-role)
+{
+	(\: wrapper scope has a head, but the head is not the wrapper in the Nodes trees :\)
+	(\: Ryder: I believe every @Head value is 0-indexed, whereas XPath positions are 1-indexed, so add 1 to @Head :\)
+	let $headIndex := $node/@Head + 1
+	let $headChild := $node/child::Node[$headIndex]
+	let $childrenBeforeHead := $headChild/preceding-sibling::*
+	let $childrenAfterHead := $headChild/following-sibling::*
+	return
+		<wg
+			type="wrapper">{
+				local:attributes($node),
+				if ($passed-role) then
+					attribute role {$passed-role}
+				else
+					(),
+				
+				$headChild/element() ! local:node(.),
+				<wg
+					type="scope">{
+						$childrenBeforeHead ! local:node(.),
+						$childrenAfterHead ! local:node(.)
+					}</wg>
+			}</wg>
+};:)
 };
 
 declare function local:process-complex-node($node, $passed-role)
