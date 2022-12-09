@@ -20,7 +20,7 @@ declare variable $wrapper-clause-rule := ('AdvpCL', 'cjpCLx', 'PtclCL', 'ppCL', 
 declare variable $wrapper-rule := ('cjpNp', 'cjpPp', 'QuanNP');
 
 declare variable $apposition-rule := ('Np-Appos');
-
+declare variable $auxiliary-rule := ('ADV2CL', 'Intj2CL', 'Np2CL', 'P2CL', 'O22CL', 'O2CL', 'S2CL', 'V2CL', 'Relp2CL', 'PP2CL');
 (: 
 
 Ryder notes:
