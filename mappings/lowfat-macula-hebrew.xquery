@@ -49,6 +49,33 @@ declare function local:is-clause-rule($rule as node()) as xs:boolean
 	else
 		false()
 };
+
+declare function local:clause-is-projected($node as element(Node)) as xs:boolean
+{
+	(:	previous sibling should satisfy: //*contains(@LexDomain,"002004001009"):)
+	(some $previous-sibling
+	in $node/preceding-sibling::Node/descendant::m
+		satisfies (
+			$previous-sibling[contains(@LexDomain, "002004001009")])
+			and not($node/parent::Node[@Cat='CL'])
+		)
+	(:
+	Ryder: do some of the projecting matrices follow the projection?
+	If so, use the following block:
+	
+	or
+	(some $following-sibling 
+	in $node/following-sibling::Node/descendant::m 
+	satisfies $following-sibling[contains(@LexDomain,"002004001009")])
+	:)
+};
+
+declare function local:clause-is-projecting($node as element(Node)) as xs:boolean
+{
+	(:	self should satisfy: //*contains(@LexDomain,"002004001009"):)
+	some $child
+	in $node/descendant::m
+		satisfies $child[contains(@LexDomain, "002004001009")]
 };
 
 (:~~~ function definitions ~~~:)
