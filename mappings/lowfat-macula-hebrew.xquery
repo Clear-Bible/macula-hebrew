@@ -5,7 +5,7 @@ declare variable $atomic-structure-rule := ('Adj2Adjp', 'Adj2Advp', 'Adj2NP', 'A
 (: Ryder: conjuncted structure rules are non-atomic rules that include conjunctions/conjunction phrases :)
 declare variable $conjuncted-structure-rule := ('2CLaCL', '2CLaCLaCL', '2NpaNpaNp', '2PpaPp', '3NpaNp', '4NpaNp', 'ADJPaADJPADJPaADJP', 'ADVaADV', 'ADVaADVaADVaADV', 'AdjpAdjpandAdjp', 'AdjpaAdjp', 'AdjpandAdjpAdjp', 'AdvpaAdvp', 'AdvpandAdvp', 'AdvpandPp', 'CLa2CL', 'CLaCL', 'CLandCL2', 'CjpAdjp', 'CjpAdvp2Advp', 'CjpAdvpCjpAdvp', 'CjpCjp', 'ClClaClaClaClaCl', 'ClaClClaCl', 'ClaClaClCl', 'Conj11Np', 'Conj2Pp', 'Conj3Adjp', 'Conj3CL', 'Conj3Np', 'Conj3Pp', 'Conj4Adjp', 'Conj4CL', 'Conj4Np', 'Conj4Pp', 'Conj5CL', 'Conj5Np', 'Conj5Pp', 'Conj6Np', 'Conj6Pp', 'Conj7Np', 'Conj7Pp', 'Conj8Np', 'Conj9Np', 'NP10NP', 'NP3NP', 'NPNPNPNPaNPNPNPNPNPaNPNPNPNPNP', 'NPNPNPNPaNPaNPaNP', 'NPNPNPaNPNPaNP', 'NPNPNPaNPaNP', 'NPNPNPaNPaNPaNP', 'NPNPaNPNPNPNPNPaNP', 'NPNPaNPNPNPaNP', 'NPNPaNPNPaNP', 'NPNPaNPNPaNPaNP', 'NPNPaNPaNPaNP', 'NPNPaNPaNPaNPaNP', 'NPNPaNPaNPaNPaNPaNP', 'NPaNPNP', 'NPaNPNPNP', 'NPaNPNPNPNP', 'NPaNPNPNPNPNP', 'NPaNPNPNPNPNPNP', 'NPaNPNPNPNPNPaNPNP', 'NPaNPNPNPNPNPaNPaNP', 'NPaNPNPNPNPaNP', 'NPaNPNPNPaNP', 'NPaNPNPaNP', 'NPaNPNPaNPNP', 'NPaNPNPaNPNPaNP', 'NPaNPNPaNPNPaNPaNP', 'NPaNPaNPNP', 'NPaNPaNPNPNPNPNPNPNPNPNPNPNP', 'NPaNPaNPNPNPaNP', 'NPaNPaNPNPaNP', 'NPaNPaNPNPaNPNPNPaNPaNP', 'NPaNPaNPNPaNPNPaNP', 'NPaNPaNPNPaNPaNP', 'NPaNPaNPaNPNP', 'NPaNPaNPaNPNPaNP', 'NPaNPaNPaNPaNPNPNP', 'NPaNPaNPaNPaNPNPaNP', 'NPandPP2np', 'NPnp4NP', 'NPnp5NP', 'NpNp5', 'NpNp6', 'NpNpNpNpNpNpNpaNp', 'NpNpNpNpNpNpaNp', 'NpNpNpNpNpaNp', 'NpNpNpNpNpaNpNp', 'NpNpNpNpNpaNpaNp', 'NpNpNpNpaNpNpaNp', 'NpNpaNpNp', 'NpaNp', 'NumpAndNump', 'NumpNumpNumpaNump', 'NumpNumpaNump', 'NumpNumpaNumpaNump', 'NumpaNumpNump', 'NumpaNumpNumpaNump', 'NumpaNumpaNump', 'NumpaNumpaNumpaNump', 'PP8PP', 'PP9PP', 'PPPP4', 'PPPP5', 'PPandPP', 'PpPp9', 'PpPpPpPpandPp', 'PpPpPpaPpaPpaPpaPp', 'PpPpPpandPp', 'PpPpPpandPpPp', 'PpPpaPpaPpaPp', 'PpPpandPpPp', 'PpaPpPpPpPpaPp', 'PpaPpPpaPp', 'PpandAdvp', 'PpandPpPp', 'Relp3Relp', 'Relp5Relp', 'RelpandRelp', 'VP3VP', 'VPandVP', 'aCLaCL', 'aCLaCLaCL', 'aNpaNp', 'aNpaNpaNp', 'aPpaPp', 'aPpaPpaPp', 'cjpCLx', 'cjpNp', 'cjpPp', 'ppPP5PP', 'ppPP6PP', 'ppappPP5PP');
 (: Ryder: "groups" repeat the same structure multiple times. This test could probably be nuanced a bit more (e.g., should any of these have heads?) :)
-declare variable $group-rule := ('12Np', '2Advp_h1', '2Advp_h2', '2CLaCL', '2CLaCLaCL', '2Np', '2NpaNpaNp', '2Pp', '2Pp', '2PpaPp', '3Adjp', '3NpaNp', '4NpaNp', '7Np', 'ADJPaADJPADJPaADJP', 'ADVaADV', 'ADVaADVaADVaADV', 'AdjpAdjp', 'AdjpAdjpandAdjp', 'AdjpaAdjp', 'AdjpandAdjpAdjp', 'AdvpaAdvp', 'AdvpandAdvp', 'CLa2CL', 'CLaCL', 'CLandCL2', 'CjpAdvpCjpAdvp', 'CjpCjp', (:'ClCl', 'ClCl2', :)'ClClCl', 'ClClClCl', 'ClClClClCl', 'ClClClClClCl', 'ClClaClaClaClaCl', 'ClaClClaCl', 'ClaClaClCl', 'Conj11Np', 'Conj2Pp', 'Conj3Adjp', 'Conj3CL', 'Conj3Np', 'Conj3Pp', 'Conj4Adjp', 'Conj4CL', 'Conj4Np', 'Conj4Pp', 'Conj5CL', 'Conj5Np', 'Conj5Pp', 'Conj6Np', 'Conj6Pp', 'Conj7Np', 'Conj7Pp', 'Conj8Np', 'Conj9Np', 'IjpIjp', 'NP10NP', 'NP3NP', 'NPNPNPNPaNPNPNPNPNPaNPNPNPNPNP', 'NPNPNPNPaNPaNPaNP', 'NPNPNPaNPNPaNP', 'NPNPNPaNPaNP', 'NPNPNPaNPaNPaNP', 'NPNPaNPNPNPNPNPaNP', 'NPNPaNPNPNPaNP', 'NPNPaNPNPaNP', 'NPNPaNPNPaNPaNP', 'NPNPaNPaNPaNP', 'NPNPaNPaNPaNPaNP', 'NPNPaNPaNPaNPaNPaNP', 'NPaNPNP', 'NPaNPNPNP', 'NPaNPNPNPNP', 'NPaNPNPNPNPNP', 'NPaNPNPNPNPNPNP', 'NPaNPNPNPNPNPaNPNP', 'NPaNPNPNPNPNPaNPaNP', 'NPaNPNPNPNPaNP', 'NPaNPNPNPaNP', 'NPaNPNPaNP', 'NPaNPNPaNPNP', 'NPaNPNPaNPNPaNP', 'NPaNPNPaNPNPaNPaNP', 'NPaNPaNPNP', 'NPaNPaNPNPNPNPNPNPNPNPNPNPNP', 'NPaNPaNPNPNPaNP', 'NPaNPaNPNPaNP', 'NPaNPaNPNPaNPNPNPaNPaNP', 'NPaNPaNPNPaNPNPaNP', 'NPaNPaNPNPaNPaNP', 'NPaNPaNPaNPNP', 'NPaNPaNPaNPNPaNP', 'NPaNPaNPaNPaNPNPNP', 'NPaNPaNPaNPaNPNPaNP', 'NPnp4NP', 'NPnp5NP', 'Np5Np', 'NpNp5', 'NpNp6', 'NpNpNp', 'NpNpNp11', 'NpNpNpNp', 'NpNpNpNpNp', 'NpNpNpNpNpNp', 'NpNpNpNpNpNpNpaNp', 'NpNpNpNpNpNpaNp', 'NpNpNpNpNpaNp', 'NpNpNpNpNpaNpNp', 'NpNpNpNpNpaNpaNp', 'NpNpNpNpaNpNpaNp', 'NpNpaNpNp', 'NpaNp', 'PP8PP', 'PP9PP', 'PPPP4', 'PPPP5', 'PPandPP', 'PpPp', 'PpPp9', 'PpPpPp', 'PpPpPpPp', 'PpPpPpPpPp', 'PpPpPpPpandPp', 'PpPpPpaPpaPpaPpaPp', 'PpPpPpandPp', 'PpPpPpandPpPp', 'PpPpaPpaPpaPp', 'PpPpandPpPp', 'PpaPpPpPpPpaPp', 'PpaPpPpaPp', 'PpandPpPp', 'Relp3Relp', 'Relp5Relp', 'RelpandRelp', 'VP3VP', 'VPandVP', 'aNpaNp', 'aNpaNpaNp', 'aPpaPp', 'aPpaPpaPp', 'ppPP5PP', 'ppPP6PP', 'ppappPP5PP', 'RelpRelp', 'aCLaCL', 'aCLaCLaCL', 'NumpAndNump', 'NumpNump', 'NumpNumpNumpNump', 'NumpNumpNumpaNump', 'NumpNumpaNump', 'NumpNumpaNumpaNump', 'NumpaNumpNump', 'NumpaNumpNumpaNump', 'NumpaNumpaNump', 'NumpaNumpaNumpaNump');
+declare variable $group-rule := ('12Np', '2Advp_h1', '2Advp_h2', '2CLaCL', '2CLaCLaCL', '2Np', '2NpaNpaNp', '2Pp', '2Pp', '2PpaPp', '3Adjp', '3NpaNp', '4NpaNp', '7Np', 'ADJPaADJPADJPaADJP', 'ADVaADV', 'ADVaADVaADVaADV', 'AdjpAdjp', 'AdjpAdjpandAdjp', 'AdjpaAdjp', 'AdjpandAdjpAdjp', 'AdvpaAdvp', 'AdvpandAdvp', 'CLa2CL', 'CLaCL', 'CLandCL2', 'CjpAdvpCjpAdvp', 'CjpCjp', (:'ClCl', 'ClCl2', :) 'ClClCl', 'ClClClCl', 'ClClClClCl', 'ClClClClClCl', 'ClClaClaClaClaCl', 'ClaClClaCl', 'ClaClaClCl', 'Conj11Np', 'Conj2Pp', 'Conj3Adjp', 'Conj3CL', 'Conj3Np', 'Conj3Pp', 'Conj4Adjp', 'Conj4CL', 'Conj4Np', 'Conj4Pp', 'Conj5CL', 'Conj5Np', 'Conj5Pp', 'Conj6Np', 'Conj6Pp', 'Conj7Np', 'Conj7Pp', 'Conj8Np', 'Conj9Np', 'IjpIjp', 'NP10NP', 'NP3NP', 'NPNPNPNPaNPNPNPNPNPaNPNPNPNPNP', 'NPNPNPNPaNPaNPaNP', 'NPNPNPaNPNPaNP', 'NPNPNPaNPaNP', 'NPNPNPaNPaNPaNP', 'NPNPaNPNPNPNPNPaNP', 'NPNPaNPNPNPaNP', 'NPNPaNPNPaNP', 'NPNPaNPNPaNPaNP', 'NPNPaNPaNPaNP', 'NPNPaNPaNPaNPaNP', 'NPNPaNPaNPaNPaNPaNP', 'NPaNPNP', 'NPaNPNPNP', 'NPaNPNPNPNP', 'NPaNPNPNPNPNP', 'NPaNPNPNPNPNPNP', 'NPaNPNPNPNPNPaNPNP', 'NPaNPNPNPNPNPaNPaNP', 'NPaNPNPNPNPaNP', 'NPaNPNPNPaNP', 'NPaNPNPaNP', 'NPaNPNPaNPNP', 'NPaNPNPaNPNPaNP', 'NPaNPNPaNPNPaNPaNP', 'NPaNPaNPNP', 'NPaNPaNPNPNPNPNPNPNPNPNPNPNP', 'NPaNPaNPNPNPaNP', 'NPaNPaNPNPaNP', 'NPaNPaNPNPaNPNPNPaNPaNP', 'NPaNPaNPNPaNPNPaNP', 'NPaNPaNPNPaNPaNP', 'NPaNPaNPaNPNP', 'NPaNPaNPaNPNPaNP', 'NPaNPaNPaNPaNPNPNP', 'NPaNPaNPaNPaNPNPaNP', 'NPnp4NP', 'NPnp5NP', 'Np5Np', 'NpNp5', 'NpNp6', 'NpNpNp', 'NpNpNp11', 'NpNpNpNp', 'NpNpNpNpNp', 'NpNpNpNpNpNp', 'NpNpNpNpNpNpNpaNp', 'NpNpNpNpNpNpaNp', 'NpNpNpNpNpaNp', 'NpNpNpNpNpaNpNp', 'NpNpNpNpNpaNpaNp', 'NpNpNpNpaNpNpaNp', 'NpNpaNpNp', 'NpaNp', 'PP8PP', 'PP9PP', 'PPPP4', 'PPPP5', 'PPandPP', 'PpPp', 'PpPp9', 'PpPpPp', 'PpPpPpPp', 'PpPpPpPpPp', 'PpPpPpPpandPp', 'PpPpPpaPpaPpaPpaPp', 'PpPpPpandPp', 'PpPpPpandPpPp', 'PpPpaPpaPpaPp', 'PpPpandPpPp', 'PpaPpPpPpPpaPp', 'PpaPpPpaPp', 'PpandPpPp', 'Relp3Relp', 'Relp5Relp', 'RelpandRelp', 'VP3VP', 'VPandVP', 'aNpaNp', 'aNpaNpaNp', 'aPpaPp', 'aPpaPpaPp', 'ppPP5PP', 'ppPP6PP', 'ppappPP5PP', 'RelpRelp', 'aCLaCL', 'aCLaCLaCL', 'NumpAndNump', 'NumpNump', 'NumpNumpNumpNump', 'NumpNumpNumpaNump', 'NumpNumpaNump', 'NumpNumpaNumpaNump', 'NumpaNumpNump', 'NumpaNumpNumpaNump', 'NumpaNumpaNump', 'NumpaNumpaNumpaNump');
 (: Ryder: modifier structures are headed structures that have rules realized by diverse structural patterns (i.e., comprising mixed types of structures beyond simply conjunctions and repetitions of the same structure) :)
 (: Ryder TODO: modifier structure rules need to be broken down into two groups:
     1. those that already have a proper dependency structure, and
@@ -56,9 +56,9 @@ declare function local:clause-is-projected($node as element(Node)) as xs:boolean
 	(some $previous-sibling
 	in $node/preceding-sibling::Node/descendant::m
 		satisfies (
-			$previous-sibling[contains(@LexDomain, "002004001009")])
-			and not($node/parent::Node[@Cat='CL'])
-		)
+		$previous-sibling[contains(@LexDomain, "002004001009")])
+		and not($node/parent::Node[@Cat = 'CL'])
+	)
 	(:
 	Ryder: do some of the projecting matrices follow the projection?
 	If so, use the following block:
@@ -84,144 +84,144 @@ declare function local:clause-is-projecting($node as element(Node)) as xs:boolea
 
 declare function local:USFMBook($nodeId)
 {
-    if (string-length($nodeId) < 1)
-    then
-        "error5"
-    else
-        switch (xs:integer(substring($nodeId, 1, 2)))
-            case 01
-                return
-                    "GEN"
-            case 02
-                return
-                    "EXO"
-            case 03
-                return
-                    "LEV"
-            case 04
-                return
-                    "NUM"
-            case 05
-                return
-                    "DEU"
-            case 06
-                return
-                    "JOS"
-            case 07
-                return
-                    "JDG"
-            case 08
-                return
-                    "RUT"
-            case 09
-                return
-                    "1SA"
-            case 10
-                return
-                    "2SA"
-            case 11
-                return
-                    "1KI"
-            case 12
-                return
-                    "2KI"
-            case 13
-                return
-                    "1CH"
-            case 14
-                return
-                    "2CH"
-            case 15
-                return
-                    "EZR"
-            case 16
-                return
-                    "NEH"
-            case 17
-                return
-                    "EST"
-            case 18
-                return
-                    "JOB"
-            case 19
-                return
-                    "PSA"
-            case 20
-                return
-                    "PRO"
-            case 21
-                return
-                    "ECC"
-            case 22
-                return
-                    "SNG"
-            case 23
-                return
-                    "ISA"
-            case 24
-                return
-                    "JER"
-            case 25
-                return
-                    "LAM"
-            case 26
-                return
-                    "EZK"
-            case 27
-                return
-                    "DAN"
-            case 28
-                return
-                    "HOS"
-            case 29
-                return
-                    "JOL"
-            case 30
-                return
-                    "AMO"
-            case 31
-                return
-                    "OBA"
-            case 32
-                return
-                    "JON"
-            case 33
-                return
-                    "MIC"
-            case 34
-                return
-                    "NAM"
-            case 35
-                return
-                    "HAB"
-            case 36
-                return
-                    "ZEP"
-            case 37
-                return
-                    "HAG"
-            case 38
-                return
-                    "ZEC"
-            case 39
-                return
-                    "MAL"
-            default return
-                "###"
+	if (string-length($nodeId) < 1)
+	then
+		"error5"
+	else
+		switch (xs:integer(substring($nodeId, 1, 2)))
+			case 01
+				return
+					"GEN"
+			case 02
+				return
+					"EXO"
+			case 03
+				return
+					"LEV"
+			case 04
+				return
+					"NUM"
+			case 05
+				return
+					"DEU"
+			case 06
+				return
+					"JOS"
+			case 07
+				return
+					"JDG"
+			case 08
+				return
+					"RUT"
+			case 09
+				return
+					"1SA"
+			case 10
+				return
+					"2SA"
+			case 11
+				return
+					"1KI"
+			case 12
+				return
+					"2KI"
+			case 13
+				return
+					"1CH"
+			case 14
+				return
+					"2CH"
+			case 15
+				return
+					"EZR"
+			case 16
+				return
+					"NEH"
+			case 17
+				return
+					"EST"
+			case 18
+				return
+					"JOB"
+			case 19
+				return
+					"PSA"
+			case 20
+				return
+					"PRO"
+			case 21
+				return
+					"ECC"
+			case 22
+				return
+					"SNG"
+			case 23
+				return
+					"ISA"
+			case 24
+				return
+					"JER"
+			case 25
+				return
+					"LAM"
+			case 26
+				return
+					"EZK"
+			case 27
+				return
+					"DAN"
+			case 28
+				return
+					"HOS"
+			case 29
+				return
+					"JOL"
+			case 30
+				return
+					"AMO"
+			case 31
+				return
+					"OBA"
+			case 32
+				return
+					"JON"
+			case 33
+				return
+					"MIC"
+			case 34
+				return
+					"NAM"
+			case 35
+				return
+					"HAB"
+			case 36
+				return
+					"ZEP"
+			case 37
+				return
+					"HAG"
+			case 38
+				return
+					"ZEC"
+			case 39
+				return
+					"MAL"
+			default return
+				"###"
 };
 
 declare function local:USFMVerseId($nodeId)
 {
-    if (string-length($nodeId) < 1)
-    then
-        "error7"
-    else
-        concat(local:USFMBook($nodeId),
-        " ",
-        xs:integer(substring($nodeId, 3, 3)),
-        ":",
-        xs:integer(substring($nodeId, 6, 3))
-        )
+	if (string-length($nodeId) < 1)
+	then
+		"error7"
+	else
+		concat(local:USFMBook($nodeId),
+		" ",
+		xs:integer(substring($nodeId, 3, 3)),
+		":",
+		xs:integer(substring($nodeId, 6, 3))
+		)
 };
 
 (: process attributes :)
@@ -323,15 +323,15 @@ declare function local:clause($node, $passed-role)
 		(: Ryder: multi-constituent clause :)
 		let $clause-roles := tokenize(lower-case($node/@Rule), '-')
 		return
-		<wg>{
-				local:attributes($node),
-				if ($passed-role) then
-					attribute role {$passed-role}
-				else
-					(),
-				(:if ($clauseIsProjected) then
+			<wg>{
+					local:attributes($node),
+					if ($passed-role) then
+						attribute role {$passed-role}
+					else
+						(),
+					(:if ($clauseIsProjected) then
 					attribute projected {'true'}:)
-				(:else
+					(:else
 					if ($clauseIsProjecting) then
 						(
 							<wg projecting="true">{
@@ -355,7 +355,7 @@ declare function local:clause($node, $passed-role)
 					let $constituent-role := $clause-roles[$index]
 					return
 						local:node($clause-constituent, $constituent-role)
-			}</wg>
+				}</wg>
 	else
 		(: Ryder: TODO: clean up single-constituent clause :)
 		let $clause-role := substring-before($node/@Rule, '2')
@@ -370,19 +370,19 @@ declare function local:clause($node, $passed-role)
 		else:)
 		
 		let $clause-is-auxiliary := (
-			$node/@Rule = $auxiliary-rule
-			and not($node/parent::Node[@Cat = 'pp']) 
+		$node/@Rule = $auxiliary-rule
+		and not($node/parent::Node[@Cat = 'pp'])
 		)
-		return 
-		if ($clause-is-auxiliary) then 
-			local:node($node/element(), 'aux')
-		else
-		
-		<error_unhandled_single_constituent_clause>{
-			$node/@*,
-			$node/element() ! local:node(.)	
-		}
-		</error_unhandled_single_constituent_clause>
+		return
+			if ($clause-is-auxiliary) then
+				local:node($node/element(), 'aux')
+			else
+				
+				<error_unhandled_single_constituent_clause>{
+						$node/@*,
+						$node/element() ! local:node(.)
+					}
+				</error_unhandled_single_constituent_clause>
 };
 
 declare function local:process-conjunctions($node, $passed-role)
@@ -391,38 +391,38 @@ declare function local:process-conjunctions($node, $passed-role)
 	let $clauseIsProjecting := local:clause-is-projecting($node)
 	
 	return
-	<wg>{
-			local:attributes($node),
-			if ($passed-role) then
-				attribute role {$passed-role}
-			else
-				(),
-			if ($clauseIsProjected) then
-				attribute projected {'true'}
-				(: RYDER TODO: check if conjunction phrases are ever projecting/projected in output :)
-			else
-				if ($clauseIsProjecting) then
-					attribute projecting {'true'}
+		<wg>{
+				local:attributes($node),
+				if ($passed-role) then
+					attribute role {$passed-role}
 				else
 					(),
-			for $constituent at $index in $node/element()
-			return
-				(: Ryder: if constituent is cjp, embed immediately following sibling :)
-				if ($constituent/@Cat = ('cjp')) then
-					<wg
-						type='conjuncted-wg'>{
-							
-							local:attributes($constituent),
-							$constituent ! local:node(.),
-							$constituent/following-sibling::element()[1] ! local:node(.)
-						}</wg>
+				if ($clauseIsProjected) then
+					attribute projected {'true'}
+					(: RYDER TODO: check if conjunction phrases are ever projecting/projected in output :)
 				else
-					(: Ryder: handle sibling following cjp :)
-					if ($constituent/preceding-sibling::element()[1]/@Cat = ('cjp')) then
-						()
+					if ($clauseIsProjecting) then
+						attribute projecting {'true'}
 					else
-						$constituent ! local:node(.)
-		}</wg>
+						(),
+				for $constituent at $index in $node/element()
+				return
+					(: Ryder: if constituent is cjp, embed immediately following sibling :)
+					if ($constituent/@Cat = ('cjp')) then
+						<wg
+							type='conjuncted-wg'>{
+								
+								local:attributes($constituent),
+								$constituent ! local:node(.),
+								$constituent/following-sibling::element()[1] ! local:node(.)
+							}</wg>
+					else
+						(: Ryder: handle sibling following cjp :)
+						if ($constituent/preceding-sibling::element()[1]/@Cat = ('cjp')) then
+							()
+						else
+							$constituent ! local:node(.)
+			}</wg>
 };
 
 (:declare function local:process-wrapper($node, $passed-role)
@@ -466,7 +466,7 @@ declare function local:process-wrapper-clause($node, $passed-role)
 
 declare function local:process-auxiliary($node, $passed-role)
 {
-(: RYDER TODO: sort out when to nest auxiliaries using projected/projecting analysis :)
+	(: RYDER TODO: sort out when to nest auxiliaries using projected/projecting analysis :)
 	let $clauseIsProjected := local:clause-is-projected($node)
 	let $clauseIsProjecting := local:clause-is-projecting($node)
 	return
@@ -531,18 +531,19 @@ declare function local:process-complex-node($node, $passed-role)
     Others need to subordinate only the non-heads (the modifiers).
     
     check for $headed-structure-rule or $group-rule or $wrapper-clause-rule :)
-
+	
 	(: WRAPPERS - subordinates siblings :)
 	if ($node/@Rule = $wrapper-rule) then
 		(:local:process-wrapper($node, $passed-role):)
-		<wg type="wrapper-scope">{
-			local:attributes($node),
-			if ($passed-role) then
-				attribute role {$passed-role}
-			else
-				(),
-			$node/element() ! local:node(.)
-		}</wg>
+		<wg
+			type="wrapper-scope">{
+				local:attributes($node),
+				if ($passed-role) then
+					attribute role {$passed-role}
+				else
+					(),
+				$node/element() ! local:node(.)
+			}</wg>
 	else
 		(: GROUP STRUCTURE - coordinate siblings :)
 		if ($node/@Rule = ($group-rule, $apposition-rule)) then
@@ -649,7 +650,7 @@ declare function local:node($node as element(), $passed-role as xs:string?)
 		else
 			switch (local:node-type($node))
 				case "non-rule-node"
-					return 
+					return
 						local:process-word($node, $passed-role)
 				case "conjunctions-to-be-processed"
 					return
