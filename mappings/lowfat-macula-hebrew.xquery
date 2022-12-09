@@ -719,17 +719,17 @@ declare function local:sentence($node)
 processing-instruction xml-stylesheet {'href="hebrew-treedown.css"'},
 processing-instruction xml-stylesheet {'href="hebrew-boxwood.css"'},
 <chapter
-    id="{(/descendant::Sentence)[1]/substring(@verse, 1, 5)}">
-    {
-        (:
+	id="{(/descendant::Sentence)[1]/substring(@verse, 1, 5)}">
+	{
+		(:
             If a sentence has multiple interpretations, Sentence/Trees may contain
             multiple Tree nodes.  We want to specify which interpretation to prefer.
         :)
-        let $interpretationToPrefer := 1
-        
-        (: Process sentences in recently-built dependency tree :)
-        for $sentence in //Tree[$interpretationToPrefer]/Node
-        return
-            local:sentence($sentence)
-    }
+		let $interpretationToPrefer := 1
+		
+		(: Process sentences in recently-built dependency tree :)
+		for $sentence in //Tree[$interpretationToPrefer]/Node
+		return
+			local:sentence($sentence)
+	}
 </chapter>
