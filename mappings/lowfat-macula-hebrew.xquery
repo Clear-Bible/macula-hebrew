@@ -300,6 +300,17 @@ declare function local:attributes($node, $exclusions)
 
 (: process phrases :)
 
+declare function local:phrase($node, $passed-role)
+{
+	<wg>{
+			local:attributes($node),
+			if ($passed-role) then
+				attribute role {$passed-role}
+			else
+				(),
+			$node/element() ! local:node(.)
+		}</wg>
+};
 
 (: process clause - assign roles by clause rule :)
 
@@ -310,8 +321,7 @@ declare function local:clause($node, $passed-role)
 	let $clauseIsProjecting := local:clause-is-projecting($node):)
 	
 	if (contains($node/@Rule, '-')) then
-		(: Ryder: multi-constituent clause :)
-		let $clause-roles := tokenize(lower-case($node/@Rule), '-')
+		(: Ryder: multi-constituent clause :)		let $clause-roles := tokenize(lower-case($node/@Rule), '-')
 		return
 		<wg>{
 				local:attributes($node),
