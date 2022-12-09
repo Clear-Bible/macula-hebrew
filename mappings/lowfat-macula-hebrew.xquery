@@ -385,28 +385,45 @@ declare function local:clause($node, $passed-role)
 		</error_unhandled_single_constituent_clause>
 };
 
+declare function local:process-conjunctions($node, $passed-role)
 {
-    for $constituent at $index in $node
-    return
-        (: Ryder: if constituent is cjp, embed immediately following sibling :)
-        if ($constituent/@Cat = ('cjp', 'rel')) then (: FIXME Ryder: this only fires on 'relp', not 'rel' or 'cjp'. Need to refactor starting from local:node-type() :)
-            <wg
-                class='scope'>{
-                    attribute role {$passed-role},
-                    $constituent, (: Ryder: embed the operator. I can't do local:node() here or it loops infinitely :)
-                    $constituent/following-sibling::element()[1] ! local:node(.) (: Ryder: embed the subsequent sibling :)
-                }</wg>
-        else
-            (: Ryder: handle sibling following cjp :)
-            if ($constituent/preceding-sibling::element()[1]/@Cat = ('cjp', 'relp')) then
-                <precedingSiblingWasCjp/>
-            else
-                <wg
-                    class='complex'>{
-                        $node/@Rule ! attribute rule {.},
-                        attribute role {$passed-role},
-                        $node/element() ! local:node(.)
-                    }</wg>
+	let $clauseIsProjected := local:clause-is-projected($node)
+	let $clauseIsProjecting := local:clause-is-projecting($node)
+	
+	return
+	<wg>{
+			local:attributes($node),
+			if ($passed-role) then
+				attribute role {$passed-role}
+			else
+				(),
+			if ($clauseIsProjected) then
+				attribute projected {'true'}
+				(: RYDER TODO: check if conjunction phrases are ever projecting/projected in output :)
+			else
+				if ($clauseIsProjecting) then
+					attribute projecting {'true'}
+				else
+					(),
+			for $constituent at $index in $node/element()
+			return
+				(: Ryder: if constituent is cjp, embed immediately following sibling :)
+				if ($constituent/@Cat = ('cjp')) then
+					<wg
+						type='conjuncted-wg'>{
+							
+							local:attributes($constituent),
+							$constituent ! local:node(.),
+							$constituent/following-sibling::element()[1] ! local:node(.)
+						}</wg>
+				else
+					(: Ryder: handle sibling following cjp :)
+					if ($constituent/preceding-sibling::element()[1]/@Cat = ('cjp')) then
+						()
+					else
+						$constituent ! local:node(.)
+		}</wg>
+};
 };
 
 declare function local:process-complex-node($node, $passed-role)
