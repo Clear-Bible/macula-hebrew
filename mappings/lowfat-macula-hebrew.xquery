@@ -314,14 +314,14 @@ declare function local:phrase($node, $passed-role)
 
 (: process clause - assign roles by clause rule :)
 
-declare function local:process-clause-complex($node, $passed-role)
 declare function local:clause($node, $passed-role)
 {
 	(:let $clauseIsProjected := local:clause-is-projected($node)
 	let $clauseIsProjecting := local:clause-is-projecting($node):)
 	
 	if (contains($node/@Rule, '-')) then
-		(: Ryder: multi-constituent clause :)		let $clause-roles := tokenize(lower-case($node/@Rule), '-')
+		(: Ryder: multi-constituent clause :)
+		let $clause-roles := tokenize(lower-case($node/@Rule), '-')
 		return
 		<wg>{
 				local:attributes($node),
