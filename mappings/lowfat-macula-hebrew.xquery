@@ -675,16 +675,16 @@ declare function local:node($node as element(), $passed-role as xs:string?)
 
 declare function local:straight-text($node)
 {
-    for $n at $i in $node//Node[local:node-type(.) = 'word']
-    let $afterValue := string($n/m/@*[name() = 'after']) (: Ryder: convoluted attribute name here allows me to format and indent the file in oxygen... :)
-    let $textValue := string($n/m/text())
-        order by $n/@morphId
-    return
-        ($textValue,
-        if (string-length($afterValue) > 0) then
-            $afterValue
-        else
-            'NOAFTERVALUE')
+	for $n at $i in $node//Node[m]
+	let $afterValue := string($n/m/@*[name() = 'after']) (: Ryder: convoluted attribute name here allows me to format and indent the file in oxygen... :)
+	let $textValue := string($n/m/text())
+		order by $n/@morphId
+	return
+		($textValue,
+		if (string-length($afterValue) > 0) then
+			$afterValue
+		else
+			'NOAFTERVALUE')
 };
 
 declare function local:sentence($node)
