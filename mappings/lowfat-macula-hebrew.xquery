@@ -297,8 +297,6 @@ declare function local:attributes($node, $exclusions)
 	else
 		()
 };
-:)
-(: process words :)
 
 (: process phrases :)
 
@@ -306,6 +304,77 @@ declare function local:attributes($node, $exclusions)
 (: process clause - assign roles by clause rule :)
 
 declare function local:process-clause-complex($node, $passed-role)
+declare function local:clause($node, $passed-role)
+{
+	(:let $clauseIsProjected := local:clause-is-projected($node)
+	let $clauseIsProjecting := local:clause-is-projecting($node):)
+	
+	if (contains($node/@Rule, '-')) then
+		(: Ryder: multi-constituent clause :)
+		let $clause-roles := tokenize(lower-case($node/@Rule), '-')
+		return
+		<wg>{
+				local:attributes($node),
+				if ($passed-role) then
+					attribute role {$passed-role}
+				else
+					(),
+				(:if ($clauseIsProjected) then
+					attribute projected {'true'}:)
+				(:else
+					if ($clauseIsProjecting) then
+						(
+							<wg projecting="true">{
+								for $clause-constituent at $index in $node/element()
+									let $constituent-role := $clause-roles[$index]
+									return
+										if (local:clause-is-projecting($clause-constituent)) then local:node($clause-constituent, $constituent-role)
+										else ()
+							}</wg>,
+							
+							<wg projected="true">{
+								for $clause-constituent at $index in $node/element()
+									let $constituent-role := $clause-roles[$index]
+									return
+										if (local:clause-is-projecting($clause-constituent)) then ()
+										else local:node($clause-constituent, $constituent-role)
+							}</wg>
+						)
+				else:)
+					for $clause-constituent at $index in $node/element()
+					let $constituent-role := $clause-roles[$index]
+					return
+						local:node($clause-constituent, $constituent-role)
+			}</wg>
+	else
+		(: Ryder: TODO: clean up single-constituent clause :)
+		let $clause-role := substring-before($node/@Rule, '2')
+		
+		(:let $clause-is-projecting-process := local:clause-is-projecting($node)
+		return 
+		if ($clause-is-projecting-process) then 
+			<wg>{
+				local:node($node/element(), 'PROJECTING'),
+				$node/ancestor::Node[@Cat='CL']/following-sibling::Node ! local:node(.)
+			}</wg>
+		else:)
+		
+		let $clause-is-auxiliary := (
+			$node/@Rule = $auxiliary-rule
+			and not($node/parent::Node[@Cat = 'pp']) 
+		)
+		return 
+		if ($clause-is-auxiliary) then 
+			local:node($node/element(), 'aux')
+		else
+		
+		<error_unhandled_single_constituent_clause>{
+			$node/@*,
+			$node/element() ! local:node(.)	
+		}
+		</error_unhandled_single_constituent_clause>
+};
+
 {
     for $constituent at $index in $node
     return
