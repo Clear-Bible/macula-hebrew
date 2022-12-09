@@ -636,7 +636,7 @@ declare function local:node-type($node as element())
 
 (: Ryder: declare both 1-arg and 2-arg node-processing functions so the function can be called with or without the second argument. :)
 declare function local:node($node as element()) {
-    local:node($node, ())
+	local:node($node, ())
 };
 declare function local:node($node as element(), $passed-role as xs:string?)
 {
@@ -689,35 +689,28 @@ declare function local:straight-text($node)
 
 declare function local:sentence($node)
 {
-    <sentence>
-        {
-            <p>
-                {
-                    for $verse in distinct-values($node//Node/@morphId ! local:USFMVerseId(.))
-                    return
-                        (
-                        <milestone
-                            unit="verse">
-                            {attribute id {$verse}, $verse}
-                        </milestone>
-                        ,
-                        " "
-                        )
-                }
-                {replace(string-join(local:straight-text($node)), 'NOAFTERVALUE', '')}
-            </p>,
-            
-            if (count($node/Node) > 1 or not($node/Node/@Cat = 'CL'))
-            (: If the current node has multiple node children, OR it does not have a clause child :)
-            then
-                <wg
-                    role="cl">{$node/Node ! local:node(.)}</wg>
-                (: FIXME: This element is not always a clause; it is a top-level wrapper, and treating 'cl' as a role is a kind of display hack IMO that uses @role for something that is not a clausal role. :)
-            else
-                local:node($node/Node)
-            
-        }
-    </sentence>
+	<sentence>
+		{
+			attribute class {lower-case($node/@Cat)},
+			<p>
+				{
+					for $verse in distinct-values($node//Node/@morphId ! local:USFMVerseId(.))
+					return
+						(
+						<milestone
+							unit="verse">
+							{attribute id {$verse}, $verse}
+						</milestone>
+						,
+						" "
+						)
+				}
+				{replace(string-join(local:straight-text($node)), 'NOAFTERVALUE', '')}
+			</p>,
+			local:node($node)
+			
+		}
+	</sentence>
 };
 
 (:~~~ execution ~~~:)
