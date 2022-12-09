@@ -225,51 +225,77 @@ declare function local:USFMVerseId($nodeId)
 };
 
 (: process attributes :)
-(:declare function local:attributes($node)
-(\: FIXME: update attributes function based on macula hebrew changes since May 2022 :\)
+declare function local:attributes($node)
 {
-    if (local:node-type($node) = 'm')
-        then
-        (
-            $node/@xml:id,
-            $node/@mandarin,
-            $node/@english,
-            $node/@morph,
-            $node/@pos,
-            $node/@after,
-            $node/@type,
-            $node/@gloss,
-            $node/@transliteration,
-            $node/@SDBH ! attribute sdbh {.},
-            $node/@lemma ! attribute stronglemma {.},
-            $node/@LexDomain ! attribute lexdomain {.},
-            $node/@ContextualDomain ! attribute contextualdomain {.},
-            $node/@CoreDomain ! attribute coredomain {.},
-            $node/ancestor::Node[1]/@SenseNumber ! attribute sensenumber {.},
-            $node/ancestor::Node[1]/@Frame ! attribute frame {.},
-            $node/ancestor::Node[1]/@Ref ! attribute participantref {.},
-            $node/ancestor::Node[1]/@SubjRef ! attribute subjref {.},
-            $node/ancestor::Node[1]/@Greek ! attribute greek {.},
-            $node/ancestor::Node[1]/@GreekStrong ! attribute greekstrong {.},
-            $node/ancestor::Node[1]/@StrongNumberX ! attribute strongnumberx {.},
-            $node/ancestor::Node[1]/@Cat ! attribute class {.},
-            $node/ancestor::Node[1]/@Unicode ! attribute unicode {.}
-        )
-    else 
-        $node/@Cat ! attribute class {lower-case(.)},
-        $node/@Head ! attribute head {if (. = '0') then true() else false()},
-        (\:$node/@nodeId ! attribute xml:id {concat('o', lower-case(.))}, (\: NOTE: corpus-specific prefix 'o' is added to nodeIds here :\):\)
-        $node/@Rule ! attribute rule {lower-case(.)},
-        $node/@Unicode ! attribute unicode {.},
-        $node/@lang ! attribute lang {.},
-        $node/@lemma ! attribute lemma {.},
-        $node/@gender ! attribute gender {lower-case(.)},
-        $node/@number ! attribute number {lower-case(.)},
-        $node/@state ! attribute state {lower-case(.)},
-        $node/@stem ! attribute stem {lower-case(.)},
-        $node/@person ! attribute person {lower-case(.)},
-        $node/@StrongNumberX ! attribute strongnumberx {.},
-        $node/@Greek ! attribute greek {.}
+	local:attributes($node, ())
+};
+declare function local:attributes($node, $exclusions)
+(: FIXME: update attributes function based on macula hebrew changes since May 2022 :)
+{
+	if (local-name($node) = 'm')
+	then
+		(
+		$node/@xml:id,
+		$node/@mandarin,
+		$node/@english,
+		$node/@morph,
+		$node/@pos,
+		$node/@after,
+		$node/@type,
+		$node/@gloss,
+		$node/@transliteration,
+		$node/@SDBH ! attribute sdbh {.},
+		$node/@lemma ! attribute stronglemma {.},
+		$node/@LexDomain ! attribute lexdomain {.},
+		$node/@ContextualDomain ! attribute contextualdomain {.},
+		$node/@CoreDomain ! attribute coredomain {.},
+		$node/ancestor::Node[1]/@SenseNumber ! attribute sensenumber {.},
+		$node/ancestor::Node[1]/@Frame ! attribute frame {.},
+		$node/ancestor::Node[1]/@Ref ! attribute participantref {.},
+		$node/ancestor::Node[1]/@SubjRef ! attribute subjref {.},
+		$node/ancestor::Node[1]/@Greek ! attribute greek {.},
+		$node/ancestor::Node[1]/@GreekStrong ! attribute greekstrong {.},
+		$node/ancestor::Node[1]/@StrongNumberX ! attribute strongnumberx {.},
+		$node/ancestor::Node[1]/@Cat ! attribute class {.},
+		$node/ancestor::Node[1]/@Unicode ! attribute unicode {.}
+		)
+	else
+		if (not('class' = $exclusions)) then
+			$node/@Cat ! attribute class {
+				if ($node/@Rule = $group-rule) then
+					'g'
+				else
+					lower-case(.)
+			}
+		else
+			(),
+	$node/@Head ! attribute head {
+		if (. = '0') then
+			true()
+		else
+			false()
+	},
+	(:$node/@nodeId ! attribute xml:id {concat('o', lower-case(.))}, (\: NOTE: corpus-specific prefix 'o' is added to nodeIds here :\):)
+	$node/@Rule ! attribute rule {lower-case(.)},
+	$node/@Unicode ! attribute unicode {.},
+	$node/@lang ! attribute lang {.},
+	$node/@lemma ! attribute lemma {.},
+	$node/@gender ! attribute gender {lower-case(.)},
+	$node/@number ! attribute number {lower-case(.)},
+	$node/@state ! attribute state {lower-case(.)},
+	$node/@stem ! attribute stem {lower-case(.)},
+	$node/@person ! attribute person {lower-case(.)},
+	$node/@StrongNumberX ! attribute strongnumberx {.},
+	$node/@Greek ! attribute greek {.},
+	(: Ryder: FIXME: where exactly do we want this articular rule to go? Should we make it a discontinuous subordination phrase? :)
+	if ($node/@Rule = $aramaic-determiner-rule) then
+		attribute articular {'true'}
+	else
+		(),
+	if ($node/@Rule = $nominalized-clause-rule) then
+		attribute clausetype {'nominalized-clause'}
+	else
+		()
 };
 :)
 (: process words :)
