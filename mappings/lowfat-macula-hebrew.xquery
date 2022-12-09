@@ -487,6 +487,33 @@ declare function local:process-auxiliary($node, $passed-role)
 				$node/element() ! local:node(.)
 			}</wg>
 };
+declare function local:process-group($node, $passed-role)
+{
+	(: Ryder: Complex node does not have a head; therefore coordinate its children as siblings
+ TODO: disambiguate wrappers to determine whether some of these groups are in fact subordinating structures.
+ TODO: disambiguate projection/projecting and figure out where nesting should occur of some children
+:)
+	let $clauseIsProjected := local:clause-is-projected($node)
+	let $clauseIsProjecting := local:clause-is-projecting($node)
+	
+	return
+		<wg
+			class='g'
+			type="type">{
+				local:attributes($node, 'class'),
+				if ($passed-role) then
+					attribute role {$passed-role}
+				else
+					(),
+				if ($clauseIsProjected) then
+					attribute projected {'true'}
+				else
+					if ($clauseIsProjecting) then
+						attribute projecting {'true'}
+					else
+						(),
+				$node/child::element() ! local:node(.)
+			}</wg>
 };
 
 declare function local:process-complex-node($node, $passed-role)
