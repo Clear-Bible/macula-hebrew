@@ -613,23 +613,25 @@ declare function local:process-word($node, $passed-role)
 
 declare function local:node-type($node as element())
 {
-    if (not($node/@Rule)) then
-        'non-rule-node'
-    else
-        (: Ryder: if a "clause" does not have a clause-function rule (e.g., 'S-V-O'), it is a clause complex :)
-        if ($node/@Cat = 'CL' and not(local:is-clause-rule($node/@Rule)) or $node/@Rule = $headed-structure-rule) then
-            'clause-complex'
-        else
-            if (local:is-clause-rule($node/@Rule)) then
-                'clause'
-            else
-                if ($node/@Rule = $atomic-structure-rule) then
-                    'atomic'
-                else
-                    if (not($node/@Rule = $atomic-structure-rule)) then
-                        'complex'
-                    else
-                        '#error_Unknown_Rule'
+	if (not($node/@Rule)) then
+		'non-rule-node'
+	else
+		if ($node/@Cat = 'S' and $node/Node[@Cat = 'cjp']) then
+			(: Ryder: The top level sentence may have clauses and conjunctions. 
+            See local:sentence() below. In theory, these could be treated as discourse-progression markers,
+            but for now they are being treated as simple conjunctions. :)
+			'conjunctions-to-be-processed'
+		else
+			if ($node/@Rule = $conjuncted-structure-rule) then
+				'conjunctions-to-be-processed'
+			else
+				if (local:is-clause-rule($node/@Rule)) then
+					'clause'
+				else
+					if ($node/@Rule = $atomic-structure-rule) then
+						'atomic'
+					else
+						'complex' (: Ryder: note - if something had an erroneous rule it would end up being a 'complex' unit :)
 };
 
 (: Ryder: declare both 1-arg and 2-arg node-processing functions so the function can be called with or without the second argument. :)
