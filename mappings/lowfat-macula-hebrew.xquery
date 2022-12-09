@@ -463,6 +463,30 @@ declare function local:process-wrapper-clause($node, $passed-role)
 			$node/element() ! local:node(.)
 		}</wg>
 };
+
+declare function local:process-auxiliary($node, $passed-role)
+{
+(: RYDER TODO: sort out when to nest auxiliaries using projected/projecting analysis :)
+	let $clauseIsProjected := local:clause-is-projected($node)
+	let $clauseIsProjecting := local:clause-is-projecting($node)
+	return
+		<wg
+			role="aux">{
+				local:attributes($node),
+				if ($passed-role) then
+					attribute role {$passed-role}
+				else
+					(),
+				if ($clauseIsProjected) then
+					attribute projected {'true'}
+				else
+					if ($clauseIsProjecting) then
+						attribute projecting {'true'}
+					else
+						(),
+				$node/element() ! local:node(.)
+			}</wg>
+};
 };
 
 declare function local:process-complex-node($node, $passed-role)
