@@ -34,12 +34,21 @@ declare variable $hebrew-determiner-rule := ('DetAdjp', 'DetNP', 'DetNump', 'Det
 declare variable $aramaic-structure-rule := ('vpVp2V2', 'Vpvp2V1');
 declare variable $nominalized-clause-rule := ('CL2Adjp', 'CL2NP', 'Np2CL' (: Ryder: note, 'Np2CL' only some of the time is realized by a clause :));
 
-declare function local:is-clause-rule($rule as node())
+declare function local:is-clause-rule($rule as node()) as xs:boolean
 {
-    if (not($rule = 'Np-Appos') and contains($rule, '-')) then
-        true()
-    else
-        false()
+	if (not($rule = 'Np-Appos')
+	and (
+	contains($rule, '-')
+	(: There are also a number of single-constituent clauses. E.g., V2CL :)
+	or (contains($rule, '2CL')
+	and not($rule = ('2CLaCL', '2CLaCLaCL', 'CLa2CL'))
+	)
+	)
+	) then
+		true()
+	else
+		false()
+};
 };
 
 (:~~~ function definitions ~~~:)
