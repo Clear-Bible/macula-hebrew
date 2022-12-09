@@ -584,6 +584,31 @@ declare function local:process-complex-node($node, $passed-role)
 								rule="{$node/@Rule}">{$node/element() ! local:node(.)}</error_unknown_complex_node>
 };
 
+declare function local:process-word($node, $passed-role)
+{
+	if ($node/m) then
+		$node/m ! <w>{
+				local:attributes(.),
+				if ($passed-role) then
+					attribute role {$passed-role}
+				else
+					(),
+				./text()
+			}</w>
+	else
+		if ($node/c) then
+			(: Ryder: TODO: handle compound morphemes :)
+			$node/c/m ! <w
+				compound="true">{
+					local:attributes(.),
+					if ($passed-role) then
+						attribute role {$passed-role}
+					else
+						(),
+					./text()
+				}</w>
+		else
+			$node/element() ! local:node(., $passed-role)
 };
 
 declare function local:node-type($node as element())
