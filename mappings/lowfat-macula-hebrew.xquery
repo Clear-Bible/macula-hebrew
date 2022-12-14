@@ -550,8 +550,7 @@ declare function local:disambiguate-complex-clause-structure($node, $passed-role
 						let $processed-subordinate := local:node($constituent-to-subordinate, $disambiguated-subordinate-role)
 						
 						return
-							<wg
-								ccr="{$node/@Rule}">{
+							<wg>{
 									(:local:attributes($node, 'class'),:)
 									$node/@Rule,
 									$node/@Cat,
