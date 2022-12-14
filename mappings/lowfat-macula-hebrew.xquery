@@ -40,10 +40,13 @@ declare function local:is-clause-rule($rule as node()) as xs:boolean
 	if (not($rule = 'Np-Appos')
 	and (
 	contains($rule, '-')
-	(: There are also a number of single-constituent clauses. E.g., V2CL :)
+	(:
+	Ryder: single-constituent clauses often require nesting of subsequent siblings, so I now try to handle them individually rather than here.
+	
+	(\: There are also a number of single-constituent clauses. E.g., V2CL :\)
 	or (contains($rule, '2CL')
 	and not($rule = ('2CLaCL', '2CLaCLaCL', 'CLa2CL'))
-	)
+	):)
 	)
 	) then
 		true()
@@ -610,7 +613,7 @@ declare function local:process-single-constituent-clause($node, $passed-role)
 		* S2CL
 		* V2CL - Done
 	:)
-	let $internal-role := substring-before($node/@Rule, '2CL')
+	let $internal-role := lower-case(substring-before($node/@Rule, '2CL'))
 	return
 	
 	switch ($node/@Rule)
@@ -618,7 +621,7 @@ declare function local:process-single-constituent-clause($node, $passed-role)
 		case 'V2CL'
 			return <wg>{
 						attribute class {'cl'},
-						attribute role {$passed-role},
+						local:attributes($node, 'class'),
 						$node/element() ! local:node(., $internal-role)
 					}</wg>
 		
@@ -735,7 +738,8 @@ declare function local:process-complex-node($node, $passed-role)
 			if ($node/@Rule = ($modifier-structure-rule, $hebrew-determiner-rule)) then
 				(: Ryder: subordinate modifier :)
 				<wg>{
-						local:attributes($node),
+						attribute class {'modifier-scope'},
+						local:attributes($node, 'class'),
 						if ($passed-role) then
 							attribute role {$passed-role}
 						else
