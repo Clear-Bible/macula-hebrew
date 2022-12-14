@@ -487,7 +487,93 @@ declare function local:process-auxiliary($node, $passed-role)
 						(),
 				$node/element() ! local:node(.)
 			}</wg>
+
+declare function local:disambiguate-complex-clause-structure($node, $passed-role)
+{
+	
+	let $rules-that-have-been-disambiguated-in-this-function := ('ClCl', 'ClCl2')
+	return
+		
+		(: Ryder: Ensure an error is thrown for cases I have not yet handled. :)
+		if (count($node/child::Node) > 2) then
+			<error_unhandled_complex_clause_structure__too_many_children
+				rule="{$node/@Rule}"/>
+		else
+			if (not($node/@Rule = $rules-that-have-been-disambiguated-in-this-function)) then
+				(: Ryder: some other rules should probably be treated as complex clause structure requiring disambiguation (e.g., 'ClaCl'), and if they do, then they should trip this condition until their internal structure disambiguation is handled below :)
+				<error_unknown_complex_clause_structure
+					rule="{$node/@Rule}">{
+						$node/element() ! local:node(.)
+					}</error_unknown_complex_clause_structure>
+			
+			else
+				
+				let $first-constituent := $node/child::Node[1]
+				let $second-constituent := $node/child::Node[2]
+				
+				(:
+					Ryder: possible analyses for cases I have handled:
+					- subordinate first constituent <-- assume case for ClCl
+					- subordinate second constituent <-- assume case for ClCl2
+					- coordinate constituents (group them) <-- I know this is sometimes the case in the Greek trees (e.g., Matt 12:3), but I'm not sure about the Hebrew trees
+					- flatten some series of nested ClCl when they should be groups (e.g., potentially Isaiah 51.9, which has ClCl 4 or 5 deep)
+				:)
+				
+				let $should-coordinate-constituents := false()
+				let $should-subordinate-first := ($node/@Rule = 'ClCl2')
+				let $should-subordinate-second := ($node/@Rule = 'ClCl')
+				return
+				
+					if ($should-coordinate-constituents) then (
+						(: Ryder TODO: handle ClCl/ClCl2 that should be coordinated :)
+					)
+					else 
+					
+						let $constituent-to-raise := 
+							if ($should-subordinate-first) then
+								$second-constituent
+							else
+								$first-constituent
+								
+						let $constituent-to-subordinate := 
+							if ($should-subordinate-first) then
+								$first-constituent
+							else
+								$second-constituent
+						
+						(: Ryder TODO: disambiguate complex-cl constituent roles:
+							* aux <-- minor clauses, interjections, etc.?
+							* adv <-- absolutes, etc.
+							* obj <-- e.g., direct discourse
+						:)
+						let $disambiguated-subordinate-role := ('d?')
+						
+						
+						let $processed-head := local:node($constituent-to-raise, $passed-role)
+						let $processed-subordinate := local:node($constituent-to-subordinate, $disambiguated-subordinate-role)
+						
+						return
+							<wg
+								ccr="{$node/@Rule}">{
+									(:local:attributes($node, 'class'),:)
+									$node/@Rule,
+									$node/@Cat,
+									$node/@nodeId,
+									local:attributes($processed-head),
+									if ($passed-role) then
+										attribute role {$passed-role}
+									else
+										(),
+									$processed-head/element() ! local:node(.),
+									(:
+									if (not($constituent-to-raise)) then
+									<empty_constituent_to_raise>
+									{$constituent-to-raise}
+									</empty_constituent_to_raise> else local:node($constituent-to-raise),:)
+									$processed-subordinate
+								}</wg>
 };
+
 declare function local:process-group($node, $passed-role)
 {
 	(: Ryder: Complex node does not have a head; therefore coordinate its children as siblings
