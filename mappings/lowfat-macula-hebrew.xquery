@@ -465,28 +465,45 @@ declare function local:process-wrapper-clause($node, $passed-role)
 		}</wg>
 };
 
-declare function local:process-auxiliary($node, $passed-role)
+(:declare function local:process-auxiliary($node, $passed-role)
 {
-	(: RYDER TODO: sort out when to nest auxiliaries using projected/projecting analysis :)
-	let $clauseIsProjected := local:clause-is-projected($node)
-	let $clauseIsProjecting := local:clause-is-projecting($node)
+	(\: 
+		RYDER TODO: sort out when to nest auxiliaries using projected/projecting analysis 
+		
+		Rules already handled:
+		* V2CL has been partly handled for standalone projecting verbs (e.g., Gen 31.11!7)
+		
+		Rules to check:
+		* PP2CL
+	:\)
+	let $nodeIsProjected := local:clause-is-projected($node)
+	let $nodeIsProjecting := local:clause-is-projecting($node)
+	
+	let $role := (
+		if ($node/@Rule = 'V2CL' and $nodeIsProjecting) then
+			'null'
+		else if ($passed-role) then $passed-role
+		else 'aux'
+	)
+	
 	return
-		<wg
-			role="aux">{
+		(\: Ryder TODO: clean up this function after debugging complete :\)
+		<wg debug='auxiliary function output'>{
 				local:attributes($node),
-				if ($passed-role) then
-					attribute role {$passed-role}
+				if (not($role = 'null')) then
+					attribute role {$role}
 				else
 					(),
-				if ($clauseIsProjected) then
+				if ($nodeIsProjected) then
 					attribute projected {'true'}
 				else
-					if ($clauseIsProjecting) then
+					if ($nodeIsProjecting) then
 						attribute projecting {'true'}
 					else
 						(),
 				$node/element() ! local:node(.)
 			}</wg>
+};:)
 
 declare function local:disambiguate-complex-clause-structure($node, $passed-role)
 {
