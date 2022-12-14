@@ -836,7 +836,7 @@ declare function local:node($node as element(), $passed-role as xs:string?)
 	if (count($node) gt 1) then
 		<error_too_many_nodes>{$node}</error_too_many_nodes>
 	else
-		if ($node/@Cat = 'S') then
+		if ($node/@Cat = 'S' and $node[parent::Tree]) then
 			(: Ryder: in the Hebrew trees, top-level clauses may have conjunction AND clause siblings. These need to be processed to properly attach the conjunctions to their conjuncted siblings. :)
 			local:process-conjunctions($node, $passed-role)
 		else
