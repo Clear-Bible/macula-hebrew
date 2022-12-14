@@ -358,32 +358,7 @@ declare function local:clause($node, $passed-role)
 						local:node($clause-constituent, $constituent-role)
 				}</wg>
 	else
-		(: Ryder: TODO: clean up single-constituent clause :)
-		let $clause-role := substring-before($node/@Rule, '2')
-		
-		(:let $clause-is-projecting-process := local:clause-is-projecting($node)
-		return 
-		if ($clause-is-projecting-process) then 
-			<wg>{
-				local:node($node/element(), 'PROJECTING'),
-				$node/ancestor::Node[@Cat='CL']/following-sibling::Node ! local:node(.)
-			}</wg>
-		else:)
-		
-		let $clause-is-auxiliary := (
-		$node/@Rule = $auxiliary-rule
-		and not($node/parent::Node[@Cat = 'pp'])
-		)
-		return
-			if ($clause-is-auxiliary) then
-				local:node($node/element(), 'aux')
-			else
-				
-				<error_unhandled_single_constituent_clause>{
-						$node/@*,
-						$node/element() ! local:node(.)
-					}
-				</error_unhandled_single_constituent_clause>
+		local:process-single-constituent-clause($node, $passed-role)
 };
 
 declare function local:process-conjunctions($node, $passed-role)
