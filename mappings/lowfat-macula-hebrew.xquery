@@ -761,6 +761,11 @@ declare function local:process-complex-node($node, $passed-role)
 						if ($node/@Rule = $complex-clause-rule) then
 							local:disambiguate-complex-clause-structure($node, $passed-role)
 						else
+							(: Ryder: V2CL is a clause with only a 'verb' constituent :)
+							if ($node/@Rule = $single-constituent-clause-rule) then
+								local:process-single-constituent-clause($node, ())
+						
+						else
 							<error_unknown_complex_node
 								rule="{$node/@Rule}">{$node/element() ! local:node(.)}</error_unknown_complex_node>
 };
