@@ -874,9 +874,6 @@ declare function local:node($node as element(), $passed-role as xs:string?)
 				case "atomic"
 					return
 						$node/element() ! local:node(., $passed-role)
-				case "group"
-					return
-						<nodeGroup>{local:process-group($node, $passed-role)}</nodeGroup>
 				case "complex"
 					return
 						local:process-complex-node($node, $passed-role)
