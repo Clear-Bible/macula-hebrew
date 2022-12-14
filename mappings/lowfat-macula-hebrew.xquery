@@ -603,6 +603,103 @@ declare function local:process-group($node, $passed-role)
 			}</wg>
 };
 
+declare function local:process-single-constituent-clause($node, $passed-role)
+{
+	(:
+		Rules to handle here:
+		* ADV2CL
+		* Intj2CL
+		* Np2CL
+		* O22CL
+		* O2CL
+		* P2CL - Done
+		* PP2CL
+		* Relp2CL
+		* S2CL
+		* V2CL - Done
+	:)
+	let $internal-role := substring-before($node/@Rule, '2CL')
+	return
+	
+	switch ($node/@Rule)
+		case 'P2CL'
+		case 'V2CL'
+			return <wg>{
+						attribute class {'cl'},
+						attribute role {$passed-role},
+						$node/element() ! local:node(., $internal-role)
+					}</wg>
+		
+(:		case 'PP2CL':)
+		case 'Intj2CL'
+			return 
+				$node/element() ! local:node(., 'aux')	
+		
+		default
+			return
+				<error_unhandled_single_constituent_clause role="err">{$node/element() ! local:node(.)}</error_unhandled_single_constituent_clause>
+				
+				
+				
+	(:
+	
+	TODO: *** use this comment to update this function to handle projecting V2CL
+	Ryder: here is how I handled single-constituent-clauses in the local:clause() function:
+	
+	
+	(: 
+			Ryder: TODO: clean up single-constituent clause
+			
+			Rules handled:
+			* General auxiliary rules
+			* V2CL - when projecting it should nest next sibling as object
+			* TODO: check relCL in o010310010111 - prep phrase as predicate? I don't think this should be a clause, but rather a phrase
+		:)
+		let $clause-role := substring-before($node/@Rule, '2')
+		
+		let $clause-is-auxiliary := (
+		$node/@Rule = $auxiliary-rule
+		and not($node/parent::Node[@Cat = 'pp'])
+		and not(local:clause-is-projecting($node))
+		)
+		
+		let $clause-is-projecting-verb := (
+			$node/@Rule = 'V2CL'
+			and local:clause-is-projecting($node)
+		)
+		
+		return
+			if ($clause-is-auxiliary) then
+				local:node($node/element(), 'aux2')
+			else if ($clause-is-projecting-verb) then
+				(: 
+				*******
+				*******
+				*******
+				
+				Ryder TODO: this should happen at the higher level... complex clauses that contain single-constituent clauses? :)
+				let $projecting-node := local:node($node/element(), 'v.proj')
+				let $projected-node := local:node(
+					$node/following::Node[descendant::m][1],
+					'o.proj'
+				)
+				
+				return <wg type="projection-scope" class="cl">{
+					$projecting-node,
+					$projected-node
+				}</wg>
+				
+			else
+				
+				<error_unhandled_single_constituent_clause>{
+						$node/@*,
+						$node/element() ! local:node(.)
+					}
+				</error_unhandled_single_constituent_clause>
+	
+	:)
+};
+
 declare function local:process-complex-node($node, $passed-role)
 {
 	(:  
