@@ -559,12 +559,7 @@ declare function local:disambiguate-complex-clause-structure($node, $passed-role
 										attribute role {$passed-role}
 									else
 										(),
-									$processed-head/element() ! local:node(.),
-									(:
-									if (not($constituent-to-raise)) then
-									<empty_constituent_to_raise>
-									{$constituent-to-raise}
-									</empty_constituent_to_raise> else local:node($constituent-to-raise),:)
+									$processed-head/element(),
 									$processed-subordinate
 								}</wg>
 };
