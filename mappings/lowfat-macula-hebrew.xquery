@@ -806,6 +806,18 @@ declare function local:node-type($node as element())
             See local:sentence() below. In theory, these could be treated as discourse-progression markers,
             but for now they are being treated as simple conjunctions. :)
 			'conjunctions-to-be-processed'
+		(:
+		else if (some $child in $node/element() satisfies local:clause-is-projecting($child) then
+			(\: Ryder: once we have @depth data on the nodes, process it here, before anything else. 
+			
+			Notes: 
+			* downstream functions will need refactoring (such as auxiliary processing)
+			* projected content should cover the following content until depth returns to the same level as the projecting element
+			* however, we will probably only extend it to the end of the sentence at most for the treedown display.
+			:\)
+			'projections-to-be-processed'
+		:)
+		
 		else
 			if ($node/@Rule = $conjuncted-structure-rule) then
 				'conjunctions-to-be-processed'
