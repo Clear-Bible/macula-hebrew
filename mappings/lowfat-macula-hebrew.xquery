@@ -32,8 +32,8 @@ Ryder notes:
 declare variable $aramaic-determiner-rule := ('NPDet', 'NumpDet', 'AdjpDet');
 declare variable $hebrew-determiner-rule := ('DetAdjp', 'DetNP', 'DetNump', 'DetVp'); (: Ryder: The dependency tree for these are handled nicely in the GBI trees already. :)
 declare variable $aramaic-structure-rule := ('vpVp2V2', 'Vpvp2V1');
-declare variable $nominalized-clause-rule := ('CL2Adjp', 'CL2NP', 'Np2CL' (: Ryder: note, 'Np2CL' only some of the time is realized by a clause :));
-declare variable $single-constituent-clause-rule := ('ADV2CL', 'Intj2CL', 'O22CL', 'O2CL', 'P2CL', 'PP2CL', 'Relp2CL', 'S2CL', 'V2CL');
+declare variable $nominalized-clause-rule := ('CL2Adjp', 'CL2NP');
+declare variable $single-constituent-clause-rule := ('ADV2CL', 'Np2CL', 'Intj2CL', 'O22CL', 'O2CL', 'P2CL', 'PP2CL', 'Relp2CL', 'S2CL', 'V2CL');
 
 declare function local:is-clause-rule($rule as node()) as xs:boolean
 {
@@ -607,13 +607,13 @@ declare function local:process-single-constituent-clause($node, $passed-role)
 	(:
 		Rules to handle here:
 		* ADV2CL
-		* Intj2CL
-		* Np2CL
+		* Intj2CL - Done
+		* Np2CL - Done; Ryder: these are mostly topics, though there are some tails (e.g., JOB 19:21); these are almost always in complex clause structures
 		* O22CL
 		* O2CL
 		* P2CL - Done
-		* PP2CL
-		* Relp2CL
+		* PP2CL - Done
+		* Relp2CL - Ryder: needs checking; the ones I looked at all have some kind of additional wrapper which likely has an ADV role if anything.
 		* S2CL
 		* V2CL - Done
 	:)
@@ -629,14 +629,20 @@ declare function local:process-single-constituent-clause($node, $passed-role)
 						$node/element() ! local:node(., $internal-role)
 					}</wg>
 		
-(:		case 'PP2CL':)
-		case 'Intj2CL'
+		case 'PP2CL'
 			return 
-				$node/element() ! local:node(., 'aux')	
+				$node/element() ! local:node(., 'adv')	
+		case 'Intj2CL'
+		case 'Np2CL'
+			return 
+				$node/element() ! local:node(., 'aux')
+		case 'Relp2CL'
+			return 
+				$node/element() ! local:node(., ())
 		
 		default
 			return
-				<error_unhandled_single_constituent_clause role="err">{$node/element() ! local:node(.)}</error_unhandled_single_constituent_clause>
+				<error_unhandled_single_constituent_clause role="err" rule="{$node/@Rule}">{$node/element() ! local:node(.)}</error_unhandled_single_constituent_clause>
 				
 				
 				
