@@ -19,7 +19,9 @@ wg[class='header'] {
 milestone {
   color: blue;
   display: block;
-  padding-right: 6px;
+}
+milestone + milestone {
+  display: inline;
 }
 
 p {
@@ -105,11 +107,6 @@ wg[class='wg'] > wg[class='minor'] > wg[class='minor'] {
   margin-left: 0;
 }
 
-wg[class='cl'] + wg:not([role]):not([class='conjuncted-wg']) > wg[class='cl'] {
-  margin-top: 1rem;
-  background: red;
-}
-
 /* Words */
 
 w:not([after])::after {
@@ -131,23 +128,9 @@ w[after='־']::after {
   /* override default morpheme spacing display */
 }
 
-w[role] {
-  position: relative;
-  display: block;
-}
-
-w[case='vocative'] {
-  position: relative;
-  display: block;
-}
-
-w + w {
-  /* margin-inline-start: 0.2em; */
-}
-
 /* Roles */
 
-*[role] {
+[role] {
   position: relative;
   display: block;
 }
@@ -170,15 +153,16 @@ w[role] {
   /* margin-top: 1.5rem; */
 }
 
-wg[role]::before {
+[role]::before {
   color: cadetblue;
   content: attr(role);
-}
+  margin-inline-end: 0.2rem;
+} /* 
 
 w[role]::before {
   color: cadetblue;
-  content: attr(role) ' ';
-}
+  content: attr(role);
+} */
 
 wg[role='g']::before {
   content: '';
@@ -187,12 +171,12 @@ wg[role='g']::before {
 wg[role='adv']::before,
 wg[role='pp']::before {
   color: cadetblue;
-  content: '+ ';
+  content: '+';
 }
 
 w[role='adv']::before {
   color: cadetblue;
-  content: '+ ';
+  content: '+';
 }
 
 w[role='aux']::before,
@@ -202,19 +186,19 @@ wg[role='aux']::before {
   /* Ryder: Unlike most other roles, auxiliaries should be displayed even when they are not children of clauses.
      thus, these are not prefixed with the `wg[class=cl] >` path. */
   color: cadetblue;
-  content: '~'' ';
+  content: '~';
 }
 
 /* ----- Participles and infinitives ----- */
 
 *[role='v']:has(> w[mood='participle'])::before {
   color: cadetblue;
-  content: 'v.part ';
+  content: 'v.part';
 }
 
 *[role='v']:has(> w[mood='infinitive'])::before {
   color: cadetblue;
-  content: 'v.inf ';
+  content: 'v.inf';
 }
 
 w[discontinuous]::after {
@@ -230,7 +214,7 @@ w[discontinuous]::after {
 
 wg[rule='Np-Appos'] > wg:not(:first-child)::before,
 wg[rule='Np-Appos'] > w:not(:first-child)::before {
-  content: ': ';
+  content: ':';
   color: cadetblue;
   margin-inline-start: 1rem;
 }
