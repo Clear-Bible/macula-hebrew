@@ -259,3 +259,33 @@ wg[type='conjuncted-wg'] {
   display: block;
   margin-inline-start: 1rem;
 }
+wg[type='conjuncted-wg'] > * {
+  margin-inline-start: 0;
+}
+
+wg:not([class]) {
+  margin-inline-start: 0;
+}
+
+[role] {
+  display: block;
+}
+wg[class='cl'][role] {
+  display: flex;
+}
+
+wg[class='g'] > wg[class='cl'] + wg,
+wg[class='g'] > wg[class='cl'] + w {
+  margin-inline-start: 1rem;
+}
+
+[type='wrapper-clause-scope'] {
+  display: block;
+  /* background: lightseagreen; */
+  /* margin-inline-start: 0.8rem; */
+}
+
+[class='modifier-scope'] > wg[type='wrapper-clause-scope'] {
+  display: block;
+  margin-inline-start: 1rem;
+}
