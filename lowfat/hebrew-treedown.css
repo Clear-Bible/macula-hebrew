@@ -91,15 +91,26 @@ wg[class='wg'] > wg[class='minor'] > wg[class='minor'] {
 
 /* Words */
 
+/* Ryder: these next three rules are essential to override 
+    default DOM behaviour that adds whitespace characters
+    between inline elements. */
+wg[role] {
+  font-size: 0;
+}
+wg[role]::before,
+wg[role] > * {
+  font-size: 1rem;
+}
+
 w:not([after])::after {
-  content: '-';
+  content: '- ';
   color: lightgrey;
   margin-left: -0.2em;
   /* add a light grey border between morphemes */
   /* border-left: 4px solid #ccc; */
 }
 w:not([after]):empty::after {
-  content: 'ה-';
+  content: 'ה- ';
   color: lightgrey;
   margin-left: -0.2em;
 }
