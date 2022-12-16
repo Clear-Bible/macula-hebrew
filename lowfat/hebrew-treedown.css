@@ -57,18 +57,6 @@ sentence > wg {
   padding-left: 1rem;
 }
 
-wg > wg[class='wg'] {
-  display: flex;
-  flex-direction: column;
-  margin-left: 1rem;
-}
-
-wg > wg[class='cl'],
-wg:not(wg[class='cl']) > wg:has(wg[class='cl']) + wg,
-wg:not(wg[class='np']):not(wg[class='wg']):has(> wg[class='cl']) > w {
-  margin-left: 0.8rem;
-}
-
 wg:has(wg[class='cl']) + wg[class='cl'] {
   /* Ryder: sometimes a deeply nested wg[class=cl] is followed by a wg[class=cl] that is not nested. 
      Without this additional margin, there is a double line since the clause adjacency 
@@ -93,12 +81,6 @@ wg[class='wg'] {
 wg[class='cl'] + wg[class='cl'],
 wg[class='cl'] + wg[class='wg'] {
   margin-top: 1rem;
-}
-
-wg[class='minor'] > wg[class='minor'][role],
-wg[class='wg'] > wg[class='minor'] {
-  display: block;
-  margin-left: 1rem;
 }
 
 wg[class='wg'] > wg[class='minor'] > wg[class='minor'] {
@@ -131,7 +113,6 @@ w[after='־']::after {
 /* Roles */
 
 [role] {
-  position: relative;
   display: block;
 }
 
@@ -144,13 +125,6 @@ wg[class='wg'][role]::before {
   /* display: block; */
   margin-bottom: 1rem;
   position: absolute;
-}
-
-wg[class='cl'][role],
-wg[class='wg'][role],
-w[role] {
-  margin-left: 0.8rem;
-  /* margin-top: 1.5rem; */
 }
 
 [role]::before {
@@ -267,9 +241,6 @@ wg:not([class]) {
   margin-inline-start: 0;
 }
 
-[role] {
-  display: block;
-}
 wg[class='cl'][role] {
   display: flex;
 }
@@ -281,8 +252,6 @@ wg[class='g'] > wg[class='cl'] + w {
 
 [type='wrapper-clause-scope'] {
   display: block;
-  /* background: lightseagreen; */
-  /* margin-inline-start: 0.8rem; */
 }
 
 [class='modifier-scope'] > wg[type='wrapper-clause-scope'],
@@ -291,9 +260,5 @@ wg[class='g'] > wg[class='cl'] + w {
   > [class='modifier-scope']
   + [class='modifier-scope'] {
   display: block;
-  margin-inline-start: 1rem;
-}
-
-[role] > [class='g']:not(:first-child) {
   margin-inline-start: 1rem;
 }
