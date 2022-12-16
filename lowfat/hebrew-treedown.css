@@ -286,7 +286,10 @@ wg[class='g'] > wg[class='cl'] + w {
 }
 
 [class='modifier-scope'] > wg[type='wrapper-clause-scope'],
-[class='modifier-scope'] + [class='modifier-scope'] {
+[class='modifier-scope'] > [class='modifier-scope'] + [class='modifier-scope'],
+[type='wrapper-clause-scope']
+  > [class='modifier-scope']
+  + [class='modifier-scope'] {
   display: block;
   margin-inline-start: 1rem;
 }
