@@ -164,14 +164,11 @@ w[role='adv']::before {
   content: '+';
 }
 
-w[role='aux']::before,
-wg[role='aux']::before,
-w[role='aux']::before,
-wg[role='aux']::before {
+[role='aux']::before {
   /* Ryder: Unlike most other roles, auxiliaries should be displayed even when they are not children of clauses.
      thus, these are not prefixed with the `wg[class=cl] >` path. */
   color: cadetblue;
-  content: '~';
+  content: '~' !important;
 }
 
 /* ----- Participles and infinitives ----- */
