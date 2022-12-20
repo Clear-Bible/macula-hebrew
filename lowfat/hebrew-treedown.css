@@ -1,99 +1,89 @@
 /* hebrew-treedown.css */
+
+/* LAYOUT RULES */
+
 chapter {
   padding: 2em;
   direction: rtl;
-  font-size: 18pt;
+  font-size: 1.5rem;
 }
-
-wg[class='header'] {
-  display: block;
-  position: fixed;
-  width: 6rem;
-  top: 5px;
-  left: 5px;
-  background-color: white;
-  opacity: 1;
-  overflow: scroll;
-}
-
 milestone {
   color: blue;
   display: block;
+  margin-block: 1rem 0;
 }
 milestone + milestone {
   display: inline;
 }
-
-p {
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-}
-
-div[class='book'] {
-  margin-top: 1in;
-  margin-left: 1in;
-  margin-bottom: 1in;
-  line-height: 1.2;
-  background-color: white;
-  opacity: 1;
-}
-
-book,
-passage,
-root {
-  line-height: 1.5;
-  margin-left: 5rem;
-  margin-right: 10rem;
-  /* background: linen; */
-}
-
-/* WGs */
-
-sentence > wg {
+sentence {
   display: flex;
   flex-direction: column;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-  padding-left: 1rem;
+  gap: 1rem;
+  /* Ryder: 1rem space between <p> and <wg> */
 }
 
-wg:has(wg[class='cl']) + wg[class='cl'] {
-  /* Ryder: sometimes a deeply nested wg[class=cl] is followed by a wg[class=cl] that is not nested. 
-     Without this additional margin, there is a double line since the clause adjacency 
-     is not obvious based on the other rules. */
-  margin-top: 1rem;
+/*************************************** 
+* ELEMENTS THAT SHOULD BE ON NEW LINES *
+***************************************/
+
+/* standard new-lined elements in Treedown */
+[class='cl'],
+[role],
+
+/* potential new-lined elements */
+[type='conjuncted-wg'], /* Ryder: break vav-conjuncted elements onto new lines */
+
+/* Ryder: modifiers like prepositions may look awkward if they are hanging at the end of a line. If they are at the beginning of the line this is not a problem. */
+/* [class="modifier-scope"]:not(:first-child),  */
+/* [class='g'] > [class="modifier-scope"], */
+
+/* Ryder: sometimes a clause is 'wrapped' by something like a relative pronoun. These could be on a new line to improve readability. */
+[type^='wrapper-clause'] /* <-- select only wrappers that wrap clauses */
+/* [type^='wrapper'] */ /* <-- select all wrappers, regardless of what is wrapped */ {
+  display: block;
 }
 
-wg[class='cl']:has(+ wg[class='group']) {
-  margin-bottom: 1rem;
+/*******************************************
+* ELEMENTS THAT SHOULD BE ON THE SAME LINE *
+*******************************************/
+
+/***********************************
+* ELEMENTS THAT SHOULD BE INDENTED *
+***********************************/
+
+/* [class='modifier-scope']:not([role]):not(:first-child), */
+/* [type^='wrapper-clause'], */
+/* [class='g'] > [class='modifier-scope']:not([role]), */
+
+[class='cl'] > [class='g'],
+[class='cl'] [class='cl'] {
+  margin-inline-start: 1rem;
 }
 
-wg[class='cl'],
-wg[class='wg'] {
-  padding-top: 0.25rem;
-  padding-bottom: 0.25rem;
-  padding-left: 0.25em;
-  display: flex;
-  flex-direction: column;
-  position: relative;
+/****************
+/* ROLE MARKERS *
+****************/
+
+[role]::before {
+  content: attr(role);
+  color: cadetblue;
+  margin-inline-end: 0.4rem; /* Ryder: 0.4rem space between role and element seems to generally align with a 1rem space without a role. */
+}
+[role='aux']::before {
+  content: '~';
+}
+[role='pp']::before,
+[role='adv']::before {
+  content: '+';
 }
 
-wg[class='cl'] + wg[class='cl'],
-wg[class='cl'] + wg[class='wg'] {
-  margin-top: 1rem;
-}
+/**************
+* WORD LAYOUT *
+**************/
 
-wg[class='wg'] > wg[class='minor'] > wg[class='minor'] {
-  /* Ryder: sometimes a second level of minor clause 
-  exists, and it should not be further indented. */
-  margin-left: 0;
-}
-
-/* Words */
-
-/* Ryder: these next three rules are essential to override 
-    default DOM behaviour that adds whitespace characters
-    between inline elements. */
+/* Ryder: These next three rules are essential to override 
+default DOM behaviour that adds whitespace characters
+between inline elements. */
 wg[role] {
   font-size: 0;
 }
@@ -102,171 +92,75 @@ wg[role] > * {
   font-size: 1rem;
 }
 
+/* Add a light grey dash between morphemes */
 w:not([after])::after {
-  content: '- ';
+  content: '- '; /* The space is intentional because we are removing the default space from the DOM */
   color: lightgrey;
   margin-left: -0.2em;
-  /* add a light grey border between morphemes */
-  /* border-left: 4px solid #ccc; */
 }
 w:not([after]):empty::after {
-  content: 'ה- ';
+  content: 'ה- '; /* The space is intentional because we are removing the default space from the DOM */
   color: lightgrey;
   margin-left: -0.2em;
 }
 
-w[after='־']::after {
-  /* hebrew maqqef */
+w[after='־']::after,
+w[after=' ']::after {
+  /* Hebrew maqef, or whitespace should retain normal spacing */
   content: attr(after);
-  /* override default morpheme spacing display */
 }
 
-/* Roles */
+/****************
+* SPECIAL CASES *
+****************/
 
-[role] {
-  display: block;
+/* Ryder: groups with clause roles should not have the role above the group but to the right. */
+[class='cl'] [class='g'][role]::before {
+  margin-right: -1rem;
+}
+[class='cl'] [class='cl'][role]::before {
+  /* Ryder: the addition of the clause border means the role needs to shift 0.1rem */
+  margin-right: -1.1rem;
 }
 
-wg[class='cl'][role]::before,
-wg[class='wg'][role]::before {
-  /* Move the role for constituent clauses outside of the clause border */
-  margin-left: -1rem;
-  /* Ryder: commented these lines because they were adding a blank line before, e.g., Ἐπειδήπερ in Luke 1.4 */
-  /* margin-top: -1.5rem; */
-  /* display: block; */
-  margin-bottom: 1rem;
-  position: absolute;
+/* Ryder: this is a temporary affordance for some intra-sentential direct discourse (e.g., Gen 31:20) */
+[role='d?']::before {
+  content: '?o';
 }
 
-[role]::before {
-  color: cadetblue;
-  content: attr(role);
-  margin-inline-end: 0.2rem;
-} /* 
-
-w[role]::before {
-  color: cadetblue;
-  content: attr(role);
-} */
-
-wg[role='g']::before {
-  content: '';
-}
-
-wg[role='adv']::before,
-wg[role='pp']::before {
-  color: cadetblue;
-  content: '+';
-}
-
-w[role='adv']::before {
-  color: cadetblue;
-  content: '+';
-}
-
-[role='aux']::before {
-  /* Ryder: Unlike most other roles, auxiliaries should be displayed even when they are not children of clauses.
-     thus, these are not prefixed with the `wg[class=cl] >` path. */
-  color: cadetblue;
-  content: '~' !important;
-}
-
-/* ----- Participles and infinitives ----- */
-
-*[role='v']:has(> w[mood='participle'])::before {
-  color: cadetblue;
-  content: 'v.part';
-}
-
-*[role='v']:has(> w[mood='infinitive'])::before {
-  color: cadetblue;
-  content: 'v.inf';
-}
-
-w[discontinuous]::after {
-  content: '*';
-  vertical-align: super;
-  color: cadetblue;
-  font-size: small;
-}
-
-/* ----- Apposition - this ain't quite right, but better than nothing ---------*/
-
-/* Apposition */
-
-wg[rule='Np-Appos'] > wg:not(:first-child)::before,
-wg[rule='Np-Appos'] > w:not(:first-child)::before {
-  content: ':';
-  color: cadetblue;
+/* Ryder: This is a temporary affordance for something I would like to fix going forward: conjuncted word groups should be indented by 1rem when they are the child of something that has a role attribute, but which has no clause context due to the main clause spanning multiple verses (e.g., Isa 2:13-16) */
+*:not([class='cl']) > [role] > [type='conjuncted-wg'] {
   margin-inline-start: 1rem;
 }
 
-wg[rule='Np-Appos'] > wg:not(:first-child),
-wg[rule='Np-Appos'] > w:not(:first-child) {
-  display: block;
-}
+/************
+* DEBUGGING *
+************/
 
-/* -----  Experimental stuff goes here -------- */
+/* Ryder: this is a temporary affordance for debugging - it highlights errors for unprocessed nodes. */
+[role='err']::before {
+  background: brown;
+  color: white;
+  font-size: 0.6rem;
+  font-family: monospace;
+  padding: 0.05rem 0.3rem;
+  border-radius: 0.2rem;
+}
 
 /* 
-  RYDER: the additional wg[class=group] predicate is 
-  needed for some instances like the last wg/group of Luke 1.19 
+[type^='wrapper'] {
+  background: lightblue;
+}
+
+[class='modifier-scope']:not(:first-child) {
+  background: lightgreen;
+}
+
+[type^='wrapper-clause'] {
+  background: lightpink;
+}
+
+[type='conjuncted-wg'] {
+  background: lightyellow;
+} 
 */
-
-wg[role='g'] > w,
-wg[class='group'] > w {
-  display: block;
-  margin-top: 1rem;
-}
-
-wg[class='group'] wg[class='group'] {
-  margin-top: 0;
-}
-
-wg[rule='sub-CL']:not(> *[role])::before {
-  /* Ryder: in sub-CL clauses, the conjunction drops to a new line below the role
-      and the clause is further indented. This rule horizontally aligns the conj
-      and the role of the sub-CL wg. E.g. διότι in Luke 2.7 */
-  position: absolute;
-}
-
-/* ------ right spacing --------- */
-
-wg[class='cl'] {
-  margin-right: 1em;
-  position: relative;
-}
-
-wg[type='conjuncted-wg'] {
-  display: block;
-  margin-inline-start: 1rem;
-}
-wg[type='conjuncted-wg'] > * {
-  margin-inline-start: 0;
-}
-
-wg:not([class]) {
-  margin-inline-start: 0;
-}
-
-wg[class='cl'][role] {
-  display: flex;
-}
-
-wg[class='g'] > wg[class='cl'] + wg,
-wg[class='g'] > wg[class='cl'] + w {
-  margin-inline-start: 1rem;
-}
-
-[type='wrapper-clause-scope'] {
-  display: block;
-}
-
-[class='modifier-scope'] > wg[type='wrapper-clause-scope'],
-[class='modifier-scope'] > [class='modifier-scope'] + [class='modifier-scope'],
-[type='wrapper-clause-scope']
-  > [class='modifier-scope']
-  + [class='modifier-scope'] {
-  display: block;
-  margin-inline-start: 1rem;
-}
