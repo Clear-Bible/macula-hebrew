@@ -815,7 +815,11 @@ declare function local:node-type($node as element())
 		if ($node/@Cat = 'S' and $node/Node[@Cat = 'cjp']) then
 			(: Ryder: The top level sentence may have clauses and conjunctions. 
             See local:sentence() below. In theory, these could be treated as discourse-progression markers,
-            but for now they are being treated as simple conjunctions. :)
+            but for now they are being treated as simple conjunctions. 
+            
+            TODO: 
+            * disambiguate these based on conjunction type. E.g., ISA 2:22 has a second child of the sentence that should be a clause constituent.
+            :)
 			'conjunctions-to-be-processed'
 		(:
 		else if (some $child in $node/element() satisfies local:clause-is-projecting($child) then
@@ -848,6 +852,7 @@ declare function local:node($node as element()) {
 };
 declare function local:node($node as element(), $passed-role as xs:string?)
 {
+	(: Ryder: This function should only ever process exactly one element. If multiple are being passed, use the simple mapping operator (e.g., instead of local:node($node), use $node/element() ! local:node(.) :)
 	if (count($node) gt 1) then
 		<error_too_many_nodes>{$node}</error_too_many_nodes>
 	else
