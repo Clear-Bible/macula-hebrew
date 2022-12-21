@@ -35,7 +35,7 @@ sentence {
 
 /* Ryder: modifiers like prepositions may look awkward if they are hanging at the end of a line. If they are at the beginning of the line this is not a problem. */
 /* [class="modifier-scope"]:not(:first-child),  */
-/* [class='g'] > [class="modifier-scope"], */
+/* [type='group'] > [class="modifier-scope"], */
 
 /* Ryder: sometimes a clause is 'wrapped' by something like a relative pronoun. These could be on a new line to improve readability. */
 [type^='wrapper-clause'] /* <-- select only wrappers that wrap clauses */
@@ -51,11 +51,11 @@ sentence {
 * ELEMENTS THAT SHOULD BE INDENTED *
 ***********************************/
 
-/* [class='modifier-scope']:not([role]):not(:first-child), */
+/* [type='modifier-scope']:not([role]):not(:first-child), */
 [type^='wrapper-clause'],
-/* [class='g'] > [class='modifier-scope']:not([role]), */
-
-[class='cl'] > [class='g'],
+/* [type='group'] > [type='modifier-scope']:not([role]), */
+/* [type='conjuncted-wg'], */
+[class='cl'] > [type='group'],
 [class='cl'] [class='cl'] {
   margin-inline-start: 1rem;
 }
@@ -115,7 +115,7 @@ w[after=' ']::after {
 ****************/
 
 /* Ryder: groups with clause roles should not have the role above the group but to the right. */
-[class='cl'] [class='g'][role]::before {
+[class='cl'] [type='group'][role]::before {
   margin-right: -1rem;
 }
 [class='cl'] [class='cl'][role]::before {
@@ -152,7 +152,7 @@ w[after=' ']::after {
   background: lightblue;
 }
 
-[class='modifier-scope']:not(:first-child) {
+[type='modifier-scope']:not(:first-child) {
   background: lightgreen;
 }
 
