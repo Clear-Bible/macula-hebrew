@@ -738,8 +738,8 @@ declare function local:process-complex-node($node, $passed-role)
             will be auxiliaries, many will be adverbial, any other options? )
             
             :)
-			if ($node/@Rule = ($modifier-structure-rule, $hebrew-determiner-rule)) then
-				(: Ryder: subordinate modifier :)
+			if ($node/@Rule = ($modifier-structure-rule, $hebrew-determiner-rule, $aramaic-determiner-rule)) then
+				(: Ryder: keep modifier with modified. Note that aramaic determiners follow their nominal :)
 				<wg>{
 						attribute type {'modifier-scope'},
 						local:attributes($node, 'class'),
@@ -754,7 +754,7 @@ declare function local:process-complex-node($node, $passed-role)
 					local:process-wrapper-clause($node, $passed-role)
 				else
 					if ($node/@Rule = $aramaic-structure-rule) then
-						(: Ryder: these obviously only occur a handful of times in Daniel and Ezra. :)
+						(: Ryder: these obviously only occur a handful of times in Daniel, Jeremiah, and Ezra. :)
 						<wg
 							type="aramaic-structure">{
 								local:attributes($node),
