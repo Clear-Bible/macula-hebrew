@@ -893,8 +893,8 @@ declare function local:straight-text($node)
 declare function local:sentence($node)
 {
 	<sentence>
-		{
-			attribute class {lower-case($node/@Cat)},
+		{	
+			attribute id {$node/ancestor::Sentence/@verse},
 			<p>
 				{
 					for $verse in distinct-values($node//Node/@morphId ! local:USFMVerseId(.))
