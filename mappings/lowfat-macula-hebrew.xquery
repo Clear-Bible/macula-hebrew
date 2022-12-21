@@ -599,15 +599,15 @@ declare function local:process-single-constituent-clause($node, $passed-role)
 {
 	(:
 		Rules to handle here:
-		* ADV2CL
+		* ADV2CL - Done; needs revisiting
 		* Intj2CL - Done
 		* Np2CL - Done; Ryder: these are mostly topics, though there are some tails (e.g., JOB 19:21); these are almost always in complex clause structures
-		* O22CL
-		* O2CL
+		* O22CL - Done; needs revisiting
+		* O2CL - Done; needs revisiting; usually the child of a relCL, but sometimes a complex clause structure
 		* P2CL - Done
 		* PP2CL - Done
-		* Relp2CL - Ryder: needs checking; the ones I looked at all have some kind of additional wrapper which likely has an ADV role if anything.
-		* S2CL
+		* Relp2CL - Done; needs revisiting: the ones I looked at all have some kind of additional wrapper which likely has an ADV role if anything.
+		* S2CL - Ryder TODO: always the child of a complex clause structure. These need to be disambiguated carefully. Sometimes they are actually interpersonal moves such as affirmative responses (GEN 27:24!1). At other times they are simply eliptical/junctive constructions (both conjunctive, e.g., GEN 26:26!1, GEN 50:8!1, LEV 16:29!5, LEV 21:18!2, NUM 26:40!1, and also disjunctive, e.g., NUM 26:65!12). At other times they are appositional in poetry (e.g., GEN 49:7!5). At still other times they are simply verbless clauses in a ClCl (e.g., EXO 8:17!15), adverbial constituents of the headed clause in a CLa2CL (e.g., EXO 16:6!8), or items in a list (e.g., numerous instances in JOS 15:34), and likely others. It is probable that better disambiguation of complex clause structures will resolve many of these problems, and at the very least the disambiguation has to happen atthat stage of this query.
 		* V2CL - Done
 	:)
 	let $internal-role := lower-case(substring-before($node/@Rule, '2CL'))
@@ -616,6 +616,9 @@ declare function local:process-single-constituent-clause($node, $passed-role)
 	switch ($node/@Rule)
 		case 'P2CL'
 		case 'V2CL'
+		case 'S2CL'
+		case 'O2CL'
+		case 'ADV2CL'
 			return <wg>{
 						attribute class {'cl'},
 						local:attributes($node, 'class'),
@@ -629,9 +632,13 @@ declare function local:process-single-constituent-clause($node, $passed-role)
 		case 'Np2CL'
 			return 
 				$node/element() ! local:node(., 'aux')
+		case 'O22CL'
+			return 
+				(: Ryder TODO: revisit and disambiguate these since they are tied to complex clause disambiguation. They may need to have the $passed-role in cases where a ClCl parent has a projecting verb and content (and this O22CL could be the content, for example. :)
+				$node/element() ! local:node(., ())
 		case 'Relp2CL'
 			return 
-				$node/element() ! local:node(., ())
+				$node/element() ! local:node(., $passed-role)
 		
 		default
 			return
