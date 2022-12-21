@@ -267,12 +267,7 @@ declare function local:attributes($node, $exclusions)
 		)
 	else
 		if (not('class' = $exclusions)) then
-			$node/@Cat ! attribute class {
-				if ($node/@Rule = $group-rule) then
-					'g'
-				else
-					lower-case(.)
-			}
+			$node/@Cat ! attribute class {lower-case(.)}
 		else
 			(),
 	$node/@Head ! attribute head {
@@ -583,9 +578,7 @@ declare function local:process-group($node, $passed-role)
 	let $clauseIsProjecting := local:clause-is-projecting($node)
 	
 	return
-		<wg
-			class='g'
-			type="type">{
+		<wg type="group">{
 				local:attributes($node, 'class'),
 				if ($passed-role) then
 					attribute role {$passed-role}
