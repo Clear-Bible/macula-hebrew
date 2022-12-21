@@ -741,7 +741,7 @@ declare function local:process-complex-node($node, $passed-role)
 			if ($node/@Rule = ($modifier-structure-rule, $hebrew-determiner-rule)) then
 				(: Ryder: subordinate modifier :)
 				<wg>{
-						attribute class {'modifier-scope'},
+						attribute type {'modifier-scope'},
 						local:attributes($node, 'class'),
 						if ($passed-role) then
 							attribute role {$passed-role}
