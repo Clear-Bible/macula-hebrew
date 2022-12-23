@@ -272,12 +272,14 @@ declare function local:attributes($node, $exclusions)
 				$node/@Cat ! attribute class {lower-case(.)}
 		else
 			(),
+	(:
+	Ryder: I believe @Head is actually a 0-index value declaring which child is the head
 	$node/@Head ! attribute head {
 		if (. = '0') then
 			true()
 		else
 			false()
-	},
+	},:)
 	(:$node/@nodeId ! attribute xml:id {concat('o', lower-case(.))}, (\: NOTE: corpus-specific prefix 'o' is added to nodeIds here :\):)
 	$node/@Rule ! attribute rule {lower-case(.)},
 	$node/@Unicode ! attribute unicode {.},
@@ -888,7 +890,7 @@ declare function local:node($node as element(), $passed-role as xs:string?)
 declare function local:straight-text($node)
 {
 	for $n at $i in $node//Node[m]
-	let $afterValue := string($n/m/@*[name() = 'after']) (: Ryder: convoluted attribute name here allows me to format and indent the file in oxygen... :)
+	let $afterValue := string($n/m/@after)
 	let $textValue := string($n/m/text())
 		order by $n/@morphId
 	return
