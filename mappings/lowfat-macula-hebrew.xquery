@@ -267,7 +267,9 @@ declare function local:attributes($node, $exclusions)
 		)
 	else
 		if (not('class' = $exclusions)) then
-			$node/@Cat ! attribute class {lower-case(.)}
+			if ($node/@Cat = $group-rule) then () 
+			else
+				$node/@Cat ! attribute class {lower-case(.)}
 		else
 			(),
 	$node/@Head ! attribute head {
@@ -368,7 +370,7 @@ declare function local:process-conjunctions($node, $passed-role)
 	
 	return
 		<wg>{
-				local:attributes($node),
+				local:attributes($node, 'class'),
 				if ($passed-role) then
 					attribute role {$passed-role}
 				else
