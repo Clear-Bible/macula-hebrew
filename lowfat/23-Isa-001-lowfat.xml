@@ -2,13 +2,13 @@
 <?xml-stylesheet href="hebrew-treedown.css"?>
 <?xml-stylesheet href="hebrew-boxwood.css"?>
 <chapter id="ISA 1">
-   <sentence class="s">
+   <sentence id="ISA 1:1">
       <p>
          <milestone unit="verse" id="ISA 1:1">ISA 1:1</milestone> חֲזוֹן֙ יְשַֽׁעְיָ֣הוּ בֶן־אָמ֔וֹץ אֲשֶׁ֣ר חָזָ֔ה עַל־יְהוּדָ֖ה וִירוּשָׁלִָ֑ם בִּימֵ֨י עֻזִּיָּ֧הוּ יוֹתָ֛ם אָחָ֥ז יְחִזְקִיָּ֖הוּ מַלְכֵ֥י יְהוּדָֽה׃</p>
-      <wg class="s" head="true">
-         <wg class="cl" head="true" rule="p2cl">
-            <wg class="modifier-scope" head="true" rule="nprelp" role="p">
-               <wg class="modifier-scope" head="true" rule="npofnp">
+      <wg>
+         <wg class="cl" rule="p2cl">
+            <wg type="modifier-scope" rule="nprelp" role="p">
+               <wg type="modifier-scope" rule="npofnp">
                   <w xml:id="o230010010011"
                      mandarin="异象"
                      english="vision"
@@ -33,7 +33,7 @@
                      gender="masculine"
                      number="singular"
                      state="construct">חֲזוֹן֙</w>
-                  <wg class="g" type="type" head="true" rule="np-appos">
+                  <wg type="group" rule="np-appos">
                      <w xml:id="o230010010021"
                         mandarin="以赛亚"
                         english="Isaiah"
@@ -53,7 +53,7 @@
                         unicode="יְשַֽׁעְיָ֣הוּ"
                         lang="H"
                         lemma="3470 a">יְשַֽׁעְיָ֣הוּ</w>
-                     <wg class="modifier-scope" head="true" rule="npofnp">
+                     <wg type="modifier-scope" rule="npofnp">
                         <w xml:id="o230010010031"
                            mandarin="儿子"
                            english="son"
@@ -100,10 +100,7 @@
                      </wg>
                   </wg>
                </wg>
-               <wg type="wrapper-clause-scope"
-                   class="relp"
-                   head="false"
-                   rule="relcl">
+               <wg type="wrapper-clause-scope" class="relp" rule="relcl">
                   <w xml:id="o230010010051"
                      mandarin="所~的"
                      english="which"
@@ -123,7 +120,7 @@
                      unicode="אֲשֶׁ֣ר"
                      lang="H"
                      lemma="834 a">אֲשֶׁ֣ר</w>
-                  <wg class="cl" head="true" rule="v-pp-pp">
+                  <wg class="cl" rule="v-pp-pp">
                      <w xml:id="o230010010061"
                         mandarin="看见"
                         english="saw"
@@ -152,7 +149,7 @@
                         stem="qal"
                         person="third"
                         role="v">חָזָ֔ה</w>
-                     <wg class="modifier-scope" head="false" rule="prepnp" role="pp">
+                     <wg type="modifier-scope" rule="prepnp" role="pp">
                         <w xml:id="o230010010071"
                            mandarin="论到"
                            english="concerning"
@@ -169,7 +166,7 @@
                            unicode="עַל־"
                            lang="H"
                            lemma="5921 a">עַל</w>
-                        <wg class="g" head="true" rule="npanp">
+                        <wg rule="npanp">
                            <w xml:id="o230010010081"
                               mandarin="犹大"
                               english="Judah"
@@ -189,7 +186,7 @@
                               unicode="יְהוּדָ֖ה"
                               lang="H"
                               lemma="3063">יְהוּדָ֖ה</w>
-                           <wg type="conjuncted-wg" class="cjp" head="true" rule="cj2cjp">
+                           <wg type="conjuncted-wg" class="cjp" rule="cj2cjp">
                               <w xml:id="o230010010091"
                                  mandarin="和"
                                  english="and"
@@ -225,7 +222,7 @@
                            </wg>
                         </wg>
                      </wg>
-                     <wg class="modifier-scope" head="false" rule="prepnp" role="pp">
+                     <wg type="modifier-scope" rule="prepnp" role="pp">
                         <w xml:id="o230010010101"
                            mandarin="在"
                            english="during"
@@ -240,7 +237,7 @@
                            unicode="בִּ"
                            lang="H"
                            lemma="b">בִּ</w>
-                        <wg class="modifier-scope" head="true" rule="npofnp">
+                        <wg type="modifier-scope" rule="npofnp">
                            <w xml:id="o230010010102"
                               mandarin="时候"
                               english="reigns"
@@ -264,8 +261,8 @@
                               gender="masculine"
                               number="plural"
                               state="construct">ימֵ֨י</w>
-                           <wg class="g" type="type" head="true" rule="np-appos">
-                              <wg class="g" type="type" head="false" rule="npnpnpnp">
+                           <wg type="group" rule="np-appos">
+                              <wg type="group" rule="npnpnpnp">
                                  <w xml:id="o230010010111"
                                     mandarin="乌西雅"
                                     english="Uzziah"
@@ -339,7 +336,7 @@
                                     lang="H"
                                     lemma="2396">יְחִזְקִיָּ֖הוּ</w>
                               </wg>
-                              <wg class="modifier-scope" head="true" rule="npofnp">
+                              <wg type="modifier-scope" rule="npofnp">
                                  <w xml:id="o230010010151"
                                     mandarin="王"
                                     english="kings"
@@ -391,10 +388,10 @@
          </wg>
       </wg>
    </sentence>
-   <sentence class="s">
+   <sentence id="ISA 1:2">
       <p>
          <milestone unit="verse" id="ISA 1:2">ISA 1:2</milestone> שִׁמְע֤וּ שָׁמַ֨יִם֙ וְהַאֲזִ֣ינִי אֶ֔רֶץ כִּ֥י יְהוָ֖ה דִּבֵּ֑ר בָּנִים֙ גִּדַּ֣לְתִּי וְרוֹמַ֔מְתִּי וְהֵ֖ם פָּ֥שְׁעוּ בִֽי׃</p>
-      <wg class="s" head="true" projecting="true">
+      <wg projecting="true">
          <wg Rule="ClCl" Cat="CL" nodeId="2300100200110020">
             <w xml:id="o230010020011"
                mandarin="听"
@@ -447,7 +444,7 @@
                state="absolute"
                role="aux">שָׁמַ֨יִם֙</w>
          </wg>
-         <wg type="conjuncted-wg" class="cjp" head="true" rule="cj2cjp">
+         <wg type="conjuncted-wg" class="cjp" rule="cj2cjp">
             <w xml:id="o230010020031"
                english="and"
                morph="C"
@@ -516,7 +513,7 @@
                   role="aux">אֶ֔רֶץ</w>
             </wg>
          </wg>
-         <wg type="conjuncted-wg" class="cjp" head="true" rule="cj2cjp">
+         <wg type="conjuncted-wg" class="cjp" rule="cj2cjp">
             <w xml:id="o230010020051"
                mandarin="因为"
                english="for"
@@ -533,7 +530,7 @@
                unicode="כִּ֥י"
                lang="H"
                lemma="3588 a">כִּ֥י</w>
-            <wg class="cl" head="false" rule="s-v">
+            <wg class="cl" rule="s-v">
                <w xml:id="o230010020061"
                   mandarin="耶和华"
                   english="LORD"
@@ -584,8 +581,8 @@
                   role="v">דִּבֵּ֑ר</w>
             </wg>
          </wg>
-         <wg class="g" head="true" rule="clacl" projected="true">
-            <wg class="cl" head="false" rule="o-v">
+         <wg rule="clacl" projected="true">
+            <wg class="cl" rule="o-v">
                <w xml:id="o230010020081"
                   mandarin="儿女"
                   english="children"
@@ -612,7 +609,7 @@
                   number="plural"
                   state="absolute"
                   role="o">בָּנִים֙</w>
-               <wg class="g" head="false" rule="vpandvp" role="v">
+               <wg rule="vpandvp" role="v">
                   <w xml:id="o230010020091"
                      mandarin="养育"
                      english="reared"
@@ -641,7 +638,7 @@
                      number="singular"
                      stem="piel"
                      person="first">גִּדַּ֣לְתִּי</w>
-                  <wg type="conjuncted-wg" class="cjp" head="true" rule="cj2cjp">
+                  <wg type="conjuncted-wg" class="cjp" rule="cj2cjp">
                      <w xml:id="o230010020101"
                         english="and"
                         morph="C"
@@ -682,7 +679,7 @@
                   </wg>
                </wg>
             </wg>
-            <wg type="conjuncted-wg" class="cjp" head="true" rule="cj2cjp">
+            <wg type="conjuncted-wg" class="cjp" rule="cj2cjp">
                <w xml:id="o230010020111"
                   mandarin="却"
                   english="but"
@@ -697,7 +694,7 @@
                   unicode="וְ"
                   lang="H"
                   lemma="c">וְ</w>
-               <wg class="cl" head="false" rule="s-v-pp">
+               <wg class="cl" rule="s-v-pp">
                   <w xml:id="o230010020112"
                      mandarin="他们"
                      english="they"
@@ -746,7 +743,7 @@
                      stem="qal"
                      person="third"
                      role="v">פָּ֥שְׁעוּ</w>
-                  <wg class="modifier-scope" head="false" rule="prepnp" role="pp">
+                  <wg type="modifier-scope" rule="prepnp" role="pp">
                      <w xml:id="o230010020131"
                         mandarin="于"
                         english="against"
@@ -779,12 +776,12 @@
          </wg>
       </wg>
    </sentence>
-   <sentence class="s">
+   <sentence id="ISA 1:3">
       <p>
          <milestone unit="verse" id="ISA 1:3">ISA 1:3</milestone> יָדַ֥ע שׁוֹר֙ קֹנֵ֔הוּ וַחֲמ֖וֹר אֵב֣וּס בְּעָלָ֑יו יִשְׂרָאֵל֙ לֹ֣א יָדַ֔ע עַמִּ֖י לֹ֥א הִתְבּוֹנָֽן׃</p>
-      <wg class="s" head="true">
-         <wg class="g" head="true" rule="clacl">
-            <wg class="cl" head="true" rule="v-s-o">
+      <wg>
+         <wg rule="clacl">
+            <wg class="cl" rule="v-s-o">
                <w xml:id="o230010030011"
                   mandarin="认识"
                   english="knows"
@@ -835,7 +832,7 @@
                   number="singular"
                   state="absolute"
                   role="s">שׁוֹר֙</w>
-               <wg class="modifier-scope" head="true" rule="npofnp" role="o">
+               <wg type="modifier-scope" rule="npofnp" role="o">
                   <w xml:id="o230010030031"
                      mandarin="主人"
                      english="owner"
@@ -878,7 +875,7 @@
                      person="third">הוּ</w>
                </wg>
             </wg>
-            <wg type="conjuncted-wg" class="cjp" head="true" rule="cj2cjp">
+            <wg type="conjuncted-wg" class="cjp" rule="cj2cjp">
                <w xml:id="o230010030041"
                   english="and"
                   morph="C"
@@ -892,7 +889,7 @@
                   unicode="וַ"
                   lang="H"
                   lemma="c">וַ</w>
-               <wg class="cl" head="true" rule="s-o">
+               <wg class="cl" rule="s-o">
                   <w xml:id="o230010030042"
                      mandarin="驴"
                      english="donkey"
@@ -916,7 +913,7 @@
                      number="singular"
                      state="absolute"
                      role="s">חֲמ֖וֹר</w>
-                  <wg class="modifier-scope" head="true" rule="npofnp" role="o">
+                  <wg type="modifier-scope" rule="npofnp" role="o">
                      <w xml:id="o230010030051"
                         mandarin="槽"
                         english="manger"
@@ -940,7 +937,7 @@
                         gender="masculine"
                         number="singular"
                         state="construct">אֵב֣וּס</w>
-                     <wg class="modifier-scope" head="true" rule="npofnp">
+                     <wg type="modifier-scope" rule="npofnp">
                         <w xml:id="o230010030061"
                            mandarin="主人"
                            english="master’s"
@@ -1052,8 +1049,8 @@
                stem="qal"
                person="third"
                role="v">יָדַ֔ע</w>
-            <wg class="cl" head="false" rule="s-adv-v" role="d?">
-               <wg class="modifier-scope" head="true" rule="npofnp" role="s">
+            <wg class="cl" rule="s-adv-v" role="d?">
+               <wg type="modifier-scope" rule="npofnp" role="s">
                   <w xml:id="o230010030101"
                      mandarin="子民"
                      english="people"
@@ -1136,14 +1133,14 @@
          </wg>
       </wg>
    </sentence>
-   <sentence class="s">
+   <sentence id="ISA 1:4">
       <p>
          <milestone unit="verse" id="ISA 1:4">ISA 1:4</milestone> ה֣וֹי׀גּ֣וֹי חֹטֵ֗א עַ֚ם כֶּ֣בֶד עָוֺ֔ן זֶ֣רַע מְרֵעִ֔ים בָּנִ֖ים מַשְׁחִיתִ֑ים עָזְב֣וּ אֶת־יְהוָ֗ה נִֽאֲצ֛וּ אֶת־קְד֥וֹשׁ יִשְׂרָאֵ֖ל נָזֹ֥רוּ אָחֽוֹר׃</p>
-      <wg class="s" head="true">
+      <wg>
          <wg Rule="ClCl2" Cat="CL" nodeId="2300100400110100">
-            <wg class="g" type="type" head="true" rule="np-appos">
-               <wg class="g" type="type" head="true" rule="np-appos">
-                  <wg class="modifier-scope" head="true" rule="npadjp">
+            <wg type="group" rule="np-appos">
+               <wg type="group" rule="np-appos">
+                  <wg type="modifier-scope" rule="npadjp">
                      <w xml:id="o230010040021"
                         mandarin="国"
                         english="nation"
@@ -1196,7 +1193,7 @@
                         state="absolute"
                         stem="qal">חֹטֵ֗א</w>
                   </wg>
-                  <wg class="modifier-scope" head="true" rule="npadjp">
+                  <wg type="modifier-scope" rule="npadjp">
                      <w xml:id="o230010040041"
                         mandarin="人民"
                         english="people"
@@ -1218,7 +1215,7 @@
                         gender="masculine"
                         number="singular"
                         state="absolute">עַ֚ם</w>
-                     <wg class="modifier-scope" head="true" rule="adjpofnp">
+                     <wg type="modifier-scope" rule="adjpofnp">
                         <w xml:id="o230010040051"
                            mandarin="沉重"
                            english="weighed down"
@@ -1270,7 +1267,7 @@
                      </wg>
                   </wg>
                </wg>
-               <wg class="modifier-scope" head="true" rule="npofnp">
+               <wg type="modifier-scope" rule="npofnp">
                   <w xml:id="o230010040071"
                      mandarin="遗孽"
                      english="offspring"
@@ -1322,7 +1319,7 @@
                      stem="hiphil">מְרֵעִ֔ים</w>
                </wg>
             </wg>
-            <wg class="modifier-scope" head="true" rule="npadjp">
+            <wg type="modifier-scope" rule="npadjp">
                <w xml:id="o230010040091"
                   mandarin="儿女"
                   english="children"
@@ -1394,8 +1391,8 @@
                lemma="1945"
                role="aux">ה֣וֹי</w>
          </wg>
-         <wg class="g" type="type" head="true" rule="clclcl">
-            <wg class="cl" head="true" rule="v-o">
+         <wg type="group" rule="clclcl">
+            <wg class="cl" rule="v-o">
                <w xml:id="o230010040111"
                   mandarin="离弃"
                   english="forsaken"
@@ -1423,7 +1420,7 @@
                   stem="qal"
                   person="third"
                   role="v">עָזְב֣וּ</w>
-               <wg class="modifier-scope" head="false" rule="ompnp" role="o">
+               <wg type="modifier-scope" rule="ompnp" role="o">
                   <w xml:id="o230010040121"
                      morph="To"
                      pos="particle"
@@ -1458,7 +1455,7 @@
                      lemma="3068">יְהוָ֗ה</w>
                </wg>
             </wg>
-            <wg class="cl" head="true" rule="v-o">
+            <wg class="cl" rule="v-o">
                <w xml:id="o230010040141"
                   mandarin="藐视"
                   english="despised"
@@ -1486,7 +1483,7 @@
                   stem="piel"
                   person="third"
                   role="v">נִֽאֲצ֛וּ</w>
-               <wg class="modifier-scope" head="false" rule="ompnp" role="o">
+               <wg type="modifier-scope" rule="ompnp" role="o">
                   <w xml:id="o230010040151"
                      morph="To"
                      pos="particle"
@@ -1502,7 +1499,7 @@
                      unicode="אֶת־"
                      lang="H"
                      lemma="853">אֶת</w>
-                  <wg class="modifier-scope" head="true" rule="npofnp">
+                  <wg type="modifier-scope" rule="npofnp">
                      <w xml:id="o230010040161"
                         mandarin="圣者"
                         english="Holy"
@@ -1550,7 +1547,7 @@
                   </wg>
                </wg>
             </wg>
-            <wg class="cl" head="true" rule="v-adv">
+            <wg class="cl" rule="v-adv">
                <w xml:id="o230010040181"
                   mandarin="生疏"
                   english="turned"
@@ -1605,12 +1602,12 @@
          </wg>
       </wg>
    </sentence>
-   <sentence class="s">
+   <sentence id="ISA 1:5">
       <p>
          <milestone unit="verse" id="ISA 1:5">ISA 1:5</milestone> עַ֣ל מֶ֥ה תֻכּ֛וּ ע֖וֹד תּוֹסִ֣יפוּ סָרָ֑ה כָּל־רֹ֣אשׁ לָחֳלִ֔י וְכָל־לֵבָ֖ב דַּוָּֽי׃</p>
-      <wg class="s" head="true">
-         <wg class="cl" head="false" rule="pp-v-adv">
-            <wg class="modifier-scope" head="false" rule="prepnp" role="pp">
+      <wg>
+         <wg class="cl" rule="pp-v-adv">
+            <wg type="modifier-scope" rule="prepnp" role="pp">
                <w xml:id="o230010050011"
                   english="for"
                   morph="R"
@@ -1685,7 +1682,7 @@
                lemma="5750"
                role="adv">ע֖וֹד</w>
          </wg>
-         <wg class="cl" head="true" rule="v-o">
+         <wg class="cl" rule="v-o">
             <w xml:id="o230010050051"
                mandarin="屡次"
                english="continue"
@@ -1738,12 +1735,8 @@
                state="absolute"
                role="o">סָרָ֑ה</w>
          </wg>
-         <wg class="cl" head="false" rule="s-p">
-            <wg type="wrapper-scope"
-                class="np"
-                head="false"
-                rule="quannp"
-                role="s">
+         <wg class="cl" rule="s-p">
+            <wg type="wrapper-scope" class="np" rule="quannp" role="s">
                <w xml:id="o230010050071"
                   mandarin="满"
                   english="whole"
@@ -1789,7 +1782,7 @@
                   number="singular"
                   state="absolute">רֹ֣אשׁ</w>
             </wg>
-            <wg class="modifier-scope" head="false" rule="prepnp" role="p">
+            <wg type="modifier-scope" rule="prepnp" role="p">
                <w xml:id="o230010050091"
                   english="to"
                   morph="R"
@@ -1829,7 +1822,7 @@
                   state="absolute">חֳלִ֔י</w>
             </wg>
          </wg>
-         <wg type="conjuncted-wg" class="cjp" head="true" rule="cj2cjp">
+         <wg type="conjuncted-wg" class="cjp" rule="cj2cjp">
             <w xml:id="o230010050101"
                english="and"
                morph="R"
@@ -1843,12 +1836,8 @@
                unicode="וְ"
                lang="H"
                lemma="c">וְ</w>
-            <wg class="cl" head="false" rule="s-p">
-               <wg type="wrapper-scope"
-                   class="np"
-                   head="false"
-                   rule="quannp"
-                   role="s">
+            <wg class="cl" rule="s-p">
+               <wg type="wrapper-scope" class="np" rule="quannp" role="s">
                   <w xml:id="o230010050102"
                      mandarin="整个"
                      english="whole"
@@ -1923,17 +1912,17 @@
          </wg>
       </wg>
    </sentence>
-   <sentence class="s">
+   <sentence id="ISA 1:6">
       <p>
          <milestone unit="verse" id="ISA 1:6">ISA 1:6</milestone> מִכַּף־רֶ֤גֶל וְעַד־רֹאשׁ֙ אֵֽין־בּ֣וֹ מְתֹ֔ם פֶּ֥צַע וְחַבּוּרָ֖ה וּמַכָּ֣ה טְרִיָּ֑ה לֹא־זֹ֨רוּ֙ וְלֹ֣א חֻבָּ֔שׁוּ וְלֹ֥א רֻכְּכָ֖ה בַּשָּֽׁמֶן׃</p>
-      <wg class="s" head="true">
+      <wg>
          <wg Rule="ClCl"
              Cat="CL"
              nodeId="2300100600110270"
              class="cl"
              rule="clcl">
-            <wg class="g" head="false" rule="ppandpp" role="pp">
-               <wg class="modifier-scope" head="false" rule="prepnp">
+            <wg rule="ppandpp" role="pp">
+               <wg type="modifier-scope" rule="prepnp">
                   <w xml:id="o230010060011"
                      mandarin="从"
                      english="from"
@@ -1948,7 +1937,7 @@
                      unicode="מִ"
                      lang="H"
                      lemma="m">מִ</w>
-                  <wg class="modifier-scope" head="true" rule="npofnp">
+                  <wg type="modifier-scope" rule="npofnp">
                      <w xml:id="o230010060012"
                         mandarin="掌"
                         english="sole"
@@ -1996,7 +1985,7 @@
                         state="absolute">רֶ֤גֶל</w>
                   </wg>
                </wg>
-               <wg type="conjuncted-wg" class="cjp" head="true" rule="cj2cjp">
+               <wg type="conjuncted-wg" class="cjp" rule="cj2cjp">
                   <w xml:id="o230010060031"
                      mandarin="而"
                      english="even"
@@ -2009,7 +1998,7 @@
                      unicode="וְ"
                      lang="H"
                      lemma="c">וְ</w>
-                  <wg class="modifier-scope" head="false" rule="prepnp">
+                  <wg type="modifier-scope" rule="prepnp">
                      <w xml:id="o230010060032"
                         mandarin="到"
                         english="to"
@@ -2074,7 +2063,7 @@
                lang="H"
                lemma="369"
                role="p">אֵֽין</w>
-            <wg class="modifier-scope" head="false" rule="prepnp" role="pp">
+            <wg type="modifier-scope" rule="prepnp" role="pp">
                <w xml:id="o230010060061"
                   mandarin="在"
                   english="in"
@@ -2125,8 +2114,8 @@
                number="singular"
                state="absolute"
                role="s">מְתֹ֔ם</w>
-            <error_unhandled_single_constituent_clause role="err" rule="S2CL">
-               <wg class="g" head="false" rule="conj3np">
+            <wg class="cl" rule="s2cl">
+               <wg rule="conj3np" role="s">
                   <w xml:id="o230010060081"
                      mandarin="创伤"
                      english="bruises"
@@ -2151,7 +2140,7 @@
                      gender="masculine"
                      number="singular"
                      state="absolute">פֶּ֥צַע</w>
-                  <wg type="conjuncted-wg" class="cjp" head="true" rule="cj2cjp">
+                  <wg type="conjuncted-wg" class="cjp" rule="cj2cjp">
                      <w xml:id="o230010060091"
                         mandarin="和"
                         english="and"
@@ -2190,7 +2179,7 @@
                         number="singular"
                         state="absolute">חַבּוּרָ֖ה</w>
                   </wg>
-                  <wg type="conjuncted-wg" class="cjp" head="true" rule="cj2cjp">
+                  <wg type="conjuncted-wg" class="cjp" rule="cj2cjp">
                      <w xml:id="o230010060101"
                         mandarin="和"
                         english="and"
@@ -2205,7 +2194,7 @@
                         unicode="וּ"
                         lang="H"
                         lemma="c">וּ</w>
-                     <wg class="modifier-scope" head="true" rule="npadjp">
+                     <wg type="modifier-scope" rule="npadjp">
                         <w xml:id="o230010060102"
                            mandarin="伤口"
                            english="wounds"
@@ -2255,9 +2244,9 @@
                      </wg>
                   </wg>
                </wg>
-            </error_unhandled_single_constituent_clause>
-            <wg class="g" head="true" rule="conj3cl" role="d?">
-               <wg class="cl" head="false" rule="adv-v">
+            </wg>
+            <wg rule="conj3cl" role="d?">
+               <wg class="cl" rule="adv-v">
                   <w xml:id="o230010060121"
                      mandarin="没有"
                      english="not"
@@ -2304,7 +2293,7 @@
                      person="third"
                      role="v">זֹ֨רוּ֙</w>
                </wg>
-               <wg type="conjuncted-wg" class="cjp" head="true" rule="cj2cjp">
+               <wg type="conjuncted-wg" class="cjp" rule="cj2cjp">
                   <w xml:id="o230010060141"
                      mandarin="也"
                      english="or"
@@ -2317,7 +2306,7 @@
                      unicode="וְ"
                      lang="H"
                      lemma="c">וְ</w>
-                  <wg class="cl" head="false" rule="adv-v">
+                  <wg class="cl" rule="adv-v">
                      <w xml:id="o230010060142"
                         mandarin="没有"
                         english="not"
@@ -2363,7 +2352,7 @@
                         role="v">חֻבָּ֔שׁוּ</w>
                   </wg>
                </wg>
-               <wg type="conjuncted-wg" class="cjp" head="true" rule="cj2cjp">
+               <wg type="conjuncted-wg" class="cjp" rule="cj2cjp">
                   <w xml:id="o230010060161"
                      mandarin="也"
                      english="or"
@@ -2376,7 +2365,7 @@
                      unicode="וְ"
                      lang="H"
                      lemma="c">וְ</w>
-                  <wg class="cl" head="false" rule="adv-v-pp">
+                  <wg class="cl" rule="adv-v-pp">
                      <w xml:id="o230010060162"
                         mandarin="没有"
                         english="not"
@@ -2417,7 +2406,7 @@
                         stem="pual"
                         person="third"
                         role="v">רֻכְּכָ֖ה</w>
-                     <wg class="modifier-scope" head="false" rule="prepnp" role="pp">
+                     <wg type="modifier-scope" rule="prepnp" role="pp">
                         <w xml:id="o230010060181"
                            mandarin="用"
                            english="with"
@@ -2430,7 +2419,7 @@
                            unicode="בַּ"
                            lang="H"
                            lemma="b">בַּ</w>
-                        <wg class="modifier-scope" head="false" rule="detnp">
+                        <wg type="modifier-scope" rule="detnp">
                            <w xml:id="o230010060181ה"
                               english="the"
                               morph="Td"
@@ -2473,12 +2462,12 @@
          </wg>
       </wg>
    </sentence>
-   <sentence class="s">
+   <sentence id="ISA 1:7">
       <p>
          <milestone unit="verse" id="ISA 1:7">ISA 1:7</milestone> אַרְצְכֶ֣ם שְׁמָמָ֔ה עָרֵיכֶ֖ם שְׂרֻפ֣וֹת אֵ֑שׁ אַדְמַתְכֶ֗ם לְנֶגְדְּכֶם֙ זָרִים֙ אֹכְלִ֣ים אֹתָ֔הּ וּשְׁמָמָ֖ה כְּמַהְפֵּכַ֥ת זָרִֽים׃</p>
-      <wg class="s" head="true">
-         <wg class="cl" head="false" rule="s-p">
-            <wg class="modifier-scope" head="true" rule="npofnp" role="s">
+      <wg>
+         <wg class="cl" rule="s-p">
+            <wg type="modifier-scope" rule="npofnp" role="s">
                <w xml:id="o230010070011"
                   mandarin="土地"
                   english="country"
@@ -2541,8 +2530,8 @@
                state="absolute"
                role="p">שְׁמָמָ֔ה</w>
          </wg>
-         <wg class="cl" head="false" rule="s-v-adv">
-            <wg class="modifier-scope" head="true" rule="npofnp" role="s">
+         <wg class="cl" rule="s-v-adv">
+            <wg type="modifier-scope" rule="npofnp" role="s">
                <w xml:id="o230010070031"
                   mandarin="城市"
                   english="cities"
@@ -2630,9 +2619,9 @@
                role="adv">אֵ֑שׁ</w>
          </wg>
          <wg Rule="ClCl2" Cat="CL" nodeId="2300100700610140">
-            <wg class="cl" head="false" rule="pp-s-v-o">
-               <wg class="modifier-scope" head="false" rule="prepnp" role="pp">
-                  <wg class="g" type="type" head="false" rule="pppp">
+            <wg class="cl" rule="pp-s-v-o">
+               <wg type="modifier-scope" rule="prepnp" role="pp">
+                  <wg type="group" rule="pppp">
                      <w xml:id="o230010070071"
                         mandarin="在"
                         english="in"
@@ -2730,7 +2719,7 @@
                   state="absolute"
                   stem="qal"
                   role="v">אֹכְלִ֣ים</w>
-               <wg class="modifier-scope" head="false" rule="ompnp" role="o">
+               <wg type="modifier-scope" rule="ompnp" role="o">
                   <w xml:id="o230010070101"
                      morph="To"
                      pos="particle"
@@ -2762,7 +2751,7 @@
                      person="third">הּ</w>
                </wg>
             </wg>
-            <wg type="conjuncted-wg" class="cjp" head="true" rule="cj2cjp">
+            <wg type="conjuncted-wg" class="cjp" rule="cj2cjp">
                <w xml:id="o230010070111"
                   mandarin="而"
                   english="and"
@@ -2777,7 +2766,7 @@
                   unicode="וּ"
                   lang="H"
                   lemma="c">וּ</w>
-               <wg class="cl" head="true" rule="p-pp">
+               <wg class="cl" rule="p-pp">
                   <w xml:id="o230010070112"
                      mandarin="荒凉"
                      english="desolate"
@@ -2798,7 +2787,7 @@
                      number="singular"
                      state="absolute"
                      role="p">שְׁמָמָ֖ה</w>
-                  <wg class="modifier-scope" head="false" rule="prepnp" role="pp">
+                  <wg type="modifier-scope" rule="prepnp" role="pp">
                      <w xml:id="o230010070121"
                         mandarin="像"
                         english="as"
@@ -2811,7 +2800,7 @@
                         unicode="כְּ"
                         lang="H"
                         lemma="k">כְּ</w>
-                     <wg class="modifier-scope" head="true" rule="npofnp">
+                     <wg type="modifier-scope" rule="npofnp">
                         <w xml:id="o230010070122"
                            mandarin="倾覆"
                            english="overthrown"
@@ -2861,7 +2850,7 @@
                   </wg>
                </wg>
             </wg>
-            <wg class="modifier-scope" head="true" rule="npofnp" role="aux">
+            <wg type="modifier-scope" rule="npofnp" role="aux">
                <w xml:id="o230010070061"
                   mandarin="田地"
                   english="fields"
@@ -2903,11 +2892,11 @@
          </wg>
       </wg>
    </sentence>
-   <sentence class="s">
+   <sentence id="ISA 1:8">
       <p>
          <milestone unit="verse" id="ISA 1:8">ISA 1:8</milestone> וְנוֹתְרָ֥ה בַת־צִיּ֖וֹן כְּסֻכָּ֣ה בְכָ֑רֶם כִּמְלוּנָ֥ה בְמִקְשָׁ֖ה כְּעִ֥יר נְצוּרָֽה׃</p>
-      <wg class="s" head="true">
-         <wg type="conjuncted-wg" class="cjp" head="true" rule="cj2cjp">
+      <wg>
+         <wg type="conjuncted-wg" class="cjp" rule="cj2cjp">
             <w xml:id="o230010080011"
                mandarin="虽"
                english="and"
@@ -2920,7 +2909,7 @@
                unicode="וְ"
                lang="H"
                lemma="c">וְ</w>
-            <wg class="cl" head="true" rule="v-s-pp">
+            <wg class="cl" rule="v-s-pp">
                <w xml:id="o230010080012"
                   mandarin="存"
                   english="left"
@@ -2945,7 +2934,7 @@
                   stem="niphal"
                   person="third"
                   role="v">נוֹתְרָ֥ה</w>
-               <wg class="modifier-scope" head="true" rule="npofnp" role="s">
+               <wg type="modifier-scope" rule="npofnp" role="s">
                   <w xml:id="o230010080021"
                      mandarin="小姐"
                      english="daughter"
@@ -2989,8 +2978,8 @@
                      lang="H"
                      lemma="6726">צִיּ֖וֹן</w>
                </wg>
-               <wg class="g" type="type" head="true" rule="pppppp" role="pp">
-                  <wg class="modifier-scope" head="false" rule="prepnp">
+               <wg type="group" rule="pppppp" role="pp">
+                  <wg type="modifier-scope" rule="prepnp">
                      <w xml:id="o230010080041"
                         mandarin="像"
                         english="like"
@@ -3005,7 +2994,7 @@
                         unicode="כְּ"
                         lang="H"
                         lemma="k">כְּ</w>
-                     <wg class="modifier-scope" head="true" rule="nppp">
+                     <wg type="modifier-scope" rule="nppp">
                         <w xml:id="o230010080042"
                            mandarin="草棚"
                            english="shelter"
@@ -3030,7 +3019,7 @@
                            gender="feminine"
                            number="singular"
                            state="absolute">סֻכָּ֣ה</w>
-                        <wg class="modifier-scope" head="false" rule="prepnp">
+                        <wg type="modifier-scope" rule="prepnp">
                            <w xml:id="o230010080051"
                               mandarin="中"
                               english="in"
@@ -3071,7 +3060,7 @@
                         </wg>
                      </wg>
                   </wg>
-                  <wg class="modifier-scope" head="false" rule="prepnp">
+                  <wg type="modifier-scope" rule="prepnp">
                      <w xml:id="o230010080061"
                         mandarin="像"
                         english="like"
@@ -3086,7 +3075,7 @@
                         unicode="כִּ"
                         lang="H"
                         lemma="k">כִּ</w>
-                     <wg class="modifier-scope" head="true" rule="nppp">
+                     <wg type="modifier-scope" rule="nppp">
                         <w xml:id="o230010080062"
                            mandarin="茅屋"
                            english="shelter"
@@ -3105,7 +3094,7 @@
                            gender="feminine"
                            number="singular"
                            state="absolute">מְלוּנָ֥ה</w>
-                        <wg class="modifier-scope" head="false" rule="prepnp">
+                        <wg type="modifier-scope" rule="prepnp">
                            <w xml:id="o230010080071"
                               mandarin="里"
                               english="in"
@@ -3145,7 +3134,7 @@
                         </wg>
                      </wg>
                   </wg>
-                  <wg class="modifier-scope" head="false" rule="prepnp">
+                  <wg type="modifier-scope" rule="prepnp">
                      <w xml:id="o230010080081"
                         mandarin="如"
                         english="like"
@@ -3160,7 +3149,7 @@
                         unicode="כְּ"
                         lang="H"
                         lemma="k">כְּ</w>
-                     <wg class="modifier-scope" head="true" rule="npadjp">
+                     <wg type="modifier-scope" rule="npadjp">
                         <w xml:id="o230010080082"
                            mandarin="城邑"
                            english="city"
@@ -3216,11 +3205,11 @@
          </wg>
       </wg>
    </sentence>
-   <sentence class="s">
+   <sentence id="ISA 1:9">
       <p>
          <milestone unit="verse" id="ISA 1:9">ISA 1:9</milestone> לוּלֵי֙ יְהוָ֣ה צְבָא֔וֹת הוֹתִ֥יר לָ֛נוּ שָׂרִ֖יד כִּמְעָ֑ט כִּסְדֹ֣ם הָיִ֔ינוּ לַעֲמֹרָ֖ה דָּמִֽינוּ׃ס</p>
-      <wg class="s" head="true">
-         <wg type="conjuncted-wg" class="cjp" head="true" rule="cj2cjp">
+      <wg>
+         <wg type="conjuncted-wg" class="cjp" rule="cj2cjp">
             <w xml:id="o230010090011"
                mandarin="若不是"
                english="if ~ not"
@@ -3239,8 +3228,8 @@
                unicode="לוּלֵי֙"
                lang="H"
                lemma="3884">לוּלֵי֙</w>
-            <wg class="cl" head="false" rule="s-v-pp-o-pp">
-               <wg class="modifier-scope" head="true" rule="npofnp" role="s">
+            <wg class="cl" rule="s-v-pp-o-pp">
+               <wg type="modifier-scope" rule="npofnp" role="s">
                   <w xml:id="o230010090021"
                      mandarin="耶和华"
                      english="LORD"
@@ -3312,7 +3301,7 @@
                   stem="hiphil"
                   person="third"
                   role="v">הוֹתִ֥יר</w>
-               <wg class="modifier-scope" head="false" rule="prepnp" role="pp">
+               <wg type="modifier-scope" rule="prepnp" role="pp">
                   <w xml:id="o230010090051"
                      mandarin="给"
                      english="to"
@@ -3367,7 +3356,7 @@
                   number="singular"
                   state="absolute"
                   role="o">שָׂרִ֖יד</w>
-               <wg class="modifier-scope" head="false" rule="prepnp" role="pp">
+               <wg type="modifier-scope" rule="prepnp" role="pp">
                   <w xml:id="o230010090071"
                      english="as"
                      morph="R"
@@ -3404,8 +3393,8 @@
                </wg>
             </wg>
          </wg>
-         <wg class="cl" head="false" rule="pp-v">
-            <wg class="modifier-scope" head="false" rule="prepnp" role="pp">
+         <wg class="cl" rule="pp-v">
+            <wg type="modifier-scope" rule="prepnp" role="pp">
                <w xml:id="o230010090081"
                   mandarin="像"
                   english="like"
@@ -3464,8 +3453,8 @@
                person="first"
                role="v">הָיִ֔ינוּ</w>
          </wg>
-         <wg class="cl" head="false" rule="pp-v">
-            <wg class="modifier-scope" head="false" rule="prepnp" role="pp">
+         <wg class="cl" rule="pp-v">
+            <wg type="modifier-scope" rule="prepnp" role="pp">
                <w xml:id="o230010090101"
                   mandarin="于"
                   english="to"
@@ -3527,10 +3516,10 @@
          </wg>
       </wg>
    </sentence>
-   <sentence class="s">
+   <sentence id="ISA 1:10">
       <p>
          <milestone unit="verse" id="ISA 1:10">ISA 1:10</milestone> שִׁמְע֥וּ דְבַר־יְהוָ֖ה קְצִינֵ֣י סְדֹ֑ם הַאֲזִ֛ינוּ תּוֹרַ֥ת אֱלֹהֵ֖ינוּ עַ֥ם עֲמֹרָֽה׃</p>
-      <wg class="s" head="true">
+      <wg>
          <wg Rule="ClCl" Cat="CL" nodeId="2300101000110050">
             <w xml:id="o230010100011"
                mandarin="听"
@@ -3557,7 +3546,7 @@
                stem="qal"
                person="second"
                role="v">שִׁמְע֥וּ</w>
-            <wg class="modifier-scope" head="true" rule="npofnp" role="o">
+            <wg type="modifier-scope" rule="npofnp" role="o">
                <w xml:id="o230010100021"
                   mandarin="话"
                   english="word"
@@ -3599,7 +3588,7 @@
                   lang="H"
                   lemma="3068">יְהוָ֖ה</w>
             </wg>
-            <wg class="modifier-scope" head="true" rule="npofnp" role="aux">
+            <wg type="modifier-scope" rule="npofnp" role="aux">
                <w xml:id="o230010100041"
                   mandarin="官长"
                   english="rulers"
@@ -3675,7 +3664,7 @@
                stem="hiphil"
                person="second"
                role="v">הַאֲזִ֛ינוּ</w>
-            <wg class="modifier-scope" head="true" rule="npofnp" role="o">
+            <wg type="modifier-scope" rule="npofnp" role="o">
                <w xml:id="o230010100071"
                   mandarin="教诲"
                   english="teaching"
@@ -3699,7 +3688,7 @@
                   gender="feminine"
                   number="singular"
                   state="construct">תּוֹרַ֥ת</w>
-               <wg class="modifier-scope" head="true" rule="npofnp">
+               <wg type="modifier-scope" rule="npofnp">
                   <w xml:id="o230010100081"
                      mandarin="神"
                      english="God"
@@ -3737,7 +3726,7 @@
                      person="first">נוּ</w>
                </wg>
             </wg>
-            <wg class="modifier-scope" head="true" rule="npofnp" role="aux">
+            <wg type="modifier-scope" rule="npofnp" role="aux">
                <w xml:id="o230010100091"
                   mandarin="百姓"
                   english="people"
@@ -3782,12 +3771,12 @@
          </wg>
       </wg>
    </sentence>
-   <sentence class="s">
+   <sentence id="ISA 1:11">
       <p>
          <milestone unit="verse" id="ISA 1:11">ISA 1:11</milestone> לָמָּה־לִּ֤י רֹב־זִבְחֵיכֶם֙ יֹאמַ֣ר יְהוָ֔ה שָׂבַ֛עְתִּי עֹל֥וֹת אֵילִ֖ים וְחֵ֣לֶב מְרִיאִ֑ים וְדַ֨ם פָּרִ֧ים וּכְבָשִׂ֛ים וְעַתּוּדִ֖ים לֹ֥א חָפָֽצְתִּי׃</p>
-      <wg class="s" head="true" projecting="true">
-         <wg class="cl" head="false" rule="pp-p-s">
-            <wg class="modifier-scope" head="false" rule="prepnp" role="pp">
+      <wg projecting="true">
+         <wg class="cl" rule="pp-p-s">
+            <wg type="modifier-scope" rule="prepnp" role="pp">
                <w xml:id="o230010110011"
                   mandarin="有"
                   morph="R"
@@ -3816,7 +3805,7 @@
                   lang="H"
                   lemma="4100">מָּה</w>
             </wg>
-            <wg class="modifier-scope" head="false" rule="prepnp" role="p">
+            <wg type="modifier-scope" rule="prepnp" role="p">
                <w xml:id="o230010110021"
                   mandarin="对"
                   english="to"
@@ -3846,7 +3835,7 @@
                   number="singular"
                   person="first">י</w>
             </wg>
-            <wg class="modifier-scope" head="true" rule="npofnp" role="s">
+            <wg type="modifier-scope" rule="npofnp" role="s">
                <w xml:id="o230010110031"
                   mandarin="许多"
                   english="multitude"
@@ -3868,7 +3857,7 @@
                   gender="both"
                   number="singular"
                   state="construct">רֹב</w>
-               <wg class="modifier-scope" head="true" rule="npofnp">
+               <wg type="modifier-scope" rule="npofnp">
                   <w xml:id="o230010110041"
                      mandarin="祭物"
                      english="sacrifices"
@@ -3911,7 +3900,7 @@
                </wg>
             </wg>
          </wg>
-         <wg class="cl" head="true" rule="v-s">
+         <wg class="cl" rule="v-s">
             <w xml:id="o230010110051"
                mandarin="说"
                english="says"
@@ -3960,7 +3949,7 @@
                lemma="3068"
                role="s">יְהוָ֔ה</w>
          </wg>
-         <wg class="cl" head="true" rule="v-o">
+         <wg class="cl" rule="v-o">
             <w xml:id="o230010110071"
                mandarin="腻烦"
                english="had enough"
@@ -3987,8 +3976,8 @@
                stem="qal"
                person="first"
                role="v">שָׂבַ֛עְתִּי</w>
-            <wg class="g" head="true" rule="npanp" role="o">
-               <wg class="modifier-scope" head="true" rule="npofnp">
+            <wg rule="npanp" role="o">
+               <wg type="modifier-scope" rule="npofnp">
                   <w xml:id="o230010110081"
                      mandarin="燔祭"
                      english="burnt offerings"
@@ -4035,7 +4024,7 @@
                      number="plural"
                      state="absolute">אֵילִ֖ים</w>
                </wg>
-               <wg type="conjuncted-wg" class="cjp" head="true" rule="cj2cjp">
+               <wg type="conjuncted-wg" class="cjp" rule="cj2cjp">
                   <w xml:id="o230010110101"
                      mandarin="和"
                      english="and"
@@ -4050,7 +4039,7 @@
                      unicode="וְ"
                      lang="H"
                      lemma="c">וְ</w>
-                  <wg class="modifier-scope" head="true" rule="npofnp">
+                  <wg type="modifier-scope" rule="npofnp">
                      <w xml:id="o230010110102"
                         mandarin="脂油"
                         english="fat"
@@ -4101,7 +4090,7 @@
                </wg>
             </wg>
          </wg>
-         <wg type="conjuncted-wg" class="cjp" head="true" rule="cj2cjp">
+         <wg type="conjuncted-wg" class="cjp" rule="cj2cjp">
             <w xml:id="o230010110121"
                english="and"
                morph="C"
@@ -4115,8 +4104,8 @@
                unicode="וְ"
                lang="H"
                lemma="c">וְ</w>
-            <wg class="cl" head="false" rule="o-adv-v">
-               <wg class="modifier-scope" head="true" rule="npofnp" role="o">
+            <wg class="cl" rule="o-adv-v">
+               <wg type="modifier-scope" rule="npofnp" role="o">
                   <w xml:id="o230010110122"
                      mandarin="血"
                      english="blood"
@@ -4141,7 +4130,7 @@
                      gender="masculine"
                      number="singular"
                      state="construct">דַ֨ם</w>
-                  <wg class="g" head="false" rule="conj3np">
+                  <wg rule="conj3np">
                      <w xml:id="o230010110131"
                         mandarin="公牛"
                         english="bulls"
@@ -4166,7 +4155,7 @@
                         gender="masculine"
                         number="plural"
                         state="absolute">פָּרִ֧ים</w>
-                     <wg type="conjuncted-wg" class="cjp" head="true" rule="cj2cjp">
+                     <wg type="conjuncted-wg" class="cjp" rule="cj2cjp">
                         <w xml:id="o230010110141"
                            mandarin="和"
                            english="and"
@@ -4204,7 +4193,7 @@
                            number="plural"
                            state="absolute">כְבָשִׂ֛ים</w>
                      </wg>
-                     <wg type="conjuncted-wg" class="cjp" head="true" rule="cj2cjp">
+                     <wg type="conjuncted-wg" class="cjp" rule="cj2cjp">
                         <w xml:id="o230010110151"
                            mandarin="和"
                            english="and"
@@ -4295,11 +4284,11 @@
          </wg>
       </wg>
    </sentence>
-   <sentence class="s">
+   <sentence id="ISA 1:12">
       <p>
          <milestone unit="verse" id="ISA 1:12">ISA 1:12</milestone> כִּ֣י תָבֹ֔אוּ לֵרָא֖וֹת פָּנָ֑י מִי־בִקֵּ֥שׁ זֹ֛את מִיֶּדְכֶ֖ם רְמֹ֥ס חֲצֵרָֽי׃</p>
-      <wg class="s" head="true">
-         <wg type="conjuncted-wg" class="cjp" head="true" rule="cj2cjp">
+      <wg>
+         <wg type="conjuncted-wg" class="cjp" rule="cj2cjp">
             <w xml:id="o230010120011"
                mandarin="时候"
                english="when"
@@ -4316,7 +4305,7 @@
                unicode="כִּ֣י"
                lang="H"
                lemma="3588 a">כִּ֣י</w>
-            <wg class="cl" head="true" rule="v-pp">
+            <wg class="cl" rule="v-pp">
                <w xml:id="o230010120021"
                   mandarin="来"
                   english="come"
@@ -4341,7 +4330,7 @@
                   stem="qal"
                   person="second"
                   role="v">תָבֹ֔אוּ</w>
-               <wg class="modifier-scope" head="false" rule="prepcl" role="pp">
+               <wg type="modifier-scope" rule="prepcl" role="pp">
                   <w xml:id="o230010120031"
                      mandarin="以"
                      english="to"
@@ -4354,7 +4343,7 @@
                      unicode="לֵ"
                      lang="H"
                      lemma="l">לֵ</w>
-                  <wg class="cl" head="true" rule="v-adv">
+                  <wg class="cl" rule="v-adv">
                      <w xml:id="o230010120032"
                         mandarin="朝见"
                         english="appear"
@@ -4378,7 +4367,7 @@
                         lemma="7200"
                         stem="niphal"
                         role="v">רָא֖וֹת</w>
-                     <wg class="modifier-scope" head="true" rule="npofnp" role="adv">
+                     <wg type="modifier-scope" rule="npofnp" role="adv">
                         <w xml:id="o230010120041"
                            mandarin="~面"
                            english="before"
@@ -4488,7 +4477,7 @@
                number="singular"
                person="unknown: x"
                role="o">זֹ֛את</w>
-            <wg class="modifier-scope" head="false" rule="prepnp" role="pp">
+            <wg type="modifier-scope" rule="prepnp" role="pp">
                <w xml:id="o230010120081"
                   mandarin="向"
                   english="from"
@@ -4501,7 +4490,7 @@
                   unicode="מִ"
                   lang="H"
                   lemma="m">מִ</w>
-               <wg class="modifier-scope" head="true" rule="npofnp">
+               <wg type="modifier-scope" rule="npofnp">
                   <w xml:id="o230010120082"
                      mandarin="手"
                      english="hand"
@@ -4541,7 +4530,7 @@
                      person="second">כֶ֖ם</w>
                </wg>
             </wg>
-            <wg class="cl" head="true" rule="v-o" role="d?">
+            <wg class="cl" rule="v-o" role="d?">
                <w xml:id="o230010120091"
                   mandarin="践踏"
                   english="trampling"
@@ -4564,7 +4553,7 @@
                   lemma="7429"
                   stem="qal"
                   role="v">רְמֹ֥ס</w>
-               <wg class="modifier-scope" head="true" rule="npofnp" role="o">
+               <wg type="modifier-scope" rule="npofnp" role="o">
                   <w xml:id="o230010120101"
                      mandarin="院子"
                      english="courts"
@@ -4609,11 +4598,11 @@
          </wg>
       </wg>
    </sentence>
-   <sentence class="s">
+   <sentence id="ISA 1:13">
       <p>
          <milestone unit="verse" id="ISA 1:13">ISA 1:13</milestone> לֹ֣א תוֹסִ֗יפוּ הָבִיא֙ מִנְחַת־שָׁ֔וְא קְטֹ֧רֶת תּוֹעֵבָ֛ה הִ֖יא לִ֑י חֹ֤דֶשׁ וְשַׁבָּת֙ קְרֹ֣א מִקְרָ֔א לֹא־אוּכַ֥ל אָ֖וֶן וַעֲצָרָֽה׃</p>
-      <wg class="s" head="true" projecting="true">
-         <wg class="cl" head="false" rule="adv-v-o">
+      <wg projecting="true">
+         <wg class="cl" rule="adv-v-o">
             <w xml:id="o230010130011"
                mandarin="不要"
                english="no"
@@ -4658,7 +4647,7 @@
                stem="hiphil"
                person="second"
                role="v">תוֹסִ֗יפוּ</w>
-            <wg class="cl" head="true" rule="v-o" role="o">
+            <wg class="cl" rule="v-o" role="o">
                <w xml:id="o230010130031"
                   mandarin="献"
                   english="bringing"
@@ -4681,7 +4670,7 @@
                   lemma="935"
                   stem="hiphil"
                   role="v">הָבִיא֙</w>
-               <wg class="modifier-scope" head="true" rule="npofnp" role="o">
+               <wg type="modifier-scope" rule="npofnp" role="o">
                   <w xml:id="o230010130041"
                      mandarin="供物"
                      english="offerings"
@@ -4780,7 +4769,7 @@
                number="singular"
                person="third"
                role="s">הִ֖יא</w>
-            <wg class="modifier-scope" head="false" rule="prepnp" role="pp">
+            <wg type="modifier-scope" rule="prepnp" role="pp">
                <w xml:id="o230010130091"
                   mandarin="于"
                   english="to"
@@ -4884,7 +4873,7 @@
                stem="qal"
                person="first"
                role="v">אוּכַ֥ל</w>
-            <wg class="g" head="true" rule="npanp" role="o">
+            <wg rule="npanp" role="o">
                <w xml:id="o230010130161"
                   mandarin="罪孽"
                   english="iniquity"
@@ -4910,7 +4899,7 @@
                   gender="masculine"
                   number="singular"
                   state="absolute">אָ֖וֶן</w>
-               <wg type="conjuncted-wg" class="cjp" head="true" rule="cj2cjp">
+               <wg type="conjuncted-wg" class="cjp" rule="cj2cjp">
                   <w xml:id="o230010130171"
                      english="and"
                      morph="C"
@@ -4949,11 +4938,7 @@
                      state="absolute">עֲצָרָֽה</w>
                </wg>
             </wg>
-            <wg class="g"
-                head="false"
-                rule="npanpnp"
-                role="aux"
-                projecting="true">
+            <wg rule="npanpnp" role="aux" projecting="true">
                <w xml:id="o230010130101"
                   mandarin="新月节"
                   english="new moon"
@@ -4976,7 +4961,7 @@
                   gender="masculine"
                   number="singular"
                   state="absolute">חֹ֤דֶשׁ</w>
-               <wg type="conjuncted-wg" class="cjp" head="true" rule="cj2cjp">
+               <wg type="conjuncted-wg" class="cjp" rule="cj2cjp">
                   <w xml:id="o230010130111"
                      mandarin="和"
                      english="and"
@@ -5010,7 +4995,7 @@
                      number="singular"
                      state="absolute">שַׁבָּת֙</w>
                </wg>
-               <wg class="cl" head="true" rule="v-o">
+               <wg class="cl" rule="v-o">
                   <w xml:id="o230010130121"
                      mandarin="召集"
                      english="calling"
@@ -5061,13 +5046,13 @@
          </wg>
       </wg>
    </sentence>
-   <sentence class="s">
+   <sentence id="ISA 1:14">
       <p>
          <milestone unit="verse" id="ISA 1:14">ISA 1:14</milestone> חָדְשֵׁיכֶ֤ם וּמוֹעֲדֵיכֶם֙ שָׂנְאָ֣ה נַפְשִׁ֔י הָי֥וּ עָלַ֖י לָטֹ֑רַח נִלְאֵ֖יתִי נְשֹֽׂא׃</p>
-      <wg class="s" head="true">
-         <wg class="cl" head="false" rule="o-v-s">
-            <wg class="g" head="true" rule="npanp" role="o">
-               <wg class="modifier-scope" head="true" rule="npofnp">
+      <wg>
+         <wg class="cl" rule="o-v-s">
+            <wg rule="npanp" role="o">
+               <wg type="modifier-scope" rule="npofnp">
                   <w xml:id="o230010140011"
                      mandarin="新月节"
                      english="new moons"
@@ -5105,7 +5090,7 @@
                      number="plural"
                      person="second">כֶ֤ם</w>
                </wg>
-               <wg type="conjuncted-wg" class="cjp" head="true" rule="cj2cjp">
+               <wg type="conjuncted-wg" class="cjp" rule="cj2cjp">
                   <w xml:id="o230010140021"
                      mandarin="和"
                      english="and"
@@ -5120,7 +5105,7 @@
                      unicode="וּ"
                      lang="H"
                      lemma="c">וּ</w>
-                  <wg class="modifier-scope" head="true" rule="npofnp">
+                  <wg type="modifier-scope" rule="npofnp">
                      <w xml:id="o230010140022"
                         mandarin="节期"
                         english="appointed feasts"
@@ -5187,7 +5172,7 @@
                stem="qal"
                person="third"
                role="v">שָׂנְאָ֣ה</w>
-            <wg class="modifier-scope" head="true" rule="npofnp" role="s">
+            <wg type="modifier-scope" rule="npofnp" role="s">
                <w xml:id="o230010140041"
                   mandarin="心里"
                   english="soul"
@@ -5227,7 +5212,7 @@
                   person="first">י</w>
             </wg>
          </wg>
-         <wg class="cl" head="true" rule="v-pp-pp">
+         <wg class="cl" rule="v-pp-pp">
             <w xml:id="o230010140051"
                mandarin="成"
                english="become"
@@ -5252,7 +5237,7 @@
                stem="qal"
                person="third"
                role="v">הָי֥וּ</w>
-            <wg class="modifier-scope" head="false" rule="prepnp" role="pp">
+            <wg type="modifier-scope" rule="prepnp" role="pp">
                <w xml:id="o230010140061"
                   english="to"
                   morph="R"
@@ -5281,7 +5266,7 @@
                   number="singular"
                   person="first">י</w>
             </wg>
-            <wg class="modifier-scope" head="false" rule="prepnp" role="pp">
+            <wg type="modifier-scope" rule="prepnp" role="pp">
                <w xml:id="o230010140071"
                   english="like"
                   morph="R"
@@ -5321,7 +5306,7 @@
                   state="absolute">טֹ֑רַח</w>
             </wg>
          </wg>
-         <wg class="cl" head="true" rule="v-o">
+         <wg class="cl" rule="v-o">
             <w xml:id="o230010140081"
                mandarin="厌倦"
                english="weary"
@@ -5347,7 +5332,7 @@
                stem="niphal"
                person="first"
                role="v">נִלְאֵ֖יתִי</w>
-            <wg class="cl" head="true" rule="v2cl">
+            <wg class="cl" rule="v2cl">
                <w xml:id="o230010140091"
                   mandarin="担当"
                   english="bearing"
@@ -5376,11 +5361,11 @@
          </wg>
       </wg>
    </sentence>
-   <sentence class="s">
+   <sentence id="ISA 1:15">
       <p>
          <milestone unit="verse" id="ISA 1:15">ISA 1:15</milestone> וּבְפָרִשְׂכֶ֣ם כַּפֵּיכֶ֗ם אַעְלִ֤ים עֵינַי֙ מִכֶּ֔ם גַּ֛ם כִּֽי־תַרְבּ֥וּ תְפִלָּ֖ה אֵינֶ֣נִּי שֹׁמֵ֑עַ יְדֵיכֶ֖ם דָּמִ֥ים מָלֵֽאוּ׃</p>
-      <wg class="s" head="true" projecting="true">
-         <wg type="conjuncted-wg" class="cjp" head="true" rule="cj2cjp">
+      <wg projecting="true">
+         <wg type="conjuncted-wg" class="cjp" rule="cj2cjp">
             <w xml:id="o230010150011"
                english="and"
                morph="C"
@@ -5392,8 +5377,8 @@
                unicode="וּ"
                lang="H"
                lemma="c">וּ</w>
-            <wg class="cl" head="false" rule="pp-v-o-pp">
-               <wg class="modifier-scope" head="false" rule="prepcl" role="pp">
+            <wg class="cl" rule="pp-v-o-pp">
+               <wg type="modifier-scope" rule="prepcl" role="pp">
                   <w xml:id="o230010150012"
                      mandarin="时候"
                      english="when"
@@ -5406,7 +5391,7 @@
                      unicode="בְ"
                      lang="H"
                      lemma="b">בְ</w>
-                  <wg class="cl" head="true" rule="v-s-o">
+                  <wg class="cl" rule="v-s-o">
                      <w xml:id="o230010150013"
                         mandarin="伸开"
                         english="spread out"
@@ -5443,7 +5428,7 @@
                         number="plural"
                         person="second"
                         role="s">כֶ֣ם</w>
-                     <wg class="modifier-scope" head="true" rule="npofnp" role="o">
+                     <wg type="modifier-scope" rule="npofnp" role="o">
                         <w xml:id="o230010150021"
                            mandarin="双手"
                            english="hands"
@@ -5511,7 +5496,7 @@
                   stem="hiphil"
                   person="first"
                   role="v">אַעְלִ֤ים</w>
-               <wg class="modifier-scope" head="true" rule="npofnp" role="o">
+               <wg type="modifier-scope" rule="npofnp" role="o">
                   <w xml:id="o230010150041"
                      mandarin="目"
                      english="eyes"
@@ -5552,7 +5537,7 @@
                      number="singular"
                      person="first">י֙</w>
                </wg>
-               <wg class="modifier-scope" head="false" rule="prepnp" role="pp">
+               <wg type="modifier-scope" rule="prepnp" role="pp">
                   <w xml:id="o230010150051"
                      mandarin="不"
                      english="from"
@@ -5588,7 +5573,7 @@
                </wg>
             </wg>
          </wg>
-         <wg type="conjuncted-wg" class="g" head="false" rule="cjpcjp">
+         <wg type="conjuncted-wg" class="cjp" rule="cjpcjp">
             <w xml:id="o230010150061"
                mandarin="连"
                english="even"
@@ -5624,7 +5609,7 @@
                unicode="כִּֽי־"
                lang="H"
                lemma="3588 a">כִּֽי</w>
-            <wg class="cl" head="true" rule="v-o">
+            <wg class="cl" rule="v-o">
                <w xml:id="o230010150081"
                   mandarin="多多"
                   english="make many"
@@ -5678,7 +5663,7 @@
                   role="o">תְפִלָּ֖ה</w>
             </wg>
          </wg>
-         <wg class="cl" head="false" rule="adv-s-v">
+         <wg class="cl" rule="adv-s-v">
             <w xml:id="o230010150101"
                mandarin="不"
                english="not"
@@ -5737,8 +5722,8 @@
                stem="qal"
                role="v">שֹׁמֵ֑עַ</w>
          </wg>
-         <wg class="cl" head="false" rule="s-adv-v">
-            <wg class="modifier-scope" head="true" rule="npofnp" role="s">
+         <wg class="cl" rule="s-adv-v">
+            <wg type="modifier-scope" rule="npofnp" role="s">
                <w xml:id="o230010150121"
                   mandarin="手"
                   english="hands"
@@ -5833,11 +5818,11 @@
          </wg>
       </wg>
    </sentence>
-   <sentence class="s">
+   <sentence id="ISA 1:16">
       <p>
          <milestone unit="verse" id="ISA 1:16">ISA 1:16</milestone> רַחֲצוּ֙ הִזַּכּ֔וּ הָסִ֛ירוּ רֹ֥עַ מַעַלְלֵיכֶ֖ם מִנֶּ֣גֶד עֵינָ֑י חִדְל֖וּ הָרֵֽעַ׃</p>
-      <wg class="s" head="true">
-         <wg class="cl" head="true" rule="v2cl">
+      <wg>
+         <wg class="cl" rule="v2cl">
             <w xml:id="o230010160011"
                mandarin="洗涤"
                english="wash"
@@ -5867,7 +5852,7 @@
                person="second"
                role="v">רַחֲצוּ֙</w>
          </wg>
-         <wg class="cl" head="true" rule="v2cl">
+         <wg class="cl" rule="v2cl">
             <w xml:id="o230010160021"
                mandarin="洁净"
                english="make ~ clean"
@@ -5898,7 +5883,7 @@
                person="second"
                role="v">הִזַּכּ֔וּ</w>
          </wg>
-         <wg class="cl" head="true" rule="v-o-pp">
+         <wg class="cl" rule="v-o-pp">
             <w xml:id="o230010160031"
                mandarin="除掉"
                english="remove"
@@ -5924,7 +5909,7 @@
                stem="hiphil"
                person="second"
                role="v">הָסִ֛ירוּ</w>
-            <wg class="modifier-scope" head="true" rule="npofnp" role="o">
+            <wg type="modifier-scope" rule="npofnp" role="o">
                <w xml:id="o230010160041"
                   mandarin="败坏"
                   english="evil"
@@ -5947,7 +5932,7 @@
                   gender="masculine"
                   number="singular"
                   state="construct">רֹ֥עַ</w>
-               <wg class="modifier-scope" head="true" rule="npofnp">
+               <wg type="modifier-scope" rule="npofnp">
                   <w xml:id="o230010160051"
                      mandarin="行为"
                      english="deeds"
@@ -5986,8 +5971,8 @@
                      person="second">כֶ֖ם</w>
                </wg>
             </wg>
-            <wg class="modifier-scope" head="false" rule="prepnp" role="pp">
-               <wg class="g" type="type" head="false" rule="pppp">
+            <wg type="modifier-scope" rule="prepnp" role="pp">
+               <wg type="group" rule="pppp">
                   <w xml:id="o230010160061"
                      mandarin="从"
                      english="from"
@@ -6016,7 +6001,7 @@
                      lang="H"
                      lemma="5048">נֶּ֣גֶד</w>
                </wg>
-               <wg class="modifier-scope" head="true" rule="npofnp">
+               <wg type="modifier-scope" rule="npofnp">
                   <w xml:id="o230010160071"
                      mandarin="看见"
                      english="sight"
@@ -6058,7 +6043,7 @@
                </wg>
             </wg>
          </wg>
-         <wg class="cl" head="true" rule="v-o">
+         <wg class="cl" rule="v-o">
             <w xml:id="o230010160081"
                mandarin="停止"
                english="cease"
@@ -6086,7 +6071,7 @@
                stem="qal"
                person="second"
                role="v">חִדְל֖וּ</w>
-            <wg class="cl" head="true" rule="v2cl">
+            <wg class="cl" rule="v2cl">
                <w xml:id="o230010160091"
                   mandarin="作恶"
                   english="do evil"
@@ -6116,11 +6101,11 @@
          </wg>
       </wg>
    </sentence>
-   <sentence class="s">
+   <sentence id="ISA 1:17">
       <p>
          <milestone unit="verse" id="ISA 1:17">ISA 1:17</milestone> לִמְד֥וּ הֵיטֵ֛ב דִּרְשׁ֥וּ מִשְׁפָּ֖ט אַשְּׁר֣וּ חָמ֑וֹץ שִׁפְט֣וּ יָת֔וֹם רִ֖יבוּ אַלְמָנָֽה׃ס</p>
-      <wg class="s" head="true">
-         <wg class="cl" head="true" rule="v-o">
+      <wg>
+         <wg class="cl" rule="v-o">
             <w xml:id="o230010170011"
                mandarin="学习"
                english="learn"
@@ -6150,7 +6135,7 @@
                stem="qal"
                person="second"
                role="v">לִמְד֥וּ</w>
-            <wg class="cl" head="true" rule="v2cl">
+            <wg class="cl" rule="v2cl">
                <w xml:id="o230010170021"
                   mandarin="行善"
                   english="do good"
@@ -6178,7 +6163,7 @@
                   role="v">הֵיטֵ֛ב</w>
             </wg>
          </wg>
-         <wg class="cl" head="true" rule="v-o">
+         <wg class="cl" rule="v-o">
             <w xml:id="o230010170031"
                mandarin="寻求"
                english="seek"
@@ -6234,7 +6219,7 @@
                state="absolute"
                role="o">מִשְׁפָּ֖ט</w>
          </wg>
-         <wg class="cl" head="true" rule="v-o">
+         <wg class="cl" rule="v-o">
             <w xml:id="o230010170051"
                mandarin="指责"
                english="correct"
@@ -6288,7 +6273,7 @@
                state="absolute"
                role="o">חָמ֑וֹץ</w>
          </wg>
-         <wg class="cl" head="true" rule="v-o">
+         <wg class="cl" rule="v-o">
             <w xml:id="o230010170071"
                mandarin="伸冤"
                english="defend"
@@ -6340,7 +6325,7 @@
                state="absolute"
                role="o">יָת֔וֹם</w>
          </wg>
-         <wg class="cl" head="true" rule="v-o">
+         <wg class="cl" rule="v-o">
             <w xml:id="o230010170091"
                mandarin="辩护"
                english="plead"
@@ -6395,12 +6380,12 @@
          </wg>
       </wg>
    </sentence>
-   <sentence class="s">
+   <sentence id="ISA 1:18">
       <p>
          <milestone unit="verse" id="ISA 1:18">ISA 1:18</milestone> לְכוּ־נָ֛א וְנִוָּֽכְחָ֖ה יֹאמַ֣ר יְהוָ֑ה אִם־יִֽהְי֨וּ חֲטָאֵיכֶ֤ם כַּשָּׁנִים֙ כַּשֶּׁ֣לֶג יַלְבִּ֔ינוּ אִם־יַאְדִּ֥ימוּ כַתּוֹלָ֖ע כַּצֶּ֥מֶר יִהְיֽוּ׃</p>
-      <wg class="s" head="true" projecting="true">
-         <wg class="g" head="true" rule="clacl">
-            <wg class="cl" head="true" rule="v-adv">
+      <wg projecting="true">
+         <wg rule="clacl">
+            <wg class="cl" rule="v-adv">
                <w xml:id="o230010180011"
                   mandarin="来"
                   english="come"
@@ -6448,7 +6433,7 @@
                   lemma="4994"
                   role="adv">נָ֛א</w>
             </wg>
-            <wg type="conjuncted-wg" class="cjp" head="true" rule="cj2cjp">
+            <wg type="conjuncted-wg" class="cjp" rule="cj2cjp">
                <w xml:id="o230010180031"
                   mandarin="而"
                   english="and"
@@ -6463,7 +6448,7 @@
                   unicode="וְ"
                   lang="H"
                   lemma="c">וְ</w>
-               <wg class="cl" head="true" rule="v2cl">
+               <wg class="cl" rule="v2cl">
                   <w xml:id="o230010180032"
                      mandarin="辩论"
                      english="reason"
@@ -6492,7 +6477,7 @@
                </wg>
             </wg>
          </wg>
-         <wg class="cl" head="true" rule="v-s">
+         <wg class="cl" rule="v-s">
             <w xml:id="o230010180041"
                mandarin="说"
                english="says"
@@ -6542,7 +6527,7 @@
                role="s">יְהוָ֑ה</w>
          </wg>
          <wg Rule="ClCl2" Cat="CL" nodeId="2300101800610110">
-            <wg class="modifier-scope" head="false" rule="prepnp" role="pp">
+            <wg type="modifier-scope" rule="prepnp" role="pp">
                <w xml:id="o230010180101"
                   mandarin="如"
                   english="as ~ as"
@@ -6557,7 +6542,7 @@
                   unicode="כַּ"
                   lang="H"
                   lemma="k">כַּ</w>
-               <wg class="modifier-scope" head="false" rule="detnp">
+               <wg type="modifier-scope" rule="detnp">
                   <w xml:id="o230010180101ה"
                      english="the"
                      morph="Td"
@@ -6619,7 +6604,7 @@
                stem="hiphil"
                person="third"
                role="v">יַלְבִּ֔ינוּ</w>
-            <wg class="modifier-scope" head="false" rule="cjpclx" role="d?">
+            <wg type="modifier-scope" rule="cjpclx" role="d?">
                <w xml:id="o230010180061"
                   mandarin="虽"
                   english="though"
@@ -6636,7 +6621,7 @@
                   unicode="אִם־"
                   lang="H"
                   lemma="518 a">אִם</w>
-               <wg class="cl" head="true" rule="v-s-pp">
+               <wg class="cl" rule="v-s-pp">
                   <w xml:id="o230010180071"
                      mandarin="像"
                      english="are"
@@ -6660,7 +6645,7 @@
                      stem="qal"
                      person="third"
                      role="v">יִֽהְי֨וּ</w>
-                  <wg class="modifier-scope" head="true" rule="npofnp" role="s">
+                  <wg type="modifier-scope" rule="npofnp" role="s">
                      <w xml:id="o230010180081"
                         mandarin="罪"
                         english="sins"
@@ -6700,7 +6685,7 @@
                         number="plural"
                         person="second">כֶ֤ם</w>
                   </wg>
-                  <wg class="modifier-scope" head="false" rule="prepnp" role="pp">
+                  <wg type="modifier-scope" rule="prepnp" role="pp">
                      <w xml:id="o230010180091"
                         mandarin="像"
                         english="like"
@@ -6715,7 +6700,7 @@
                         unicode="כַּ"
                         lang="H"
                         lemma="k">כַּ</w>
-                     <wg class="modifier-scope" head="false" rule="detnp">
+                     <wg type="modifier-scope" rule="detnp">
                         <w xml:id="o230010180091ה"
                            english="the"
                            morph="Td"
@@ -6753,7 +6738,7 @@
             </wg>
          </wg>
          <wg Rule="ClCl2" Cat="CL" nodeId="2300101801210090">
-            <wg class="modifier-scope" head="false" rule="prepnp" role="pp">
+            <wg type="modifier-scope" rule="prepnp" role="pp">
                <w xml:id="o230010180151"
                   mandarin="如"
                   english="like"
@@ -6768,7 +6753,7 @@
                   unicode="כַּ"
                   lang="H"
                   lemma="k">כַּ</w>
-               <wg class="modifier-scope" head="false" rule="detnp">
+               <wg type="modifier-scope" rule="detnp">
                   <w xml:id="o230010180151ה"
                      english="the"
                      morph="Td"
@@ -6830,7 +6815,7 @@
                stem="qal"
                person="third"
                role="v">יִהְיֽוּ</w>
-            <wg class="modifier-scope" head="false" rule="cjpclx" role="d?">
+            <wg type="modifier-scope" rule="cjpclx" role="d?">
                <w xml:id="o230010180121"
                   mandarin="虽"
                   english="though"
@@ -6847,7 +6832,7 @@
                   unicode="אִם־"
                   lang="H"
                   lemma="518 a">אִם</w>
-               <wg class="cl" head="true" rule="v-pp">
+               <wg class="cl" rule="v-pp">
                   <w xml:id="o230010180131"
                      mandarin="红"
                      english="red"
@@ -6876,7 +6861,7 @@
                      stem="hiphil"
                      person="third"
                      role="v">יַאְדִּ֥ימוּ</w>
-                  <wg class="modifier-scope" head="false" rule="prepnp" role="pp">
+                  <wg type="modifier-scope" rule="prepnp" role="pp">
                      <w xml:id="o230010180141"
                         mandarin="如"
                         english="like"
@@ -6891,7 +6876,7 @@
                         unicode="כַ"
                         lang="H"
                         lemma="k">כַ</w>
-                     <wg class="modifier-scope" head="false" rule="detnp">
+                     <wg type="modifier-scope" rule="detnp">
                         <w xml:id="o230010180141ה"
                            english="the"
                            morph="Td"
@@ -6933,12 +6918,12 @@
          </wg>
       </wg>
    </sentence>
-   <sentence class="s">
+   <sentence id="ISA 1:19">
       <p>
          <milestone unit="verse" id="ISA 1:19">ISA 1:19</milestone> אִם־תֹּאב֖וּ וּשְׁמַעְתֶּ֑ם ט֥וּב הָאָ֖רֶץ תֹּאכֵֽלוּ׃</p>
-      <wg class="s" head="true">
+      <wg>
          <wg Rule="ClCl2" Cat="CL" nodeId="2300101900110080">
-            <wg class="modifier-scope" head="true" rule="npofnp" role="o">
+            <wg type="modifier-scope" rule="npofnp" role="o">
                <w xml:id="o230010190041"
                   mandarin="美物"
                   english="good"
@@ -6963,7 +6948,7 @@
                   gender="masculine"
                   number="singular"
                   state="construct">ט֥וּב</w>
-               <wg class="modifier-scope" head="false" rule="detnp">
+               <wg type="modifier-scope" rule="detnp">
                   <w xml:id="o230010190051"
                      english="the"
                      morph="Td"
@@ -7032,7 +7017,7 @@
                stem="qal"
                person="second"
                role="v">תֹּאכֵֽלוּ</w>
-            <wg class="modifier-scope" head="false" rule="cjpclx" role="d?">
+            <wg type="modifier-scope" rule="cjpclx" role="d?">
                <w xml:id="o230010190011"
                   mandarin="若"
                   english="if"
@@ -7049,8 +7034,8 @@
                   unicode="אִם־"
                   lang="H"
                   lemma="518 a">אִם</w>
-               <wg class="g" head="true" rule="clacl">
-                  <wg class="cl" head="true" rule="v2cl">
+               <wg rule="clacl">
+                  <wg class="cl" rule="v2cl">
                      <w xml:id="o230010190021"
                         mandarin="甘心"
                         english="willing"
@@ -7081,7 +7066,7 @@
                         person="second"
                         role="v">תֹּאב֖וּ</w>
                   </wg>
-                  <wg type="conjuncted-wg" class="cjp" head="true" rule="cj2cjp">
+                  <wg type="conjuncted-wg" class="cjp" rule="cj2cjp">
                      <w xml:id="o230010190031"
                         english="and"
                         morph="C"
@@ -7095,7 +7080,7 @@
                         unicode="וּ"
                         lang="H"
                         lemma="c">וּ</w>
-                     <wg class="cl" head="true" rule="v2cl">
+                     <wg class="cl" rule="v2cl">
                         <w xml:id="o230010190032"
                            mandarin="听从"
                            english="obedient"
@@ -7127,11 +7112,11 @@
          </wg>
       </wg>
    </sentence>
-   <sentence class="s">
+   <sentence id="ISA 1:20">
       <p>
          <milestone unit="verse" id="ISA 1:20">ISA 1:20</milestone> וְאִם־תְּמָאֲנ֖וּ וּמְרִיתֶ֑ם חֶ֣רֶב תְּאֻכְּל֔וּ כִּ֛י פִּ֥י יְהוָ֖ה דִּבֵּֽר׃ס</p>
-      <wg class="s" head="true" projecting="true">
-         <wg type="conjuncted-wg" class="cjp" head="true" rule="cj2cjp">
+      <wg projecting="true">
+         <wg type="conjuncted-wg" class="cjp" rule="cj2cjp">
             <w xml:id="o230010200011"
                mandarin="但"
                english="but"
@@ -7199,7 +7184,7 @@
                   stem="qal passive"
                   person="second"
                   role="v">תְּאֻכְּל֔וּ</w>
-               <wg class="modifier-scope" head="false" rule="cjpclx" role="d?">
+               <wg type="modifier-scope" rule="cjpclx" role="d?">
                   <w xml:id="o230010200012"
                      mandarin="若"
                      english="if"
@@ -7217,8 +7202,8 @@
                      unicode="אִם־"
                      lang="H"
                      lemma="518 a">אִם</w>
-                  <wg class="g" head="true" rule="clacl">
-                     <wg class="cl" head="true" rule="v2cl">
+                  <wg rule="clacl">
+                     <wg class="cl" rule="v2cl">
                         <w xml:id="o230010200021"
                            mandarin="不听从"
                            english="refuse"
@@ -7249,7 +7234,7 @@
                            person="second"
                            role="v">תְּמָאֲנ֖וּ</w>
                      </wg>
-                     <wg type="conjuncted-wg" class="cjp" head="true" rule="cj2cjp">
+                     <wg type="conjuncted-wg" class="cjp" rule="cj2cjp">
                         <w xml:id="o230010200031"
                            english="and"
                            morph="C"
@@ -7263,7 +7248,7 @@
                            unicode="וּ"
                            lang="H"
                            lemma="c">וּ</w>
-                        <wg class="cl" head="true" rule="v2cl">
+                        <wg class="cl" rule="v2cl">
                            <w xml:id="o230010200032"
                               mandarin="悖逆"
                               english="rebel"
@@ -7297,7 +7282,7 @@
                </wg>
             </wg>
          </wg>
-         <wg type="conjuncted-wg" class="cjp" head="true" rule="cj2cjp">
+         <wg type="conjuncted-wg" class="cjp" rule="cj2cjp">
             <w xml:id="o230010200061"
                mandarin="因为"
                english="for"
@@ -7312,8 +7297,8 @@
                unicode="כִּ֛י"
                lang="H"
                lemma="3588 a">כִּ֛י</w>
-            <wg class="cl" head="false" rule="s-v">
-               <wg class="modifier-scope" head="true" rule="npofnp" role="s">
+            <wg class="cl" rule="s-v">
+               <wg type="modifier-scope" rule="npofnp" role="s">
                   <w xml:id="o230010200071"
                      mandarin="亲口"
                      english="mouth"
@@ -7391,11 +7376,11 @@
          </wg>
       </wg>
    </sentence>
-   <sentence class="s">
+   <sentence id="ISA 1:21">
       <p>
          <milestone unit="verse" id="ISA 1:21">ISA 1:21</milestone> אֵיכָה֙ הָיְתָ֣ה לְזוֹנָ֔ה קִרְיָ֖ה נֶאֱמָנָ֑ה מְלֵאֲתִ֣י מִשְׁפָּ֗ט צֶ֛דֶק יָלִ֥ין בָּ֖הּ וְעַתָּ֥ה מְרַצְּחִֽים׃</p>
-      <wg class="s" head="true">
-         <wg class="cl" head="false" rule="adv-v-pp-s">
+      <wg>
+         <wg class="cl" rule="adv-v-pp-s">
             <w xml:id="o230010210011"
                mandarin="怎么"
                english="how"
@@ -7439,7 +7424,7 @@
                stem="qal"
                person="third"
                role="v">הָיְתָ֣ה</w>
-            <wg class="modifier-scope" head="false" rule="prepnp" role="pp">
+            <wg type="modifier-scope" rule="prepnp" role="pp">
                <w xml:id="o230010210031"
                   mandarin="跟~一样"
                   english="like"
@@ -7478,7 +7463,7 @@
                   state="absolute"
                   stem="qal">זוֹנָ֔ה</w>
             </wg>
-            <wg class="modifier-scope" head="true" rule="npadjp" role="s">
+            <wg type="modifier-scope" rule="npadjp" role="s">
                <w xml:id="o230010210041"
                   mandarin="城"
                   english="city"
@@ -7533,8 +7518,8 @@
                   stem="niphal">נֶאֱמָנָ֑ה</w>
             </wg>
          </wg>
-         <wg class="cl" head="true" rule="p2cl">
-            <wg class="modifier-scope" head="true" rule="adjpofnp" role="p">
+         <wg class="cl" rule="p2cl">
+            <wg type="modifier-scope" rule="adjpofnp" role="p">
                <w xml:id="o230010210061"
                   mandarin="充满"
                   english="full of"
@@ -7584,8 +7569,8 @@
                   state="absolute">מִשְׁפָּ֗ט</w>
             </wg>
          </wg>
-         <wg class="g" head="true" rule="clacl">
-            <wg class="cl" head="false" rule="s-v-pp">
+         <wg rule="clacl">
+            <wg class="cl" rule="s-v-pp">
                <w xml:id="o230010210081"
                   mandarin="公义"
                   english="righteousness"
@@ -7637,7 +7622,7 @@
                   stem="qal"
                   person="third"
                   role="v">יָלִ֥ין</w>
-               <wg class="modifier-scope" head="false" rule="prepnp" role="pp">
+               <wg type="modifier-scope" rule="prepnp" role="pp">
                   <w xml:id="o230010210101"
                      mandarin="在"
                      english="in"
@@ -7670,7 +7655,7 @@
                      person="third">הּ</w>
                </wg>
             </wg>
-            <wg type="conjuncted-wg" class="g" head="false" rule="cjpcjp">
+            <wg type="conjuncted-wg" class="cjp" rule="cjpcjp">
                <w xml:id="o230010210111"
                   mandarin="但"
                   english="but"
@@ -7703,7 +7688,7 @@
                   unicode="עַתָּ֥ה"
                   lang="H"
                   lemma="6258">עַתָּ֥ה</w>
-               <error_unhandled_single_constituent_clause role="err" rule="S2CL">
+               <wg class="cl" rule="s2cl">
                   <w xml:id="o230010210121"
                      mandarin="凶手"
                      english="murderers"
@@ -7727,18 +7712,19 @@
                      gender="masculine"
                      number="plural"
                      state="absolute"
-                     stem="piel">מְרַצְּחִֽים</w>
-               </error_unhandled_single_constituent_clause>
+                     stem="piel"
+                     role="s">מְרַצְּחִֽים</w>
+               </wg>
             </wg>
          </wg>
       </wg>
    </sentence>
-   <sentence class="s">
+   <sentence id="ISA 1:22">
       <p>
          <milestone unit="verse" id="ISA 1:22">ISA 1:22</milestone> כַּסְפֵּ֖ךְ הָיָ֣ה לְסִיגִ֑ים סָבְאֵ֖ךְ מָה֥וּל בַּמָּֽיִם׃</p>
-      <wg class="s" head="true">
-         <wg class="cl" head="false" rule="s-v-pp">
-            <wg class="modifier-scope" head="true" rule="npofnp" role="s">
+      <wg>
+         <wg class="cl" rule="s-v-pp">
+            <wg type="modifier-scope" rule="npofnp" role="s">
                <w xml:id="o230010220011"
                   mandarin="银子"
                   english="silver"
@@ -7798,7 +7784,7 @@
                stem="qal"
                person="third"
                role="v">הָיָ֣ה</w>
-            <wg class="modifier-scope" head="false" rule="prepnp" role="pp">
+            <wg type="modifier-scope" rule="prepnp" role="pp">
                <w xml:id="o230010220031"
                   english="to"
                   morph="R"
@@ -7830,8 +7816,8 @@
                   state="absolute">סִיגִ֑ים</w>
             </wg>
          </wg>
-         <wg class="cl" head="false" rule="s-v-pp">
-            <wg class="modifier-scope" head="true" rule="npofnp" role="s">
+         <wg class="cl" rule="s-v-pp">
+            <wg type="modifier-scope" rule="npofnp" role="s">
                <w xml:id="o230010220041"
                   mandarin="酒"
                   english="wine"
@@ -7895,7 +7881,7 @@
                state="absolute"
                stem="qal"
                role="v">מָה֥וּל</w>
-            <wg class="modifier-scope" head="false" rule="prepnp" role="pp">
+            <wg type="modifier-scope" rule="prepnp" role="pp">
                <w xml:id="o230010220061"
                   mandarin="用"
                   english="with"
@@ -7908,7 +7894,7 @@
                   unicode="בַּ"
                   lang="H"
                   lemma="b">בַּ</w>
-               <wg class="modifier-scope" head="false" rule="detnp">
+               <wg type="modifier-scope" rule="detnp">
                   <w xml:id="o230010220061ה"
                      english="the"
                      morph="Td"
@@ -7946,12 +7932,12 @@
          </wg>
       </wg>
    </sentence>
-   <sentence class="s">
+   <sentence id="ISA 1:23">
       <p>
          <milestone unit="verse" id="ISA 1:23">ISA 1:23</milestone> שָׂרַ֣יִךְ סוֹרְרִ֗ים וְחַבְרֵי֙ גַּנָּבִ֔ים כֻּלּוֹ֙ אֹהֵ֣ב שֹׁ֔חַד וְרֹדֵ֖ף שַׁלְמֹנִ֑ים יָתוֹם֙ לֹ֣א יִשְׁפֹּ֔טוּ וְרִ֥יב אַלְמָנָ֖ה לֹֽא־יָב֥וֹא אֲלֵיהֶֽם׃פ</p>
-      <wg class="s" head="true">
-         <wg class="cl" head="false" rule="s-p">
-            <wg class="modifier-scope" head="true" rule="npofnp" role="s">
+      <wg>
+         <wg class="cl" rule="s-p">
+            <wg type="modifier-scope" rule="npofnp" role="s">
                <w xml:id="o230010230011"
                   mandarin="官长"
                   english="rulers"
@@ -7989,7 +7975,7 @@
                   number="singular"
                   person="second">ךְ</w>
             </wg>
-            <wg class="g" head="true" rule="npanp" role="p">
+            <wg rule="npanp" role="p">
                <w xml:id="o230010230021"
                   mandarin="悖逆"
                   english="rebels"
@@ -8016,7 +8002,7 @@
                   number="plural"
                   state="absolute"
                   stem="qal">סוֹרְרִ֗ים</w>
-               <wg type="conjuncted-wg" class="cjp" head="true" rule="cj2cjp">
+               <wg type="conjuncted-wg" class="cjp" rule="cj2cjp">
                   <w xml:id="o230010230031"
                      mandarin="和"
                      english="and"
@@ -8029,7 +8015,7 @@
                      unicode="וְ"
                      lang="H"
                      lemma="c">וְ</w>
-                  <wg class="modifier-scope" head="true" rule="npofnp">
+                  <wg type="modifier-scope" rule="npofnp">
                      <w xml:id="o230010230032"
                         mandarin="与~为伍"
                         english="companions"
@@ -8082,13 +8068,9 @@
                </wg>
             </wg>
          </wg>
-         <wg class="g" head="true" rule="clacl">
-            <wg class="cl" head="false" rule="s-v-o">
-               <wg type="wrapper-scope"
-                   class="np"
-                   head="false"
-                   rule="quannp"
-                   role="s">
+         <wg rule="clacl">
+            <wg class="cl" rule="s-v-o">
+               <wg type="wrapper-scope" class="np" rule="quannp" role="s">
                   <w xml:id="o230010230051"
                      mandarin="个个"
                      english="everyone"
@@ -8173,7 +8155,7 @@
                   state="absolute"
                   role="o">שֹׁ֔חַד</w>
             </wg>
-            <wg type="conjuncted-wg" class="cjp" head="true" rule="cj2cjp">
+            <wg type="conjuncted-wg" class="cjp" rule="cj2cjp">
                <w xml:id="o230010230081"
                   english="and"
                   morph="C"
@@ -8185,7 +8167,7 @@
                   unicode="וְ"
                   lang="H"
                   lemma="c">וְ</w>
-               <wg class="cl" head="true" rule="v-o">
+               <wg class="cl" rule="v-o">
                   <w xml:id="o230010230082"
                      mandarin="追求"
                      english="runs after"
@@ -8235,8 +8217,8 @@
                </wg>
             </wg>
          </wg>
-         <wg class="g" head="true" rule="clacl">
-            <wg class="cl" head="false" rule="o-adv-v">
+         <wg rule="clacl">
+            <wg class="cl" rule="o-adv-v">
                <w xml:id="o230010230101"
                   mandarin="孤儿"
                   english="orphan"
@@ -8306,7 +8288,7 @@
                   person="third"
                   role="v">יִשְׁפֹּ֔טוּ</w>
             </wg>
-            <wg type="conjuncted-wg" class="cjp" head="true" rule="cj2cjp">
+            <wg type="conjuncted-wg" class="cjp" rule="cj2cjp">
                <w xml:id="o230010230131"
                   english="and"
                   morph="C"
@@ -8320,8 +8302,8 @@
                   unicode="וְ"
                   lang="H"
                   lemma="c">וְ</w>
-               <wg class="cl" head="false" rule="s-adv-v-pp">
-                  <wg class="modifier-scope" head="true" rule="npofnp" role="s">
+               <wg class="cl" rule="s-adv-v-pp">
+                  <wg type="modifier-scope" rule="npofnp" role="s">
                      <w xml:id="o230010230132"
                         mandarin="案件"
                         english="case"
@@ -8411,7 +8393,7 @@
                      stem="qal"
                      person="third"
                      role="v">יָב֥וֹא</w>
-                  <wg class="modifier-scope" head="false" rule="prepnp" role="pp">
+                  <wg type="modifier-scope" rule="prepnp" role="pp">
                      <w xml:id="o230010230171"
                         mandarin="到~面前"
                         english="before"
@@ -8444,12 +8426,12 @@
          </wg>
       </wg>
    </sentence>
-   <sentence class="s">
+   <sentence id="ISA 1:24">
       <p>
          <milestone unit="verse" id="ISA 1:24">ISA 1:24</milestone> לָכֵ֗ן נְאֻ֤ם הָֽאָדוֹן֙ יְהוָ֣ה צְבָא֔וֹת אֲבִ֖יר יִשְׂרָאֵ֑ל ה֚וֹי אֶנָּחֵ֣ם מִצָּרַ֔י וְאִנָּקְמָ֖ה מֵאוֹיְבָֽי׃</p>
-      <wg class="s" head="true">
-         <wg type="conjuncted-wg" class="cjp" head="true" rule="pp2cjp">
-            <wg class="modifier-scope" head="true" rule="ppadvp">
+      <wg>
+         <wg type="conjuncted-wg" class="cjp" rule="pp2cjp">
+            <wg type="modifier-scope" rule="ppadvp">
                <w xml:id="o230010240011"
                   mandarin="因此"
                   morph="R"
@@ -8477,8 +8459,8 @@
                   lang="H"
                   lemma="3651 c">כֵ֗ן</w>
             </wg>
-            <wg class="cl" head="true" rule="p2cl">
-               <wg class="modifier-scope" head="true" rule="npofnp" role="p">
+            <wg class="cl" rule="p2cl">
+               <wg type="modifier-scope" rule="npofnp" role="p">
                   <w xml:id="o230010240021"
                      mandarin="说"
                      english="declares"
@@ -8500,9 +8482,9 @@
                      gender="masculine"
                      number="singular"
                      state="construct">נְאֻ֤ם</w>
-                  <wg class="g" type="type" head="true" rule="np-appos">
-                     <wg class="g" type="type" head="true" rule="np-appos">
-                        <wg class="modifier-scope" head="false" rule="detnp">
+                  <wg type="group" rule="np-appos">
+                     <wg type="group" rule="np-appos">
+                        <wg type="modifier-scope" rule="detnp">
                            <w xml:id="o230010240031"
                               english="the"
                               morph="Td"
@@ -8541,7 +8523,7 @@
                               number="singular"
                               state="absolute">אָדוֹן֙</w>
                         </wg>
-                        <wg class="modifier-scope" head="true" rule="npofnp">
+                        <wg type="modifier-scope" rule="npofnp">
                            <w xml:id="o230010240041"
                               mandarin="耶和华"
                               english="GOD"
@@ -8585,7 +8567,7 @@
                               state="absolute">צְבָא֔וֹת</w>
                         </wg>
                      </wg>
-                     <wg class="modifier-scope" head="true" rule="npofnp">
+                     <wg type="modifier-scope" rule="npofnp">
                         <w xml:id="o230010240061"
                            mandarin="大能者"
                            english="mighty one"
@@ -8638,8 +8620,8 @@
              nodeId="2300102400810100"
              lang="H"
              lemma="1945">
-            <wg class="g" head="true" rule="clacl" role="d?">
-               <wg class="cl" head="true" rule="v-pp">
+            <wg rule="clacl" role="d?">
+               <wg class="cl" rule="v-pp">
                   <w xml:id="o230010240091"
                      mandarin="雪恨"
                      english="relieved"
@@ -8668,7 +8650,7 @@
                      stem="niphal"
                      person="first"
                      role="v">אֶנָּחֵ֣ם</w>
-                  <wg class="modifier-scope" head="false" rule="prepnp" role="pp">
+                  <wg type="modifier-scope" rule="prepnp" role="pp">
                      <w xml:id="o230010240101"
                         mandarin="向"
                         english="from"
@@ -8683,7 +8665,7 @@
                         unicode="מִ"
                         lang="H"
                         lemma="m">מִ</w>
-                     <wg class="modifier-scope" head="true" rule="npofnp">
+                     <wg type="modifier-scope" rule="npofnp">
                         <w xml:id="o230010240102"
                            mandarin="对头"
                            english="enemies"
@@ -8725,7 +8707,7 @@
                      </wg>
                   </wg>
                </wg>
-               <wg type="conjuncted-wg" class="cjp" head="true" rule="cj2cjp">
+               <wg type="conjuncted-wg" class="cjp" rule="cj2cjp">
                   <w xml:id="o230010240111"
                      english="and"
                      morph="C"
@@ -8739,7 +8721,7 @@
                      unicode="וְ"
                      lang="H"
                      lemma="c">וְ</w>
-                  <wg class="cl" head="true" rule="v-pp">
+                  <wg class="cl" rule="v-pp">
                      <w xml:id="o230010240112"
                         mandarin="报仇"
                         english="avenge"
@@ -8767,7 +8749,7 @@
                         stem="niphal"
                         person="first"
                         role="v">אִנָּקְמָ֖ה</w>
-                     <wg class="modifier-scope" head="false" rule="prepnp" role="pp">
+                     <wg type="modifier-scope" rule="prepnp" role="pp">
                         <w xml:id="o230010240121"
                            mandarin="向"
                            english="on"
@@ -8780,7 +8762,7 @@
                            unicode="מֵ"
                            lang="H"
                            lemma="m">מֵ</w>
-                        <wg class="modifier-scope" head="true" rule="npofnp">
+                        <wg type="modifier-scope" rule="npofnp">
                            <w xml:id="o230010240122"
                               mandarin="仇敌"
                               english="foes"
@@ -8828,11 +8810,11 @@
          </wg>
       </wg>
    </sentence>
-   <sentence class="s">
+   <sentence id="ISA 1:25">
       <p>
          <milestone unit="verse" id="ISA 1:25">ISA 1:25</milestone> וְאָשִׁ֤יבָה יָדִי֙ עָלַ֔יִךְ וְאֶצְרֹ֥ף כַּבֹּ֖ר סִיגָ֑יִךְ וְאָסִ֖ירָה כָּל־בְּדִילָֽיִךְ׃</p>
-      <wg class="s" head="true">
-         <wg type="conjuncted-wg" class="cjp" head="true" rule="cj2cjp">
+      <wg>
+         <wg type="conjuncted-wg" class="cjp" rule="cj2cjp">
             <w xml:id="o230010250011"
                mandarin="又"
                english="and"
@@ -8847,7 +8829,7 @@
                unicode="וְ"
                lang="H"
                lemma="c">וְ</w>
-            <wg class="cl" head="true" rule="v-o-pp">
+            <wg class="cl" rule="v-o-pp">
                <w xml:id="o230010250012"
                   mandarin="转"
                   english="turn"
@@ -8876,7 +8858,7 @@
                   stem="hiphil"
                   person="first"
                   role="v">אָשִׁ֤יבָה</w>
-               <wg class="modifier-scope" head="true" rule="npofnp" role="o">
+               <wg type="modifier-scope" rule="npofnp" role="o">
                   <w xml:id="o230010250021"
                      mandarin="手"
                      english="hand"
@@ -8916,7 +8898,7 @@
                      number="singular"
                      person="first">י֙</w>
                </wg>
-               <wg class="modifier-scope" head="false" rule="prepnp" role="pp">
+               <wg type="modifier-scope" rule="prepnp" role="pp">
                   <w xml:id="o230010250031"
                      mandarin="攻击"
                      english="against"
@@ -8950,7 +8932,7 @@
                </wg>
             </wg>
          </wg>
-         <wg type="conjuncted-wg" class="cjp" head="true" rule="cj2cjp">
+         <wg type="conjuncted-wg" class="cjp" rule="cj2cjp">
             <w xml:id="o230010250041"
                english="and"
                morph="C"
@@ -8964,7 +8946,7 @@
                unicode="וְ"
                lang="H"
                lemma="c">וְ</w>
-            <wg class="cl" head="true" rule="v-pp-o">
+            <wg class="cl" rule="v-pp-o">
                <w xml:id="o230010250042"
                   mandarin="炼除"
                   english="smelt away"
@@ -8990,7 +8972,7 @@
                   stem="qal"
                   person="first"
                   role="v">אֶצְרֹ֥ף</w>
-               <wg class="modifier-scope" head="false" rule="prepnp" role="pp">
+               <wg type="modifier-scope" rule="prepnp" role="pp">
                   <w xml:id="o230010250051"
                      mandarin="如同"
                      english="as"
@@ -9005,7 +8987,7 @@
                      unicode="כַּ"
                      lang="H"
                      lemma="k">כַּ</w>
-                  <wg class="modifier-scope" head="false" rule="detnp">
+                  <wg type="modifier-scope" rule="detnp">
                      <w xml:id="o230010250051ה"
                         english="the"
                         morph="Td"
@@ -9044,7 +9026,7 @@
                         state="absolute">בֹּ֖ר</w>
                   </wg>
                </wg>
-               <wg class="modifier-scope" head="true" rule="npofnp" role="o">
+               <wg type="modifier-scope" rule="npofnp" role="o">
                   <w xml:id="o230010250061"
                      mandarin="渣滓"
                      english="dross"
@@ -9079,7 +9061,7 @@
                </wg>
             </wg>
          </wg>
-         <wg type="conjuncted-wg" class="cjp" head="true" rule="cj2cjp">
+         <wg type="conjuncted-wg" class="cjp" rule="cj2cjp">
             <w xml:id="o230010250071"
                mandarin="又"
                english="and"
@@ -9094,7 +9076,7 @@
                unicode="וְ"
                lang="H"
                lemma="c">וְ</w>
-            <wg class="cl" head="true" rule="v-o">
+            <wg class="cl" rule="v-o">
                <w xml:id="o230010250072"
                   mandarin="除去"
                   english="remove"
@@ -9117,11 +9099,7 @@
                   stem="hiphil"
                   person="first"
                   role="v">אָסִ֖ירָה</w>
-               <wg type="wrapper-scope"
-                   class="np"
-                   head="false"
-                   rule="quannp"
-                   role="o">
+               <wg type="wrapper-scope" class="np" rule="quannp" role="o">
                   <w xml:id="o230010250081"
                      mandarin="一切"
                      english="all"
@@ -9142,7 +9120,7 @@
                      gender="masculine"
                      number="singular"
                      state="construct">כָּל</w>
-                  <wg class="modifier-scope" head="true" rule="npofnp">
+                  <wg type="modifier-scope" rule="npofnp">
                      <w xml:id="o230010250091"
                         mandarin="杂质"
                         english="alloy"
@@ -9185,11 +9163,11 @@
          </wg>
       </wg>
    </sentence>
-   <sentence class="s">
+   <sentence id="ISA 1:26">
       <p>
          <milestone unit="verse" id="ISA 1:26">ISA 1:26</milestone> וְאָשִׁ֤יבָה שֹׁפְטַ֨יִךְ֙ כְּבָרִ֣אשֹׁנָ֔ה וְיֹעֲצַ֖יִךְ כְּבַתְּחִלָּ֑ה אַחֲרֵי־כֵ֗ן יִקָּ֤רֵא לָךְ֙ עִ֣יר הַצֶּ֔דֶק קִרְיָ֖ה נֶאֱמָנָֽה׃</p>
-      <wg class="s" head="true" projecting="true">
-         <wg type="conjuncted-wg" class="cjp" head="true" rule="cj2cjp">
+      <wg projecting="true">
+         <wg type="conjuncted-wg" class="cjp" rule="cj2cjp">
             <w xml:id="o230010260011"
                mandarin="而"
                english="and"
@@ -9204,8 +9182,8 @@
                unicode="וְ"
                lang="H"
                lemma="c">וְ</w>
-            <wg class="g" head="true" rule="clacl">
-               <wg class="cl" head="true" rule="v-o-pp">
+            <wg rule="clacl">
+               <wg class="cl" rule="v-o-pp">
                   <w xml:id="o230010260012"
                      mandarin="恢复"
                      english="restore"
@@ -9231,7 +9209,7 @@
                      stem="hiphil"
                      person="first"
                      role="v">אָשִׁ֤יבָה</w>
-                  <wg class="modifier-scope" head="true" rule="npofnp" role="o">
+                  <wg type="modifier-scope" rule="npofnp" role="o">
                      <w xml:id="o230010260021"
                         mandarin="审判官"
                         english="judges"
@@ -9267,7 +9245,7 @@
                         number="singular"
                         person="second">ךְ֙</w>
                   </wg>
-                  <wg class="g" type="type" head="false" rule="pppp" role="pp">
+                  <wg type="group" rule="pppp" role="pp">
                      <w xml:id="o230010260031"
                         mandarin="像~一样"
                         english="as"
@@ -9282,7 +9260,7 @@
                         unicode="כְּ"
                         lang="H"
                         lemma="k">כְּ</w>
-                     <wg class="modifier-scope" head="false" rule="prepnp">
+                     <wg type="modifier-scope" rule="prepnp">
                         <w xml:id="o230010260032"
                            mandarin="在"
                            english="at"
@@ -9297,7 +9275,7 @@
                            unicode="בָ"
                            lang="H"
                            lemma="b">בָ</w>
-                        <wg class="modifier-scope" head="false" rule="detnp">
+                        <wg type="modifier-scope" rule="detnp">
                            <w xml:id="o230010260032ה"
                               english="the"
                               morph="Td"
@@ -9336,7 +9314,7 @@
                      </wg>
                   </wg>
                </wg>
-               <wg type="conjuncted-wg" class="cjp" head="true" rule="cj2cjp">
+               <wg type="conjuncted-wg" class="cjp" rule="cj2cjp">
                   <w xml:id="o230010260041"
                      mandarin="和"
                      english="and"
@@ -9351,8 +9329,8 @@
                      unicode="וְ"
                      lang="H"
                      lemma="c">וְ</w>
-                  <wg class="cl" head="true" rule="o-pp">
-                     <wg class="modifier-scope" head="true" rule="npofnp" role="o">
+                  <wg class="cl" rule="o-pp">
+                     <wg type="modifier-scope" rule="npofnp" role="o">
                         <w xml:id="o230010260042"
                            mandarin="谋士"
                            english="counselors"
@@ -9391,7 +9369,7 @@
                            number="singular"
                            person="second">ךְ</w>
                      </wg>
-                     <wg class="g" type="type" head="false" rule="pppp" role="pp">
+                     <wg type="group" rule="pppp" role="pp">
                         <w xml:id="o230010260051"
                            mandarin="如~一般"
                            english="as"
@@ -9406,7 +9384,7 @@
                            unicode="כְּ"
                            lang="H"
                            lemma="k">כְּ</w>
-                        <wg class="modifier-scope" head="false" rule="prepnp">
+                        <wg type="modifier-scope" rule="prepnp">
                            <w xml:id="o230010260052"
                               english="at"
                               morph="Rd"
@@ -9418,7 +9396,7 @@
                               unicode="בַ"
                               lang="H"
                               lemma="b">בַ</w>
-                           <wg class="modifier-scope" head="false" rule="detnp">
+                           <wg type="modifier-scope" rule="detnp">
                               <w xml:id="o230010260052ה"
                                  english="the"
                                  morph="Td"
@@ -9458,8 +9436,8 @@
                </wg>
             </wg>
          </wg>
-         <wg class="cl" head="false" rule="pp-v-pp-s">
-            <wg class="modifier-scope" head="true" rule="ppadvp" role="pp">
+         <wg class="cl" rule="pp-v-pp-s">
+            <wg type="modifier-scope" rule="ppadvp" role="pp">
                <w xml:id="o230010260061"
                   mandarin="然后"
                   english="after"
@@ -9519,7 +9497,7 @@
                stem="niphal"
                person="third"
                role="v">יִקָּ֤רֵא</w>
-            <wg class="modifier-scope" head="false" rule="prepnp" role="pp">
+            <wg type="modifier-scope" rule="prepnp" role="pp">
                <w xml:id="o230010260091"
                   mandarin="~于"
                   english="to"
@@ -9547,8 +9525,8 @@
                   number="singular"
                   person="second">ךְ֙</w>
             </wg>
-            <wg class="g" type="type" head="true" rule="np-appos" role="s">
-               <wg class="modifier-scope" head="true" rule="npofnp">
+            <wg type="group" rule="np-appos" role="s">
+               <wg type="modifier-scope" rule="npofnp">
                   <w xml:id="o230010260101"
                      mandarin="城"
                      english="city"
@@ -9573,7 +9551,7 @@
                      gender="feminine"
                      number="singular"
                      state="construct">עִ֣יר</w>
-                  <wg class="modifier-scope" head="false" rule="detnp">
+                  <wg type="modifier-scope" rule="detnp">
                      <w xml:id="o230010260111"
                         english="the"
                         morph="Td"
@@ -9611,7 +9589,7 @@
                         state="absolute">צֶּ֔דֶק</w>
                   </wg>
                </wg>
-               <wg class="modifier-scope" head="true" rule="npadjp">
+               <wg type="modifier-scope" rule="npadjp">
                   <w xml:id="o230010260121"
                      mandarin="邑"
                      english="city"
@@ -9668,12 +9646,12 @@
          </wg>
       </wg>
    </sentence>
-   <sentence class="s">
+   <sentence id="ISA 1:27">
       <p>
          <milestone unit="verse" id="ISA 1:27">ISA 1:27</milestone> צִיּ֖וֹן בְּמִשְׁפָּ֣ט תִּפָּדֶ֑ה וְשָׁבֶ֖יהָ בִּצְדָקָֽה׃</p>
-      <wg class="s" head="true">
-         <wg class="g" head="true" rule="clacl">
-            <wg class="cl" head="false" rule="s-pp-v">
+      <wg>
+         <wg rule="clacl">
+            <wg class="cl" rule="s-pp-v">
                <w xml:id="o230010270011"
                   mandarin="锡安"
                   english="Zion"
@@ -9694,7 +9672,7 @@
                   lang="H"
                   lemma="6726"
                   role="s">צִיּ֖וֹן</w>
-               <wg class="modifier-scope" head="false" rule="prepnp" role="pp">
+               <wg type="modifier-scope" rule="prepnp" role="pp">
                   <w xml:id="o230010270021"
                      mandarin="因"
                      english="by"
@@ -9756,7 +9734,7 @@
                   person="third"
                   role="v">תִּפָּדֶ֑ה</w>
             </wg>
-            <wg type="conjuncted-wg" class="cjp" head="true" rule="cj2cjp">
+            <wg type="conjuncted-wg" class="cjp" rule="cj2cjp">
                <w xml:id="o230010270041"
                   english="and"
                   morph="C"
@@ -9770,8 +9748,8 @@
                   unicode="וְ"
                   lang="H"
                   lemma="c">וְ</w>
-               <wg class="cl" head="true" rule="s-pp">
-                  <wg class="modifier-scope" head="true" rule="npofnp" role="s">
+               <wg class="cl" rule="s-pp">
+                  <wg type="modifier-scope" rule="npofnp" role="s">
                      <w xml:id="o230010270042"
                         mandarin="悔改"
                         english="repent"
@@ -9811,7 +9789,7 @@
                         number="singular"
                         person="third">הָ</w>
                   </wg>
-                  <wg class="modifier-scope" head="false" rule="prepnp" role="pp">
+                  <wg type="modifier-scope" rule="prepnp" role="pp">
                      <w xml:id="o230010270051"
                         mandarin="因"
                         english="by"
@@ -9852,11 +9830,11 @@
          </wg>
       </wg>
    </sentence>
-   <sentence class="s">
+   <sentence id="ISA 1:28">
       <p>
          <milestone unit="verse" id="ISA 1:28">ISA 1:28</milestone> וְשֶׁ֧בֶר פֹּשְׁעִ֛ים וְחַטָּאִ֖ים יַחְדָּ֑ו וְעֹזְבֵ֥י יְהוָ֖ה יִכְלֽוּ׃</p>
-      <wg class="s" head="true">
-         <wg type="conjuncted-wg" class="cjp" head="true" rule="cj2cjp">
+      <wg>
+         <wg type="conjuncted-wg" class="cjp" rule="cj2cjp">
             <w xml:id="o230010280011"
                mandarin="就"
                morph="C"
@@ -9870,7 +9848,7 @@
                unicode="וְ"
                lang="H"
                lemma="c">וְ</w>
-            <wg class="cl" head="true" rule="p-s-adv">
+            <wg class="cl" rule="p-s-adv">
                <w xml:id="o230010280012"
                   mandarin="败亡"
                   english="broken"
@@ -9891,7 +9869,7 @@
                   number="singular"
                   state="absolute"
                   role="p">שֶׁ֧בֶר</w>
-               <wg class="g" head="true" rule="npanp" role="s">
+               <wg rule="npanp" role="s">
                   <w xml:id="o230010280021"
                      mandarin="悖逆"
                      english="rebels"
@@ -9917,7 +9895,7 @@
                      number="plural"
                      state="absolute"
                      stem="qal">פֹּשְׁעִ֛ים</w>
-                  <wg type="conjuncted-wg" class="cjp" head="true" rule="cj2cjp">
+                  <wg type="conjuncted-wg" class="cjp" rule="cj2cjp">
                      <w xml:id="o230010280031"
                         mandarin="和"
                         english="and"
@@ -9979,7 +9957,7 @@
                   role="adv">יַחְדָּ֑ו</w>
             </wg>
          </wg>
-         <wg type="conjuncted-wg" class="cjp" head="true" rule="cj2cjp">
+         <wg type="conjuncted-wg" class="cjp" rule="cj2cjp">
             <w xml:id="o230010280051"
                mandarin="也"
                english="and"
@@ -9994,8 +9972,8 @@
                unicode="וְ"
                lang="H"
                lemma="c">וְ</w>
-            <wg class="cl" head="false" rule="s-v">
-               <wg class="modifier-scope" head="true" rule="npofnp" role="s">
+            <wg class="cl" rule="s-v">
+               <wg type="modifier-scope" rule="npofnp" role="s">
                   <w xml:id="o230010280052"
                      mandarin="离弃"
                      english="forsake"
@@ -10067,11 +10045,11 @@
          </wg>
       </wg>
    </sentence>
-   <sentence class="s">
+   <sentence id="ISA 1:29">
       <p>
          <milestone unit="verse" id="ISA 1:29">ISA 1:29</milestone> כִּ֣י יֵבֹ֔שׁוּ מֵאֵילִ֖ים אֲשֶׁ֣ר חֲמַדְתֶּ֑ם וְתַ֨חְפְּר֔וּ מֵהַגַּנּ֖וֹת אֲשֶׁ֥ר בְּחַרְתֶּֽם׃</p>
-      <wg class="s" head="true">
-         <wg type="conjuncted-wg" class="cjp" head="true" rule="cj2cjp">
+      <wg>
+         <wg type="conjuncted-wg" class="cjp" rule="cj2cjp">
             <w xml:id="o230010290011"
                mandarin="因为"
                english="for"
@@ -10088,7 +10066,7 @@
                unicode="כִּ֣י"
                lang="H"
                lemma="3588 a">כִּ֣י</w>
-            <wg class="cl" head="true" rule="v-pp">
+            <wg class="cl" rule="v-pp">
                <w xml:id="o230010290021"
                   mandarin="抱愧"
                   english="ashamed"
@@ -10118,7 +10096,7 @@
                   stem="qal"
                   person="third"
                   role="v">יֵבֹ֔שׁוּ</w>
-               <wg class="modifier-scope" head="false" rule="prepnp" role="pp">
+               <wg type="modifier-scope" rule="prepnp" role="pp">
                   <w xml:id="o230010290031"
                      mandarin="因"
                      english="of"
@@ -10131,7 +10109,7 @@
                      unicode="מֵ"
                      lang="H"
                      lemma="m">מֵ</w>
-                  <wg class="modifier-scope" head="true" rule="nprelp">
+                  <wg type="modifier-scope" rule="nprelp">
                      <w xml:id="o230010290032"
                         mandarin="橡树"
                         english="oaks"
@@ -10154,10 +10132,7 @@
                         gender="masculine"
                         number="plural"
                         state="absolute">אֵילִ֖ים</w>
-                     <wg type="wrapper-clause-scope"
-                         class="relp"
-                         head="false"
-                         rule="relcl">
+                     <wg type="wrapper-clause-scope" class="relp" rule="relcl">
                         <w xml:id="o230010290041"
                            mandarin="所~的"
                            english="which"
@@ -10177,7 +10152,7 @@
                            unicode="אֲשֶׁ֣ר"
                            lang="H"
                            lemma="834 a">אֲשֶׁ֣ר</w>
-                        <wg class="cl" head="true" rule="v2cl">
+                        <wg class="cl" rule="v2cl">
                            <w xml:id="o230010290051"
                               mandarin="喜爱"
                               english="delighted"
@@ -10211,7 +10186,7 @@
                </wg>
             </wg>
          </wg>
-         <wg type="conjuncted-wg" class="cjp" head="true" rule="cj2cjp">
+         <wg type="conjuncted-wg" class="cjp" rule="cj2cjp">
             <w xml:id="o230010290061"
                english="and"
                morph="C"
@@ -10225,7 +10200,7 @@
                unicode="וְ"
                lang="H"
                lemma="c">וְ</w>
-            <wg class="cl" head="true" rule="v-pp">
+            <wg class="cl" rule="v-pp">
                <w xml:id="o230010290062"
                   mandarin="蒙羞"
                   english="disgraced"
@@ -10253,7 +10228,7 @@
                   stem="qal"
                   person="second"
                   role="v">תַ֨חְפְּר֔וּ</w>
-               <wg class="modifier-scope" head="false" rule="prepnp" role="pp">
+               <wg type="modifier-scope" rule="prepnp" role="pp">
                   <w xml:id="o230010290071"
                      mandarin="因"
                      english="because of"
@@ -10266,7 +10241,7 @@
                      unicode="מֵ"
                      lang="H"
                      lemma="m">מֵ</w>
-                  <wg class="modifier-scope" head="false" rule="detnp">
+                  <wg type="modifier-scope" rule="detnp">
                      <w xml:id="o230010290072"
                         english="the"
                         morph="Td"
@@ -10281,7 +10256,7 @@
                         unicode="הַ"
                         lang="H"
                         lemma="d">הַ</w>
-                     <wg class="modifier-scope" head="true" rule="nprelp">
+                     <wg type="modifier-scope" rule="nprelp">
                         <w xml:id="o230010290073"
                            mandarin="园子"
                            english="gardens"
@@ -10304,10 +10279,7 @@
                            gender="feminine"
                            number="plural"
                            state="absolute">גַּנּ֖וֹת</w>
-                        <wg type="wrapper-clause-scope"
-                            class="relp"
-                            head="false"
-                            rule="relcl">
+                        <wg type="wrapper-clause-scope" class="relp" rule="relcl">
                            <w xml:id="o230010290081"
                               mandarin="所~的"
                               english="that"
@@ -10327,7 +10299,7 @@
                               unicode="אֲשֶׁ֥ר"
                               lang="H"
                               lemma="834 a">אֲשֶׁ֥ר</w>
-                           <wg class="cl" head="true" rule="v2cl">
+                           <wg class="cl" rule="v2cl">
                               <w xml:id="o230010290091"
                                  mandarin="选择"
                                  english="chosen"
@@ -10366,11 +10338,11 @@
          </wg>
       </wg>
    </sentence>
-   <sentence class="s">
+   <sentence id="ISA 1:30">
       <p>
          <milestone unit="verse" id="ISA 1:30">ISA 1:30</milestone> כִּ֣י תִֽהְי֔וּ כְּאֵלָ֖ה נֹבֶ֣לֶת עָלֶ֑הָ וּֽכְגַנָּ֔ה אֲשֶׁר־מַ֖יִם אֵ֥ין לָֽהּ׃</p>
-      <wg class="s" head="true">
-         <wg type="conjuncted-wg" class="cjp" head="true" rule="cj2cjp">
+      <wg>
+         <wg type="conjuncted-wg" class="cjp" rule="cj2cjp">
             <w xml:id="o230010300011"
                mandarin="因为"
                english="for"
@@ -10385,7 +10357,7 @@
                unicode="כִּ֣י"
                lang="H"
                lemma="3588 a">כִּ֣י</w>
-            <wg class="cl" head="true" rule="v-pp">
+            <wg class="cl" rule="v-pp">
                <w xml:id="o230010300021"
                   mandarin="如"
                   english="be"
@@ -10410,8 +10382,8 @@
                   stem="qal"
                   person="second"
                   role="v">תִֽהְי֔וּ</w>
-               <wg class="g" head="false" rule="ppandpp" role="pp">
-                  <wg class="modifier-scope" head="false" rule="prepnp">
+               <wg rule="ppandpp" role="pp">
+                  <wg type="modifier-scope" rule="prepnp">
                      <w xml:id="o230010300031"
                         mandarin="像"
                         english="like"
@@ -10426,7 +10398,7 @@
                         unicode="כְּ"
                         lang="H"
                         lemma="k">כְּ</w>
-                     <wg class="modifier-scope" head="true" rule="npadjp">
+                     <wg type="modifier-scope" rule="npadjp">
                         <w xml:id="o230010300032"
                            mandarin="橡树"
                            english="oak"
@@ -10450,7 +10422,7 @@
                            gender="feminine"
                            number="singular"
                            state="absolute">אֵלָ֖ה</w>
-                        <wg class="modifier-scope" head="true" rule="npofnp">
+                        <wg type="modifier-scope" rule="npofnp">
                            <w xml:id="o230010300041"
                               mandarin="枯萎"
                               english="withers"
@@ -10478,7 +10450,7 @@
                               number="singular"
                               state="construct"
                               stem="qal">נֹבֶ֣לֶת</w>
-                           <wg class="modifier-scope" head="true" rule="npofnp">
+                           <wg type="modifier-scope" rule="npofnp">
                               <w xml:id="o230010300051"
                                  mandarin="叶子"
                                  english="leaves"
@@ -10522,7 +10494,7 @@
                         </wg>
                      </wg>
                   </wg>
-                  <wg type="conjuncted-wg" class="cjp" head="true" rule="cj2cjp">
+                  <wg type="conjuncted-wg" class="cjp" rule="cj2cjp">
                      <w xml:id="o230010300061"
                         mandarin="又"
                         english="and"
@@ -10537,7 +10509,7 @@
                         unicode="וּֽ"
                         lang="H"
                         lemma="c">וּֽ</w>
-                     <wg class="modifier-scope" head="false" rule="prepnp">
+                     <wg type="modifier-scope" rule="prepnp">
                         <w xml:id="o230010300062"
                            mandarin="如"
                            english="like"
@@ -10552,7 +10524,7 @@
                            unicode="כְ"
                            lang="H"
                            lemma="k">כְ</w>
-                        <wg class="modifier-scope" head="true" rule="nprelp">
+                        <wg type="modifier-scope" rule="nprelp">
                            <w xml:id="o230010300063"
                               mandarin="园子"
                               english="garden"
@@ -10575,10 +10547,7 @@
                               gender="feminine"
                               number="singular"
                               state="absolute">גַנָּ֔ה</w>
-                           <wg type="wrapper-clause-scope"
-                               class="relp"
-                               head="false"
-                               rule="relcl">
+                           <wg type="wrapper-clause-scope" class="relp" rule="relcl">
                               <w xml:id="o230010300071"
                                  english="where"
                                  morph="Tr"
@@ -10595,7 +10564,7 @@
                                  unicode="אֲשֶׁר־"
                                  lang="H"
                                  lemma="834 a">אֲשֶׁר</w>
-                              <wg class="cl" head="false" rule="s-p-pp">
+                              <wg class="cl" rule="s-p-pp">
                                  <w xml:id="o230010300081"
                                     mandarin="水"
                                     english="water"
@@ -10638,7 +10607,7 @@
                                     lang="H"
                                     lemma="369"
                                     role="p">אֵ֥ין</w>
-                                 <wg class="modifier-scope" head="false" rule="prepnp" role="pp">
+                                 <wg type="modifier-scope" rule="prepnp" role="pp">
                                     <w xml:id="o230010300101"
                                        mandarin="于"
                                        english="for"
@@ -10676,11 +10645,11 @@
          </wg>
       </wg>
    </sentence>
-   <sentence class="s">
+   <sentence id="ISA 1:31">
       <p>
          <milestone unit="verse" id="ISA 1:31">ISA 1:31</milestone> וְהָיָ֤ה הֶחָסֹן֙ לִנְעֹ֔רֶת וּפֹעֲל֖וֹ לְנִיצ֑וֹץ וּבָעֲר֧וּ שְׁנֵיהֶ֛ם יַחְדָּ֖ו וְאֵ֥ין מְכַבֶּֽה׃ס</p>
-      <wg class="s" head="true">
-         <wg type="conjuncted-wg" class="cjp" head="true" rule="cj2cjp">
+      <wg>
+         <wg type="conjuncted-wg" class="cjp" rule="cj2cjp">
             <w xml:id="o230010310011"
                mandarin="而"
                english="and"
@@ -10695,9 +10664,9 @@
                unicode="וְ"
                lang="H"
                lemma="c">וְ</w>
-            <wg class="g" head="true" rule="clacl">
-               <wg class="g" head="true" rule="clacl">
-                  <wg class="cl" head="true" rule="v-s-pp">
+            <wg rule="clacl">
+               <wg rule="clacl">
+                  <wg class="cl" rule="v-s-pp">
                      <w xml:id="o230010310012"
                         mandarin="成为"
                         english="become"
@@ -10720,7 +10689,7 @@
                         stem="qal"
                         person="third"
                         role="v">הָיָ֤ה</w>
-                     <wg class="modifier-scope" head="false" rule="detnp" role="s">
+                     <wg type="modifier-scope" rule="detnp" role="s">
                         <w xml:id="o230010310021"
                            english="the"
                            morph="Td"
@@ -10757,7 +10726,7 @@
                            number="singular"
                            state="absolute">חָסֹן֙</w>
                      </wg>
-                     <wg class="modifier-scope" head="false" rule="prepnp" role="pp">
+                     <wg type="modifier-scope" rule="prepnp" role="pp">
                         <w xml:id="o230010310031"
                            mandarin="如"
                            english="like"
@@ -10791,7 +10760,7 @@
                            state="absolute">נְעֹ֔רֶת</w>
                      </wg>
                   </wg>
-                  <wg type="conjuncted-wg" class="cjp" head="true" rule="cj2cjp">
+                  <wg type="conjuncted-wg" class="cjp" rule="cj2cjp">
                      <w xml:id="o230010310041"
                         english="and"
                         morph="C"
@@ -10805,8 +10774,8 @@
                         unicode="וּ"
                         lang="H"
                         lemma="c">וּ</w>
-                     <wg class="cl" head="true" rule="s-pp">
-                        <wg class="modifier-scope" head="true" rule="npofnp" role="s">
+                     <wg class="cl" rule="s-pp">
+                        <wg type="modifier-scope" rule="npofnp" role="s">
                            <w xml:id="o230010310042"
                               mandarin="所作的"
                               english="work"
@@ -10839,7 +10808,7 @@
                               number="singular"
                               person="third">וֹ</w>
                         </wg>
-                        <wg class="modifier-scope" head="false" rule="prepnp" role="pp">
+                        <wg type="modifier-scope" rule="prepnp" role="pp">
                            <w xml:id="o230010310051"
                               mandarin="好像"
                               english="like"
@@ -10878,7 +10847,7 @@
                      </wg>
                   </wg>
                </wg>
-               <wg type="conjuncted-wg" class="cjp" head="true" rule="cj2cjp">
+               <wg type="conjuncted-wg" class="cjp" rule="cj2cjp">
                   <w xml:id="o230010310061"
                      mandarin="而"
                      english="and"
@@ -10893,8 +10862,8 @@
                      unicode="וּ"
                      lang="H"
                      lemma="c">וּ</w>
-                  <wg class="g" head="true" rule="clacl">
-                     <wg class="cl" head="true" rule="v-s-adv">
+                  <wg rule="clacl">
+                     <wg class="cl" rule="v-s-adv">
                         <w xml:id="o230010310062"
                            mandarin="焚毁"
                            english="burn"
@@ -10921,7 +10890,7 @@
                            stem="qal"
                            person="third"
                            role="v">בָעֲר֧וּ</w>
-                        <wg class="modifier-scope" head="false" rule="numpnp" role="s">
+                        <wg type="modifier-scope" rule="numpnp" role="s">
                            <w xml:id="o230010310071"
                               mandarin="都"
                               english="both"
@@ -10976,7 +10945,7 @@
                            lemma="3162 b"
                            role="adv">יַחְדָּ֖ו</w>
                      </wg>
-                     <wg type="conjuncted-wg" class="cjp" head="true" rule="cj2cjp">
+                     <wg type="conjuncted-wg" class="cjp" rule="cj2cjp">
                         <w xml:id="o230010310091"
                            mandarin="而"
                            english="and"
@@ -10991,7 +10960,7 @@
                            unicode="וְ"
                            lang="H"
                            lemma="c">וְ</w>
-                        <wg class="cl" head="true" rule="p-s">
+                        <wg class="cl" rule="p-s">
                            <w xml:id="o230010310092"
                               mandarin="没有"
                               english="no"
