@@ -250,6 +250,7 @@ declare function local:attributes($node, $exclusions)
 		$node/@type,
 		$node/@gloss,
 		$node/@transliteration,
+		$node/@word ! attribute ref {.},
 		$node/@SDBH ! attribute sdbh {.},
 		$node/@lemma ! attribute stronglemma {.},
 		$node/@LexDomain ! attribute lexdomain {.},
@@ -932,7 +933,8 @@ declare function local:sentence($node)
 (:processing-instruction xml-stylesheet {'href="../../macula-greek/Nestle1904/lowfat/treedown.css"'},:)
 processing-instruction xml-stylesheet {'href="hebrew-treedown.css"'},
 processing-instruction xml-stylesheet {'href="hebrew-boxwood.css"'},
-<chapter
+<chapter 
+	lang="he"
 	id="{(/descendant::Sentence)[1]/substring(@verse, 1, 5)}">
 	{
 		(:
