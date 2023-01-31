@@ -525,7 +525,9 @@ declare function local:disambiguate-complex-clause-structure($node, $passed-role
 					* handle projected speech
 				:)
 				
-				let $should-coordinate-constituents := false()
+				let $should-coordinate-constituents := (
+					$node/@Rule = ('NpCL', 'NpInf', 'NpPart')
+				)
 				let $should-subordinate-first := ($node/@Rule = ('ClCl2', 'CLandCL2'))
 				let $should-subordinate-second := ($node/@Rule = 'ClCl')
 				return
