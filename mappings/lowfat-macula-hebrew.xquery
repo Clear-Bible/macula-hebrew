@@ -1,7 +1,7 @@
 (:~~~ rule types ~~~:)
 
 (: Ryder: atomic structure rules are simple promotion/conversion rules :)
-declare variable $atomic-structure-rule := ('Adj2Adjp', 'Adj2Advp', 'Adj2NP', 'Adj2Rel', 'AdjP2NP', 'Adjp2O', 'Adjp2P', 'Adjp2V', 'Adv2Adjp', 'Adv2Advp', 'Adv2Cjp', 'Adv2Pp', 'Adv2Ptcl', 'Advp2ADV', 'Advp2P', 'CL2ADV', 'CL2Adjp', 'CL2NP', 'CL2O2x', 'CL2Ox', 'CL2P', 'CL2PP', 'CL2S', 'Cj2Cjp', 'CjpCjp', 'Cjp2ADV', 'Cjp2P', 'Ij2Ijp', 'Ijp2ADV', 'Ijp2advp', 'N2NP', 'N2NP', 'NP2PP', 'Np2ADV', 'Np2O', 'Np2O2', 'Np2P', 'Np2Pp', 'Np2S', 'Num2Nump', 'Nump2ADV', 'Nump2NP', 'ObjMarker', 'P2Advp', 'P2PP', 'Pp2Cjp', 'Pp2Np', 'Pp2P', 'Pp2PP', 'Pp2S', 'Pron2Adjp', 'Pron2NP', 'Ptcl2ADV', 'Ptcl2Np', 'Relp2Np', 'V2ADJP', 'V2AdvP', 'V2VP', 'VerbX', 'Vp2Np', 'Vp2V', 'VpVp2V3', 'adjp2ADV', 'adjp2O2', 'advp2np', 'cjp2np', 'cjp2pp', 'ijp2P', 'ijp2V', 'ijp2np', 'np2adjp', 'np2advp', 'np2cjp', 'np2ijp', 'np2vp', 'pp2ptcl', 'ptcl2P', 'rel2vp', 'vp2ADV');
+declare variable $atomic-structure-rule := ('Adj2Adjp', 'Adj2Advp', 'Adj2NP', 'Adj2Rel', 'AdjP2NP', 'Adjp2O', 'Adjp2P', 'Adjp2V', 'Adv2Adjp', 'Adv2Advp', 'Adv2Cjp', 'Adv2Pp', 'Adv2Ptcl', 'Advp2ADV', 'Advp2P', 'CL2ADV', 'CL2Adjp', 'CL2NP', 'CL2O2x', 'CL2Ox', 'CL2P', 'CL2PP', 'CL2S', 'Cj2Cjp', 'Cjp2ADV', 'Cjp2P', 'Ij2Ijp', 'Ijp2ADV', 'Ijp2advp', 'N2NP', 'N2NP', 'NP2PP', 'Np2ADV', 'Np2O', 'Np2O2', 'Np2P', 'Np2Pp', 'Np2S', 'Num2Nump', 'Nump2ADV', 'Nump2NP', 'ObjMarker', 'P2Advp', 'P2PP', 'Pp2Cjp', 'Pp2Np', 'Pp2P', 'Pp2PP', 'Pp2S', 'Pron2Adjp', 'Pron2NP', 'Ptcl2ADV', 'Ptcl2Np', 'Relp2Np', 'V2ADJP', 'V2AdvP', 'V2VP', 'VerbX', 'Vp2Np', 'Vp2V', 'VpVp2V3', 'adjp2ADV', 'adjp2O2', 'advp2np', 'cjp2np', 'cjp2pp', 'ijp2P', 'ijp2V', 'ijp2np', 'np2adjp', 'np2advp', 'np2cjp', 'np2ijp', 'np2vp', 'pp2ptcl', 'ptcl2P', 'rel2vp', 'vp2ADV');
 (: Ryder: conjuncted structure rules are non-atomic rules that include conjunctions/conjunction phrases :)
 declare variable $conjuncted-structure-rule := ('2CLaCL', '2CLaCLaCL', '2NpaNpaNp', '2PpaPp', '3NpaNp', '4NpaNp', 'ADJPaADJPADJPaADJP', 'ADVaADV', 'ADVaADVaADVaADV', 'AdjpAdjpandAdjp', 'AdjpaAdjp', 'AdjpandAdjpAdjp', 'AdvpaAdvp', 'AdvpandAdvp', 'AdvpandPp', 'CLa2CL', 'CLaCL', 'CjpAdjp', 'CjpAdvp2Advp', 'CjpAdvpCjpAdvp', 'ClClaClaClaClaCl', 'ClaClClaCl', 'ClaClaClCl', 'Conj11Np', 'Conj2Pp', 'Conj3Adjp', 'Conj3CL', 'Conj3Np', 'Conj3Pp', 'Conj4Adjp', 'Conj4CL', 'Conj4Np', 'Conj4Pp', 'Conj5CL', 'Conj5Np', 'Conj5Pp', 'Conj6Np', 'Conj6Pp', 'Conj7Np', 'Conj7Pp', 'Conj8Np', 'Conj9Np', 'NP10NP', 'NP3NP', 'NPNPNPNPaNPNPNPNPNPaNPNPNPNPNP', 'NPNPNPNPaNPaNPaNP', 'NPNPNPaNPNPaNP', 'NPNPNPaNPaNP', 'NPNPNPaNPaNPaNP', 'NPNPaNPNPNPNPNPaNP', 'NPNPaNPNPNPaNP', 'NPNPaNPNPaNP', 'NPNPaNPNPaNPaNP', 'NPNPaNPaNPaNP', 'NPNPaNPaNPaNPaNP', 'NPNPaNPaNPaNPaNPaNP', 'NPaNPNP', 'NPaNPNPNP', 'NPaNPNPNPNP', 'NPaNPNPNPNPNP', 'NPaNPNPNPNPNPNP', 'NPaNPNPNPNPNPaNPNP', 'NPaNPNPNPNPNPaNPaNP', 'NPaNPNPNPNPaNP', 'NPaNPNPNPaNP', 'NPaNPNPaNP', 'NPaNPNPaNPNP', 'NPaNPNPaNPNPaNP', 'NPaNPNPaNPNPaNPaNP', 'NPaNPaNPNP', 'NPaNPaNPNPNPNPNPNPNPNPNPNPNP', 'NPaNPaNPNPNPaNP', 'NPaNPaNPNPaNP', 'NPaNPaNPNPaNPNPNPaNPaNP', 'NPaNPaNPNPaNPNPaNP', 'NPaNPaNPNPaNPaNP', 'NPaNPaNPaNPNP', 'NPaNPaNPaNPNPaNP', 'NPaNPaNPaNPaNPNPNP', 'NPaNPaNPaNPaNPNPaNP', 'NPandPP2np', 'NPnp4NP', 'NPnp5NP', 'NpNp5', 'NpNp6', 'NpNpNpNpNpNpNpaNp', 'NpNpNpNpNpNpaNp', 'NpNpNpNpNpaNp', 'NpNpNpNpNpaNpNp', 'NpNpNpNpNpaNpaNp', 'NpNpNpNpaNpNpaNp', 'NpNpaNpNp', 'NpaNp', 'NumpAndNump', 'NumpNumpNumpaNump', 'NumpNumpaNump', 'NumpNumpaNumpaNump', 'NumpaNumpNump', 'NumpaNumpNumpaNump', 'NumpaNumpaNump', 'NumpaNumpaNumpaNump', 'PP8PP', 'PP9PP', 'PPPP4', 'PPPP5', 'PPandPP', 'PpPp9', 'PpPpPpPpandPp', 'PpPpPpaPpaPpaPpaPp', 'PpPpPpandPp', 'PpPpPpandPpPp', 'PpPpaPpaPpaPp', 'PpPpandPpPp', 'PpaPpPpPpPpaPp', 'PpaPpPpaPp', 'PpandAdvp', 'PpandPpPp', 'Relp3Relp', 'Relp5Relp', 'RelpandRelp', 'VP3VP', 'VPandVP', 'aCLaCL', 'aCLaCLaCL', 'aNpaNp', 'aNpaNpaNp', 'aPpaPp', 'aPpaPpaPp', 'cjpNp', 'cjpPp', 'ppPP5PP', 'ppPP6PP', 'ppappPP5PP');
 (: Ryder: "groups" repeat the same structure multiple times. This test could probably be nuanced a bit more (e.g., should any of these have heads?) :)
@@ -13,7 +13,7 @@ declare variable $group-rule := ('12Np', '2Advp_h1', '2Advp_h2', '2CLaCL', '2CLa
     :)
 declare variable $modifier-structure-rule := ('AdjX', 'AdjpAdvp', 'AdjpNp', 'AdjpPp', 'AdjpofNp', 'AdvX', 'AdvpAdjp', 'AdvpCL', 'AdvpNp', 'AdvpNp2advp', 'AdvpNump', 'AdvpPp', 'AdvpPp2', 'AdvpRelp', 'AdvpandPp', 'CjpAdjp', 'CjpAdvp2Advp', 'IjpX', 'NPandPP2np', 'NounX', 'NpAdjp', 'NpAdvp', 'NpCL', 'NpInf', 'NpNump', 'NpPart', 'NpPp', 'NpRelp', 'NumX', 'NumpAdjp', 'NumpNP', 'NumpPp', 'OmpNP', 'OmpRelp', 'PpAdvp', 'PpNp2Np', 'PpNump', 'PpNump2', 'PpRelp', 'PpandAdvp', 'PrepCL', 'PrepNp', 'PrepX', 'PtclCL', 'RelpNp', 'VerbX', 'advpCLtoAdvp', 'cjpCLx', 'relNp', 'NPofNP');
 (: Ryder: complex clauses are clauses (i.e., @Cat='CL') that do not have clause-function rules (e.g., 'S-V-O'). Note that you still need to check whether the node with the @Rule is indeed @Cat='CL', since these rules can show up elsewhere. :)
-declare variable $complex-clause-rule := ('2CLaCL', '2CLaCLaCL', 'CLa2CL', 'CLandCL2', 'ClCl', 'ClCl2', 'aCLaCL', 'aCLaCLaCL', 'cjpCLx', 'ppCL', 'AdvpCL', 'PtclCL');
+declare variable $complex-clause-rule := ('2CLaCL', '2CLaCLaCL', 'CLa2CL', 'CLandCL2', 'ClCl', 'ClCl2', 'aCLaCL', 'aCLaCLaCL', 'cjpCLx', 'ppCL', 'NpCL', 'NpInf', 'NpPart');
 (: Ryder: wrapper clause rules are a subset of complex clause rules. They involve "wrapper" scope of the initial marker over a clause. 'ppCL' for example are typically subordinate clauses with a preposition marker. :)
 declare variable $wrapper-clause-rule := ('AdvpCL', 'cjpCLx', 'PtclCL', 'ppCL', 'relCL');
 (: Ryder: general wrapper rules are just like wrapper clause rules, but they involve wrapping of any non-clause unit. :)
@@ -57,11 +57,12 @@ declare function local:is-clause-rule($rule as node()) as xs:boolean
 declare function local:clause-is-projected($node as element(Node)) as xs:boolean
 {
 	(:	previous sibling should satisfy: //*contains(@LexDomain,"002004001009"):)
-	(some $previous-node
-	in $node/preceding-sibling::Node/descendant::m
-		satisfies (
-		$previous-node[contains(@LexDomain, "002004001009")])
-		and not($node/parent::Node[@Cat = 'CL'])
+	(
+		some $previous-node
+		in $node/preceding-sibling::Node/descendant::m
+			satisfies (
+			$previous-node[contains(@LexDomain, "002004001009")])
+			and not($node/parent::Node[@Cat = 'CL'])
 	)
 	(:
 	TODO: disambiguate this lexical domain a bit further. Sometimes CRT (cut covenant) should not project (e.g., Gen 31.44)
