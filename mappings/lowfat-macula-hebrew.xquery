@@ -555,7 +555,11 @@ declare function local:disambiguate-complex-clause-structure($node, $passed-role
 						let $disambiguated-subordinate-role := ('d?')
 						
 						
-						let $processed-head := local:node($constituent-to-raise, $passed-role)
+						let $processed-head := 
+							if ($constituent-to-raise/@Rule = $atomic-structure-rule) then
+								local:node($constituent-to-raise, $passed-role)
+							else
+								local:node($constituent-to-raise, $passed-role)/element()
 						let $processed-subordinate := local:node($constituent-to-subordinate, $disambiguated-subordinate-role)
 						
 						return
@@ -564,7 +568,10 @@ declare function local:disambiguate-complex-clause-structure($node, $passed-role
 									$node/@Rule,
 									$node/@Cat,
 									$node/@nodeId,
-									local:attributes($processed-head),
+									if ($constituent-to-raise/@Rule = $atomic-structure-rule) then
+										local:attributes($processed-head)
+									else
+										(),
 									if ($passed-role) then
 										attribute role {$passed-role}
 									else
