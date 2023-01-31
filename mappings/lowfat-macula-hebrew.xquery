@@ -396,7 +396,7 @@ declare function local:process-conjunctions($node, $passed-role)
 								
 								local:attributes($constituent),
 								$constituent ! local:node(.),
-								$constituent/following-sibling::element()[1] ! local:node(.)
+								$constituent/following-sibling::element()[1][not(@Cat = 'cjp')] ! local:node(.)
 							}</wg>
 					else
 						(: Ryder: handle sibling following cjp :)
