@@ -1,203 +1,166 @@
 /* hebrew-treedown.css */
 
+/* LAYOUT RULES */
+
 chapter {
   padding: 2em;
-}
-
-* {
   direction: rtl;
-  font-size: 18pt;
+  font-size: 1.5rem;
 }
-
-sentence::after {
-  /* add horizontal rule after each sentence */
-  content: "";
-  display: block;
-  border-bottom: 1px solid black;
-  margin-top: 0.5em;
-  margin-bottom: 0.5em;
-}
-
-wg[class=header] {
-    display: block;
-    position: fixed;
-    width: 6em;
-    top: 5px;
-    right: 5px;
-    background-color: white;
-    opacity: 1;
-    overflow: scroll;
-}
-
 milestone {
-    color: blue;
-    display: block;
-    padding-left: 6px;
+  color: blue;
+  display: block;
+  margin-block: 1rem 0;
+}
+milestone + milestone {
+  display: inline;
+}
+sentence {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  /* Ryder: 1rem space between <p> and <wg> */
 }
 
-p {
-    margin-top: 1em;
-    margin-bottom: 1em;
-    color: #666;
-}
+/*************************************** 
+* ELEMENTS THAT SHOULD BE ON NEW LINES *
+***************************************/
 
-div[class=book]  {
-  margin-top: 1in;
-  margin-right: 1in;
-  margin-bottom: 1in;
-  line-height: 1.2;
-  background-color: white;
-  opacity: 1;
-}
+/* standard new-lined elements in Treedown */
+[class='cl'],
+[role],
 
-book, passage,root {
-  line-height: 1.5;
-  margin-right: 5em;
-  margin-left: 10em;
-  /* background: linen; */
-}
+/* potential new-lined elements */
+[type='conjuncted-wg'], /* Ryder: break vav-conjuncted elements onto new lines */
 
+/* Ryder: modifiers like prepositions may look awkward if they are hanging at the end of a line. If they are at the beginning of the line this is not a problem. */
+/* [class="modifier-scope"]:not(:first-child),  */
+/* [type='group'] > [class="modifier-scope"], */
 
-/* WGs */
-
-wg[class=sentence]{}
-
-wg[class=cl] {
-  padding-top: 0.25em;
-  padding-bottom: 0.25em;
+/* Ryder: sometimes a clause is 'wrapped' by something like a relative pronoun. These could be on a new line to improve readability. */
+[type^='wrapper-clause'] /* <-- select only wrappers that wrap clauses */
+/* [type^='wrapper'] */ /* <-- select all wrappers, regardless of what is wrapped */ {
   display: block;
 }
 
-wg[rule=that-VP],
-wg[rule=sub-CL],
-wg[role] {
-    position: relative;
-    display: block;
+/*******************************************
+* ELEMENTS THAT SHOULD BE ON THE SAME LINE *
+*******************************************/
+
+/***********************************
+* ELEMENTS THAT SHOULD BE INDENTED *
+***********************************/
+
+/* [type='modifier-scope']:not([role]):not(:first-child), */
+[type^='wrapper-clause'],
+/* [type='group'] > [type='modifier-scope']:not([role]), */
+[type='conjuncted-wg'],
+[class='cl'] > [type='group'],
+[class='cl'] [class='cl'] {
+  margin-inline-start: 1rem;
 }
 
-/* Words */
+/****************
+/* ROLE MARKERS *
+****************/
 
+[role]::before {
+  content: attr(role);
+  color: cadetblue;
+  margin-inline-end: 0.4rem; /* Ryder: 0.4rem space between role and element seems to generally align with a 1rem space without a role. */
+}
+[role='aux']::before {
+  content: '~';
+}
+[role='pp']::before,
+[role='adv']::before {
+  content: '+';
+}
+
+/**************
+* WORD LAYOUT *
+**************/
+
+/* Ryder: These next three rules are essential to override 
+default DOM behaviour that adds whitespace characters
+between inline elements. */
+wg[role] {
+  font-size: 0;
+}
+wg[role]::before,
+wg[role] > * {
+  font-size: 1rem;
+}
+
+/* Add a light grey dash between morphemes */
 w:not([after])::after {
-  content: '-';
+  content: '- '; /* The space is intentional because we are removing the default space from the DOM */
   color: lightgrey;
   margin-left: -0.2em;
-  /* add a light grey border between morphemes */
-  /* border-left: 4px solid #ccc; */
 }
 w:not([after]):empty::after {
-  content: 'ה-';
+  content: 'ה- '; /* The space is intentional because we are removing the default space from the DOM */
   color: lightgrey;
   margin-left: -0.2em;
 }
 
-w[after='־']::after {
-  /* hebrew maqqef */
+w[after='־']::after,
+w[after=' ']::after {
+  /* Hebrew maqef, or whitespace should retain normal spacing */
   content: attr(after);
-  /* override default morpheme spacing display */
 }
 
-w[role] {
-    position: relative;
-    display: block;
+/****************
+* SPECIAL CASES *
+****************/
+
+/* Ryder: groups with clause roles should not have the role above the group but to the right. */
+[class='cl'] [type='group'][role]::before {
+  margin-right: -1rem;
+}
+[class='cl'] [class='cl'][role]::before {
+  /* Ryder: the addition of the clause border means the role needs to shift 0.1rem */
+  margin-right: -1.1rem;
 }
 
-w[case=vocative] {
-    position: relative;
-    display: block;
+/* Ryder: this is a temporary affordance for some intra-sentential direct discourse (e.g., Gen 31:20) */
+[role='d?']::before {
+  content: '?o';
 }
 
-/* Generated Text */
+/* Ryder: This is a temporary affordance for something I would like to fix going forward: conjuncted word groups should be indented by 1rem when they are the child of something that has a role attribute, but which has no clause context due to the main clause spanning multiple verses (e.g., Isa 2:13-16) */
+*:not([class='cl']) > [role] > [type='conjuncted-wg'] {
+  margin-inline-start: 1rem;
+}
 
-/*
-  Spacing problem:  generated text usually belongs on the previous level,
-  not on the new indent leve.  Not sure how to do that with CSS.
+/************
+* DEBUGGING *
+************/
+
+/* Ryder: this is a temporary affordance for debugging - it highlights errors for unprocessed nodes. */
+[role='err']::before {
+  background: brown;
+  color: white;
+  font-size: 0.6rem;
+  font-family: monospace;
+  padding: 0.05rem 0.3rem;
+  border-radius: 0.2rem;
+}
+
+/* 
+[type^='wrapper'] {
+  background: lightblue;
+}
+
+[type='modifier-scope']:not(:first-child) {
+  background: lightgreen;
+}
+
+[type^='wrapper-clause'] {
+  background: lightpink;
+}
+
+[type='conjuncted-wg'] {
+  background: lightyellow;
+} 
 */
-
-wg[class=sentence] wg[class=cl]::before {
-  content: initial;
-}
-
-wg[role]::before {
-  color: cadetblue;
-  content: attr(role);
-}
-
-wg[rule=that-VP]::before,
-wg[rule=sub-CL]::before,
-wg[role=adv]::before {
-  color: cadetblue;
-  content: "+ ";
-}
-
-
-w[role=v][mood=participle]::before {
-  color: cadetblue;
-  content: "v.part ";
-}
-
-w[role=v][mood=infinitive]::before {
-  color: cadetblue;
-  content: "v.inf ";
-}
-
-w[role]::before {
-  color: cadetblue;
-  content: attr(role) " ";
-}
-
-w[role=adv]::before {
-  color: cadetblue;
-  content: "+ ";
-}
-
-w[discontinuous]::after {
-  content: "*";
-  vertical-align: super;
-  color: cadetblue;
-  font-size: small;
-}
-
-w[case=vocative]::before {
-  color: cadetblue;
-  content: "voc" " ";
-}
-
-
-/* -----  Experimental stuff goes here -------- */
-
-/* Apposition */
-
-wg[rule=Np-Appos] > wg:not(:first-child)::before,
-wg[rule=Np-Appos] > w:not(:first-child)::before {
-    content: ": ";
-    color: cadetblue;
-    margin-right: 1em;
-}
-
-wg[rule=Np-Appos] > wg:not(:first-child),
-wg[rule=Np-Appos] > w:not(:first-child) {
-    display: block;
-}
-
-/* Probably want to put brackets around single words, but left now it cascades badly. */
-
-wg[rule=Np-Appos] > wg:first-child::before {
-    content: "[";
-    color: cadetblue;
-}
-
-wg[rule=Np-Appos]> wg:first-child::after {
-    content: "]";
-    color: cadetblue;
-}
-
-pc::before {
-    content: initial;
-}
-
-/* ------ right spacing --------- */
-
-wg[class=cl] {
-  margin-right: 1em;
-  position: relative;
-}
