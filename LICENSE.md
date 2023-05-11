@@ -7,7 +7,7 @@
 3. Greek equivalents drawn from the Septuagint
 4. English and Mandarin glosses taken from Cherith's glosses.
 5. Strong's numbers for both Hebrew and Greek equivalents
-6. Semantic domains and word senses drawn from the Semantic Dictionary of Biblical Hebrew.
+6. Semantic domains and word senses drawn from the Semantic Dictionary of Biblical Hebrew (see `@sdbh`, `@lexdomain`, `@coredomain`, `@contextualdomain`)
 7. Semantic frames (see `@frame`).
 8. Participant referents (see `@subjref`, `@participantref`)
 9. Semantic Similarity (see `./sources/Clear/synonyms`)
