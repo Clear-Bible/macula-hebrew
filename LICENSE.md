@@ -9,7 +9,8 @@
 5. Strong's numbers for both Hebrew and Greek equivalents
 6. Semantic domains and word senses drawn from the Semantic Dictionary of Biblical Hebrew.
 7. Semantic frames (see `@frame`).
-8. Participant referents (see `@subjref`, `@participantref`)`
+8. Participant referents (see `@subjref`, `@participantref`)
+9. Semantic Similarity (see `./sources/Clear/synonyms`)
 
 In addition to datasets from Clear, MACULA contains data from the following datasets:
 
