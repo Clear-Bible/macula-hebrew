@@ -10,7 +10,8 @@
 6. Semantic domains and word senses drawn from the Semantic Dictionary of Biblical Hebrew (see `@sdbh`, `@lexdomain`, `@coredomain`, `@contextualdomain`)
 7. Semantic frames (see `@frame`).
 8. Participant referents (see `@subjref`, `@participantref`)
-9. Semantic Similarity (see `./sources/Clear/synonyms`)
+9. Synonyms (see `./sources/Clear/synonyms`)
+10. Word Senses (see `@SenseNumber`)
 
 In addition to datasets from Clear, MACULA contains data from the following datasets:
 
