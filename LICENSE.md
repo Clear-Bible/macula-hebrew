@@ -11,7 +11,7 @@
 7. Semantic frames (see `@frame`).
 8. Participant referents (see `@subjref`, `@participantref`)
 9. Synonyms (see `./sources/Clear/synonyms`)
-10. Word Senses (see `@SenseNumber`)
+10. Word Senses (see `@SenseNumber`) that are distinct from the Semantic Dictionary of Biblical Hebrew word senses.
 
 In addition to datasets from Clear, MACULA contains data from the following datasets:
 
