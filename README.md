@@ -1,4 +1,4 @@
-# macula-hebrew (םכלה)
+# macula-hebrew (מכלה)
 ## Syntax trees, morphology, and linguistic annotations for the Hebrew Bible
 
 This repository contains the MACULA linguistic datasets for the Hebrew Bible, including data from:
