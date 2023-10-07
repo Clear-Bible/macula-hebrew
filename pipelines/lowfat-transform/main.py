@@ -39,21 +39,14 @@ def reformat(source):
     proc = PySaxonProcessor(license=False)
     parsed = proc.parse_xml(xml_text=source.read_text())
     temp = proc.get_string_value(parsed)
-    # re-insert newlines
-    temp = temp.replace(
-        '<?xml-stylesheet href="treedown.css"?><?xml-stylesheet href="boxwood.css"?>',
-        '<?xml-stylesheet href="treedown.css"?>\n<?xml-stylesheet href="boxwood.css"?>\n',
-    )
-    source.write_text(temp)
+
     # re-insert declaration
-    temp = f'<?xml version="1.0" encoding="UTF-8"?>{temp}'
-    source.write_text(temp)
-    temp = proc.get_string_value(parsed)
+    temp = f'<?xml version="1.0" encoding="UTF-8"?>\n{temp}'
+    # re-insert newlines
     temp = temp.replace(
         '<?xml-stylesheet href="hebrew-treedown.css"?><?xml-stylesheet href="hebrew-boxwood.css"?>',
         '<?xml-stylesheet href="hebrew-treedown.css"?>\n<?xml-stylesheet href="hebrew-boxwood.css"?>\n',
     )
-    temp = f'<?xml version="1.0" encoding="UTF-8"?>\n{temp}'
     # TODO: Review milestone spacing?
     temp = temp.replace("</milestone>\n", "</milestone> \n")
     source.write_text(temp)
