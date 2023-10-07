@@ -16,7 +16,12 @@ MAX_WORKERS = int(os.environ.get("MAX_WORKERS", multiprocessing.cpu_count() - 1)
 
 
 def nodes_xml_paths(nodes_dir):
-    return sorted(nodes_dir.glob("*.xml"))
+    paths = []
+    for path in nodes_dir.glob("*.xml"):
+        if path.name == "macula-hebrew.xml":
+            continue
+        paths.append(path)
+    return sorted(paths)
 
 
 def transform(source, dest):
@@ -25,7 +30,7 @@ def transform(source, dest):
     xqueryp = proc.new_xquery_processor()
     xqueryp.run_query_to_file(
         input_file_name=str(source),
-        query_file=str(REPO_ROOT / "mappings/lowfat-macula-greek.xquery"),
+        query_file=str(REPO_ROOT / "mappings/lowfat-macula-hebrew.xquery"),
         output_file_name=str(dest),
     )
 
@@ -45,8 +50,8 @@ def reformat(source):
     source.write_text(temp)
     temp = proc.get_string_value(parsed)
     temp = temp.replace(
-        '<?xml-stylesheet href="treedown.css"?><?xml-stylesheet href="boxwood.css"?>',
-        '<?xml-stylesheet href="treedown.css"?>\n<?xml-stylesheet href="boxwood.css"?>\n',
+        '<?xml-stylesheet href="hebrew-treedown.css"?><?xml-stylesheet href="hebrew-boxwood.css"?>',
+        '<?xml-stylesheet href="hebrew-treedown.css"?>\n<?xml-stylesheet href="hebrew-boxwood.css"?>\n',
     )
     temp = f'<?xml version="1.0" encoding="UTF-8"?>\n{temp}'
     # TODO: Review milestone spacing?
@@ -56,15 +61,15 @@ def reformat(source):
 
 def do_transform(input_path, output_dir):
     print(f"transforming {input_path.name}")
-    dest = output_dir / input_path.name
+    dest = output_dir / f"{input_path.stem}-lowfat{input_path.suffix}"
     transform(input_path, dest)
     print(f"reformatting {dest.name}")
     reformat(dest)
 
 
-def serial_transform():
-    for node_path in nodes_xml_paths():
-        do_transform(node_path)
+def serial_transform(nodes_dir, output_dir):
+    for node_path in nodes_xml_paths(nodes_dir):
+        do_transform(node_path, output_dir)
 
 
 def parallel_transform(nodes_dir, output_dir):
