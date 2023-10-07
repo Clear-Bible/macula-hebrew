@@ -941,20 +941,20 @@ def decorate_filename(filename, decorator):
     return re.sub(r"(.xml)", sub_regex, filename)
 
 
-lowfat_path = "../lowfat/"
+lowfat_path = "../WLC/lowfat/"
 __lowfat_files__ = list(
     map(lambda x: lowfat_path + decorate_filename(x, "lowfat"), desired_filenames)
 )
 
-nodes_path = "../nodes/"
+nodes_path = "../WLC/nodes/"
 __nodes_files__ = list(map(lambda x: nodes_path + x, desired_filenames))
 
-tei_path = "../Nestle1904/tei/"
+tei_path = "../WLC/Nestle1904/tei/"
 __tei_files__ = list(map(lambda x: tei_path + x, desired_filenames))
 
 __macula_hebrew_tsv_rows__ = []
 
-tsv_path = "../TSV/macula-hebrew.tsv"
+tsv_path = "../WLC/tsv/macula-hebrew.tsv"
 __tsv_files__ = [tsv_path]
 
 with open(tsv_path) as file:
