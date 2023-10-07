@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "lowfat-transform"
+version = "0.0.1"
+description = "Pipeline to transform Nodes trees into Lowfat and apply formatting"
+authors = ["Biblica's Clear Bible Data Team"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+saxonche = "^12.3.0"
+
+[tool.poetry.group.dev.dependencies]
+black = "^23.9.1"
+ipdb = "^0.13.13"
+ipython = "^8.15.0"
+isort = "^5.12.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
