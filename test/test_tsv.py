@@ -23,9 +23,6 @@ def test_tsv_row_has_id():
         assert id[0] == "o"
 
 
-# Expected failure.
-# See: https://github.com/Clear-Bible/symphony-team/issues/207
-@pytest.mark.xfail
 def test_tsv_row_count():
     total_count = len(__macula_hebrew_tsv_rows__)
     assert total_count == 475911
