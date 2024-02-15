@@ -4,6 +4,7 @@ This pipeline will use Saxon to transform the nodes trees into lowfat, and then 
 
 ## Requirements
 - Python 3.10 or later
+- [Poetry](https://python-poetry.org/docs/#installation) to manage dependencies
 
 ## Usage:
 ```
