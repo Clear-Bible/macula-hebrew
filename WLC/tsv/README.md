@@ -1,14 +1,15 @@
 # TSV
 
-The query contained in `hebrew-lowfat-to-tsv.xq` is used to generate `macula-hebrew.tsv`.
+<!-- TODO: Replace with hebrew-lowfat-to-tsv once we have resolved https://github.com/Clear-Bible/macula-hebrew/issues/65 -->
+The query contained in `hebrew-nodes-to-tsv.xq` is used to generate `macula-hebrew.tsv`.
 
 It can be ran against BaseX via the following command:
 
 ```shell
 # assumes macula-hebrew repository root context
-basex -i WLC/lowfat/macula-hebrew-lowfat.xml \
+basex -i WLC/nodes/macula-hebrew.xml \
     -o WLC/tsv/macula-hebrew.tsv \
-    WLC/tsv/hebrew-lowfat-to-tsv.xq
+    WLC/tsv/hebrew-nodes-to-tsv.xq
 ```
 
 The [csv-diff](https://pypi.org/project/csv-diff/) Python library may be useful for diffing TSVs:
@@ -17,7 +18,7 @@ The [csv-diff](https://pypi.org/project/csv-diff/) Python library may be useful 
 # rename the existing file
 mv WLC/tsv/macula-hebrew.tsv WLC/tsv/macula-hebrew-original.tsv
 
-# run WLC/tsv/hebrew-lowfat-to-tsv.xq as instructed above
+# run the TSV generation command as instructed above
 
 # install csv-diff
 pip3 install csv-diff
