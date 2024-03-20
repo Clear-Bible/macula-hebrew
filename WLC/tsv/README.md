@@ -7,16 +7,16 @@ It can be ran against BaseX via the following command:
 
 ```shell
 # assumes macula-hebrew repository root context
-basex -i nodes/macula-hebrew.xml \
-    -o TSV/macula-hebrew.tsv \
-    TSV/hebrew-nodes-to-tsv.xq
+basex -i WLC/nodes/macula-hebrew.xml \
+    -o WLC/tsv/macula-hebrew.tsv \
+    WLC/tsv/hebrew-nodes-to-tsv.xq
 ```
 
 The [csv-diff](https://pypi.org/project/csv-diff/) Python library may be useful for diffing TSVs:
 
 ```shell
 # rename the existing file
-mv TSV/macula-hebrew.tsv TSV/macula-hebrew-original.tsv
+mv WLC/tsv/macula-hebrew.tsv WLC/tsv/macula-hebrew-original.tsv
 
 # run the TSV generation command as instructed above
 
@@ -24,14 +24,14 @@ mv TSV/macula-hebrew.tsv TSV/macula-hebrew-original.tsv
 pip3 install csv-diff
 
 # run a diff and summarize output in JSON
-csv-diff --key="xml:id" --json TSV/macula-hebrew-original.tsv \
-    TSV/macula-hebrew.tsv
+csv-diff --key="xml:id" --json WLC/tsv/macula-hebrew-original.tsv \
+    WLC/tsv/macula-hebrew.tsv
 
 # optionally use JQ (https://stedolan.github.io/jq/) to get a list of changed IDs
-csv-diff --key="xml:id" --json TSV/macula-hebrew-original.tsv \
-    TSV/macula-hebrew.tsv \
+csv-diff --key="xml:id" --json WLC/tsv/macula-hebrew-original.tsv \
+    WLC/tsv/macula-hebrew.tsv \
     | jq '.changed | .[] .key' -r
 
 # remove macula-hebrew-original.tsv
-rm TSV/macula-hebrew-original.tsv
+rm WLC/tsv/macula-hebrew-original.tsv
 ```

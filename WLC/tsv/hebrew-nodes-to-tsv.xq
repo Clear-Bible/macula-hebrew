@@ -1,4 +1,4 @@
-(: NOTE: Adapted from TSV/hebrew-lowfat-to-tsv.xq and mappings/lowfat-macula-hebrew.xquery :)
+(: NOTE: Adapted from WLC/tsv/hebrew-lowfat-to-tsv.xq and mappings/lowfat-macula-hebrew.xquery :)
 declare function local:val($v)
 {
    ($v,"")[1]
