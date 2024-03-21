@@ -21,6 +21,7 @@ PIPELINE_ROOT = REPO_ROOT / "pipelines" / "tei-transform"
 MAX_WORKERS = int(os.environ.get("MAX_WORKERS", multiprocessing.cpu_count() - 1))
 TANACH_BOOK_URL_ROOT = "https://tanach.us/Books/"
 MACULA_ID_PREFIX = "o"
+ELIGIBLE_V_ELEMS = {"w", "q"}
 
 BOOK_DATA = book.Books()
 
@@ -62,8 +63,11 @@ def do_transform(source):
             verse = etree.Element("verse", attrib={"ref": verse_ref})
             verse.append(etree.Element("milestone", attrib={"unit": "verse", "ref": verse_ref}))
             bcv = fromusfm(verse_ref).ID
-            for idx, w_elem in enumerate(v_elem.getchildren()):
-                pos = idx + 1
+            pos = 0
+            for w_elem in v_elem.getchildren():
+                if w_elem.tag not in ELIGIBLE_V_ELEMS:
+                    continue
+                pos += 1
                 w_macula_id = get_macula_word_id(bcv, pos)
                 word_ref = f"{verse_ref}!{pos}"
                 word = etree.Element("w", attrib={f"{XML_NS}id": w_macula_id, "ref": word_ref})
