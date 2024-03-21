@@ -93,15 +93,16 @@ def do_transform(source, tokens_lookup):
             bcv = fromusfm(verse_ref).ID
             key = f"{MACULA_ID_PREFIX}{bcv}"
             tokens = tokens_lookup[key]
-            regrouped_tokens = regroup_tokens_by_bcvw(tokens)
-            for [word_ref, bcvw], tokens in regrouped_tokens.items():
-                word = etree.Element("w", attrib={f"{XML_NS}id": bcvw, "ref": word_ref})
-                word.text = ""
-                for token in tokens:
-                    if token["text"]:
-                        word.text += token["text"]
-                    if token["after"]:
-                        word.text += token["after"]
+            for token in tokens:
+                word = etree.Element(
+                    "w", attrib={f"{XML_NS}id": token["xml:id"], "ref": token["ref"]}
+                )
+                if not token["text"]:
+                    # e.g. o080010010071ה
+                    continue
+                word.text = token["text"]
+                if token["after"]:
+                    word.text += token["after"]
                 add_whitespace = word.text[-1] == " "
                 word.text = word.text.strip()
                 if add_whitespace:
