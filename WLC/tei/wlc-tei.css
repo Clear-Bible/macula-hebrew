@@ -19,6 +19,15 @@ verse {
     font-size: 1.5rem;
     line-height: 1.7;
 }
+milestone::before {
+    content: attr(n);
+      vertical-align: baseline;
+      position: relative;
+      top: -0.6em;
+      font-size: 0.6em;
+      opacity: 50%;
+      margin-inline-end: 0.4em;
+}
 
 verse[ref="RUT 1:7"] {
     display: block;

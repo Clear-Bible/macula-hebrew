@@ -85,7 +85,11 @@ def do_transform(source, tokens_lookup):
         for v_elem in c_elem.xpath("./v"):
             verse_ref = f'{chapter_ref}:{v_elem.attrib["n"]}'
             verse = etree.Element("verse", attrib={"ref": verse_ref})
-            verse.append(etree.Element("milestone", attrib={"unit": "verse", "ref": verse_ref}))
+            verse.append(
+                etree.Element(
+                    "milestone", attrib={"unit": "verse", "ref": verse_ref, "n": v_elem.attrib["n"]}
+                )
+            )
             bcv = fromusfm(verse_ref).ID
             key = f"{MACULA_ID_PREFIX}{bcv}"
             tokens = tokens_lookup[key]
