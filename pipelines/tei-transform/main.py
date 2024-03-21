@@ -7,15 +7,20 @@ from pathlib import Path
 from requests import Session
 from lxml import etree
 from biblelib import book
+from biblelib.word import fromusfm
+
 
 try:
     REPO_ROOT = Path(__file__).parent.parent.parent
 except NameError:
     REPO_ROOT = Path(os.getcwd()).parent.parent
 
+XML_NS = "{http://www.w3.org/XML/1998/namespace}"
+
 PIPELINE_ROOT = REPO_ROOT / "pipelines" / "tei-transform"
 MAX_WORKERS = int(os.environ.get("MAX_WORKERS", multiprocessing.cpu_count() - 1))
 TANACH_BOOK_URL_ROOT = "https://tanach.us/Books/"
+MACULA_ID_PREFIX = "o"
 
 BOOK_DATA = book.Books()
 
@@ -25,20 +30,59 @@ TEI_PATH = REPO_ROOT / "WLC/tei"
 
 def get_source_paths():
     for path in XML_PATH.glob("*.xml"):
-        yield path
+        if path.name == "Ruth.xml":
+            yield path
+
+
+def get_macula_word_id(bcv, pos):
+    return f"{MACULA_ID_PREFIX}{bcv}{str(pos).zfill(3)}"
 
 
 def do_transform(source):
     print(f"transforming {source.name}")
     parsed = etree.parse(source)
     book_name = parsed.xpath("//book/names/name")[0].text
+    heb_book_name = parsed.xpath("//book/names/hebrewname")[0].text
     book_data = next(iter(filter(lambda x: x.name == book_name, BOOK_DATA.values())), None)
     assert book_data
-    # usfm_ref = book_data.usfmname
+    usfm_ref = book_data.usfmname
     dest_name = f'{book_data.usfmnumber}-{book_data.name.lower().replace(" ", "")}.xml'
     dest = TEI_PATH / dest_name
-    with dest.open("w") as f:
-        f.write(etree.tostring(parsed, pretty_print=True, encoding="unicode"))
+    book_xml = etree.XML(
+        f'<?xml version="1.0"?>\n<div type="book" ref="{usfm_ref}" canonical="true"></div>'
+    )
+    title = etree.Element("title", attrib={"type": "main"})
+    title.text = heb_book_name
+    book_xml.append(title)
+    for c_elem in parsed.xpath("//c"):
+        chapter_ref = f'{usfm_ref} {c_elem.attrib["n"]}'
+        chapter = etree.Element("chapter", attrib={"ref": chapter_ref})
+        for v_elem in c_elem.xpath("./v"):
+            verse_ref = f'{chapter_ref}:{v_elem.attrib["n"]}'
+            verse = etree.Element("verse", attrib={"ref": verse_ref})
+            verse.append(etree.Element("milestone", attrib={"unit": "verse", "ref": verse_ref}))
+            bcv = fromusfm(verse_ref).ID
+            for idx, w_elem in enumerate(v_elem.xpath("./w")):
+                pos = idx + 1
+                w_macula_id = get_macula_word_id(bcv, pos)
+                word_ref = f"{verse_ref}!{pos}"
+                word = etree.Element("w", attrib={f"{XML_NS}id": w_macula_id, "ref": word_ref})
+                word.text = w_elem.text
+                verse.append(word)
+            chapter.append(verse)
+            break
+        book_xml.append(chapter)
+        break
+
+    with dest.open("wb") as f:
+        f.write(
+            etree.tostring(
+                book_xml,
+                pretty_print=True,
+                xml_declaration=True,
+                encoding="UTF-8",
+            )
+        )
     # FIXME: Actually transform this XML
     # transformer = XSLTransformer(usfm_ref, etree.parse(source.open("rb")))
     # with dest.open("w") as f:
