@@ -62,7 +62,7 @@ def do_transform(source):
             verse = etree.Element("verse", attrib={"ref": verse_ref})
             verse.append(etree.Element("milestone", attrib={"unit": "verse", "ref": verse_ref}))
             bcv = fromusfm(verse_ref).ID
-            for idx, w_elem in enumerate(v_elem.xpath("./w")):
+            for idx, w_elem in enumerate(v_elem.getchildren()):
                 pos = idx + 1
                 w_macula_id = get_macula_word_id(bcv, pos)
                 word_ref = f"{verse_ref}!{pos}"
