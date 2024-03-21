@@ -69,9 +69,13 @@ def do_transform(source, tokens_lookup):
     usfm_ref = book_data.usfmname
     dest_name = f'{book_data.usfmnumber}-{book_data.name.lower().replace(" ", "")}.xml'
     dest = TEI_PATH / dest_name
-    book_xml = etree.XML(
-        f'<?xml version="1.0"?>\n<div type="book" ref="{usfm_ref}" canonical="true"></div>'
+    book_xml = etree.Element("div", attrib={"type": "book", "ref": usfm_ref, "canonical": "true"})
+    tree = etree.ElementTree(book_xml)
+    # NOTE: This is largely intended for local debugging
+    stylesheet_pi = etree.ProcessingInstruction(
+        "xml-stylesheet", 'type="text/css" href="wlc-tei.css"'
     )
+    book_xml.addprevious(stylesheet_pi)
     title = etree.Element("title", attrib={"type": "main"})
     title.text = heb_book_name
     book_xml.append(title)
@@ -105,7 +109,7 @@ def do_transform(source, tokens_lookup):
     with dest.open("wb") as f:
         f.write(
             etree.tostring(
-                book_xml,
+                tree,
                 pretty_print=True,
                 xml_declaration=True,
                 encoding="UTF-8",
