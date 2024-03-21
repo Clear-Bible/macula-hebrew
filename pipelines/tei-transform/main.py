@@ -1,3 +1,4 @@
+import csv
 import sys
 import concurrent.futures
 import multiprocessing
@@ -14,6 +15,8 @@ try:
     REPO_ROOT = Path(__file__).parent.parent.parent
 except NameError:
     REPO_ROOT = Path(os.getcwd()).parent.parent
+
+MACULA_NODES_TSV = REPO_ROOT / "WLC/tsv/macula-hebrew.tsv"
 
 XML_NS = "{http://www.w3.org/XML/1998/namespace}"
 
@@ -39,7 +42,24 @@ def get_macula_word_id(bcv, pos):
     return f"{MACULA_ID_PREFIX}{bcv}{str(pos).zfill(3)}"
 
 
-def do_transform(source):
+def build_tokens_by_bcv_lookup():
+    bcv_lookup = {}
+    for row in csv.DictReader(MACULA_NODES_TSV.open(), delimiter="\t"):
+        macula_id = row["xml:id"]
+        bcv = macula_id[0:9]
+        bcv_lookup.setdefault(bcv, []).append(row)
+    return bcv_lookup
+
+
+def regroup_tokens_by_bcvw(tokens):
+    bcvw_lookup = {}
+    for token in tokens:
+        key = (token["ref"], token["xml:id"][0:12])
+        bcvw_lookup.setdefault(key, []).append(token)
+    return bcvw_lookup
+
+
+def do_transform(source, tokens_lookup):
     print(f"transforming {source.name}")
     parsed = etree.parse(source)
     book_name = parsed.xpath("//book/names/name")[0].text
@@ -63,15 +83,19 @@ def do_transform(source):
             verse = etree.Element("verse", attrib={"ref": verse_ref})
             verse.append(etree.Element("milestone", attrib={"unit": "verse", "ref": verse_ref}))
             bcv = fromusfm(verse_ref).ID
-            pos = 0
-            for w_elem in v_elem.getchildren():
-                if w_elem.tag not in ELIGIBLE_V_ELEMS:
-                    continue
-                pos += 1
-                w_macula_id = get_macula_word_id(bcv, pos)
-                word_ref = f"{verse_ref}!{pos}"
-                word = etree.Element("w", attrib={f"{XML_NS}id": w_macula_id, "ref": word_ref})
-                word.text = w_elem.text
+            key = f"{MACULA_ID_PREFIX}{bcv}"
+            tokens = tokens_lookup[key]
+            regrouped_tokens = regroup_tokens_by_bcvw(tokens)
+            for [word_ref, bcvw], tokens in regrouped_tokens.items():
+                word = etree.Element("w", attrib={f"{XML_NS}id": bcvw, "ref": word_ref})
+                word.text = ""
+                for token in tokens:
+                    if token["text"]:
+                        word.text += token["text"]
+                    if token["after"]:
+                        word.text += token["after"]
+                # FIXME: This omits trailing whitespace
+                word.text = word.text.strip()
                 verse.append(word)
             chapter.append(verse)
         book_xml.append(chapter)
@@ -92,16 +116,18 @@ def do_transform(source):
 
 
 def serial_transform():
+    tokens_by_bcv_lookup = build_tokens_by_bcv_lookup()
     for source_path in get_source_paths():
-        do_transform(source_path)
+        do_transform(source_path, tokens_by_bcv_lookup)
 
 
 def parallel_transform():
     exceptions = []
+    tokens_by_bcv_lookup = build_tokens_by_bcv_lookup()
     with concurrent.futures.ProcessPoolExecutor(max_workers=MAX_WORKERS) as executor:
         deferred_tasks = {}
         for source_path in get_source_paths():
-            deferred = executor.submit(do_transform, source_path)
+            deferred = executor.submit(do_transform, source_path, tokens_by_bcv_lookup)
             deferred_tasks[deferred] = source_path
 
         for f in concurrent.futures.as_completed(deferred_tasks):
