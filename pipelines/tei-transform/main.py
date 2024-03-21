@@ -93,18 +93,25 @@ def do_transform(source, tokens_lookup):
             bcv = fromusfm(verse_ref).ID
             key = f"{MACULA_ID_PREFIX}{bcv}"
             tokens = tokens_lookup[key]
-            for token in tokens:
-                word = etree.Element(
-                    "w", attrib={f"{XML_NS}id": token["xml:id"], "ref": token["ref"]}
-                )
-                if not token["text"]:
-                    # e.g. o080010010071ה
-                    continue
-                word.text = token["text"]
-                if token["after"]:
-                    word.text += token["after"]
-                add_whitespace = word.text[-1] == " "
-                word.text = word.text.strip()
+            regrouped_tokens = regroup_tokens_by_bcvw(tokens)
+            for [word_ref, _], tokens in regrouped_tokens.items():
+                # NOTE: Want to think about consistency across our TEI representations.
+                # Keeping a `w` element, but removing the id attribute.
+                # We will then process the `m` elements separately in the Symphony Frontend.
+                word = etree.Element("w", attrib={"ref": word_ref})
+                word.text = ""
+                for token in tokens:
+                    if not token["text"]:
+                        continue
+                    m_elem = etree.Element(
+                        "m", attrib={f"{XML_NS}id": token["xml:id"], "ref": word_ref}
+                    )
+                    m_elem.text = token["text"]
+                    if token["after"]:
+                        m_elem.text += token["after"]
+                    word.append(m_elem)
+                add_whitespace = m_elem.text[-1] == " "
+                m_elem.text = m_elem.text.strip()
                 if add_whitespace:
                     word.tail = " "
                 verse.append(word)
