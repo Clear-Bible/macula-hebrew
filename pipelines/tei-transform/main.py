@@ -1,8 +1,10 @@
+import sys
 import concurrent.futures
 import multiprocessing
 import os
 from pathlib import Path
 
+from requests import Session
 from lxml import etree
 from biblelib import book
 
@@ -13,6 +15,7 @@ except NameError:
 
 PIPELINE_ROOT = REPO_ROOT / "pipelines" / "tei-transform"
 MAX_WORKERS = int(os.environ.get("MAX_WORKERS", multiprocessing.cpu_count() - 1))
+TANACH_BOOK_URL_ROOT = "https://tanach.us/Books/"
 
 BOOK_DATA = book.Books()
 
@@ -65,8 +68,22 @@ def parallel_transform():
         raise exceptions[0]
 
 
+def fetch_xml():
+    s = Session()
+    for source_path in get_source_paths():
+        book_url = f"{TANACH_BOOK_URL_ROOT}{source_path.name}"
+        resp = s.get(book_url)
+        with source_path.open("w") as f:
+            f.write(resp.content.decode("utf-8"))
+
+
 def main():
     TEI_PATH.mkdir(parents=True, exist_ok=True)
+    fetch = len(sys.argv) > 1 and sys.argv[1] == "--fetch"
+    if fetch:
+        print("Fetching XML from Tanach.us")
+        fetch_xml()
+
     parallel_transform()
 
 
