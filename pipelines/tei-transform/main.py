@@ -70,9 +70,7 @@ def do_transform(source):
                 word.text = w_elem.text
                 verse.append(word)
             chapter.append(verse)
-            break
         book_xml.append(chapter)
-        break
 
     with dest.open("wb") as f:
         f.write(
