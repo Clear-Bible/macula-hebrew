@@ -94,8 +94,10 @@ def do_transform(source, tokens_lookup):
                         word.text += token["text"]
                     if token["after"]:
                         word.text += token["after"]
-                # FIXME: This omits trailing whitespace
+                add_whitespace = word.text[-1] == " "
                 word.text = word.text.strip()
+                if add_whitespace:
+                    word.tail = " "
                 verse.append(word)
             chapter.append(verse)
         book_xml.append(chapter)
