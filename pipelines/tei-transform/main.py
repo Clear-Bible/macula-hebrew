@@ -34,8 +34,7 @@ TEI_PATH = REPO_ROOT / "WLC/tei"
 
 def get_source_paths():
     for path in XML_PATH.glob("*.xml"):
-        if path.name == "Ruth.xml":
-            yield path
+        yield path
 
 
 def get_macula_word_id(bcv, pos):
