@@ -28,6 +28,7 @@ ELIGIBLE_V_ELEMS = {"w", "q", "samekh", "pe"}
 
 SAMEKH = "ס"
 PE = "פ"
+PASEQ = "׀"
 
 BOOK_DATA = book.Books()
 
@@ -112,7 +113,11 @@ def do_transform(source, tokens_lookup):
                     )
                     m_elem.text = token["text"]
                     if token["after"]:
-                        m_elem.text += token["after"]
+                        if token["after"] == PASEQ:
+                            m_elem.text += f" {PASEQ} "
+                        else:
+                            m_elem.text += token["after"]
+
                     word.append(m_elem)
                 add_whitespace = m_elem.text[-1] == " "
                 m_elem.text = m_elem.text.strip()
