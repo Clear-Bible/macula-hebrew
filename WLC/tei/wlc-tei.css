@@ -1,8 +1,13 @@
 div[type="book"] {
     direction: rtl;
     font-family: 'SBLBibLit', 'Times New Roman', serif;
-    width: 660px;
-    /* width: 630px; */
+    max-width: 660px;
+    margin-inline-start: 1.0em;;
+}
+
+chapter {
+    margin-block-start: 2.0em;
+    display: block;
 }
 
 samekh, pe {
@@ -22,12 +27,11 @@ title {
     display: block;
 }
 verse {
-    display: block;
-    margin-inline-start: 1.0em;
-    margin-block-start: 1.0em;
+    display: inline;
     font-size: 1.5rem;
     line-height: 1.7;
 }
+
 milestone::before {
     content: attr(n);
       vertical-align: baseline;
@@ -35,9 +39,24 @@ milestone::before {
       top: -0.6em;
       font-size: 0.6em;
       opacity: 50%;
+      margin-inline-start: 0.2em;
       margin-inline-end: 0.4em;
 }
 
+chapter::before {
+    content: attr(n) ':1';
+    opacity: 50%;
+    margin-inline-start: 0.2em;
+    margin-inline-end: 0.2em;
+    font-size: 1.2em;
+    vertical-align: baseline;
+    position: relative;
+    top: -0.6em;
+}
+
+milestone[n="1"]::before {
+    display: none;
+}
 
 /* NOTE: Uncomment to debug a particular verse or chapter */
 /* chapter {

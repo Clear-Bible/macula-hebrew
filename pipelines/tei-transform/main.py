@@ -83,7 +83,7 @@ def do_transform(source, tokens_lookup):
     book_xml.append(title)
     for c_elem in parsed.xpath("//c"):
         chapter_ref = f'{usfm_ref} {c_elem.attrib["n"]}'
-        chapter = etree.Element("chapter", attrib={"ref": chapter_ref})
+        chapter = etree.Element("chapter", attrib={"ref": chapter_ref, "n": c_elem.attrib["n"]})
         for v_elem in c_elem.xpath("./v"):
             verse_ref = f'{chapter_ref}:{v_elem.attrib["n"]}'
             verse = etree.Element("verse", attrib={"ref": verse_ref})
