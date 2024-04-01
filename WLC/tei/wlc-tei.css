@@ -21,10 +21,8 @@ title {
     text-align: center;
     display: block;
 }
-/* FIXME: Remove debugging */
 verse {
-    /* display: block; */
-    display: none;
+    display: block;
     margin-inline-start: 1.0em;
     margin-block-start: 1.0em;
     font-size: 1.5rem;
@@ -40,10 +38,17 @@ milestone::before {
       margin-inline-end: 0.4em;
 }
 
-verse[ref="RUT 1:7"] {
-    display: block;
-}
 
-verse[ref="RUT 1:8"] {
-    display: block;
+/* NOTE: Uncomment to debug a particular verse or chapter */
+/* chapter {
+    display: none;
 }
+chapter[ref="AMO 3"] {
+    display: block;
+} */
+/* verse {
+    display: none;
+} */
+/* verse[ref="AMO 3:15"] {
+    display: block;
+} */
