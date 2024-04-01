@@ -24,7 +24,9 @@ PIPELINE_ROOT = REPO_ROOT / "pipelines" / "tei-transform"
 MAX_WORKERS = int(os.environ.get("MAX_WORKERS", multiprocessing.cpu_count() - 1))
 TANACH_BOOK_URL_ROOT = "https://tanach.us/Books/"
 MACULA_ID_PREFIX = "o"
-ELIGIBLE_V_ELEMS = {"w", "q"}
+ELIGIBLE_V_ELEMS = {"w", "q", "samekh"}
+
+SAMEKH = "ס"
 
 BOOK_DATA = book.Books()
 
@@ -93,6 +95,7 @@ def do_transform(source, tokens_lookup):
             key = f"{MACULA_ID_PREFIX}{bcv}"
             tokens = tokens_lookup[key]
             regrouped_tokens = regroup_tokens_by_bcvw(tokens)
+            samekh = None
             for [word_ref, _], tokens in regrouped_tokens.items():
                 # NOTE: Want to think about consistency across our TEI representations.
                 # Keeping a `w` element, but removing the id attribute.
@@ -111,9 +114,18 @@ def do_transform(source, tokens_lookup):
                     word.append(m_elem)
                 add_whitespace = m_elem.text[-1] == " "
                 m_elem.text = m_elem.text.strip()
+                if token["after"].endswith(SAMEKH):
+                    assert v_elem.find("./samekh") is not None
+                    assert m_elem.text.endswith(SAMEKH)
+                    samekh = etree.Element("samekh")
+                    samekh.text = SAMEKH
+                    m_elem.text = m_elem.text[0:-1]
                 if add_whitespace:
                     word.tail = " "
                 verse.append(word)
+                if samekh is not None:
+                    verse.append(samekh)
+                    samekh = None
             chapter.append(verse)
         book_xml.append(chapter)
 
