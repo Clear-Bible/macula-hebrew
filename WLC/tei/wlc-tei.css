@@ -5,11 +5,16 @@ div[type="book"] {
     /* width: 630px; */
 }
 
-/* TODO: mimic .pesamekh and
-6 non-breaking spaces rendering*/
 samekh, pe {
     display: inline;
     margin-inline-start: 0.5em
+}
+pe:after {
+    content: ' ';
+    display: block;
+}
+samekh::after {
+    content: '\00a0\00a0\00a0\00a0\00a0\00a0';
 }
 title {
     font-size: 2.5rem;
