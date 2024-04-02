@@ -29,7 +29,6 @@ ELIGIBLE_V_ELEMS = {"w", "q", "samekh", "pe"}
 SAMEKH = "ס"
 PE = "פ"
 PASEQ = "׀"
-FIX_AFTER = {"o190010010022": " "}
 
 BOOK_DATA = book.Books()
 
@@ -119,13 +118,8 @@ def do_transform(source, tokens_lookup):
                         else:
                             m_elem.text += token["after"]
 
-                    # FIXME: Remove this fix once https://github.com/Clear-Bible/macula-hebrew/pull/114
-                    # has been resolved.
-                    fixed_after = FIX_AFTER.get(token["xml:id"])
-                    if fixed_after:
-                        m_elem.text += fixed_after
-
                     word.append(m_elem)
+
                 add_whitespace = m_elem.text[-1] == " "
                 m_elem.text = m_elem.text.strip()
                 if token["after"].endswith(SAMEKH):
