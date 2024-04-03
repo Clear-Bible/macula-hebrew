@@ -900,16 +900,12 @@ declare function local:node($node as element(), $passed-role as xs:string?)
 
 declare function local:straight-text($node)
 {
-	for $n at $i in $node//Node[m]
-	let $afterValue := string($n/m/@after)
-	let $textValue := string($n/m/text())
-		order by $n/@morphId
-	return
-		($textValue,
-		if (string-length($afterValue) > 0) then
-			$afterValue
-		else
-			'NOAFTERVALUE')
+    let $strings :=
+        for $m in $node//m
+        order by $m/@xml:id
+        return concat($m/text(), $m/@after)
+    return 
+        string-join($strings,"")
 };
 
 declare function local:sentence($node)
@@ -930,7 +926,7 @@ declare function local:sentence($node)
 						" "
 						)
 				}
-				{replace(string-join(local:straight-text($node)), 'NOAFTERVALUE', '')}
+				{ local:straight-text($node) }
 			</p>,
 			local:node($node)
 			
@@ -947,14 +943,12 @@ processing-instruction xml-stylesheet {'href="hebrew-boxwood.css"'},
 	lang="he"
 	id="{(/descendant::Sentence)[1]/substring(@verse, 1, 5)}">
 	{
-		(:
+	(:
             If a sentence has multiple interpretations, Sentence/Trees may contain
-            multiple Tree nodes.  We want to specify which interpretation to prefer.
+            multiple Tree nodes.  The first is the preferred interpretation.
         :)
-		let $interpretationToPrefer := 1
-		
-		(: Process sentences in recently-built dependency tree :)
-		for $sentence in //Tree[$interpretationToPrefer]/Node
+	
+		for $sentence in //Tree[1]/Node
 		return
 			local:sentence($sentence)
 	}
