@@ -35,57 +35,6 @@ declare variable $aramaic-structure-rule := ('vpVp2V2', 'Vpvp2V1');
 declare variable $nominalized-clause-rule := ('CL2Adjp', 'CL2NP');
 declare variable $single-constituent-clause-rule := ('ADV2CL', 'Np2CL', 'Intj2CL', 'O22CL', 'O2CL', 'P2CL', 'PP2CL', 'Relp2CL', 'S2CL', 'V2CL');
 
-declare function local:is-clause-rule($rule as node()) as xs:boolean
-{
-	if (not($rule = 'Np-Appos')
-	and (
-	contains($rule, '-')
-	(:
-	Ryder: single-constituent clauses often require nesting of subsequent siblings, so I now try to handle them individually rather than here.
-	
-	(\: There are also a number of single-constituent clauses. E.g., V2CL :\)
-	or (contains($rule, '2CL')
-	and not($rule = ('2CLaCL', '2CLaCLaCL', 'CLa2CL'))
-	):)
-	)
-	) then
-		true()
-	else
-		false()
-};
-
-declare function local:clause-is-projected($node as element(Node)) as xs:boolean
-{
-	(:	previous sibling should satisfy: //*contains(@LexDomain,"002004001009"):)
-	(
-		some $previous-node
-		in $node/preceding-sibling::Node/descendant::m
-			satisfies (
-			$previous-node[contains(@LexDomain, "002004001009")])
-			and not($node/parent::Node[@Cat = 'CL'])
-	)
-	(:
-	TODO: disambiguate this lexical domain a bit further. Sometimes CRT (cut covenant) should not project (e.g., Gen 31.44)
-	
-	Ryder: do some of the projecting matrices follow the projection?
-	If so, use the following block:
-	
-	or
-	(some $following-sibling 
-	in $node/following-sibling::Node/descendant::m 
-	satisfies $following-sibling[contains(@LexDomain,"002004001009")])
-	:)
-};
-
-declare function local:clause-is-projecting($node as element(Node)) as xs:boolean
-{
-	(:	self should satisfy: //*contains(@LexDomain,"002004001009"):)
-	some $child
-	in $node/descendant::m
-		satisfies $child[contains(@LexDomain, "002004001009")]
-};
-
-(:~~~ function definitions ~~~:)
 
 (: verse functions :)
 
@@ -390,7 +339,8 @@ declare function local:word($node)
 declare function local:word($node, $role)
 (: $role can contain a role attribute or a null sequence :)
 {
-    if ($node/m)
+    if ($node/c) then <c role="{$role}">{  $node/c/m ! local:word(.)}</c>
+    else if ($node/m)
     then local:word($node/m, $role)
     else if ($node/*) then ( element error {$role, $node }) 
     else if (substring($node, string-length($node), 1) = ( "·", " .", ";", ",",".","—","·",";"))
