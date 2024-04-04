@@ -1,5 +1,7 @@
 (:~~~ rule types ~~~:)
 
+(: Rule types are not currently used.  Ryder had a version that relied heavily on them.  They are kept here because they may be useful. :)
+
 (: Ryder: atomic structure rules are simple promotion/conversion rules :)
 declare variable $atomic-structure-rule := ('Adj2Adjp', 'Adj2Advp', 'Adj2NP', 'Adj2Rel', 'AdjP2NP', 'Adjp2O', 'Adjp2P', 'Adjp2V', 'Adv2Adjp', 'Adv2Advp', 'Adv2Cjp', 'Adv2Pp', 'Adv2Ptcl', 'Advp2ADV', 'Advp2P', 'CL2ADV', 'CL2Adjp', 'CL2NP', 'CL2O2x', 'CL2Ox', 'CL2P', 'CL2PP', 'CL2S', 'Cj2Cjp', 'Cjp2ADV', 'Cjp2P', 'Ij2Ijp', 'Ijp2ADV', 'Ijp2advp', 'N2NP', 'N2NP', 'NP2PP', 'Np2ADV', 'Np2O', 'Np2O2', 'Np2P', 'Np2Pp', 'Np2S', 'Num2Nump', 'Nump2ADV', 'Nump2NP', 'ObjMarker', 'P2Advp', 'P2PP', 'Pp2Cjp', 'Pp2Np', 'Pp2P', 'Pp2PP', 'Pp2S', 'Pron2Adjp', 'Pron2NP', 'Ptcl2ADV', 'Ptcl2Np', 'Relp2Np', 'V2ADJP', 'V2AdvP', 'V2VP', 'VerbX', 'Vp2Np', 'Vp2V', 'VpVp2V3', 'adjp2ADV', 'adjp2O2', 'advp2np', 'cjp2np', 'cjp2pp', 'ijp2P', 'ijp2V', 'ijp2np', 'np2adjp', 'np2advp', 'np2cjp', 'np2ijp', 'np2vp', 'pp2ptcl', 'ptcl2P', 'rel2vp', 'vp2ADV');
 (: Ryder: conjuncted structure rules are non-atomic rules that include conjunctions/conjunction phrases :)
@@ -30,7 +32,7 @@ Ryder notes:
 
 :)
 declare variable $aramaic-determiner-rule := ('NPDet', 'NumpDet', 'AdjpDet');
-declare variable $hebrew-determiner-rule := ('DetAdjp', 'DetNP', 'DetNump', 'DetVp'); (: Ryder: The dependency tree for these are handled nicely in the GBI trees already. :)
+declare variable $hebrew-determiner-rule := ('DetAdjp', 'DetNP', 'DetNump', 'DetVp');
 declare variable $aramaic-structure-rule := ('vpVp2V2', 'Vpvp2V1');
 declare variable $nominalized-clause-rule := ('CL2Adjp', 'CL2NP');
 declare variable $single-constituent-clause-rule := ('ADV2CL', 'Np2CL', 'Intj2CL', 'O22CL', 'O2CL', 'P2CL', 'PP2CL', 'Relp2CL', 'S2CL', 'V2CL');
@@ -180,58 +182,39 @@ declare function local:USFMVerseId($nodeId)
 		)
 };
 
-(: process attributes :)
 declare function local:attributes($node)
+(: FIXME: 
+    1. Exclusions doesn't seem to be used - simplify?
+    2. Conditional logic seems unnecessary here - simplify?
+:)
 {
-	local:attributes($node, ())
-};
-declare function local:attributes($node, $exclusions)
-(: FIXME: update attributes function based on macula hebrew changes since May 2022 :)
-{
-	if (local-name($node) = 'm')
-	then
-		(
-		$node/@xml:id,
-		$node/@mandarin,
-		$node/@english,
-		$node/@morph,
-		$node/@pos,
-		$node/@after,
-		$node/@type,
-		$node/@gloss,
-		$node/@transliteration,
-		$node/@word ! attribute ref {.},
-		$node/@SDBH ! attribute sdbh {.},
-		$node/@lemma ! attribute stronglemma {.},
-		$node/@LexDomain ! attribute lexdomain {.},
-		$node/@ContextualDomain ! attribute contextualdomain {.},
-		$node/@CoreDomain ! attribute coredomain {.},
-		$node/ancestor::Node[1]/@SenseNumber ! attribute sensenumber {.},
-		$node/ancestor::Node[1]/@Frame ! attribute frame {.},
-		$node/ancestor::Node[1]/@Ref ! attribute participantref {.},
-		$node/ancestor::Node[1]/@SubjRef ! attribute subjref {.},
-		$node/ancestor::Node[1]/@Greek ! attribute greek {.},
-		$node/ancestor::Node[1]/@GreekStrong ! attribute greekstrong {.},
-		$node/ancestor::Node[1]/@StrongNumberX ! attribute strongnumberx {.},
-		$node/ancestor::Node[1]/@Cat ! attribute class {.},
-		$node/ancestor::Node[1]/@Unicode ! attribute unicode {.}
-		)
-	else
-		if (not('class' = $exclusions)) then
-			if ($node/@Cat = $group-rule) then () 
-			else
-				$node/@Cat ! attribute class {lower-case(.)}
-		else
-			(),
-	(:
-	Ryder: I believe @Head is actually a 0-index value declaring which child is the head
-	$node/@Head ! attribute head {
-		if (. = '0') then
-			true()
-		else
-			false()
-	},:)
-	(:$node/@nodeId ! attribute xml:id {concat('o', lower-case(.))}, (\: NOTE: corpus-specific prefix 'o' is added to nodeIds here :\):)
+    (: `m` attributes :)
+	$node/@xml:id,
+	$node/@mandarin,
+	$node/@english,
+	$node/@morph,
+	$node/@pos,
+	$node/@after,
+	$node/@type,
+	$node/@gloss,
+	$node/@transliteration,
+	$node/@word ! attribute ref {.},
+	$node/@SDBH ! attribute sdbh {.},
+	$node/@lemma ! attribute stronglemma {.},
+	$node/@LexDomain ! attribute lexdomain {.},
+	$node/@ContextualDomain ! attribute contextualdomain {.},
+	$node/@CoreDomain ! attribute coredomain {.},
+	$node/parent::Node/@SenseNumber ! attribute sensenumber {.},
+	$node/parent::Node/@Frame ! attribute frame {.},
+	$node/parent::Node/@Ref ! attribute participantref {.},
+	$node/parent::Node/@SubjRef ! attribute subjref {.},
+	$node/parent::Node/@Greek ! attribute greek {.},
+	$node/parent::Node/@GreekStrong ! attribute greekstrong {.},
+	$node/parent::Node/@StrongNumberX ! attribute strongnumberx {.},
+	$node/parent::Node/@Unicode ! attribute unicode {.},
+		
+	$node/@Cat ! attribute class {lower-case(.)},
+			
 	$node/@Rule ! attribute rule {lower-case(.)},
 	$node/@Unicode ! attribute unicode {.},
 	$node/@lang ! attribute lang {.},
@@ -243,6 +226,7 @@ declare function local:attributes($node, $exclusions)
 	$node/@person ! attribute person {lower-case(.)},
 	$node/@StrongNumberX ! attribute strongnumberx {.},
 	$node/@Greek ! attribute greek {.},
+	
 	(: Ryder: FIXME: where exactly do we want this articular rule to go? Should we make it a discontinuous subordination phrase? :)
 	if ($node/@Rule = $aramaic-determiner-rule) then
 		attribute articular {'true'}
@@ -251,7 +235,12 @@ declare function local:attributes($node, $exclusions)
 	if ($node/@Rule = $nominalized-clause-rule) then
 		attribute clausetype {'nominalized-clause'}
 	else
-		()
+		(),
+		
+	let $head := $node/parent::Node/@Head + 1
+	let $headNode := $node/parent::Node/*[$head]
+	where $node is $headNode
+	return attribute head { true() }
 };
 
 
@@ -273,7 +262,7 @@ declare function local:oneword($node)
 };
 
 declare function local:clause($node)
-(:  This is probably too simple as written - need to do restructuring of clauses based on @rule attributes  :)
+(:  This is probably too simple as written - could do restructuring of clauses based on @rule attributes  :)
 {
       if (local:is-worth-preserving($node))
       then       
@@ -283,8 +272,8 @@ declare function local:clause($node)
               $node/Node ! local:node(.)
           }
         </wg>
-      else        
-        $node/Node ! local:node(.)      
+      else 
+        $node/Node ! local:node(.) 
 };
 
 
