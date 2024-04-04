@@ -309,7 +309,10 @@ declare function local:role($node)
   occurs only for conjunctions, but I am not sure.
 :)
 {
-    let $role := attribute role {lower-case($node/@Cat)}
+    let $role := 
+        if ($node/parent::Tree)
+        then ()
+        else attribute role {lower-case($node/@Cat)}
     return
         if (local:oneword($node))
         then (local:word(local:oneword($node), $role))
