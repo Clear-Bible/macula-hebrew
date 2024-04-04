@@ -215,7 +215,7 @@ declare function local:attributes($node)
 		
 	$node/@Cat ! attribute class {lower-case(.)},
 			
-	$node/@Rule ! attribute rule {lower-case(.)},
+	$node/@Rule ! attribute rule {.},
 	$node/@Unicode ! attribute unicode {.},
 	$node/@lang ! attribute lang {.},
 	$node/@lemma ! attribute lemma {.},
