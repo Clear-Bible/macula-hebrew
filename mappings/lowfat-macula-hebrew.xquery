@@ -213,7 +213,10 @@ declare function local:attributes($node)
 	$node/parent::Node/@StrongNumberX ! attribute strongnumberx {.},
 	$node/parent::Node/@Unicode ! attribute unicode {.},
 		
-	$node/@Cat ! attribute class {lower-case(.)},
+	if ($node/@Cat) then
+		attribute class {lower-case($node/@Cat)}
+	else
+		attribute class {lower-case($node/parent::Node/@Cat)},
 			
 	$node/@Rule ! attribute rule {.},
 	$node/@Unicode ! attribute unicode {.},
