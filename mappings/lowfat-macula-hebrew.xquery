@@ -216,7 +216,7 @@ declare function local:attributes($node)
 	if ($node/@Cat) then
 		attribute class {lower-case($node/@Cat)}
 	else
-		attribute class {lower-case($node/parent::Node/@Cat)},
+		attribute class {lower-case($node/ancestor::Node[1]/@Cat)},
 			
 	$node/@Rule ! attribute rule {.},
 	$node/@Unicode ! attribute unicode {.},
