@@ -211,12 +211,12 @@ declare function local:attributes($node)
 	$node/parent::Node/@Greek ! attribute greek {.},
 	$node/parent::Node/@GreekStrong ! attribute greekstrong {.},
 	$node/parent::Node/@StrongNumberX ! attribute strongnumberx {.},
-	$node/parent::Node/@Unicode ! attribute unicode {.},
+	$node/ancestor::Node[1]/@Unicode ! attribute unicode {.},
 		
 	if ($node/@Cat) then
 		attribute class {lower-case($node/@Cat)}
 	else
-		attribute class {lower-case($node/parent::Node/@Cat)},
+		attribute class {lower-case($node/ancestor::Node[1]/@Cat)},
 			
 	$node/@Rule ! attribute rule {.},
 	$node/@Unicode ! attribute unicode {.},
