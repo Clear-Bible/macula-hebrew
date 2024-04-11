@@ -5,9 +5,9 @@
    <sentence id="PSA 126:1">
       <p>
          <milestone unit="verse" id="PSA 126:1">PSA 126:1</milestone> שִׁ֗יר הַֽמַּ֫עֲל֥וֹתבְּשׁ֣וּב יְ֭הוָה אֶת־שִׁיבַ֣ת צִיּ֑וֹן הָ֝יִ֗ינוּ כְּחֹלְמִֽים׃</p>
-      <wg projecting="true">
-         <wg class="cl" rule="p2cl">
-            <wg type="modifier-scope" rule="npofnp" role="p">
+      <wg>
+         <wg class="cl" rule="P2CL" head="true">
+            <wg role="p" class="np" rule="NPofNP" head="true">
                <w xml:id="o191260010011"
                   mandarin="歌"
                   english="song"
@@ -23,14 +23,14 @@
                   greek="ὠιδὴ"
                   greekstrong="5603"
                   strongnumberx="7892"
-                  class="noun"
                   unicode="שִׁ֗יר"
+                  class="noun"
                   lang="H"
                   lemma="שִׁיר"
                   gender="both"
                   number="singular"
                   state="construct">שִׁ֗יר</w>
-               <wg type="modifier-scope" rule="detnp">
+               <wg class="np" rule="DetNP">
                   <w xml:id="o191260010021"
                      english="the"
                      morph="Td"
@@ -42,8 +42,8 @@
                      greek="τῶν"
                      greekstrong="3588"
                      strongnumberx="1886a"
-                     class="art"
                      unicode="הַֽ"
+                     class="art"
                      lang="H"
                      lemma="הַ">הַֽ</w>
                   <w xml:id="o191260010022"
@@ -63,8 +63,8 @@
                      greek="ἀναβαθμῶν"
                      greekstrong="304"
                      strongnumberx="4609"
-                     class="noun"
                      unicode="מַּ֫עֲל֥וֹת"
+                     class="noun"
                      lang="H"
                      lemma="מַעֲלָה"
                      gender="feminine"
@@ -73,8 +73,8 @@
                </wg>
             </wg>
          </wg>
-         <wg class="cl" rule="pp-v-pp">
-            <wg type="modifier-scope" rule="prepcl" role="pp">
+         <wg class="cl" rule="PP-V-PP">
+            <wg role="pp" class="pp" rule="PrepCL" head="true">
                <w xml:id="o191260010031"
                   mandarin="时候"
                   english="when"
@@ -86,12 +86,13 @@
                   greek="ἐν"
                   greekstrong="1722"
                   strongnumberx="0871a"
-                  class="prep"
                   unicode="בְּ"
+                  class="prep"
                   lang="H"
                   lemma="בְּ">בְּ</w>
-               <wg class="cl" rule="v-s-o">
-                  <w xml:id="o191260010032"
+               <wg class="cl" rule="V-S-O" head="true">
+                  <w role="v"
+                     xml:id="o191260010032"
                      mandarin="归回"
                      english="restored"
                      morph="Vqc"
@@ -109,13 +110,13 @@
                      greek="ἐπιστρέψαι"
                      greekstrong="1994"
                      strongnumberx="7725"
-                     class="verb"
                      unicode="שׁ֣וּב"
+                     class="verb"
                      lang="H"
                      lemma="שׁוּב"
-                     stem="qal"
-                     role="v">שׁ֣וּב</w>
-                  <w xml:id="o191260010041"
+                     stem="qal">שׁ֣וּב</w>
+                  <w role="s"
+                     xml:id="o191260010041"
                      mandarin="耶和华"
                      english="LORD"
                      morph="Np"
@@ -132,12 +133,11 @@
                      greek="κύριον"
                      greekstrong="2962"
                      strongnumberx="3068"
-                     class="noun"
                      unicode="יְ֭הוָה"
+                     class="noun"
                      lang="H"
-                     lemma="יהוה"
-                     role="s">יְ֭הוָה</w>
-                  <wg type="modifier-scope" rule="ompnp" role="o">
+                     lemma="יהוה">יְ֭הוָה</w>
+                  <wg role="o" class="np" rule="OmpNP" head="true">
                      <w xml:id="o191260010051"
                         morph="To"
                         pos="particle"
@@ -151,11 +151,11 @@
                         lexdomain="001004001017"
                         coredomain="027 007"
                         strongnumberx="0853"
-                        class="om"
                         unicode="אֶת־"
+                        class="om"
                         lang="H"
                         lemma="אֵת">אֶת</w>
-                     <wg type="modifier-scope" rule="npofnp">
+                     <wg class="np" rule="NPofNP" head="true">
                         <w xml:id="o191260010061"
                            mandarin="被掳的人"
                            english="fortunes"
@@ -169,8 +169,8 @@
                            stronglemma="שִׁיבָה"
                            sensenumber="1"
                            strongnumberx="7870"
-                           class="noun"
                            unicode="שִׁיבַ֣ת"
+                           class="noun"
                            lang="H"
                            lemma="שִׁיבָה"
                            gender="feminine"
@@ -193,15 +193,16 @@
                            greek="σιων"
                            greekstrong="4622"
                            strongnumberx="6726"
-                           class="noun"
                            unicode="צִיּ֑וֹן"
+                           class="noun"
                            lang="H"
                            lemma="צִיּוֹן">צִיּ֑וֹן</w>
                      </wg>
                   </wg>
                </wg>
             </wg>
-            <w xml:id="o191260010081"
+            <w role="v"
+               xml:id="o191260010081"
                mandarin="在"
                english="were"
                morph="Vqp1cp"
@@ -217,16 +218,15 @@
                greek="ἐγενήθημεν"
                greekstrong="1096"
                strongnumberx="1961"
-               class="verb"
                unicode="הָ֝יִ֗ינוּ"
+               class="verb"
                lang="H"
                lemma="הָיָה"
                gender="common"
                number="plural"
                stem="qal"
-               person="first"
-               role="v">הָ֝יִ֗ינוּ</w>
-            <wg type="modifier-scope" rule="prepnp" role="pp">
+               person="first">הָ֝יִ֗ינוּ</w>
+            <wg role="pp" class="pp" rule="PrepNp" head="true">
                <w xml:id="o191260010091"
                   mandarin="好像"
                   english="like"
@@ -238,8 +238,8 @@
                   greek="ὡς"
                   greekstrong="5613"
                   strongnumberx="3509a"
-                  class="prep"
                   unicode="כְּ"
+                  class="prep"
                   lang="H"
                   lemma="כְּ">כְּ</w>
                <w xml:id="o191260010092"
@@ -258,8 +258,8 @@
                   sensenumber="1"
                   greek="παρακεκλημένοι"
                   strongnumberx="2492a"
-                  class="verb"
                   unicode="חֹלְמִֽים"
+                  class="verb"
                   lang="H"
                   lemma="חָלַם"
                   gender="masculine"
@@ -273,10 +273,11 @@
    <sentence id="PSA 126:2">
       <p>
          <milestone unit="verse" id="PSA 126:2">PSA 126:2</milestone> אָ֤ז יִמָּלֵ֪א שְׂח֡וֹק פִּינוּ֮ וּלְשׁוֹנֵ֪נוּ רִ֫נָּ֥ה אָ֭ז יֹאמְר֣וּ בַגּוֹיִ֑ם הִגְדִּ֥יל יְ֝הוָ֗ה לַעֲשׂ֥וֹת עִם־אֵֽלֶּה׃</p>
-      <wg projecting="true">
-         <wg rule="clacl">
-            <wg class="cl" rule="adv-v-adv-s">
-               <w xml:id="o191260020011"
+      <wg>
+         <wg class="cl" rule="CLaCL" head="true">
+            <wg class="cl" rule="ADV-V-ADV-S" head="true">
+               <w role="adv"
+                  xml:id="o191260020011"
                   mandarin="那时"
                   english="then"
                   morph="D"
@@ -292,12 +293,12 @@
                   greek="τότε"
                   greekstrong="5119"
                   strongnumberx="0227"
-                  class="adv"
                   unicode="אָ֤ז"
+                  class="adv"
                   lang="H"
-                  lemma="אָז"
-                  role="adv">אָ֤ז</w>
-               <w xml:id="o191260020021"
+                  lemma="אָז">אָ֤ז</w>
+               <w role="v"
+                  xml:id="o191260020021"
                   mandarin="充满"
                   english="filled with"
                   morph="VNi3ms"
@@ -316,16 +317,16 @@
                   greek="ἐπλήσθη"
                   greekstrong="4130"
                   strongnumberx="4390"
-                  class="verb"
                   unicode="יִמָּלֵ֪א"
+                  class="verb"
                   lang="H"
                   lemma="מָלֵא"
                   gender="masculine"
                   number="singular"
                   stem="niphal"
-                  person="third"
-                  role="v">יִמָּלֵ֪א</w>
-               <w xml:id="o191260020031"
+                  person="third">יִמָּלֵ֪א</w>
+               <w role="adv"
+                  xml:id="o191260020031"
                   mandarin="喜笑"
                   english="laughter"
                   morph="Ncmsa"
@@ -343,15 +344,14 @@
                   greek="ξαρᾶς"
                   greekstrong="5479"
                   strongnumberx="7814"
-                  class="noun"
                   unicode="שְׂח֡וֹק"
+                  class="noun"
                   lang="H"
                   lemma="שְׂחֹק"
                   gender="masculine"
                   number="singular"
-                  state="absolute"
-                  role="adv">שְׂח֡וֹק</w>
-               <wg type="modifier-scope" rule="npofnp" role="s">
+                  state="absolute">שְׂח֡וֹק</w>
+               <wg role="s" class="np" rule="NPofNP" head="true">
                   <w xml:id="o191260020041"
                      mandarin="口"
                      english="mouth"
@@ -367,8 +367,8 @@
                      greek="στόμα"
                      greekstrong="4750"
                      strongnumberx="6310"
-                     class="noun"
                      unicode="פִּי"
+                     class="noun"
                      lang="H"
                      lemma="פֶּה"
                      gender="masculine"
@@ -389,103 +389,102 @@
                      greek="ἡμῶν"
                      greekstrong="2257"
                      strongnumberx="5105a"
-                     class="pron"
                      unicode="נוּ֮"
+                     class="pron"
                      lang="H"
                      gender="common"
                      number="plural"
                      person="first">נוּ֮</w>
                </wg>
             </wg>
-            <wg type="conjuncted-wg" class="cjp" rule="cj2cjp">
-               <w xml:id="o191260020051"
-                  english="and"
-                  morph="C"
-                  pos="conjunction"
-                  transliteration="û"
-                  ref="PSA 126:2!5"
-                  stronglemma="וְ"
-                  greek="καὶ"
-                  greekstrong="2532"
-                  strongnumberx="2050b"
-                  class="cj"
-                  unicode="וּ"
-                  lang="H"
-                  lemma="וְ">וּ</w>
-               <wg class="cl" rule="s-adv">
-                  <wg type="modifier-scope" rule="npofnp" role="s">
-                     <w xml:id="o191260020052"
-                        mandarin="满舌"
-                        english="tongue"
-                        morph="Ncbsc"
-                        pos="noun"
-                        type="common"
-                        ref="PSA 126:2!5"
-                        sdbh="003623001001000"
-                        stronglemma="לָשׁוֹן"
-                        lexdomain="001001002"
-                        coredomain="019"
-                        sensenumber="1"
-                        greek="γλῶσσα"
-                        greekstrong="1100"
-                        strongnumberx="3956"
-                        class="noun"
-                        unicode="לְשׁוֹנ"
-                        lang="H"
-                        lemma="לָשׁוֹן"
-                        gender="both"
-                        number="singular"
-                        state="construct">לְשׁוֹנֵ֪</w>
-                     <w xml:id="o191260020053"
-                        mandarin="我们"
-                        english="our"
-                        morph="Sp1cp"
-                        pos="suffix"
-                        after=" "
-                        type="pronominal"
-                        ref="PSA 126:2!5"
-                        sdbh="003623001001000"
-                        lexdomain="001001002"
-                        coredomain="019"
-                        participantref="191260010061"
-                        greek="ἡμῶν"
-                        greekstrong="2257"
-                        strongnumberx="5105a"
-                        class="pron"
-                        unicode="ֵ֪נוּ"
-                        lang="H"
-                        gender="common"
-                        number="plural"
-                        person="first">נוּ</w>
-                  </wg>
-                  <w xml:id="o191260020061"
-                     mandarin="欢呼"
-                     english="shouts of joy"
-                     morph="Ncfsa"
+            <w xml:id="o191260020051"
+               english="and"
+               morph="C"
+               pos="conjunction"
+               transliteration="û"
+               ref="PSA 126:2!5"
+               stronglemma="וְ"
+               greek="καὶ"
+               greekstrong="2532"
+               strongnumberx="2050b"
+               unicode="וּ"
+               class="cj"
+               lang="H"
+               lemma="וְ">וּ</w>
+            <wg class="cl" rule="S-ADV">
+               <wg role="s" class="np" rule="NPofNP" head="true">
+                  <w xml:id="o191260020052"
+                     mandarin="满舌"
+                     english="tongue"
+                     morph="Ncbsc"
                      pos="noun"
-                     after=" "
                      type="common"
-                     gloss="a.shout.of.joy"
-                     transliteration="rinnāh"
-                     ref="PSA 126:2!6"
-                     stronglemma="רִנָּה"
+                     ref="PSA 126:2!5"
+                     sdbh="003623001001000"
+                     stronglemma="לָשׁוֹן"
+                     lexdomain="001001002"
+                     coredomain="019"
                      sensenumber="1"
-                     greek="ἀγαλλιάσεως"
-                     greekstrong="20"
-                     strongnumberx="7440"
+                     greek="γλῶσσα"
+                     greekstrong="1100"
+                     strongnumberx="3956"
+                     unicode="לְשׁוֹנ"
                      class="noun"
-                     unicode="רִ֫נָּ֥ה"
                      lang="H"
-                     lemma="רִנָּה"
-                     gender="feminine"
+                     lemma="לָשׁוֹן"
+                     gender="both"
                      number="singular"
-                     state="absolute"
-                     role="adv">רִ֫נָּ֥ה</w>
+                     state="construct">לְשׁוֹנֵ֪</w>
+                  <w xml:id="o191260020053"
+                     mandarin="我们"
+                     english="our"
+                     morph="Sp1cp"
+                     pos="suffix"
+                     after=" "
+                     type="pronominal"
+                     ref="PSA 126:2!5"
+                     sdbh="003623001001000"
+                     lexdomain="001001002"
+                     coredomain="019"
+                     participantref="191260010061"
+                     greek="ἡμῶν"
+                     greekstrong="2257"
+                     strongnumberx="5105a"
+                     unicode="ֵ֪נוּ"
+                     class="pron"
+                     lang="H"
+                     gender="common"
+                     number="plural"
+                     person="first">נוּ</w>
                </wg>
+               <w role="adv"
+                  xml:id="o191260020061"
+                  mandarin="欢呼"
+                  english="shouts of joy"
+                  morph="Ncfsa"
+                  pos="noun"
+                  after=" "
+                  type="common"
+                  gloss="a.shout.of.joy"
+                  transliteration="rinnāh"
+                  ref="PSA 126:2!6"
+                  stronglemma="רִנָּה"
+                  sensenumber="1"
+                  greek="ἀγαλλιάσεως"
+                  greekstrong="20"
+                  strongnumberx="7440"
+                  unicode="רִ֫נָּ֥ה"
+                  class="noun"
+                  lang="H"
+                  lemma="רִנָּה"
+                  gender="feminine"
+                  number="singular"
+                  state="absolute">רִ֫נָּ֥ה</w>
             </wg>
          </wg>
-         <wg class="cl" rule="adv-v-pp">
-            <w xml:id="o191260020071"
+         <wg class="cl" rule="ADV-V-PP">
+            <w role="adv"
+               xml:id="o191260020071"
                mandarin="就"
                english="then"
                morph="D"
@@ -501,12 +500,12 @@
                greek="τότε"
                greekstrong="5119"
                strongnumberx="0227"
-               class="adv"
                unicode="אָ֭ז"
+               class="adv"
                lang="H"
-               lemma="אָז"
-               role="adv">אָ֭ז</w>
-            <w xml:id="o191260020081"
+               lemma="אָז">אָ֭ז</w>
+            <w role="v"
+               xml:id="o191260020081"
                mandarin="说"
                english="said"
                morph="Vqi3mp"
@@ -525,16 +524,15 @@
                greek="ἐροῦσιν"
                greekstrong="2046"
                strongnumberx="0559"
-               class="verb"
                unicode="יֹאמְר֣וּ"
+               class="verb"
                lang="H"
                lemma="אָמַר"
                gender="masculine"
                number="plural"
                stem="qal"
-               person="third"
-               role="v">יֹאמְר֣וּ</w>
-            <wg type="modifier-scope" rule="prepnp" role="pp">
+               person="third">יֹאמְר֣וּ</w>
+            <wg role="pp" class="pp" rule="PrepNp" head="true">
                <w xml:id="o191260020091"
                   mandarin="中"
                   english="among"
@@ -546,11 +544,11 @@
                   greek="ἐν"
                   greekstrong="1722"
                   strongnumberx="0871a"
-                  class="prep"
                   unicode="בַ"
+                  class="prep"
                   lang="H"
                   lemma="בְּ">בַ</w>
-               <wg type="modifier-scope" rule="detnp">
+               <wg class="np" rule="DetNP" head="true">
                   <w xml:id="o191260020091ה"
                      english="the"
                      morph="Td"
@@ -560,8 +558,8 @@
                      ref="PSA 126:2!9"
                      stronglemma="הַ"
                      strongnumberx="1886a"
-                     class="art"
                      unicode=""
+                     class="art"
                      lang="H"
                      lemma="הַ"/>
                   <w xml:id="o191260020092"
@@ -581,8 +579,8 @@
                      greek="ἔθνεσιν"
                      greekstrong="1484"
                      strongnumberx="1471"
-                     class="noun"
                      unicode="גּוֹיִ֑ם"
+                     class="noun"
                      lang="H"
                      lemma="גּוֹי"
                      gender="masculine"
@@ -591,8 +589,9 @@
                </wg>
             </wg>
          </wg>
-         <wg class="cl" rule="v-s-pp">
-            <w xml:id="o191260020101"
+         <wg class="cl" rule="V-S-PP">
+            <w role="v"
+               xml:id="o191260020101"
                mandarin="大事"
                english="great"
                morph="Vhp3ms"
@@ -611,16 +610,16 @@
                greek="ἐμεγάλυνεν"
                greekstrong="3170"
                strongnumberx="1431"
-               class="verb"
                unicode="הִגְדִּ֥יל"
+               class="verb"
                lang="H"
                lemma="גָּדַל"
                gender="masculine"
                number="singular"
                stem="hiphil"
-               person="third"
-               role="v">הִגְדִּ֥יל</w>
-            <w xml:id="o191260020111"
+               person="third">הִגְדִּ֥יל</w>
+            <w role="s"
+               xml:id="o191260020111"
                mandarin="耶和华"
                english="LORD"
                morph="Np"
@@ -637,12 +636,11 @@
                greek="κύριος"
                greekstrong="2962"
                strongnumberx="3068"
-               class="noun"
                unicode="יְ֝הוָ֗ה"
+               class="noun"
                lang="H"
-               lemma="יהוה"
-               role="s">יְ֝הוָ֗ה</w>
-            <wg type="modifier-scope" rule="prepcl" role="pp">
+               lemma="יהוה">יְ֝הוָ֗ה</w>
+            <wg role="pp" class="pp" rule="PrepCL" head="true">
                <w xml:id="o191260020121"
                   mandarin="以"
                   english="to"
@@ -654,12 +652,13 @@
                   greek="τοῦ"
                   greekstrong="3588"
                   strongnumberx="3807a"
-                  class="prep"
                   unicode="לַ"
+                  class="prep"
                   lang="H"
                   lemma="לְ">לַ</w>
-               <wg class="cl" rule="v-pp">
-                  <w xml:id="o191260020122"
+               <wg class="cl" rule="V-PP" head="true">
+                  <w role="v"
+                     xml:id="o191260020122"
                      mandarin="行"
                      english="done"
                      morph="Vqc"
@@ -678,13 +677,12 @@
                      greek="ποιῆσαι"
                      greekstrong="4160"
                      strongnumberx="6213"
-                     class="verb"
                      unicode="עֲשׂ֥וֹת"
+                     class="verb"
                      lang="H"
                      lemma="עָשָׂה"
-                     stem="qal"
-                     role="v">עֲשׂ֥וֹת</w>
-                  <wg type="modifier-scope" rule="prepnp" role="pp">
+                     stem="qal">עֲשׂ֥וֹת</w>
+                  <wg role="pp" class="pp" rule="PrepNp" head="true">
                      <w xml:id="o191260020131"
                         mandarin="为"
                         english="for"
@@ -698,8 +696,8 @@
                         greek="μετ’"
                         greekstrong="3326"
                         strongnumberx="5973"
-                        class="prep"
                         unicode="עִם־"
+                        class="prep"
                         lang="H"
                         lemma="עִם">עִם</w>
                      <w xml:id="o191260020141"
@@ -720,8 +718,8 @@
                         greek="αὐτῶν"
                         greekstrong="846"
                         strongnumberx="0428"
-                        class="adj"
                         unicode="אֵֽלֶּה"
+                        class="adj"
                         lang="H"
                         lemma="אֵ֫לֶּה"
                         gender="common"
@@ -737,8 +735,9 @@
       <p>
          <milestone unit="verse" id="PSA 126:3">PSA 126:3</milestone> הִגְדִּ֣יל יְ֭הוָה לַעֲשׂ֥וֹת עִמָּ֗נוּ הָיִ֥ינוּ שְׂמֵחִֽים׃</p>
       <wg>
-         <wg class="cl" rule="v-s-pp">
-            <w xml:id="o191260030011"
+         <wg class="cl" rule="V-S-PP" head="true">
+            <w role="v"
+               xml:id="o191260030011"
                mandarin="大事"
                english="great"
                morph="Vhp3ms"
@@ -757,16 +756,16 @@
                greek="ἐμεγάλυνεν"
                greekstrong="3170"
                strongnumberx="1431"
-               class="verb"
                unicode="הִגְדִּ֣יל"
+               class="verb"
                lang="H"
                lemma="גָּדַל"
                gender="masculine"
                number="singular"
                stem="hiphil"
-               person="third"
-               role="v">הִגְדִּ֣יל</w>
-            <w xml:id="o191260030021"
+               person="third">הִגְדִּ֣יל</w>
+            <w role="s"
+               xml:id="o191260030021"
                mandarin="耶和华"
                english="LORD"
                morph="Np"
@@ -783,12 +782,11 @@
                greek="κύριος"
                greekstrong="2962"
                strongnumberx="3068"
-               class="noun"
                unicode="יְ֭הוָה"
+               class="noun"
                lang="H"
-               lemma="יהוה"
-               role="s">יְ֭הוָה</w>
-            <wg type="modifier-scope" rule="prepcl" role="pp">
+               lemma="יהוה">יְ֭הוָה</w>
+            <wg role="pp" class="pp" rule="PrepCL" head="true">
                <w xml:id="o191260030031"
                   mandarin="以"
                   english="to"
@@ -800,12 +798,13 @@
                   greek="τοῦ"
                   greekstrong="3588"
                   strongnumberx="3807a"
-                  class="prep"
                   unicode="לַ"
+                  class="prep"
                   lang="H"
                   lemma="לְ">לַ</w>
-               <wg class="cl" rule="v-pp">
-                  <w xml:id="o191260030032"
+               <wg class="cl" rule="V-PP" head="true">
+                  <w role="v"
+                     xml:id="o191260030032"
                      mandarin="行"
                      english="done"
                      morph="Vqc"
@@ -824,13 +823,12 @@
                      greek="ποιῆσαι"
                      greekstrong="4160"
                      strongnumberx="6213"
-                     class="verb"
                      unicode="עֲשׂ֥וֹת"
+                     class="verb"
                      lang="H"
                      lemma="עָשָׂה"
-                     stem="qal"
-                     role="v">עֲשׂ֥וֹת</w>
-                  <wg type="modifier-scope" rule="prepnp" role="pp">
+                     stem="qal">עֲשׂ֥וֹת</w>
+                  <wg role="pp" class="pp" rule="PrepNp" head="true">
                      <w xml:id="o191260030041"
                         mandarin="为"
                         english="for"
@@ -841,8 +839,8 @@
                         greek="μεθ’"
                         greekstrong="3326"
                         strongnumberx="5973"
-                        class="prep"
                         unicode="עִמּ"
+                        class="prep"
                         lang="H"
                         lemma="עִם">עִמָּ֗</w>
                      <w xml:id="o191260030042"
@@ -857,8 +855,8 @@
                         greek="ἡμῶν"
                         greekstrong="2257"
                         strongnumberx="5105a"
-                        class="pron"
                         unicode="ָ֗נוּ"
+                        class="pron"
                         lang="H"
                         gender="common"
                         number="plural"
@@ -867,8 +865,9 @@
                </wg>
             </wg>
          </wg>
-         <wg class="cl" rule="v-o">
-            <w xml:id="o191260030051"
+         <wg class="cl" rule="V-O">
+            <w role="v"
+               xml:id="o191260030051"
                mandarin="就"
                english="are"
                morph="Vqp1cp"
@@ -884,16 +883,16 @@
                greek="ἐγενήθημεν"
                greekstrong="1096"
                strongnumberx="1961"
-               class="verb"
                unicode="הָיִ֥ינוּ"
+               class="verb"
                lang="H"
                lemma="הָיָה"
                gender="common"
                number="plural"
                stem="qal"
-               person="first"
-               role="v">הָיִ֥ינוּ</w>
-            <w xml:id="o191260030061"
+               person="first">הָיִ֥ינוּ</w>
+            <w role="o"
+               xml:id="o191260030061"
                mandarin="欢喜"
                english="glad"
                morph="Aampa"
@@ -911,177 +910,21 @@
                greek="εὐφραινόμενοι"
                greekstrong="2165"
                strongnumberx="8056"
-               class="adj"
                unicode="שְׂמֵחִֽים"
+               class="adj"
                lang="H"
                lemma="שָׂמֵחַ"
                gender="masculine"
                number="plural"
-               state="absolute"
-               role="o">שְׂמֵחִֽים</w>
+               state="absolute">שְׂמֵחִֽים</w>
          </wg>
       </wg>
    </sentence>
    <sentence id="PSA 126:4">
       <p>
          <milestone unit="verse" id="PSA 126:4">PSA 126:4</milestone> שׁוּבָ֣ה יְ֭הוָה אֶת־שְׁבִיתֵ֑נוּ כַּאֲפִיקִ֥ים בַּנֶּֽגֶב׃</p>
-      <wg>
-         <wg Rule="ClCl2" Cat="CL" nodeId="1912600400210110">
-            <w xml:id="o191260040031"
-               morph="To"
-               pos="particle"
-               after="־"
-               type="direct object marker"
-               gloss="(et)"
-               transliteration="ʾeṯ-"
-               ref="PSA 126:4!3"
-               sdbh="000792003001000"
-               stronglemma="אֵת"
-               lexdomain="001004001017"
-               coredomain="027 007"
-               strongnumberx="0853"
-               class="om"
-               unicode="אֶת־"
-               lang="H"
-               lemma="אֵת">אֶת</w>
-            <wg type="modifier-scope" rule="npofnp">
-               <w xml:id="o191260040051"
-                  mandarin="被掳的人"
-                  english="fortunes"
-                  morph="Ncfsc"
-                  pos="noun"
-                  type="common"
-                  ref="PSA 126:4!5"
-                  sdbh="007156001001000"
-                  stronglemma="שְׁבִית"
-                  lexdomain="002003003018"
-                  coredomain="196"
-                  sensenumber="1"
-                  greek="αἰξμαλωσίαν"
-                  greekstrong="161"
-                  strongnumberx="7622a"
-                  class="noun"
-                  unicode="שְׁבִית"
-                  lang="H"
-                  lemma="שְׁבִית"
-                  gender="feminine"
-                  number="singular"
-                  state="construct">שְׁבִיתֵ֑</w>
-               <w xml:id="o191260040052"
-                  mandarin="我们"
-                  english="our"
-                  morph="Sp1cp"
-                  pos="suffix"
-                  after=" "
-                  type="pronominal"
-                  ref="PSA 126:4!5"
-                  sdbh="007156001001000"
-                  lexdomain="002003003018"
-                  coredomain="196"
-                  participantref="191260010061"
-                  greek="ἡμῶν"
-                  greekstrong="2257"
-                  strongnumberx="5105a"
-                  class="pron"
-                  unicode="ֵ֑נוּ"
-                  lang="H"
-                  gender="common"
-                  number="plural"
-                  person="first">נוּ</w>
-            </wg>
-            <w xml:id="o191260040061"
-               mandarin="好像"
-               english="like"
-               morph="R"
-               pos="preposition"
-               transliteration="ka"
-               ref="PSA 126:4!6"
-               stronglemma="כְּ"
-               greek="ὡς"
-               greekstrong="5613"
-               strongnumberx="3509a"
-               class="prep"
-               unicode="כַּ"
-               lang="H"
-               lemma="כְּ">כַּ</w>
-            <wg type="modifier-scope" rule="nppp">
-               <w xml:id="o191260040062"
-                  mandarin="河水"
-                  english="streams"
-                  morph="Ncmpa"
-                  pos="noun"
-                  after=" "
-                  type="common"
-                  transliteration="ʾăp̄îqiym"
-                  ref="PSA 126:4!6"
-                  sdbh="000595001001000"
-                  stronglemma="אָפִיק"
-                  lexdomain="001005002002005"
-                  coredomain="115 101"
-                  sensenumber="1"
-                  greek="ξειμάρρους"
-                  greekstrong="5493"
-                  strongnumberx="0650"
-                  class="noun"
-                  unicode="אֲפִיקִ֥ים"
-                  lang="H"
-                  lemma="אָפִיק"
-                  gender="masculine"
-                  number="plural"
-                  state="absolute">אֲפִיקִ֥ים</w>
-               <wg type="modifier-scope" rule="prepnp">
-                  <w xml:id="o191260040071"
-                     english="in"
-                     morph="Rd"
-                     pos="preposition"
-                     transliteration="ba"
-                     ref="PSA 126:4!7"
-                     stronglemma="בְּ"
-                     greek="ἐν"
-                     greekstrong="1722"
-                     strongnumberx="0871a"
-                     class="prep"
-                     unicode="בַּ"
-                     lang="H"
-                     lemma="בְּ">בַּ</w>
-                  <wg type="modifier-scope" rule="detnp">
-                     <w xml:id="o191260040071ה"
-                        english="the"
-                        morph="Td"
-                        pos="particle"
-                        type="definite article"
-                        transliteration="–"
-                        ref="PSA 126:4!7"
-                        stronglemma="הַ"
-                        strongnumberx="1886a"
-                        class="art"
-                        unicode=""
-                        lang="H"
-                        lemma="הַ"/>
-                     <w xml:id="o191260040072"
-                        mandarin="南地"
-                        english="Negeb"
-                        morph="Ncmsa"
-                        pos="noun"
-                        after="׃"
-                        type="common"
-                        transliteration="nneḡeḇ:"
-                        ref="PSA 126:4!7"
-                        sdbh="004625001001000"
-                        stronglemma="נֶ֫גֶב"
-                        lexdomain="003001010"
-                        coredomain=""
-                        strongnumberx="5045"
-                        class="noun"
-                        unicode="נֶּֽגֶב"
-                        lang="H"
-                        lemma="נֶ֫גֶב"
-                        gender="masculine"
-                        number="singular"
-                        state="absolute">נֶּֽגֶב</w>
-                  </wg>
-               </wg>
-            </wg>
+      <wg class="cl" rule="ClCl2" head="true">
+         <wg class="cl" rule="Np2CL">
             <w xml:id="o191260040021"
                mandarin="耶和华"
                english="LORD"
@@ -1099,38 +942,244 @@
                greek="κύριε"
                greekstrong="2962"
                strongnumberx="3068"
-               class="noun"
                unicode="יְ֭הוָה"
+               class="noun"
                lang="H"
-               lemma="יהוה"
-               role="aux">יְ֭הוָה</w>
+               lemma="יהוה">יְ֭הוָה</w>
+         </wg>
+         <wg class="cl" rule="V-O-PP" head="true">
+            <wg role="v" class="vp" rule="VerbX" head="true">
+               <w xml:id="o191260040011"
+                  mandarin="归回"
+                  english="restore"
+                  morph="Vqv2ms"
+                  pos="verb"
+                  type="imperative"
+                  ref="PSA 126:4!1"
+                  sdbh="007226001067000"
+                  stronglemma="שׁוּב"
+                  lexdomain="002003003018"
+                  coredomain="196"
+                  sensenumber="8"
+                  frame="A0:191260040021; A1:191260040051;"
+                  subjref="191260040021"
+                  strongnumberx="7725"
+                  unicode="שׁוּב"
+                  class="verb"
+                  lang="H"
+                  lemma="שׁוּב"
+                  gender="masculine"
+                  number="singular"
+                  stem="qal"
+                  person="second">שׁוּבָ֣</w>
+               <w xml:id="o191260040012"
+                  morph="Sh"
+                  pos="suffix"
+                  after=" "
+                  type="paragogic he"
+                  ref="PSA 126:4!1"
+                  sdbh="007226001067000"
+                  stronglemma="ה"
+                  lexdomain="002003003018"
+                  coredomain="196"
+                  greek="ἐπίστρεψον"
+                  greekstrong="1994"
+                  strongnumberx="1886j"
+                  unicode="ָ֣ה"
+                  class="x"
+                  lang="H"
+                  lemma="ה">ה</w>
+            </wg>
+            <wg role="o" class="np" rule="OmpNP" head="true">
+               <w xml:id="o191260040031"
+                  morph="To"
+                  pos="particle"
+                  after="־"
+                  type="direct object marker"
+                  gloss="(et)"
+                  transliteration="ʾeṯ-"
+                  ref="PSA 126:4!3"
+                  sdbh="000792003001000"
+                  stronglemma="אֵת"
+                  lexdomain="001004001017"
+                  coredomain="027 007"
+                  strongnumberx="0853"
+                  unicode="אֶת־"
+                  class="om"
+                  lang="H"
+                  lemma="אֵת">אֶת</w>
+               <wg class="np" rule="NPofNP" head="true">
+                  <w xml:id="o191260040051"
+                     mandarin="被掳的人"
+                     english="fortunes"
+                     morph="Ncfsc"
+                     pos="noun"
+                     type="common"
+                     ref="PSA 126:4!5"
+                     sdbh="007156001001000"
+                     stronglemma="שְׁבִית"
+                     lexdomain="002003003018"
+                     coredomain="196"
+                     sensenumber="1"
+                     greek="αἰξμαλωσίαν"
+                     greekstrong="161"
+                     strongnumberx="7622a"
+                     unicode="שְׁבִית"
+                     class="noun"
+                     lang="H"
+                     lemma="שְׁבִית"
+                     gender="feminine"
+                     number="singular"
+                     state="construct">שְׁבִיתֵ֑</w>
+                  <w xml:id="o191260040052"
+                     mandarin="我们"
+                     english="our"
+                     morph="Sp1cp"
+                     pos="suffix"
+                     after=" "
+                     type="pronominal"
+                     ref="PSA 126:4!5"
+                     sdbh="007156001001000"
+                     lexdomain="002003003018"
+                     coredomain="196"
+                     participantref="191260010061"
+                     greek="ἡμῶν"
+                     greekstrong="2257"
+                     strongnumberx="5105a"
+                     unicode="ֵ֑נוּ"
+                     class="pron"
+                     lang="H"
+                     gender="common"
+                     number="plural"
+                     person="first">נוּ</w>
+               </wg>
+            </wg>
+            <wg role="pp" class="pp" rule="PrepNp" head="true">
+               <w xml:id="o191260040061"
+                  mandarin="好像"
+                  english="like"
+                  morph="R"
+                  pos="preposition"
+                  transliteration="ka"
+                  ref="PSA 126:4!6"
+                  stronglemma="כְּ"
+                  greek="ὡς"
+                  greekstrong="5613"
+                  strongnumberx="3509a"
+                  unicode="כַּ"
+                  class="prep"
+                  lang="H"
+                  lemma="כְּ">כַּ</w>
+               <wg class="np" rule="NpPp" head="true">
+                  <w xml:id="o191260040062"
+                     mandarin="河水"
+                     english="streams"
+                     morph="Ncmpa"
+                     pos="noun"
+                     after=" "
+                     type="common"
+                     transliteration="ʾăp̄îqiym"
+                     ref="PSA 126:4!6"
+                     sdbh="000595001001000"
+                     stronglemma="אָפִיק"
+                     lexdomain="001005002002005"
+                     coredomain="115 101"
+                     sensenumber="1"
+                     greek="ξειμάρρους"
+                     greekstrong="5493"
+                     strongnumberx="0650"
+                     unicode="אֲפִיקִ֥ים"
+                     class="noun"
+                     lang="H"
+                     lemma="אָפִיק"
+                     gender="masculine"
+                     number="plural"
+                     state="absolute">אֲפִיקִ֥ים</w>
+                  <wg class="pp" rule="PrepNp">
+                     <w xml:id="o191260040071"
+                        english="in"
+                        morph="Rd"
+                        pos="preposition"
+                        transliteration="ba"
+                        ref="PSA 126:4!7"
+                        stronglemma="בְּ"
+                        greek="ἐν"
+                        greekstrong="1722"
+                        strongnumberx="0871a"
+                        unicode="בַּ"
+                        class="prep"
+                        lang="H"
+                        lemma="בְּ">בַּ</w>
+                     <wg class="np" rule="DetNP" head="true">
+                        <w xml:id="o191260040071ה"
+                           english="the"
+                           morph="Td"
+                           pos="particle"
+                           type="definite article"
+                           transliteration="–"
+                           ref="PSA 126:4!7"
+                           stronglemma="הַ"
+                           strongnumberx="1886a"
+                           unicode=""
+                           class="art"
+                           lang="H"
+                           lemma="הַ"/>
+                        <w xml:id="o191260040072"
+                           mandarin="南地"
+                           english="Negeb"
+                           morph="Ncmsa"
+                           pos="noun"
+                           after="׃"
+                           type="common"
+                           transliteration="nneḡeḇ:"
+                           ref="PSA 126:4!7"
+                           sdbh="004625001001000"
+                           stronglemma="נֶ֫גֶב"
+                           lexdomain="003001010"
+                           coredomain=""
+                           strongnumberx="5045"
+                           unicode="נֶּֽגֶב"
+                           class="noun"
+                           lang="H"
+                           lemma="נֶ֫גֶב"
+                           gender="masculine"
+                           number="singular"
+                           state="absolute">נֶּֽגֶב</w>
+                     </wg>
+                  </wg>
+               </wg>
+            </wg>
          </wg>
       </wg>
    </sentence>
    <sentence id="PSA 126:5">
       <p>
          <milestone unit="verse" id="PSA 126:5">PSA 126:5</milestone> הַזֹּרְעִ֥ים בְּדִמְעָ֗ה בְּרִנָּ֥ה יִקְצֹֽרוּ׃</p>
-      <wg>
-         <wg class="cl" rule="s-pp-v">
-            <wg type="modifier-scope" rule="detnp" role="s">
-               <w xml:id="o191260050011"
-                  mandarin="那些"
-                  english="those"
-                  morph="Td"
-                  pos="particle"
-                  type="definite article"
-                  transliteration="ha"
-                  ref="PSA 126:5!1"
-                  stronglemma="הַ"
-                  greek="οἱ"
-                  greekstrong="3588"
-                  strongnumberx="1886a"
-                  class="art"
-                  unicode="הַ"
-                  lang="H"
-                  lemma="הַ">הַ</w>
-               <wg class="cl" rule="v-pp">
-                  <w xml:id="o191260050012"
+      <wg class="cl" rule="S-PP-V" head="true">
+         <wg role="s" class="np" rule="DetNP" head="true">
+            <w xml:id="o191260050011"
+               mandarin="那些"
+               english="those"
+               morph="Td"
+               pos="particle"
+               type="definite article"
+               transliteration="ha"
+               ref="PSA 126:5!1"
+               stronglemma="הַ"
+               greek="οἱ"
+               greekstrong="3588"
+               strongnumberx="1886a"
+               unicode="הַ"
+               class="art"
+               lang="H"
+               lemma="הַ">הַ</w>
+            <wg class="np"
+                rule="CL2NP"
+                clausetype="nominalized-clause"
+                head="true">
+               <wg class="cl" rule="V-PP" head="true">
+                  <w role="v"
+                     xml:id="o191260050012"
                      mandarin="撒种"
                      english="sow"
                      morph="Vqrmpa"
@@ -1146,16 +1195,15 @@
                      sensenumber="1"
                      greek="σπείροντες"
                      strongnumberx="2232"
-                     class="verb"
                      unicode="זֹּרְעִ֥ים"
+                     class="verb"
                      lang="H"
                      lemma="זָרַע"
                      gender="masculine"
                      number="plural"
                      state="absolute"
-                     stem="qal"
-                     role="v">זֹּרְעִ֥ים</w>
-                  <wg type="modifier-scope" rule="prepnp" role="pp">
+                     stem="qal">זֹּרְעִ֥ים</w>
+                  <wg role="pp" class="pp" rule="PrepNp" head="true">
                      <w xml:id="o191260050021"
                         english="in"
                         morph="R"
@@ -1166,8 +1214,8 @@
                         greek="ἐν"
                         greekstrong="1722"
                         strongnumberx="0871a"
-                        class="prep"
                         unicode="בְּ"
+                        class="prep"
                         lang="H"
                         lemma="בְּ">בְּ</w>
                      <w xml:id="o191260050022"
@@ -1187,8 +1235,8 @@
                         greek="δάκρυσιν"
                         greekstrong="1144"
                         strongnumberx="1832"
-                        class="noun"
                         unicode="דִמְעָ֗ה"
+                        class="noun"
                         lang="H"
                         lemma="דִּמְעָה"
                         gender="feminine"
@@ -1197,76 +1245,77 @@
                   </wg>
                </wg>
             </wg>
-            <wg type="modifier-scope" rule="prepnp" role="pp">
-               <w xml:id="o191260050031"
-                  english="with"
-                  morph="R"
-                  pos="preposition"
-                  transliteration="bə"
-                  ref="PSA 126:5!3"
-                  stronglemma="בְּ"
-                  greek="ἐν"
-                  greekstrong="1722"
-                  strongnumberx="0871a"
-                  class="prep"
-                  unicode="בְּ"
-                  lang="H"
-                  lemma="בְּ">בְּ</w>
-               <w xml:id="o191260050032"
-                  mandarin="欢呼"
-                  english="shouts of joy"
-                  morph="Ncfsa"
-                  pos="noun"
-                  after=" "
-                  type="common"
-                  transliteration="rinnāh"
-                  ref="PSA 126:5!3"
-                  stronglemma="רִנָּה"
-                  sensenumber="1"
-                  greek="ἀγαλλιάσει"
-                  greekstrong="20"
-                  strongnumberx="7440"
-                  class="noun"
-                  unicode="רִנָּ֥ה"
-                  lang="H"
-                  lemma="רִנָּה"
-                  gender="feminine"
-                  number="singular"
-                  state="absolute">רִנָּ֥ה</w>
-            </wg>
-            <w xml:id="o191260050041"
-               mandarin="收割"
-               english="reap"
-               morph="Vqi3mp"
-               pos="verb"
-               after="׃"
-               type="yiqtol"
-               gloss="they.will.reap"
-               transliteration="yiqṣōrû:"
-               ref="PSA 126:5!4"
-               stronglemma="קָצַר"
-               sensenumber="1"
-               frame="A0:191260050012;"
-               greek="θεριοῦσιν"
-               strongnumberx="7114"
-               class="verb"
-               unicode="יִקְצֹֽרוּ"
-               lang="H"
-               lemma="קָצַר"
-               gender="masculine"
-               number="plural"
-               stem="qal"
-               person="third"
-               role="v">יִקְצֹֽרוּ</w>
          </wg>
+         <wg role="pp" class="pp" rule="PrepNp" head="true">
+            <w xml:id="o191260050031"
+               english="with"
+               morph="R"
+               pos="preposition"
+               transliteration="bə"
+               ref="PSA 126:5!3"
+               stronglemma="בְּ"
+               greek="ἐν"
+               greekstrong="1722"
+               strongnumberx="0871a"
+               unicode="בְּ"
+               class="prep"
+               lang="H"
+               lemma="בְּ">בְּ</w>
+            <w xml:id="o191260050032"
+               mandarin="欢呼"
+               english="shouts of joy"
+               morph="Ncfsa"
+               pos="noun"
+               after=" "
+               type="common"
+               transliteration="rinnāh"
+               ref="PSA 126:5!3"
+               stronglemma="רִנָּה"
+               sensenumber="1"
+               greek="ἀγαλλιάσει"
+               greekstrong="20"
+               strongnumberx="7440"
+               unicode="רִנָּ֥ה"
+               class="noun"
+               lang="H"
+               lemma="רִנָּה"
+               gender="feminine"
+               number="singular"
+               state="absolute">רִנָּ֥ה</w>
+         </wg>
+         <w role="v"
+            xml:id="o191260050041"
+            mandarin="收割"
+            english="reap"
+            morph="Vqi3mp"
+            pos="verb"
+            after="׃"
+            type="yiqtol"
+            gloss="they.will.reap"
+            transliteration="yiqṣōrû:"
+            ref="PSA 126:5!4"
+            stronglemma="קָצַר"
+            sensenumber="1"
+            frame="A0:191260050012;"
+            greek="θεριοῦσιν"
+            strongnumberx="7114"
+            unicode="יִקְצֹֽרוּ"
+            class="verb"
+            lang="H"
+            lemma="קָצַר"
+            gender="masculine"
+            number="plural"
+            stem="qal"
+            person="third">יִקְצֹֽרוּ</w>
       </wg>
    </sentence>
    <sentence id="PSA 126:6">
       <p>
          <milestone unit="verse" id="PSA 126:6">PSA 126:6</milestone> הָ֘ל֤וֹךְ יֵלֵ֨ךְ׀וּבָכֹה֮ נֹשֵׂ֪א מֶֽשֶׁךְ־הַ֫זָּ֥רַע בֹּֽ֬א־יָב֥וֹאבְרִנָּ֑ה נֹ֝שֵׂ֗א אֲלֻמֹּתָֽיו׃</p>
       <wg>
-         <wg class="cl" rule="v-adv">
-            <w xml:id="o191260060021"
+         <wg class="cl" rule="V-ADV" head="true">
+            <w role="v"
+               xml:id="o191260060021"
                mandarin="出去"
                english="goes out"
                morph="Vqi3ms"
@@ -1286,16 +1335,15 @@
                greek="ἐπορεύοντο"
                greekstrong="4198"
                strongnumberx="1980"
-               class="verb"
                unicode="יֵלֵ֨ךְ ׀"
+               class="verb"
                lang="H"
                lemma="יָלַךְ"
                gender="masculine"
                number="singular"
                stem="qal"
-               person="third"
-               role="v">יֵלֵ֨ךְ</w>
-            <wg rule="advpandadvp" role="adv">
+               person="third">יֵלֵ֨ךְ</w>
+            <wg role="adv" class="advp" rule="AdvpandAdvp" head="true">
                <w xml:id="o191260060011"
                   mandarin="走去"
                   english="to go out"
@@ -1315,53 +1363,52 @@
                   greek="πορευόμενοι"
                   greekstrong="4198"
                   strongnumberx="1980"
-                  class="verb"
                   unicode="הָ֘ל֤וֹךְ"
+                  class="verb"
                   lang="H"
                   lemma="הָלַךְ"
                   stem="qal">הָ֘ל֤וֹךְ</w>
-               <wg type="conjuncted-wg" class="cjp" rule="cj2cjp">
-                  <w xml:id="o191260060031"
-                     english="and"
-                     morph="C"
-                     pos="conjunction"
-                     transliteration="û"
-                     ref="PSA 126:6!3"
-                     stronglemma="וְ"
-                     greek="καὶ"
-                     greekstrong="2532"
-                     strongnumberx="2050b"
-                     class="cj"
-                     unicode="וּ"
-                     lang="H"
-                     lemma="וְ">וּ</w>
-                  <w xml:id="o191260060032"
-                     mandarin="流泪"
-                     english="weeping"
-                     morph="Vqa"
-                     pos="verb"
-                     after=" "
-                     type="infinitive absolute"
-                     transliteration="ḇāḵōh"
-                     ref="PSA 126:6!3"
-                     sdbh="000982001001000"
-                     stronglemma="בָּכָה"
-                     lexdomain="002001002013"
-                     coredomain="019 194 093 196"
-                     subjref="191260050012"
-                     greek="ἔκλαιον"
-                     greekstrong="2799"
-                     strongnumberx="1058"
-                     class="verb"
-                     unicode="בָכֹה֮"
-                     lang="H"
-                     lemma="בָּכָה"
-                     stem="qal">בָכֹה֮</w>
-               </wg>
+               <w xml:id="o191260060031"
+                  english="and"
+                  morph="C"
+                  pos="conjunction"
+                  transliteration="û"
+                  ref="PSA 126:6!3"
+                  stronglemma="וְ"
+                  greek="καὶ"
+                  greekstrong="2532"
+                  strongnumberx="2050b"
+                  unicode="וּ"
+                  class="cj"
+                  lang="H"
+                  lemma="וְ">וּ</w>
+               <w xml:id="o191260060032"
+                  mandarin="流泪"
+                  english="weeping"
+                  morph="Vqa"
+                  pos="verb"
+                  after=" "
+                  type="infinitive absolute"
+                  transliteration="ḇāḵōh"
+                  ref="PSA 126:6!3"
+                  sdbh="000982001001000"
+                  stronglemma="בָּכָה"
+                  lexdomain="002001002013"
+                  coredomain="019 194 093 196"
+                  subjref="191260050012"
+                  greek="ἔκλαιον"
+                  greekstrong="2799"
+                  strongnumberx="1058"
+                  unicode="בָכֹה֮"
+                  class="verb"
+                  lang="H"
+                  lemma="בָּכָה"
+                  stem="qal">בָכֹה֮</w>
             </wg>
          </wg>
-         <wg class="cl" rule="v-o">
-            <w xml:id="o191260060041"
+         <wg class="cl" rule="V-O">
+            <w role="v"
+               xml:id="o191260060041"
                mandarin="带"
                english="carrying"
                morph="Vqrmsa"
@@ -1381,16 +1428,15 @@
                greek="αἴροντες"
                greekstrong="142"
                strongnumberx="5375"
-               class="verb"
                unicode="נֹשֵׂ֪א"
+               class="verb"
                lang="H"
                lemma="נָשָׂא"
                gender="masculine"
                number="singular"
                state="absolute"
-               stem="qal"
-               role="v">נֹשֵׂ֪א</w>
-            <wg type="modifier-scope" rule="npofnp" role="o">
+               stem="qal">נֹשֵׂ֪א</w>
+            <wg role="o" class="np" rule="NPofNP" head="true">
                <w xml:id="o191260060051"
                   mandarin="种子"
                   english="bag"
@@ -1407,14 +1453,14 @@
                   coredomain="027 171"
                   sensenumber="1"
                   strongnumberx="4901"
-                  class="noun"
                   unicode="מֶֽשֶׁךְ־"
+                  class="noun"
                   lang="H"
                   lemma="מֶ֫שֶׁךְ"
                   gender="masculine"
                   number="singular"
                   state="construct">מֶֽשֶׁךְ</w>
-               <wg type="modifier-scope" rule="detnp">
+               <wg class="np" rule="DetNP">
                   <w xml:id="o191260060061"
                      english="the"
                      morph="Td"
@@ -1426,8 +1472,8 @@
                      greek="τὰ"
                      greekstrong="3588"
                      strongnumberx="1886a"
-                     class="art"
                      unicode="הַ֫"
+                     class="art"
                      lang="H"
                      lemma="הַ">הַ֫</w>
                   <w xml:id="o191260060062"
@@ -1445,8 +1491,8 @@
                      coredomain="125"
                      sensenumber="1"
                      strongnumberx="2233"
-                     class="noun"
                      unicode="זָּ֥רַע"
+                     class="noun"
                      lang="H"
                      lemma="זֶ֫רַע"
                      gender="masculine"
@@ -1455,8 +1501,9 @@
                </wg>
             </wg>
          </wg>
-         <wg class="cl" rule="adv-v-pp">
-            <w xml:id="o191260060071"
+         <wg class="cl" rule="ADV-V-PP">
+            <w role="adv"
+               xml:id="o191260060071"
                mandarin="来"
                english="to return"
                morph="Vqa"
@@ -1470,13 +1517,13 @@
                greek="ἐρξόμενοι"
                greekstrong="2064"
                strongnumberx="0935"
-               class="verb"
                unicode="בֹּֽ֬א־"
+               class="verb"
                lang="H"
                lemma="בּוֹא"
-               stem="qal"
-               role="adv">בֹּֽ֬א</w>
-            <w xml:id="o191260060081"
+               stem="qal">בֹּֽ֬א</w>
+            <w role="v"
+               xml:id="o191260060081"
                mandarin="回来"
                english="return"
                morph="Vqi3ms"
@@ -1493,16 +1540,15 @@
                greek="ἥχουσιν"
                greekstrong="2240"
                strongnumberx="0935"
-               class="verb"
                unicode="יָב֥וֹא"
+               class="verb"
                lang="H"
                lemma="בּוֹא"
                gender="masculine"
                number="singular"
                stem="qal"
-               person="third"
-               role="v">יָב֥וֹא</w>
-            <wg type="modifier-scope" rule="prepnp" role="pp">
+               person="third">יָב֥וֹא</w>
+            <wg role="pp" class="pp" rule="PrepNp" head="true">
                <w xml:id="o191260060091"
                   mandarin="以"
                   english="with"
@@ -1514,8 +1560,8 @@
                   greek="ἐν"
                   greekstrong="1722"
                   strongnumberx="0871a"
-                  class="prep"
                   unicode="בְ"
+                  class="prep"
                   lang="H"
                   lemma="בְּ">בְ</w>
                <w xml:id="o191260060092"
@@ -1532,8 +1578,8 @@
                   greek="ἀγαλλιάσει"
                   greekstrong="20"
                   strongnumberx="7440"
-                  class="noun"
                   unicode="רִנָּ֑ה"
+                  class="noun"
                   lang="H"
                   lemma="רִנָּה"
                   gender="feminine"
@@ -1541,8 +1587,9 @@
                   state="absolute">רִנָּ֑ה</w>
             </wg>
          </wg>
-         <wg class="cl" rule="v-o">
-            <w xml:id="o191260060101"
+         <wg class="cl" rule="V-O">
+            <w role="v"
+               xml:id="o191260060101"
                mandarin="带"
                english="carrying"
                morph="Vqrmsa"
@@ -1562,16 +1609,15 @@
                greek="αἴροντες"
                greekstrong="142"
                strongnumberx="5375"
-               class="verb"
                unicode="נֹ֝שֵׂ֗א"
+               class="verb"
                lang="H"
                lemma="נָשָׂא"
                gender="masculine"
                number="singular"
                state="absolute"
-               stem="qal"
-               role="v">נֹ֝שֵׂ֗א</w>
-            <wg type="modifier-scope" rule="npofnp" role="o">
+               stem="qal">נֹ֝שֵׂ֗א</w>
+            <wg role="o" class="np" rule="NPofNP" head="true">
                <w xml:id="o191260060111"
                   mandarin="禾捆"
                   english="sheaves"
@@ -1586,8 +1632,8 @@
                   sensenumber="1"
                   greek="δράγματα"
                   strongnumberx="0485"
-                  class="noun"
                   unicode="אֲלֻמֹּתָֽי"
+                  class="noun"
                   lang="H"
                   lemma="אֲלֻמָה"
                   gender="feminine"
@@ -1606,8 +1652,8 @@
                   coredomain="125 007"
                   participantref="191260050012"
                   strongnumberx="2050c"
-                  class="pron"
                   unicode="ו"
+                  class="pron"
                   lang="H"
                   gender="masculine"
                   number="singular"

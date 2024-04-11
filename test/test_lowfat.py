@@ -5,6 +5,10 @@ import re
 from lxml import etree
 from test import __lowfat_files__, run_xpath_for_file
 
+XML_ID = "{http://www.w3.org/XML/1998/namespace}id"
+
+IS_SUBSUMED_DEFINITE_ARTICLE = re.compile(r"o\d+ה")
+
 
 @pytest.mark.parametrize("lowfat_file", __lowfat_files__)
 def test_file_exists(lowfat_file):
@@ -44,12 +48,16 @@ def test_required_attrs_exist_on_w_elements(lowfat_file):
     nodes = run_xpath_for_file("//w", lowfat_file)
     for node in nodes:
         for attr in required_attrs:
-            assert attr in node.attrib
+            try:
+                assert node.attrib.get(attr)
+            except AssertionError:
+                if attr == "unicode":
+                    macula_id = node.attrib.get(XML_ID)
+                    if IS_SUBSUMED_DEFINITE_ARTICLE.match(macula_id):
+                        continue
+                raise
 
 
-# Expected failure.
-# See: https://github.com/Clear-Bible/symphony-team/issues/207
-@pytest.mark.xfail
 def test_number_of_lowfat_words():
     total_count = 0
     for lowfat_file in __lowfat_files__:

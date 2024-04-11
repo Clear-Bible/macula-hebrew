@@ -1,5 +1,7 @@
 (:~~~ rule types ~~~:)
 
+(: Rule types are not currently used.  Ryder had a version that relied heavily on them.  They are kept here because they may be useful. :)
+
 (: Ryder: atomic structure rules are simple promotion/conversion rules :)
 declare variable $atomic-structure-rule := ('Adj2Adjp', 'Adj2Advp', 'Adj2NP', 'Adj2Rel', 'AdjP2NP', 'Adjp2O', 'Adjp2P', 'Adjp2V', 'Adv2Adjp', 'Adv2Advp', 'Adv2Cjp', 'Adv2Pp', 'Adv2Ptcl', 'Advp2ADV', 'Advp2P', 'CL2ADV', 'CL2Adjp', 'CL2NP', 'CL2O2x', 'CL2Ox', 'CL2P', 'CL2PP', 'CL2S', 'Cj2Cjp', 'Cjp2ADV', 'Cjp2P', 'Ij2Ijp', 'Ijp2ADV', 'Ijp2advp', 'N2NP', 'N2NP', 'NP2PP', 'Np2ADV', 'Np2O', 'Np2O2', 'Np2P', 'Np2Pp', 'Np2S', 'Num2Nump', 'Nump2ADV', 'Nump2NP', 'ObjMarker', 'P2Advp', 'P2PP', 'Pp2Cjp', 'Pp2Np', 'Pp2P', 'Pp2PP', 'Pp2S', 'Pron2Adjp', 'Pron2NP', 'Ptcl2ADV', 'Ptcl2Np', 'Relp2Np', 'V2ADJP', 'V2AdvP', 'V2VP', 'VerbX', 'Vp2Np', 'Vp2V', 'VpVp2V3', 'adjp2ADV', 'adjp2O2', 'advp2np', 'cjp2np', 'cjp2pp', 'ijp2P', 'ijp2V', 'ijp2np', 'np2adjp', 'np2advp', 'np2cjp', 'np2ijp', 'np2vp', 'pp2ptcl', 'ptcl2P', 'rel2vp', 'vp2ADV');
 (: Ryder: conjuncted structure rules are non-atomic rules that include conjunctions/conjunction phrases :)
@@ -30,62 +32,11 @@ Ryder notes:
 
 :)
 declare variable $aramaic-determiner-rule := ('NPDet', 'NumpDet', 'AdjpDet');
-declare variable $hebrew-determiner-rule := ('DetAdjp', 'DetNP', 'DetNump', 'DetVp'); (: Ryder: The dependency tree for these are handled nicely in the GBI trees already. :)
+declare variable $hebrew-determiner-rule := ('DetAdjp', 'DetNP', 'DetNump', 'DetVp');
 declare variable $aramaic-structure-rule := ('vpVp2V2', 'Vpvp2V1');
 declare variable $nominalized-clause-rule := ('CL2Adjp', 'CL2NP');
 declare variable $single-constituent-clause-rule := ('ADV2CL', 'Np2CL', 'Intj2CL', 'O22CL', 'O2CL', 'P2CL', 'PP2CL', 'Relp2CL', 'S2CL', 'V2CL');
 
-declare function local:is-clause-rule($rule as node()) as xs:boolean
-{
-	if (not($rule = 'Np-Appos')
-	and (
-	contains($rule, '-')
-	(:
-	Ryder: single-constituent clauses often require nesting of subsequent siblings, so I now try to handle them individually rather than here.
-	
-	(\: There are also a number of single-constituent clauses. E.g., V2CL :\)
-	or (contains($rule, '2CL')
-	and not($rule = ('2CLaCL', '2CLaCLaCL', 'CLa2CL'))
-	):)
-	)
-	) then
-		true()
-	else
-		false()
-};
-
-declare function local:clause-is-projected($node as element(Node)) as xs:boolean
-{
-	(:	previous sibling should satisfy: //*contains(@LexDomain,"002004001009"):)
-	(
-		some $previous-node
-		in $node/preceding-sibling::Node/descendant::m
-			satisfies (
-			$previous-node[contains(@LexDomain, "002004001009")])
-			and not($node/parent::Node[@Cat = 'CL'])
-	)
-	(:
-	TODO: disambiguate this lexical domain a bit further. Sometimes CRT (cut covenant) should not project (e.g., Gen 31.44)
-	
-	Ryder: do some of the projecting matrices follow the projection?
-	If so, use the following block:
-	
-	or
-	(some $following-sibling 
-	in $node/following-sibling::Node/descendant::m 
-	satisfies $following-sibling[contains(@LexDomain,"002004001009")])
-	:)
-};
-
-declare function local:clause-is-projecting($node as element(Node)) as xs:boolean
-{
-	(:	self should satisfy: //*contains(@LexDomain,"002004001009"):)
-	some $child
-	in $node/descendant::m
-		satisfies $child[contains(@LexDomain, "002004001009")]
-};
-
-(:~~~ function definitions ~~~:)
 
 (: verse functions :)
 
@@ -231,59 +182,43 @@ declare function local:USFMVerseId($nodeId)
 		)
 };
 
-(: process attributes :)
 declare function local:attributes($node)
+(: FIXME: 
+    1. Exclusions doesn't seem to be used - simplify?
+    2. Conditional logic seems unnecessary here - simplify?
+:)
 {
-	local:attributes($node, ())
-};
-declare function local:attributes($node, $exclusions)
-(: FIXME: update attributes function based on macula hebrew changes since May 2022 :)
-{
-	if (local-name($node) = 'm')
-	then
-		(
-		$node/@xml:id,
-		$node/@mandarin,
-		$node/@english,
-		$node/@morph,
-		$node/@pos,
-		$node/@after,
-		$node/@type,
-		$node/@gloss,
-		$node/@transliteration,
-		$node/@word ! attribute ref {.},
-		$node/@SDBH ! attribute sdbh {.},
-		$node/@lemma ! attribute stronglemma {.},
-		$node/@LexDomain ! attribute lexdomain {.},
-		$node/@ContextualDomain ! attribute contextualdomain {.},
-		$node/@CoreDomain ! attribute coredomain {.},
-		$node/ancestor::Node[1]/@SenseNumber ! attribute sensenumber {.},
-		$node/ancestor::Node[1]/@Frame ! attribute frame {.},
-		$node/ancestor::Node[1]/@Ref ! attribute participantref {.},
-		$node/ancestor::Node[1]/@SubjRef ! attribute subjref {.},
-		$node/ancestor::Node[1]/@Greek ! attribute greek {.},
-		$node/ancestor::Node[1]/@GreekStrong ! attribute greekstrong {.},
-		$node/ancestor::Node[1]/@StrongNumberX ! attribute strongnumberx {.},
-		$node/ancestor::Node[1]/@Cat ! attribute class {.},
-		$node/ancestor::Node[1]/@Unicode ! attribute unicode {.}
-		)
+    (: `m` attributes :)
+	$node/@xml:id,
+	$node/@mandarin,
+	$node/@english,
+	$node/@morph,
+	$node/@pos,
+	$node/@after,
+	$node/@type,
+	$node/@gloss,
+	$node/@transliteration,
+	$node/@word ! attribute ref {.},
+	$node/@SDBH ! attribute sdbh {.},
+	$node/@lemma ! attribute stronglemma {.},
+	$node/@LexDomain ! attribute lexdomain {.},
+	$node/@ContextualDomain ! attribute contextualdomain {.},
+	$node/@CoreDomain ! attribute coredomain {.},
+	$node/parent::Node/@SenseNumber ! attribute sensenumber {.},
+	$node/parent::Node/@Frame ! attribute frame {.},
+	$node/parent::Node/@Ref ! attribute participantref {.},
+	$node/parent::Node/@SubjRef ! attribute subjref {.},
+	$node/parent::Node/@Greek ! attribute greek {.},
+	$node/parent::Node/@GreekStrong ! attribute greekstrong {.},
+	$node/parent::Node/@StrongNumberX ! attribute strongnumberx {.},
+	$node/ancestor::Node[1]/@Unicode ! attribute unicode {.},
+		
+	if ($node/@Cat) then
+		attribute class {lower-case($node/@Cat)}
 	else
-		if (not('class' = $exclusions)) then
-			if ($node/@Cat = $group-rule) then () 
-			else
-				$node/@Cat ! attribute class {lower-case(.)}
-		else
-			(),
-	(:
-	Ryder: I believe @Head is actually a 0-index value declaring which child is the head
-	$node/@Head ! attribute head {
-		if (. = '0') then
-			true()
-		else
-			false()
-	},:)
-	(:$node/@nodeId ! attribute xml:id {concat('o', lower-case(.))}, (\: NOTE: corpus-specific prefix 'o' is added to nodeIds here :\):)
-	$node/@Rule ! attribute rule {lower-case(.)},
+		attribute class {lower-case($node/ancestor::Node[1]/@Cat)},
+			
+	$node/@Rule ! attribute rule {.},
 	$node/@Unicode ! attribute unicode {.},
 	$node/@lang ! attribute lang {.},
 	$node/@lemma ! attribute lemma {.},
@@ -294,6 +229,7 @@ declare function local:attributes($node, $exclusions)
 	$node/@person ! attribute person {lower-case(.)},
 	$node/@StrongNumberX ! attribute strongnumberx {.},
 	$node/@Greek ! attribute greek {.},
+	
 	(: Ryder: FIXME: where exactly do we want this articular rule to go? Should we make it a discontinuous subordination phrase? :)
 	if ($node/@Rule = $aramaic-determiner-rule) then
 		attribute articular {'true'}
@@ -302,614 +238,215 @@ declare function local:attributes($node, $exclusions)
 	if ($node/@Rule = $nominalized-clause-rule) then
 		attribute clausetype {'nominalized-clause'}
 	else
-		()
-};
-
-(: process phrases :)
-
-declare function local:phrase($node, $passed-role)
-{
-	<wg>{
-			local:attributes($node),
-			if ($passed-role) then
-				attribute role {$passed-role}
-			else
-				(),
-			$node/element() ! local:node(.)
-		}</wg>
-};
-
-(: process clause - assign roles by clause rule :)
-
-declare function local:clause($node, $passed-role)
-{
-	(:let $clauseIsProjected := local:clause-is-projected($node)
-	let $clauseIsProjecting := local:clause-is-projecting($node):)
-	
-	if (contains($node/@Rule, '-')) then
-		(: Ryder: multi-constituent clause :)
-		let $clause-roles := tokenize(lower-case($node/@Rule), '-')
-		return
-			<wg>{
-					local:attributes($node),
-					if ($passed-role) then
-						attribute role {$passed-role}
-					else
-						(),
-					(:if ($clauseIsProjected) then
-					attribute projected {'true'}:)
-					(:else
-					if ($clauseIsProjecting) then
-						(
-							<wg projecting="true">{
-								for $clause-constituent at $index in $node/element()
-									let $constituent-role := $clause-roles[$index]
-									return
-										if (local:clause-is-projecting($clause-constituent)) then local:node($clause-constituent, $constituent-role)
-										else ()
-							}</wg>,
-							
-							<wg projected="true">{
-								for $clause-constituent at $index in $node/element()
-									let $constituent-role := $clause-roles[$index]
-									return
-										if (local:clause-is-projecting($clause-constituent)) then ()
-										else local:node($clause-constituent, $constituent-role)
-							}</wg>
-						)
-				else:)
-					for $clause-constituent at $index in $node/element()
-					let $constituent-role := $clause-roles[$index]
-					return
-						local:node($clause-constituent, $constituent-role)
-				}</wg>
-	else
-		local:process-single-constituent-clause($node, $passed-role)
-};
-
-declare function local:process-conjunctions($node, $passed-role)
-{
-	let $clauseIsProjected := local:clause-is-projected($node)
-	let $clauseIsProjecting := local:clause-is-projecting($node)
-	
-	return
-		<wg>{
-				local:attributes($node, 'class'),
-				if ($passed-role) then
-					attribute role {$passed-role}
-				else
-					(),
-				if ($clauseIsProjected) then
-					attribute projected {'true'}
-					(: RYDER TODO: check if conjunction phrases are ever projecting/projected in output :)
-				else
-					if ($clauseIsProjecting) then
-						attribute projecting {'true'}
-					else
-						(),
-				for $constituent at $index in $node/element()
-				return
-					(: Ryder: if constituent is cjp, embed immediately following sibling :)
-					if ($constituent/@Cat = ('cjp')) then
-						<wg
-							type='conjuncted-wg'>{
-								
-								local:attributes($constituent),
-								$constituent ! local:node(.),
-								$constituent/following-sibling::element()[1][not(@Cat = 'cjp')] ! local:node(.)
-							}</wg>
-					else
-						(: Ryder: handle sibling following cjp :)
-						if ($constituent/preceding-sibling::element()[1]/@Cat = ('cjp')) then
-							()
-						else
-							$constituent ! local:node(.)
-			}</wg>
-};
-
-(:declare function local:process-wrapper($node, $passed-role)
-{
-	(\: wrapper scope has a head, but the head is not the wrapper in the Nodes trees :\)
-	(\: Ryder: I believe every @Head value is 0-indexed, whereas XPath positions are 1-indexed, so add 1 to @Head :\)
-	let $headIndex := $node/@Head + 1
-	let $headChild := $node/child::Node[$headIndex]
-	let $childrenBeforeHead := $headChild/preceding-sibling::*
-	let $childrenAfterHead := $headChild/following-sibling::*
-	return
-		<wg
-			type="wrapper">{
-				local:attributes($node),
-				if ($passed-role) then
-					attribute role {$passed-role}
-				else
-					(),
-				
-				$headChild/element() ! local:node(.),
-				<wg
-					type="scope">{
-						$childrenBeforeHead ! local:node(.),
-						$childrenAfterHead ! local:node(.)
-					}</wg>
-			}</wg>
-};:)
-
-declare function local:process-wrapper-clause($node, $passed-role)
-{
-	<wg
-		type="wrapper-clause-scope">{
-			local:attributes($node),
-			if ($passed-role) then
-				attribute role {$passed-role}
-			else
-				(),
-			$node/element() ! local:node(.)
-		}</wg>
-};
-
-(:declare function local:process-auxiliary($node, $passed-role)
-{
-	(\: 
-		RYDER TODO: sort out when to nest auxiliaries using projected/projecting analysis 
+		(),
 		
-		Rules already handled:
-		* V2CL has been partly handled for standalone projecting verbs (e.g., Gen 31.11!7)
-		
-		Rules to check:
-		* PP2CL
-	:\)
-	let $nodeIsProjected := local:clause-is-projected($node)
-	let $nodeIsProjecting := local:clause-is-projecting($node)
-	
-	let $role := (
-		if ($node/@Rule = 'V2CL' and $nodeIsProjecting) then
-			'null'
-		else if ($passed-role) then $passed-role
-		else 'aux'
-	)
-	
-	return
-		(\: Ryder TODO: clean up this function after debugging complete :\)
-		<wg debug='auxiliary function output'>{
-				local:attributes($node),
-				if (not($role = 'null')) then
-					attribute role {$role}
-				else
-					(),
-				if ($nodeIsProjected) then
-					attribute projected {'true'}
-				else
-					if ($nodeIsProjecting) then
-						attribute projecting {'true'}
-					else
-						(),
-				$node/element() ! local:node(.)
-			}</wg>
-};:)
-
-declare function local:disambiguate-complex-clause-structure($node, $passed-role)
-{
-	
-	let $rules-that-have-been-disambiguated-in-this-function := ('ClCl', 'ClCl2', 'CLandCL2')
-	return
-		
-		(: Ryder: Ensure an error is thrown for cases I have not yet handled. :)
-		if (count($node/child::Node) > 2) then
-			(: Try to process conjunctions and recount :)
-			
-			local:process-conjunctions($node, $passed-role)
-			(:
-			<error_unhandled_complex_clause_structure__too_many_children
-				rule="{$node/@Rule}"/>:)
-		else
-			if (not($node/@Rule = $rules-that-have-been-disambiguated-in-this-function)) then
-				(: Ryder: some other rules should probably be treated as complex clause structure requiring disambiguation (e.g., 'ClaCl'), and if they do, then they should trip this condition until their internal structure disambiguation is handled below :)
-				<error_unknown_complex_clause_structure
-					rule="{$node/@Rule}">{
-						$node/element() ! local:node(.)
-					}</error_unknown_complex_clause_structure>
-			
-			else
-				
-				let $first-constituent := $node/child::Node[1]
-				let $second-constituent := $node/child::Node[2]
-				
-				(:
-					Ryder: possible analyses for cases I have handled:
-					- subordinate first constituent <-- assume case for ClCl
-					- subordinate second constituent <-- assume case for ClCl2
-					- coordinate constituents (group them) <-- I know this is sometimes the case in the Greek trees (e.g., Matt 12:3), but I'm not sure about the Hebrew trees
-					- flatten some series of nested ClCl when they should be groups (e.g., potentially Isaiah 51.9, which has ClCl 4 or 5 deep)
-					
-					TODO:
-					* handle complex clause structures beyond ClCl, ClCl2, and CLandCL2
-					* handle projected speech
-				:)
-				
-				let $should-coordinate-constituents := (
-					$node/@Rule = ('NpCL', 'NpInf', 'NpPart')
-				)
-				let $should-subordinate-first := ($node/@Rule = ('ClCl2', 'CLandCL2'))
-				let $should-subordinate-second := ($node/@Rule = 'ClCl')
-				return
-				
-					if ($should-coordinate-constituents) then (
-						(: Ryder TODO: handle ClCl/ClCl2 that should be coordinated :)
-					)
-					else 
-					
-						let $constituent-to-raise := 
-							if ($should-subordinate-first) then
-								$second-constituent
-							else
-								$first-constituent
-								
-						let $constituent-to-subordinate := 
-							if ($should-subordinate-first) then
-								$first-constituent
-							else
-								$second-constituent
-						
-						(: Ryder TODO: disambiguate complex-cl constituent roles:
-							* aux <-- minor clauses, interjections, etc.?
-							* adv <-- absolutes, etc.
-							* obj <-- e.g., direct discourse
-						:)
-						let $disambiguated-subordinate-role := ('d?')
-						
-						
-						let $processed-head := 
-							if ($constituent-to-raise/@Rule = $atomic-structure-rule) then
-								local:node($constituent-to-raise, $passed-role)
-							else
-								local:node($constituent-to-raise, $passed-role)/element()
-						let $processed-subordinate := local:node($constituent-to-subordinate, $disambiguated-subordinate-role)
-						
-						return
-							<wg>{
-									(:local:attributes($node, 'class'),:)
-									$node/@Rule,
-									$node/@Cat,
-									$node/@nodeId,
-									if ($constituent-to-raise/@Rule = $atomic-structure-rule) then
-										local:attributes($processed-head)
-									else
-										(),
-									if ($passed-role) then
-										attribute role {$passed-role}
-									else
-										(),
-									$processed-head/element(),
-									$processed-subordinate
-								}</wg>
+	let $head := $node/parent::Node/@Head + 1
+	let $headNode := $node/parent::Node/*[$head]
+	where $node is $headNode
+	return attribute head { true() }
 };
 
-declare function local:process-group($node, $passed-role)
+
+declare function local:is-worth-preserving($clause)
 {
-	(: Ryder: Complex node does not have a head; therefore coordinate its children as siblings
- TODO: disambiguate wrappers to determine whether some of these groups are in fact subordinating structures.
- TODO: disambiguate projection/projecting and figure out where nesting should occur of some children
+    local:node-type($clause/parent::*) = 'role'
+    or $clause/@Rule='sub-CL'
+    or not($clause/@Rule=('ClCl','ClCl2'))
+};
+
+declare function local:oneword($node)
+(: If the Node governs a single word, return that word. :)
+{
+     if (count($node/Node) > 1)
+     then ()
+     else if ($node/Node)
+     then local:oneword($node/Node)
+     else $node
+};
+
+declare function local:clause($node)
+(:  This is probably too simple as written - could do restructuring of clauses based on @rule attributes  :)
+{
+      if (local:is-worth-preserving($node))
+      then       
+        <wg>
+          {
+              local:attributes($node),
+              $node/Node ! local:node(.)
+          }
+        </wg>
+      else 
+        $node/Node ! local:node(.) 
+};
+
+
+declare function local:phrase($node)
+{
+    if (local:oneword($node))
+    then (local:word(local:oneword($node)))
+    else
+        <wg>
+          {
+            local:attributes($node),
+            $node/Node ! local:node(.)
+          }
+        </wg>
+};
+
+declare function local:role($node)
+(:
+  A role node can have more than one child in some
+  corner cases in the GBI trees, e.g. Gal 4:18, where
+  an ADV node contains ADV conj ADV.  I imagine this
+  occurs only for conjunctions, but I am not sure.
 :)
-	let $clauseIsProjected := local:clause-is-projected($node)
-	let $clauseIsProjecting := local:clause-is-projecting($node)
-	
-	return
-		<wg type="group">{
-				local:attributes($node, 'class'),
-				if ($passed-role) then
-					attribute role {$passed-role}
-				else
-					(),
-				if ($clauseIsProjected) then
-					attribute projected {'true'}
-				else
-					if ($clauseIsProjecting) then
-						attribute projecting {'true'}
-					else
-						(),
-				$node/child::element() ! local:node(.)
-			}</wg>
-};
-
-declare function local:process-single-constituent-clause($node, $passed-role)
 {
-	(:
-		Rules to handle here:
-		* ADV2CL - Done; needs revisiting
-		* Intj2CL - Done
-		* Np2CL - Done; Ryder: these are mostly topics, though there are some tails (e.g., JOB 19:21); these are almost always in complex clause structures
-		* O22CL - Done; needs revisiting
-		* O2CL - Done; needs revisiting; usually the child of a relCL, but sometimes a complex clause structure
-		* P2CL - Done
-		* PP2CL - Done
-		* Relp2CL - Done; needs revisiting: the ones I looked at all have some kind of additional wrapper which likely has an ADV role if anything.
-		* S2CL - Ryder TODO: always the child of a complex clause structure. These need to be disambiguated carefully. Sometimes they are actually interpersonal moves such as affirmative responses (GEN 27:24!1). At other times they are simply eliptical/junctive constructions (both conjunctive, e.g., GEN 26:26!1, GEN 50:8!1, LEV 16:29!5, LEV 21:18!2, NUM 26:40!1, and also disjunctive, e.g., NUM 26:65!12). At other times they are appositional in poetry (e.g., GEN 49:7!5). At still other times they are simply verbless clauses in a ClCl (e.g., EXO 8:17!15), adverbial constituents of the headed clause in a CLa2CL (e.g., EXO 16:6!8), or items in a list (e.g., numerous instances in JOS 15:34), and likely others. It is probable that better disambiguation of complex clause structures will resolve many of these problems, and at the very least the disambiguation has to happen atthat stage of this query.
-		* V2CL - Done
-	:)
-	let $internal-role := lower-case(substring-before($node/@Rule, '2CL'))
-	return
-	
-	switch ($node/@Rule)
-		case 'P2CL'
-		case 'V2CL'
-		case 'S2CL'
-		case 'O2CL'
-		case 'ADV2CL'
-			return <wg>{
-						attribute class {'cl'},
-						local:attributes($node, 'class'),
-						$node/element() ! local:node(., $internal-role)
-					}</wg>
-		
-		case 'PP2CL'
-			return 
-				$node/element() ! local:node(., 'adv')	
-		case 'Intj2CL'
-		case 'Np2CL'
-			return 
-				$node/element() ! local:node(., 'aux')
-		case 'O22CL'
-			return 
-				(: Ryder TODO: revisit and disambiguate these since they are tied to complex clause disambiguation. They may need to have the $passed-role in cases where a ClCl parent has a projecting verb and content (and this O22CL could be the content, for example. :)
-				$node/element() ! local:node(., ())
-		case 'Relp2CL'
-			return 
-				$node/element() ! local:node(., $passed-role)
-		
-		default
-			return
-				<error_unhandled_single_constituent_clause role="err" rule="{$node/@Rule}">{$node/element() ! local:node(.)}</error_unhandled_single_constituent_clause>
-				
-				
-				
-	(:
-	
-	TODO: *** use this comment to update this function to handle projecting V2CL
-	Ryder: here is how I handled single-constituent-clauses in the local:clause() function:
-	
-	
-	(: 
-			Ryder: TODO: clean up single-constituent clause
-			
-			Rules handled:
-			* General auxiliary rules
-			* V2CL - when projecting it should nest next sibling as object
-			* TODO: check relCL in o010310010111 - prep phrase as predicate? I don't think this should be a clause, but rather a phrase
-		:)
-		let $clause-role := substring-before($node/@Rule, '2')
-		
-		let $clause-is-auxiliary := (
-		$node/@Rule = $auxiliary-rule
-		and not($node/parent::Node[@Cat = 'pp'])
-		and not(local:clause-is-projecting($node))
-		)
-		
-		let $clause-is-projecting-verb := (
-			$node/@Rule = 'V2CL'
-			and local:clause-is-projecting($node)
-		)
-		
-		return
-			if ($clause-is-auxiliary) then
-				local:node($node/element(), 'aux2')
-			else if ($clause-is-projecting-verb) then
-				(: 
-				*******
-				*******
-				*******
-				
-				Ryder TODO: this should happen at the higher level... complex clauses that contain single-constituent clauses? :)
-				let $projecting-node := local:node($node/element(), 'v.proj')
-				let $projected-node := local:node(
-					$node/following::Node[descendant::m][1],
-					'o.proj'
-				)
-				
-				return <wg type="projection-scope" class="cl">{
-					$projecting-node,
-					$projected-node
-				}</wg>
-				
-			else
-				
-				<error_unhandled_single_constituent_clause>{
-						$node/@*,
-						$node/element() ! local:node(.)
-					}
-				</error_unhandled_single_constituent_clause>
-	
-	:)
+    let $role := 
+        if ($node/parent::Tree)
+        then ()
+        else attribute role {lower-case($node/@Cat)}
+    return
+        if (local:oneword($node))
+        then (local:word(local:oneword($node), $role))
+        else  if (count($node/Node) > 1)
+        then
+            <wg>
+                {
+                    $role,
+                    $node/Node ! local:node(.)
+                }
+            </wg>
+        else
+            <wg>
+                {
+                    $role,
+                    local:attributes($node/Node),
+                    $node/Node/Node ! local:node(.)
+                }
+            </wg>
 };
 
-declare function local:process-complex-node($node, $passed-role)
+declare function local:word($node)
 {
-	(:  
-    Nodes that make it here 
-    - (1) have @Rule, 
-    - (2) are not atomic nodes, and
-    - (3) have had their coordination processed already, so as to attach every conjunction with its scope
-    
-    Some of these nodes are groups.
-    - Group
-    Some of them need to subordinate the head node (e.g., preposition phrases)
-    - TODO: Are there some rules where there is one wrapper but multiple wrapped nodes?
-    Others need to subordinate only the non-heads (the modifiers).
-    
-    check for $headed-structure-rule or $group-rule or $wrapper-clause-rule :)
-	
-	(: WRAPPERS - subordinates siblings :)
-	if ($node/@Rule = $wrapper-rule) then
-		(:local:process-wrapper($node, $passed-role):)
-		<wg
-			type="wrapper-scope">{
-				local:attributes($node),
-				if ($passed-role) then
-					attribute role {$passed-role}
-				else
-					(),
-				$node/element() ! local:node(.)
-			}</wg>
-	else
-		(: GROUP STRUCTURE - coordinate siblings :)
-		if ($node/@Rule = ($group-rule, $apposition-rule)) then
-			local:process-group($node, $passed-role)
-		
-		else
-			
-			(: COMPLEX CLAUSE RULE - create child from non-head sibling
-            TODO: disambiguate role in new parent clause (some siblings
-            will be auxiliaries, many will be adverbial, any other options? )
-            
-            :)
-			if ($node/@Rule = ($modifier-structure-rule, $hebrew-determiner-rule, $aramaic-determiner-rule)) then
-				(: Ryder: keep modifier with modified. Note that aramaic determiners follow their nominal :)
-				<wg>{
-						attribute type {'modifier-scope'},
-						local:attributes($node, 'class'),
-						if ($passed-role) then
-							attribute role {$passed-role}
-						else
-							(),
-						$node/element() ! local:node(.)
-					}</wg>
-			else
-				if ($node/@Rule = $wrapper-clause-rule) then
-					local:process-wrapper-clause($node, $passed-role)
-				else
-					if ($node/@Rule = $aramaic-structure-rule) then
-						(: Ryder: these obviously only occur a handful of times in Daniel, Jeremiah, and Ezra. :)
-						<wg
-							type="aramaic-structure">{
-								local:attributes($node),
-								$node/element() ! local:node(.)
-							}</wg>
-					else
-						if ($node/@Rule = $complex-clause-rule) then
-							local:disambiguate-complex-clause-structure($node, $passed-role)
-						else
-							(: Ryder: V2CL is a clause with only a 'verb' constituent :)
-							if ($node/@Rule = $single-constituent-clause-rule) then
-								local:process-single-constituent-clause($node, ())
-						
-						else
-							<error_unknown_complex_node
-								rule="{$node/@Rule}">{$node/element() ! local:node(.)}</error_unknown_complex_node>
+    local:word($node, ())
 };
 
-declare function local:process-word($node, $passed-role)
+declare function local:word($node, $role)
+(: $role can contain a role attribute or a null sequence :)
 {
-	if ($node/m) then
-		$node/m ! <w>{
-				local:attributes(.),
-				if ($passed-role) then
-					attribute role {$passed-role}
-				else
-					(),
-				./text()
-			}</w>
-	else
-		if ($node/c) then
-			(: Ryder: TODO: handle compound morphemes :)
-			$node/c/m ! <w
-				compound="true">{
-					local:attributes(.),
-					if ($passed-role) then
-						attribute role {$passed-role}
-					else
-						(),
-					./text()
-				}</w>
-		else
-			$node/element() ! local:node(., $passed-role)
+    if ($node/c) then <c role="{$role}">{  $node/c/m ! local:word(.)}</c>
+    else if ($node/m)
+    then local:word($node/m, $role)
+    else if ($node/*) then ( element error {$role, $node }) 
+    else if (substring($node, string-length($node), 1) = ( "·", " .", ";", ",",".","—","·",";"))
+    then
+        (: place punctuation in a separate node :)
+        (
+        <w>
+            {
+                $role,
+                local:attributes($node),
+                substring($node, 1, string-length($node) - 1)
+            }
+        </w>,<pc>{substring($node, string-length($node), 1)}</pc>
+        )
+    else
+        <w>
+            {
+                $role,
+                local:attributes($node),
+                string($node)
+            }
+        </w>
 };
 
-declare function local:node-type($node as element())
+declare function local:node-type($node as element(Node))
 {
-	if (not($node/@Rule)) then
-		'non-rule-node'
-	else
-		if ($node/@Cat = 'S' and $node/Node[@Cat = 'cjp']) then
-			(: Ryder: The top level sentence may have clauses and conjunctions. 
-            See local:sentence() below. In theory, these could be treated as discourse-progression markers,
-            but for now they are being treated as simple conjunctions. 
-            
-            TODO: 
-            * disambiguate these based on conjunction type. E.g., ISA 2:22 has a second child of the sentence that should be a clause constituent.
-            :)
-			'conjunctions-to-be-processed'
-		(:
-		else if (some $child in $node/element() satisfies local:clause-is-projecting($child) then
-			(\: Ryder: once we have @depth data on the nodes, process it here, before anything else. 
-			
-			Notes: 
-			* downstream functions will need refactoring (such as auxiliary processing)
-			* projected content should cover the following content until depth returns to the same level as the projecting element
-			* however, we will probably only extend it to the end of the sentence at most for the treedown display.
-			:\)
-			'projections-to-be-processed'
-		:)
-		
-		else
-			if ($node/@Rule = $conjuncted-structure-rule) then
-				'conjunctions-to-be-processed'
-			else
-				if (local:is-clause-rule($node/@Rule)) then
-					'clause'
-				else
-					if ($node/@Rule = $atomic-structure-rule) then
-						'atomic'
-					else
-						'complex' (: Ryder: note - if something had an erroneous rule it would end up being a 'complex' unit :)
+    if ($node/m)
+      then "word"
+    else
+    switch ($node/@Cat)
+        case "adj"
+        case "adv"
+        case "art"
+        case "conj"
+        case "det"
+        case "noun"
+        case "num"
+        case "prep"
+        case "ptcl"
+        case "pron"
+        case "verb"
+        case "intj"
+	    case "adjp"
+        case "advp"
+        case "np"
+        case "nump"
+        case "pp"
+        case "vp"
+        (:  the following were found using //@Cat, not sure what they all are ... :)
+        case "omp"
+        case "om"
+        case "cjp"
+        case "cj"
+        case "relp"
+        case "rel"
+        case "ijp"
+        case "ij"
+        case "x"
+            return
+                "phrase"
+        case "S"
+        case "IO"
+        case "ADV"
+        case "O"
+        case "O2"
+        case "P"
+        case "PP"
+        case "V"
+        case "VC"
+            return
+                "role"
+        case "CL"
+            return
+                "clause"
+        default
+        return "####"
 };
 
-(: Ryder: declare both 1-arg and 2-arg node-processing functions so the function can be called with or without the second argument. :)
-declare function local:node($node as element()) {
-	local:node($node, ())
-};
-declare function local:node($node as element(), $passed-role as xs:string?)
+(:
+
+:)
+
+
+declare function local:node($node as element(Node))
 {
-	(: Ryder: This function should only ever process exactly one element. If multiple are being passed, use the simple mapping operator (e.g., instead of local:node($node), use $node/element() ! local:node(.) :)
-	if (count($node) gt 1) then
-		<error_too_many_nodes>{$node}</error_too_many_nodes>
-	else
-		if ($node/@Cat = 'S' and $node[parent::Tree]) then
-			(: Ryder: in the Hebrew trees, top-level clauses may have conjunction AND clause siblings. These need to be processed to properly attach the conjunctions to their conjuncted siblings. :)
-			local:process-conjunctions($node, $passed-role)
-		else
-			switch (local:node-type($node))
-				case "non-rule-node"
-					return
-						local:process-word($node, $passed-role)
-				case "conjunctions-to-be-processed"
-					return
-						local:process-conjunctions($node, $passed-role)
-				case "clause"
-					return
-						local:clause($node, $passed-role)
-				case "atomic"
-					return
-						$node/element() ! local:node(., $passed-role)
-				case "complex"
-					return
-						local:process-complex-node($node, $passed-role)
-				default
-				return
-					<error_unknown_node_type>{$node/@*}</error_unknown_node_type>
+    switch (local:node-type($node))
+        case "word"
+            return
+                local:word($node)
+        case "phrase"
+            return
+                local:phrase($node)
+        case "role"
+            return
+                local:role($node)
+        case "clause"
+            return
+                local:clause($node)
+        default
+        return
+            $node
 };
-
-(: sentence :)
 
 declare function local:straight-text($node)
 {
-	for $n at $i in $node//Node[m]
-	let $afterValue := string($n/m/@after)
-	let $textValue := string($n/m/text())
-		order by $n/@morphId
-	return
-		($textValue,
-		if (string-length($afterValue) > 0) then
-			$afterValue
-		else
-			'NOAFTERVALUE')
+    let $strings :=
+        for $m in $node//m
+        order by $m/@xml:id
+        return concat($m/text(), $m/@after)
+    return 
+        string-join($strings,"")
 };
 
 declare function local:sentence($node)
@@ -930,7 +467,7 @@ declare function local:sentence($node)
 						" "
 						)
 				}
-				{replace(string-join(local:straight-text($node)), 'NOAFTERVALUE', '')}
+				{ local:straight-text($node) }
 			</p>,
 			local:node($node)
 			
@@ -947,14 +484,12 @@ processing-instruction xml-stylesheet {'href="hebrew-boxwood.css"'},
 	lang="he"
 	id="{(/descendant::Sentence)[1]/substring(@verse, 1, 5)}">
 	{
-		(:
+	(:
             If a sentence has multiple interpretations, Sentence/Trees may contain
-            multiple Tree nodes.  We want to specify which interpretation to prefer.
+            multiple Tree nodes.  The first is the preferred interpretation.
         :)
-		let $interpretationToPrefer := 1
-		
-		(: Process sentences in recently-built dependency tree :)
-		for $sentence in //Tree[$interpretationToPrefer]/Node
+	
+		for $sentence in //Tree[1]/Node
 		return
 			local:sentence($sentence)
 	}
