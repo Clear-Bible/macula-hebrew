@@ -12,3 +12,5 @@ poetry install
 poetry shell
 python main.py
 ```
+
+Pass the `--fetch` flag (e.g. `python main.py --fetch`) to re-download the book-level XML from Tanach.us before processing.

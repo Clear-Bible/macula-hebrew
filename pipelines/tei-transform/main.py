@@ -157,10 +157,6 @@ def do_transform(source, tokens_lookup):
                 encoding="UTF-8",
             )
         )
-    # FIXME: Actually transform this XML
-    # transformer = XSLTransformer(usfm_ref, etree.parse(source.open("rb")))
-    # with dest.open("w") as f:
-    #     f.write(transformer.render())
 
 
 def serial_transform():
