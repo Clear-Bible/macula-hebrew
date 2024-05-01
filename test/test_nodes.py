@@ -48,7 +48,7 @@ def test_required_attrs_exist_on_w_elements(node_file):
 
 
 @pytest.mark.parametrize("node_file", __nodes_files__)
-def test_last_m_elem_after_is_not_missing_or_empty(node_file):
+def test_last_m_in_tree_after_not_missing_or_empty(node_file):
     xpath = "//Tree/descendant::m[last()][not(@after) or @after='']"
     assert not run_xpath_for_file(xpath, node_file)
 
