@@ -47,6 +47,12 @@ def test_required_attrs_exist_on_w_elements(node_file):
             assert attr in node.attrib
 
 
+@pytest.mark.parametrize("node_file", __nodes_files__)
+def test_last_m_elem_after_is_not_missing_or_empty(node_file):
+    xpath = "//Tree/descendant::m[last()][not(@after) or @after='']"
+    assert not run_xpath_for_file(xpath, node_file)
+
+
 def test_number_of_nodes_words():
     total_count = 0
     for node_file in __nodes_files__:
