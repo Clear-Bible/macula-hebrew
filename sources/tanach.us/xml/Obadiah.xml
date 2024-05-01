@@ -1,489 +1,552 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright C.V.Kimball 2013 -->
 <Tanach xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../XSL/Tanach.xsd">
-  <teiHeader>
-    <fileDesc>
-      <titleStmt>
-        <title level="s" type="uniform">Tanach</title>
-        <title level="s" type="uniformhebrew">תנ״ך</title>
-        <title level="s" type="main">Unicode/XML Leningrad Codex</title>
-        <title level="a" type="main">Obadiah</title>
-        <title level="a" type="mainhebrew">עבדיה</title>
-        <title level="a" type="filename">Obadiah</title>
+<teiHeader>
+  <fileDesc>
+    <titleStmt>
+      <title level="s" type="uniform">Tanach</title>
+      <title level="s" type="uniformhebrew">תנ״ך</title>
+      <title level="s" type="main">Unicode/XML Leningrad Codex</title>
+      <title level="a" type="main">Obadiah</title>
+      <title level="a" type="mainhebrew">עבדיה</title>
+      <title level="a" type="filename">Obadiah</title>
+      <editor>Shemu'el ben Ya'akov</editor>
+      <editor>Aharon ben-Mosheh ben-Asher</editor>
+      <respStmt>
+        <resp>Publisher:</resp>
+        <name>Christopher V. Kimball</name>
+        <name type="email">mail@cvkimball.com</name>
+      </respStmt>
+    </titleStmt>
+    <editionStmt>
+      <edition>Unicode/XML Leningrad Codex (UXLC)
+        <version>UXLC 2.0</version>
+        <date>19 Oct 2023</date>
+        <build>27.1</build>
+        <buildDateTime>19 Oct 2023  00:00</buildDateTime>
+      </edition>
+<respStmt>
+<resp>WLC2XML[21 Apr 2023] - Transcription from Michigan-Claremont encoding to Unicode with XML markings. See details in notes.</resp>
+<resp>ScanReplace/EditWLC[30 Dec 2020] - Edits/removes transcription notes; removes MDs.</resp>
+<resp>ScanReplace/InsertCGJs[29 Dec 2020] - Places CGJ in Jerusalem VUV words and leading metegs.</resp>
+<resp>Updater[15 Sep 2023] - Changes.xml file dated 2020.02.19 . </resp>
+<resp>Updater[15 Sep 2023] - Changes.xml file dated 2020.10.19 . </resp>
+<resp>Updater[15 Sep 2023] - Changes.xml file dated 2021.04.01 . </resp>
+<resp>Updater[15 Sep 2023] - Changes.xml file dated 2021.10.19 . </resp>
+<resp>Updater[15 Sep 2023] - Changes.xml file dated 2022.04.01 . </resp>
+<resp>Updater[15 Sep 2023] - Changes.xml file dated 2022.07.04 . </resp>
+<resp>Updater[15 Sep 2023] - Changes.xml file dated 2022.10.19 . </resp>
+<resp>Updater[15 Sep 2023] - Changes.xml file dated 2022.12.07 . </resp>
+<resp>Updater[15 Sep 2023] - Changes.xml file dated 2023.04.01 . </resp>
+<resp>Updater[15 Sep 2023] - Changes.xml file dated 2023.07.04 . </resp>
+<resp>Updater[15 Sep 2023] - Changes.xml file dated 2023.10.19 . </resp>
+</respStmt>
+    </editionStmt>
+    <extent>18098</extent>
+    <publicationStmt>
+      <distributor>Via web site:
+        <name>Christopher V. Kimball</name>
+        <name type="url">https://tanach.us/Tanach.xml</name>
+        <name type="email">mail@cvkimball.com</name>
+      </distributor>
+      <availability status="free">Freely available</availability>
+    </publicationStmt>
+    <notesStmt>
+      <note>The original text file wlc420_ps.txt was provided by the Groves Center. 
+The file has the MD5 hash: d31a 6a6e 9afa bf82 272c 2efb 0522 a12e 
+and was dated 25 Jan 2016. Six transcription notes (5,7,F) have been moved to the noted character (Lev 11:42.4, Judg 18:30.11, Isa 9.6.1, Ps 80:14.3, Job 38:13.5, Job 38:15.2) to produce the file wlc420_ps_td.txt for conversion to Unicode and XML by the program WLC2XML. The only other changes to the Groves Center text are: The book names in English and Hebrew of the Jewish Publication Society Tanach and book abbreviations from the New Revised Standard Version have been added. MC code 32 added as atnah hafukh by Steve Salisbury, 30 Sep 2021. The atnah hafukh codepoint, x05a2, has been added to the character table; it does not appear in WLC 4.20. </note>
+    <correction>
+<citation>1:1.17</citation>
+<description>Word lacks accent, add note 'c'; MAM has a Tipeha (  ס֖  ) to the Lamed on this word.</description>
+<author>Ben Denckla</author>
+<filedate>2021.10.19</filedate>
+<date>2021.08.07</date>
+<n>15</n>
+</correction>
+<correction>
+<citation>1:3.6</citation>
+<description>Remove dagesh from samekh.</description>
+<author>Daniel Holman</author>
+<filedate>2023.04.01</filedate>
+<date>2022.12.12</date>
+<n>4</n>
+</correction>
+<correction>
+<citation>1:8.4</citation>
+<description>Remove maqaf from end of word.</description>
+<author>Daniel Holman</author>
+<filedate>2023.04.01</filedate>
+<date>2022.12.12</date>
+<n>5</n>
+</correction>
+<correction>
+<citation>1:12.9</citation>
+<description>Remove maqaf from end of word.</description>
+<author>Daniel Holman</author>
+<filedate>2023.04.01</filedate>
+<date>2022.12.12</date>
+<n>6</n>
+</correction>
+<correction>
+<citation>1:16.15</citation>
+<description>Move meteg from yod to he.</description>
+<author>Daniel Holman</author>
+<filedate>2023.04.01</filedate>
+<date>2022.12.12</date>
+<n>7</n>
+</correction>
+</notesStmt>
+    <sourceDesc>
+      <biblItem>
+        <title>Hebrew Bible</title>
+        <title>Leningrad Codex</title>
         <editor>Shemu'el ben Ya'akov</editor>
         <editor>Aharon ben-Mosheh ben-Asher</editor>
-        <respStmt>
-          <resp>Publisher:</resp>
-          <name>Christopher V. Kimball</name>
-          <name type="email">mail@cvkimball.com</name>
-        </respStmt>
-      </titleStmt>
-      <editionStmt>
-        <edition>Unicode/XML Leningrad Codex (UXLC)<version>UXLC 1.2</version>
-          <date>1 Apr 2021</date>
-          <build>26.2</build>
-          <buildDateTime>11 Mar 2021  06:46</buildDateTime>
-        </edition>
-        <respStmt>
-          <resp>WLC2XML[18 Dec 2020] - Transcription from Michigan-Claremont encoding to Unicode with XML markings. See details in notes.</resp>
-          <resp>ScanReplace/EditWLC[30 Dec 2020] - Edits/removes transcription notes; removes MDs.</resp>
-          <resp>Updater[3 Mar 2021] - Changes.xml file dated 2020.02.19 .</resp>
-          <resp>Updater[3 Mar 2021] - Changes.xml file dated 2020.10.19 .</resp>
-          <resp>Updater[3 Mar 2021] - Changes.xml file dated 2021.04.01 .</resp>
-          <resp>ScanReplace/InsertCGJs[29 Dec 2020] - Places CGJ in Jerusalem VUV words and leading metegs.</resp>
-        </respStmt>
-      </editionStmt>
-      <extent>16140</extent>
-      <publicationStmt>
-        <distributor>Via web site:<name>Christopher V. Kimball</name>
-          <name type="url">https://www.tanach.us/Tanach.xml</name>
-          <name type="email">mail@cvkimball.com</name>
-        </distributor>
-        <availability status="free">Freely available</availability>
-      </publicationStmt>
-      <notesStmt>
-        <note>The original text file wlc420_ps.txt was provided by the Groves Center. 
-The file has the MD5 hash: d31a 6a6e 9afa bf82 272c 2efb 0522 a12e 
-and was dated 25 Jan 2016. Six transcription notes (5,7,F) have been moved to the noted character (Lev 11:42.4, Judg 18:30.11, Isa 9.6.1, Ps 80:14.3, Job 38:13.5, Job 38:15.2) to produce the file wlc420_ps_td.txt for conversion to Unicode and XML by the program WLC2XML. The only other changes to the Groves Center text are: The book names in English and Hebrew of the Jewish Publication Society Tanach and book abbreviations from the New Revised Standard Version have been added.</note>
-      </notesStmt>
-      <sourceDesc>
-        <biblItem>
-          <title>Hebrew Bible</title>
-          <title>Leningrad Codex</title>
-          <editor>Shemu'el ben Ya'akov</editor>
-          <editor>Aharon ben-Mosheh ben-Asher</editor>
-          <edition>Original document</edition>
-          <imprint>
-            <publisher>Russian National Library (Saltykov-Shchedrin)</publisher>
-            <pubPlace>St. Petersburg (Leningrad)</pubPlace>
-            <date>1008</date>
-          </imprint>
-          <idno type="Accession">Firkovich B 19 A</idno>
-        </biblItem>
-        <biblItem>
-          <title>The Leningrad Codex - A Facsimile Edition</title>
-          <editor>Freedman, David Noel</editor>
-          <editor>Beck, Astrid B.</editor>
-          <edition>First</edition>
-          <imprint>
-            <publisher>Wm. B. Eerdmans Publishing Co.</publisher>
-            <pubPlace>Grand Rapids, MI</pubPlace>
-            <date>1998</date>
-          </imprint>
-          <idno type="IBSN">0-8028-3786-7</idno>
-        </biblItem>
-        <biblItem>
-          <title>The Westminster Leningrad Codex</title>
-          <editor>Salisbury, Stephen K.</editor>
-          <edition>WLC 4.20</edition>
-          <imprint>
-            <publisher>The J. Alan Groves Center for Advanced Biblical Research ("Groves Center").</publisher>
-            <pubPlace>2960 Church Rd.</pubPlace>
-            <pubPlace>Glenside, PA 19038</pubPlace>
-            <date>25 January 2016</date>
-          </imprint>
-          <idno type="Unknown"/>
-        </biblItem>
-      </sourceDesc>
-    </fileDesc>
-    <encodingDesc/>
-    <profileDesc>
-      <creation>From WLC 4.20 provided by the Groves Center.</creation>
-      <date>25 Jan 2016</date>
-      <langUsage>
-        <language ident="HE">Hebrew</language>
-      </langUsage>
-    </profileDesc>
-  </teiHeader>
-  <tanach>
-    <book>
-      <names>
-        <name>Obadiah</name>
-        <abbrev>Ob</abbrev>
-        <number>18</number>
-        <filename>Obadiah</filename>
-        <hebrewname>עבדיה</hebrewname>
-      </names>
-      <c n="1">
-        <v n="1">
-          <w n="18001001001">חֲז֖וֹן</w>
-          <w n="18001001002">עֹֽבַדְיָ֑ה</w>
-          <w n="18001001003">כֹּֽה־</w>
-          <w n="18001001004">אָמַר֩</w>
-          <w n="18001001005">אֲדֹנָ֨י</w>
-          <w n="18001001006">יְהוִ֜ה</w>
-          <w n="18001001007">לֶאֱד֗וֹם</w>
-          <w n="18001001008">שְׁמוּעָ֨ה</w>
-          <w n="18001001009">שָׁמַ֜עְנוּ</w>
-          <w n="18001001010">מֵאֵ֤ת</w>
-          <w n="18001001011">יְהוָה֙</w>
-          <w n="18001001012">וְצִיר֙</w>
-          <w n="18001001013">בַּגּוֹיִ֣ם</w>
-          <w n="18001001014">שֻׁלָּ֔ח</w>
-          <w n="18001001015">ק֛וּמוּ</w>
-          <w n="18001001016">וְנָק֥וּמָה</w>
-          <w n="18001001017">עָלֶיהָ</w>
-          <w n="18001001018">לַמִּלְחָמָֽה׃</w>
-        </v>
-        <v n="2">
-          <w n="18001002001">הִנֵּ֥ה</w>
-          <w n="18001002002">קָטֹ֛ן</w>
-          <w n="18001002003">נְתַתִּ֖יךָ</w>
-          <w n="18001002004">בַּגּוֹיִ֑ם</w>
-          <w n="18001002005">בָּז֥וּי</w>
-          <w n="18001002006">אַתָּ֖ה</w>
-          <w n="18001002007">מְאֹֽד׃</w>
-        </v>
-        <v n="3">
-          <w n="18001003001">זְד֤וֹן</w>
-          <w n="18001003002">לִבְּךָ֙</w>
-          <w n="18001003003">הִשִּׁיאֶ֔ךָ</w>
-          <w n="18001003004">שֹׁכְנִ֥י</w>
-          <w n="18001003005">בְחַגְוֵי־</w>
-          <w n="18001003006">סֶּ֖לַע</w>
-          <w n="18001003007">מְר֣וֹם</w>
-          <w n="18001003008">שִׁבְתּ֑וֹ</w>
-          <w n="18001003009">אֹמֵ֣ר</w>
-          <w n="18001003010">בְּלִבּ֔וֹ</w>
-          <w n="18001003011">מִ֥י</w>
-          <w n="18001003012">יוֹרִדֵ֖נִי</w>
-          <w n="18001003013">אָֽרֶץ׃</w>
-        </v>
-        <v n="4">
-          <w n="18001004001">אִם־</w>
-          <w n="18001004002">תַּגְבִּ֣יהַּ</w>
-          <w n="18001004003">כַּנֶּ֔שֶׁר</w>
-          <w n="18001004004">וְאִם־</w>
-          <w n="18001004005">בֵּ֥ין</w>
-          <w n="18001004006">כּֽוֹכָבִ֖ים</w>
-          <w n="18001004007">שִׂ֣ים</w>
-          <w n="18001004008">קִנֶּ֑ךָ</w>
-          <w n="18001004009">מִשָּׁ֥ם</w>
-          <w n="18001004010">אוֹרִֽידְךָ֖</w>
-          <w n="18001004011">נְאֻם־</w>
-          <w n="18001004012">יְהוָֽה׃</w>
-        </v>
-        <v n="5">
-          <w n="18001005001">אִם־</w>
-          <w n="18001005002">גַּנָּבִ֤ים</w>
-          <w n="18001005003">בָּאֽוּ־</w>
-          <w n="18001005004">לְךָ֙</w>
-          <w n="18001005005">אִם־</w>
-          <w n="18001005006">שׁ֣וֹדְדֵי</w>
-          <w n="18001005007">לַ֔יְלָה</w>
-          <w n="18001005008">אֵ֣יךְ</w>
-          <w n="18001005009">נִדְמֵ֔יתָה</w>
-          <w n="18001005010">הֲל֥וֹא</w>
-          <w n="18001005011">יִגְנְב֖וּ</w>
-          <w n="18001005012">דַּיָּ֑ם</w>
-          <w n="18001005013">אִם־</w>
-          <w n="18001005014">בֹּֽצְרִים֙</w>
-          <w n="18001005015">בָּ֣אוּ</w>
-          <w n="18001005016">לָ֔ךְ</w>
-          <w n="18001005017">הֲל֖וֹא</w>
-          <w n="18001005018">יַשְׁאִ֥ירוּ</w>
-          <w n="18001005019">עֹלֵלֽוֹת׃</w>
-        </v>
-        <v n="6">
-          <w n="18001006001">אֵ֚יךְ</w>
-          <w n="18001006002">נֶחְפְּשׂ֣וּ</w>
-          <w n="18001006003">עֵשָׂ֔ו</w>
-          <w n="18001006004">נִבְע֖וּ</w>
-          <w n="18001006005">מַצְפֻּנָֽיו׃</w>
-        </v>
-        <v n="7">
-          <w n="18001007001">עַֽד־</w>
-          <w n="18001007002">הַגְּב֣וּל</w>
-          <w n="18001007003">שִׁלְּח֗וּךָ</w>
-          <w n="18001007004">כֹּ֚ל</w>
-          <w n="18001007005">אַנְשֵׁ֣י</w>
-          <w n="18001007006">בְרִיתֶ֔ךָ</w>
-          <w n="18001007007">הִשִּׁיא֛וּךָ</w>
-          <w n="18001007008">יָכְל֥וּ</w>
-          <w n="18001007009">לְךָ֖</w>
-          <w n="18001007010">אַנְשֵׁ֣י</w>
-          <w n="18001007011">שְׁלֹמֶ֑ךָ</w>
-          <w n="18001007012">לַחְמְךָ֗</w>
-          <w n="18001007013">יָשִׂ֤ימוּ</w>
-          <w n="18001007014">מָזוֹר֙</w>
-          <w n="18001007015">תַּחְתֶּ֔יךָ</w>
-          <w n="18001007016">אֵ֥ין</w>
-          <w n="18001007017">תְּבוּנָ֖ה</w>
-          <w n="18001007018">בּֽוֹ׃</w>
-        </v>
-        <v n="8">
-          <w n="18001008001">הֲל֛וֹא</w>
-          <w n="18001008002">בַּיּ֥וֹם</w>
-          <w n="18001008003">הַה֖וּא</w>
-          <w n="18001008004">נְאֻם־</w>
-          <w n="18001008005">יְהוָ֑ה</w>
-          <w n="18001008006">וְהַאֲבַדְתִּ֤י</w>
-          <w n="18001008007">חֲכָמִים֙</w>
-          <w n="18001008008">מֵֽאֱד֔וֹם</w>
-          <w n="18001008009">וּתְבוּנָ֖ה</w>
-          <w n="18001008010">מֵהַ֥ר</w>
-          <w n="18001008011">עֵשָֽׂו׃</w>
-        </v>
-        <v n="9">
-          <w n="18001009001">וְחַתּ֥וּ</w>
-          <w n="18001009002">גִבּוֹרֶ֖יךָ</w>
-          <w n="18001009003">תֵּימָ֑ן</w>
-          <w n="18001009004">לְמַ֧עַן</w>
-          <w n="18001009005">יִכָּֽרֶת־</w>
-          <w n="18001009006">אִ֛ישׁ</w>
-          <w n="18001009007">מֵהַ֥ר</w>
-          <w n="18001009008">עֵשָׂ֖ו</w>
-          <w n="18001009009">מִקָּֽטֶל׃</w>
-        </v>
-        <v n="10">
-          <w n="18001010001">מֵחֲמַ֛ס</w>
-          <w n="18001010002">אָחִ֥יךָ</w>
-          <w n="18001010003">יַעֲקֹ֖ב</w>
-          <w n="18001010004">תְּכַסְּךָ֣</w>
-          <w n="18001010005">בוּשָׁ֑ה</w>
-          <w n="18001010006">וְנִכְרַ֖תָּ</w>
-          <w n="18001010007">לְעוֹלָֽם׃</w>
-        </v>
-        <v n="11">
-          <w n="18001011001">בְּיוֹם֙</w>
-          <w n="18001011002">עֲמָֽדְךָ֣</w>
-          <w n="18001011003">מִנֶּ֔גֶד</w>
-          <w n="18001011004">בְּי֛וֹם</w>
-          <w n="18001011005">שְׁב֥וֹת</w>
-          <w n="18001011006">זָרִ֖ים</w>
-          <w n="18001011007">חֵיל֑וֹ</w>
-          <w n="18001011008">וְנָכְרִ֞ים</w>
-          <w n="18001011009">בָּ֣אוּ</w>
-          <k>שערו</k>
-          <q>שְׁעָרָ֗יו</q>
-          <w n="18001011010">וְעַל־</w>
-          <w n="18001011011">יְרוּשָׁלִַ֙ם֙</w>
-          <w n="18001011012">יַדּ֣וּ</w>
-          <w n="18001011013">גוֹרָ֔ל</w>
-          <w n="18001011014">גַּם־</w>
-          <w n="18001011015">אַתָּ֖ה</w>
-          <w n="18001011016">כְּאַחַ֥ד</w>
-          <w n="18001011017">מֵהֶֽם׃</w>
-        </v>
-        <v n="12">
-          <w n="18001012001">וְאַל־</w>
-          <w n="18001012002">תֵּ֤רֶא</w>
-          <w n="18001012003">בְיוֹם־</w>
-          <w n="18001012004">אָחִ֙יךָ֙</w>
-          <w n="18001012005">בְּי֣וֹם</w>
-          <w n="18001012006">נָכְר֔וֹ</w>
-          <w n="18001012007">וְאַל־</w>
-          <w n="18001012008">תִּשְׂמַ֥ח</w>
-          <w n="18001012009">לִבְנֵֽי־</w>
-          <w n="18001012010">יְהוּדָ֖ה</w>
-          <w n="18001012011">בְּי֣וֹם</w>
-          <w n="18001012012">אָבְדָ֑ם</w>
-          <w n="18001012013">וְאַל־</w>
-          <w n="18001012014">תַּגְדֵּ֥ל</w>
-          <w n="18001012015">פִּ֖יךָ</w>
-          <w n="18001012016">בְּי֥וֹם</w>
-          <w n="18001012017">צָרָֽה׃</w>
-        </v>
-        <v n="13">
-          <w n="18001013001">אַל־</w>
-          <w n="18001013002">תָּב֤וֹא</w>
-          <w n="18001013003">בְשַֽׁעַר־</w>
-          <w n="18001013004">עַמִּי֙</w>
-          <w n="18001013005">בְּי֣וֹם</w>
-          <w n="18001013006">אֵידָ֔ם</w>
-          <w n="18001013007">אַל־</w>
-          <w n="18001013008">תֵּ֧רֶא</w>
-          <w n="18001013009">גַם־</w>
-          <w n="18001013010">אַתָּ֛ה</w>
-          <w n="18001013011">בְּרָעָת֖וֹ</w>
-          <w n="18001013012">בְּי֣וֹם</w>
-          <w n="18001013013">אֵיד֑וֹ</w>
-          <w n="18001013014">וְאַל־</w>
-          <w n="18001013015">תִּשְׁלַ֥חְנָה</w>
-          <w n="18001013016">בְחֵיל֖וֹ</w>
-          <w n="18001013017">בְּי֥וֹם</w>
-          <w n="18001013018">אֵידֽוֹ׃</w>
-        </v>
-        <v n="14">
-          <w n="18001014001">וְאַֽל־</w>
-          <w n="18001014002">תַּעֲמֹד֙</w>
-          <w n="18001014003">עַל־</w>
-          <w n="18001014004">הַפֶּ֔רֶק</w>
-          <w n="18001014005">לְהַכְרִ֖ית</w>
-          <w n="18001014006">אֶת־</w>
-          <w n="18001014007">פְּלִיטָ֑יו</w>
-          <w n="18001014008">וְאַל־</w>
-          <w n="18001014009">תַּסְגֵּ֥ר</w>
-          <w n="18001014010">שְׂרִידָ֖יו</w>
-          <w n="18001014011">בְּי֥וֹם</w>
-          <w n="18001014012">צָרָֽה׃</w>
-        </v>
-        <v n="15">
-          <w n="18001015001">כִּֽי־</w>
-          <w n="18001015002">קָר֥וֹב</w>
-          <w n="18001015003">יוֹם־</w>
-          <w n="18001015004">יְהוָ֖ה</w>
-          <w n="18001015005">עַל־</w>
-          <w n="18001015006">כָּל־</w>
-          <w n="18001015007">הַגּוֹיִ֑ם</w>
-          <w n="18001015008">כַּאֲשֶׁ֤ר</w>
-          <w n="18001015009">עָשִׂ֙יתָ֙</w>
-          <w n="18001015010">יֵעָ֣שֶׂה</w>
-          <w n="18001015011">לָּ֔ךְ</w>
-          <w n="18001015012">גְּמֻלְךָ֖</w>
-          <w n="18001015013">יָשׁ֥וּב</w>
-          <w n="18001015014">בְּרֹאשֶֽׁךָ׃</w>
-        </v>
-        <v n="16">
-          <w n="18001016001">כִּ֗י</w>
-          <w n="18001016002">כַּֽאֲשֶׁ֤ר</w>
-          <w n="18001016003">שְׁתִיתֶם֙</w>
-          <w n="18001016004">עַל־</w>
-          <w n="18001016005">הַ֣ר</w>
-          <w n="18001016006">קָדְשִׁ֔י</w>
-          <w n="18001016007">יִשְׁתּ֥וּ</w>
-          <w n="18001016008">כָֽל־</w>
-          <w n="18001016009">הַגּוֹיִ֖ם</w>
-          <w n="18001016010">תָּמִ֑יד</w>
-          <w n="18001016011">וְשָׁת֣וּ</w>
-          <w n="18001016012">וְלָע֔וּ</w>
-          <w n="18001016013">וְהָי֖וּ</w>
-          <w n="18001016014">כְּל֥וֹא</w>
-          <w n="18001016015">הָיֽוּ׃</w>
-        </v>
-        <v n="17">
-          <w n="18001017001">וּבְהַ֥ר</w>
-          <w n="18001017002">צִיּ֛וֹן</w>
-          <w n="18001017003">תִּהְיֶ֥ה</w>
-          <w n="18001017004">פְלֵיטָ֖ה</w>
-          <w n="18001017005">וְהָ֣יָה</w>
-          <w n="18001017006">קֹ֑דֶשׁ</w>
-          <w n="18001017007">וְיָֽרְשׁוּ֙</w>
-          <w n="18001017008">בֵּ֣ית</w>
-          <w n="18001017009">יַֽעֲקֹ֔ב</w>
-          <w n="18001017010">אֵ֖ת</w>
-          <w n="18001017011">מוֹרָֽשֵׁיהֶם׃</w>
-        </v>
-        <v n="18">
-          <w n="18001018001">וְהָיָה֩</w>
-          <w n="18001018002">בֵית־</w>
-          <w n="18001018003">יַעֲקֹ֨ב</w>
-          <w n="18001018004">אֵ֜שׁ</w>
-          <w n="18001018005">וּבֵ֧ית</w>
-          <w n="18001018006">יוֹסֵ֣ף</w>
-          <w n="18001018007">לֶהָבָ֗ה</w>
-          <w n="18001018008">וּבֵ֤ית</w>
-          <w n="18001018009">עֵשָׂו֙</w>
-          <w n="18001018010">לְקַ֔שׁ</w>
-          <w n="18001018011">וְדָלְק֥וּ</w>
-          <w n="18001018012">בָהֶ֖ם</w>
-          <w n="18001018013">וַאֲכָל֑וּם</w>
-          <w n="18001018014">וְלֹֽא־</w>
-          <w n="18001018015">יִֽהְיֶ֤ה</w>
-          <w n="18001018016">שָׂרִיד֙</w>
-          <w n="18001018017">לְבֵ֣ית</w>
-          <w n="18001018018">עֵשָׂ֔ו</w>
-          <w n="18001018019">כִּ֥י</w>
-          <w n="18001018020">יְהוָ֖ה</w>
-          <w n="18001018021">דִּבֵּֽר׃</w>
-        </v>
-        <v n="19">
-          <w n="18001019001">וְיָרְשׁ֨וּ</w>
-          <w n="18001019002">הַנֶּ֜גֶב</w>
-          <w n="18001019003">אֶת־</w>
-          <w n="18001019004">הַ֣ר</w>
-          <w n="18001019005">עֵשָׂ֗ו</w>
-          <w n="18001019006">וְהַשְּׁפֵלָה֙</w>
-          <w n="18001019007">אֶת־</w>
-          <w n="18001019008">פְּלִשְׁתִּ֔ים</w>
-          <w n="18001019009">וְיָרְשׁוּ֙</w>
-          <w n="18001019010">אֶת־</w>
-          <w n="18001019011">שְׂדֵ֣ה</w>
-          <w n="18001019012">אֶפְרַ֔יִם</w>
-          <w n="18001019013">וְאֵ֖ת</w>
-          <w n="18001019014">שְׂדֵ֣ה</w>
-          <w n="18001019015">שֹׁמְר֑וֹן</w>
-          <w n="18001019016">וּבִנְיָמִ֖ן</w>
-          <w n="18001019017">אֶת־</w>
-          <w n="18001019018">הַגִּלְעָֽד׃</w>
-        </v>
-        <v n="20">
-          <w n="18001020001">וְגָלֻ֣ת</w>
-          <w n="18001020002">הַֽחֵל־</w>
-          <w n="18001020003">הַ֠זֶּה</w>
-          <w n="18001020004">לִבְנֵ֨י</w>
-          <w n="18001020005">יִשְׂרָאֵ֤ל</w>
-          <w n="18001020006">אֲשֶֽׁר־</w>
-          <w n="18001020007">כְּנַעֲנִים֙</w>
-          <w n="18001020008">עַד־</w>
-          <w n="18001020009">צָ֣רְפַ֔ת</w>
-          <w n="18001020010">וְגָלֻ֥ת</w>
-          <w n="18001020011">יְרוּשָׁלַ֖͏ִם</w>
-          <w n="18001020012">אֲשֶׁ֣ר</w>
-          <w n="18001020013">בִּסְפָרַ֑ד</w>
-          <w n="18001020014">יִֽרְשׁ֕וּ</w>
-          <w n="18001020015">אֵ֖ת</w>
-          <w n="18001020016">עָרֵ֥י</w>
-          <w n="18001020017">הַנֶּֽגֶב׃</w>
-        </v>
-        <v n="21">
-          <w n="18001021001">וְעָל֤וּ</w>
-          <w n="18001021002">מֽוֹשִׁעִים֙</w>
-          <w n="18001021003">בְּהַ֣ר</w>
-          <w n="18001021004">צִיּ֔וֹן</w>
-          <w n="18001021005">לִשְׁפֹּ֖ט</w>
-          <w n="18001021006">אֶת־</w>
-          <w n="18001021007">הַ֣ר</w>
-          <w n="18001021008">עֵשָׂ֑ו</w>
-          <w n="18001021009">וְהָיְתָ֥ה</w>
-          <w n="18001021010">לַֽיהוָ֖ה</w>
-          <w n="18001021011">הַמְּלוּכָֽה׃</w>
-        </v>
-        <vs>21</vs>
-      </c>
+        <edition>Original document</edition>
+        <imprint>
+          <publisher>Russian National Library (Saltykov-Shchedrin)</publisher>
+          <pubPlace>St. Petersburg (Leningrad)</pubPlace>
+          <date>1008</date>
+        </imprint>
+        <idno type="Accession">Firkovich B 19 A</idno>
+      </biblItem>
+      <biblItem>
+        <title>The Leningrad Codex - A Facsimile Edition</title>
+        <editor>Freedman, David Noel</editor>
+        <editor>Beck, Astrid B.</editor>
+        <edition>First</edition>
+        <imprint>
+          <publisher>Wm. B. Eerdmans Publishing Co.</publisher>
+          <pubPlace>Grand Rapids, MI</pubPlace>
+          <date>1998</date>
+        </imprint>
+        <idno type="IBSN">0-8028-3786-7</idno>
+      </biblItem>
+      <biblItem>
+        <title>The Westminster Leningrad Codex</title>
+        <editor>Salisbury, Stephen K.</editor>
+        <edition>WLC 4.20</edition>
+        <imprint>
+          <publisher>The J. Alan Groves Center for Advanced Biblical Research ("Groves Center").</publisher>
+          <pubPlace>2960 Church Rd.</pubPlace>
+          <pubPlace>Glenside, PA 19038</pubPlace>
+          <date>25 January 2016</date>
+        </imprint>
+        <idno type="Unknown"/>
+      </biblItem>
+    </sourceDesc>
+  </fileDesc>
+  <encodingDesc>
+  </encodingDesc>
+  <profileDesc>
+    <creation>From WLC 4.20 provided by the Groves Center.</creation>
+    <date>25 Jan 2016</date>
+    <langUsage>
+      <language ident="HE">Hebrew</language>
+    </langUsage>
+  </profileDesc>
+</teiHeader>
+<tanach>
+  <book>
+    <names>
+      <name>Obadiah</name>
+      <abbrev>Ob</abbrev>
+      <number>18</number>
+      <filename>Obadiah</filename>
+      <hebrewname>עבדיה</hebrewname>
+    </names>
+    <c n="1">
+      <v n="1">
+        <w>חֲז֖וֹן</w>
+        <w>עֹֽבַדְיָ֑ה</w>
+        <w>כֹּֽה־</w>
+        <w>אָמַר֩</w>
+        <w>אֲדֹנָ֨י</w>
+        <w>יְהוִ֜ה</w>
+        <w>לֶאֱד֗וֹם</w>
+        <w>שְׁמוּעָ֨ה</w>
+        <w>שָׁמַ֜עְנוּ</w>
+        <w>מֵאֵ֤ת</w>
+        <w>יְהוָה֙</w>
+        <w>וְצִיר֙</w>
+        <w>בַּגּוֹיִ֣ם</w>
+        <w>שֻׁלָּ֔ח</w>
+        <w>ק֛וּמוּ</w>
+        <w>וְנָק֥וּמָה</w>
+        <w>עָלֶיהָ<x>c</x>
+</w>
+        <w>לַמִּלְחָמָֽה׃</w>
+      </v>
+      <v n="2">
+        <w>הִנֵּ֥ה</w>
+        <w>קָטֹ֛ן</w>
+        <w>נְתַתִּ֖יךָ</w>
+        <w>בַּגּוֹיִ֑ם</w>
+        <w>בָּז֥וּי</w>
+        <w>אַתָּ֖ה</w>
+        <w>מְאֹֽד׃</w>
+      </v>
+      <v n="3">
+        <w>זְד֤וֹן</w>
+        <w>לִבְּךָ֙</w>
+        <w>הִשִּׁיאֶ֔ךָ</w>
+        <w>שֹׁכְנִ֥י</w>
+        <w>בְחַגְוֵי־</w>
+        <w>סֶ֖לַע</w>
+        <w>מְר֣וֹם</w>
+        <w>שִׁבְתּ֑וֹ</w>
+        <w>אֹמֵ֣ר</w>
+        <w>בְּלִבּ֔וֹ</w>
+        <w>מִ֥י</w>
+        <w>יוֹרִדֵ֖נִי</w>
+        <w>אָֽרֶץ׃</w>
+      </v>
+      <v n="4">
+        <w>אִם־</w>
+        <w>תַּגְבִּ֣יהַּ</w>
+        <w>כַּנֶּ֔שֶׁר</w>
+        <w>וְאִם־</w>
+        <w>בֵּ֥ין</w>
+        <w>כּֽוֹכָבִ֖ים</w>
+        <w>שִׂ֣ים</w>
+        <w>קִנֶּ֑ךָ</w>
+        <w>מִשָּׁ֥ם</w>
+        <w>אוֹרִֽידְךָ֖</w>
+        <w>נְאֻם־</w>
+        <w>יְהוָֽה׃</w>
+      </v>
+      <v n="5">
+        <w>אִם־</w>
+        <w>גַּנָּבִ֤ים</w>
+        <w>בָּאֽוּ־</w>
+        <w>לְךָ֙</w>
+        <w>אִם־</w>
+        <w>שׁ֣וֹדְדֵי</w>
+        <w>לַ֔יְלָה</w>
+        <w>אֵ֣יךְ</w>
+        <w>נִדְמֵ֔יתָה</w>
+        <w>הֲל֥וֹא</w>
+        <w>יִגְנְב֖וּ</w>
+        <w>דַּיָּ֑ם</w>
+        <w>אִם־</w>
+        <w>בֹּֽצְרִים֙</w>
+        <w>בָּ֣אוּ</w>
+        <w>לָ֔ךְ</w>
+        <w>הֲל֖וֹא</w>
+        <w>יַשְׁאִ֥ירוּ</w>
+        <w>עֹלֵלֽוֹת׃</w>
+      </v>
+      <v n="6">
+        <w>אֵ֚יךְ</w>
+        <w>נֶחְפְּשׂ֣וּ</w>
+        <w>עֵשָׂ֔ו</w>
+        <w>נִבְע֖וּ</w>
+        <w>מַצְפֻּנָֽיו׃</w>
+      </v>
+      <v n="7">
+        <w>עַֽד־</w>
+        <w>הַגְּב֣וּל</w>
+        <w>שִׁלְּח֗וּךָ</w>
+        <w>כֹּ֚ל</w>
+        <w>אַנְשֵׁ֣י</w>
+        <w>בְרִיתֶ֔ךָ</w>
+        <w>הִשִּׁיא֛וּךָ</w>
+        <w>יָכְל֥וּ</w>
+        <w>לְךָ֖</w>
+        <w>אַנְשֵׁ֣י</w>
+        <w>שְׁלֹמֶ֑ךָ</w>
+        <w>לַחְמְךָ֗</w>
+        <w>יָשִׂ֤ימוּ</w>
+        <w>מָזוֹר֙</w>
+        <w>תַּחְתֶּ֔יךָ</w>
+        <w>אֵ֥ין</w>
+        <w>תְּבוּנָ֖ה</w>
+        <w>בּֽוֹ׃</w>
+      </v>
+      <v n="8">
+        <w>הֲל֛וֹא</w>
+        <w>בַּיּ֥וֹם</w>
+        <w>הַה֖וּא</w>
+        <w>נְאֻם</w>
+        <w>יְהוָ֑ה</w>
+        <w>וְהַאֲבַדְתִּ֤י</w>
+        <w>חֲכָמִים֙</w>
+        <w>מֵֽאֱד֔וֹם</w>
+        <w>וּתְבוּנָ֖ה</w>
+        <w>מֵהַ֥ר</w>
+        <w>עֵשָֽׂו׃</w>
+      </v>
+      <v n="9">
+        <w>וְחַתּ֥וּ</w>
+        <w>גִבּוֹרֶ֖יךָ</w>
+        <w>תֵּימָ֑ן</w>
+        <w>לְמַ֧עַן</w>
+        <w>יִכָּֽרֶת־</w>
+        <w>אִ֛ישׁ</w>
+        <w>מֵהַ֥ר</w>
+        <w>עֵשָׂ֖ו</w>
+        <w>מִקָּֽטֶל׃</w>
+      </v>
+      <v n="10">
+        <w>מֵחֲמַ֛ס</w>
+        <w>אָחִ֥יךָ</w>
+        <w>יַעֲקֹ֖ב</w>
+        <w>תְּכַסְּךָ֣</w>
+        <w>בוּשָׁ֑ה</w>
+        <w>וְנִכְרַ֖תָּ</w>
+        <w>לְעוֹלָֽם׃</w>
+      </v>
+      <v n="11">
+        <w>בְּיוֹם֙</w>
+        <w>עֲמָֽדְךָ֣</w>
+        <w>מִנֶּ֔גֶד</w>
+        <w>בְּי֛וֹם</w>
+        <w>שְׁב֥וֹת</w>
+        <w>זָרִ֖ים</w>
+        <w>חֵיל֑וֹ</w>
+        <w>וְנָכְרִ֞ים</w>
+        <w>בָּ֣אוּ</w>
+        <k>שערו</k>
+        <q>שְׁעָרָ֗יו</q>
+        <w>וְעַל־</w>
+        <w>יְרוּשָׁלִַ֙ם֙</w>
+        <w>יַדּ֣וּ</w>
+        <w>גוֹרָ֔ל</w>
+        <w>גַּם־</w>
+        <w>אַתָּ֖ה</w>
+        <w>כְּאַחַ֥ד</w>
+        <w>מֵהֶֽם׃</w>
+      </v>
+      <v n="12">
+        <w>וְאַל־</w>
+        <w>תֵּ֤רֶא</w>
+        <w>בְיוֹם־</w>
+        <w>אָחִ֙יךָ֙</w>
+        <w>בְּי֣וֹם</w>
+        <w>נָכְר֔וֹ</w>
+        <w>וְאַל־</w>
+        <w>תִּשְׂמַ֥ח</w>
+        <w>לִבְנֵֽי</w>
+        <w>יְהוּדָ֖ה</w>
+        <w>בְּי֣וֹם</w>
+        <w>אָבְדָ֑ם</w>
+        <w>וְאַל־</w>
+        <w>תַּגְדֵּ֥ל</w>
+        <w>פִּ֖יךָ</w>
+        <w>בְּי֥וֹם</w>
+        <w>צָרָֽה׃</w>
+      </v>
+      <v n="13">
+        <w>אַל־</w>
+        <w>תָּב֤וֹא</w>
+        <w>בְשַֽׁעַר־</w>
+        <w>עַמִּי֙</w>
+        <w>בְּי֣וֹם</w>
+        <w>אֵידָ֔ם</w>
+        <w>אַל־</w>
+        <w>תֵּ֧רֶא</w>
+        <w>גַם־</w>
+        <w>אַתָּ֛ה</w>
+        <w>בְּרָעָת֖וֹ</w>
+        <w>בְּי֣וֹם</w>
+        <w>אֵיד֑וֹ</w>
+        <w>וְאַל־</w>
+        <w>תִּשְׁלַ֥חְנָה</w>
+        <w>בְחֵיל֖וֹ</w>
+        <w>בְּי֥וֹם</w>
+        <w>אֵידֽוֹ׃</w>
+      </v>
+      <v n="14">
+        <w>וְאַֽל־</w>
+        <w>תַּעֲמֹד֙</w>
+        <w>עַל־</w>
+        <w>הַפֶּ֔רֶק</w>
+        <w>לְהַכְרִ֖ית</w>
+        <w>אֶת־</w>
+        <w>פְּלִיטָ֑יו</w>
+        <w>וְאַל־</w>
+        <w>תַּסְגֵּ֥ר</w>
+        <w>שְׂרִידָ֖יו</w>
+        <w>בְּי֥וֹם</w>
+        <w>צָרָֽה׃</w>
+      </v>
+      <v n="15">
+        <w>כִּֽי־</w>
+        <w>קָר֥וֹב</w>
+        <w>יוֹם־</w>
+        <w>יְהוָ֖ה</w>
+        <w>עַל־</w>
+        <w>כָּל־</w>
+        <w>הַגּוֹיִ֑ם</w>
+        <w>כַּאֲשֶׁ֤ר</w>
+        <w>עָשִׂ֙יתָ֙</w>
+        <w>יֵעָ֣שֶׂה</w>
+        <w>לָּ֔ךְ</w>
+        <w>גְּמֻלְךָ֖</w>
+        <w>יָשׁ֥וּב</w>
+        <w>בְּרֹאשֶֽׁךָ׃</w>
+      </v>
+      <v n="16">
+        <w>כִּ֗י</w>
+        <w>כַּֽאֲשֶׁ֤ר</w>
+        <w>שְׁתִיתֶם֙</w>
+        <w>עַל־</w>
+        <w>הַ֣ר</w>
+        <w>קָדְשִׁ֔י</w>
+        <w>יִשְׁתּ֥וּ</w>
+        <w>כָֽל־</w>
+        <w>הַגּוֹיִ֖ם</w>
+        <w>תָּמִ֑יד</w>
+        <w>וְשָׁת֣וּ</w>
+        <w>וְלָע֔וּ</w>
+        <w>וְהָי֖וּ</w>
+        <w>כְּל֥וֹא</w>
+        <w>הָֽיוּ׃</w>
+      </v>
+      <v n="17">
+        <w>וּבְהַ֥ר</w>
+        <w>צִיּ֛וֹן</w>
+        <w>תִּהְיֶ֥ה</w>
+        <w>פְלֵיטָ֖ה</w>
+        <w>וְהָ֣יָה</w>
+        <w>קֹ֑דֶשׁ</w>
+        <w>וְיָֽרְשׁוּ֙</w>
+        <w>בֵּ֣ית</w>
+        <w>יַֽעֲקֹ֔ב</w>
+        <w>אֵ֖ת</w>
+        <w>מוֹרָֽשֵׁיהֶם׃</w>
+      </v>
+      <v n="18">
+        <w>וְהָיָה֩</w>
+        <w>בֵית־</w>
+        <w>יַעֲקֹ֨ב</w>
+        <w>אֵ֜שׁ</w>
+        <w>וּבֵ֧ית</w>
+        <w>יוֹסֵ֣ף</w>
+        <w>לֶהָבָ֗ה</w>
+        <w>וּבֵ֤ית</w>
+        <w>עֵשָׂו֙</w>
+        <w>לְקַ֔שׁ</w>
+        <w>וְדָלְק֥וּ</w>
+        <w>בָהֶ֖ם</w>
+        <w>וַאֲכָל֑וּם</w>
+        <w>וְלֹֽא־</w>
+        <w>יִֽהְיֶ֤ה</w>
+        <w>שָׂרִיד֙</w>
+        <w>לְבֵ֣ית</w>
+        <w>עֵשָׂ֔ו</w>
+        <w>כִּ֥י</w>
+        <w>יְהוָ֖ה</w>
+        <w>דִּבֵּֽר׃</w>
+      </v>
+      <v n="19">
+        <w>וְיָרְשׁ֨וּ</w>
+        <w>הַנֶּ֜גֶב</w>
+        <w>אֶת־</w>
+        <w>הַ֣ר</w>
+        <w>עֵשָׂ֗ו</w>
+        <w>וְהַשְּׁפֵלָה֙</w>
+        <w>אֶת־</w>
+        <w>פְּלִשְׁתִּ֔ים</w>
+        <w>וְיָרְשׁוּ֙</w>
+        <w>אֶת־</w>
+        <w>שְׂדֵ֣ה</w>
+        <w>אֶפְרַ֔יִם</w>
+        <w>וְאֵ֖ת</w>
+        <w>שְׂדֵ֣ה</w>
+        <w>שֹׁמְר֑וֹן</w>
+        <w>וּבִנְיָמִ֖ן</w>
+        <w>אֶת־</w>
+        <w>הַגִּלְעָֽד׃</w>
+      </v>
+      <v n="20">
+        <w>וְגָלֻ֣ת</w>
+        <w>הַֽחֵל־</w>
+        <w>הַ֠זֶּה</w>
+        <w>לִבְנֵ֨י</w>
+        <w>יִשְׂרָאֵ֤ל</w>
+        <w>אֲשֶֽׁר־</w>
+        <w>כְּנַעֲנִים֙</w>
+        <w>עַד־</w>
+        <w>צָ֣רְפַ֔ת</w>
+        <w>וְגָלֻ֥ת</w>
+        <w>יְרוּשָׁלַ֖͏ִם</w>
+        <w>אֲשֶׁ֣ר</w>
+        <w>בִּסְפָרַ֑ד</w>
+        <w>יִֽרְשׁ֕וּ</w>
+        <w>אֵ֖ת</w>
+        <w>עָרֵ֥י</w>
+        <w>הַנֶּֽגֶב׃</w>
+      </v>
+      <v n="21">
+        <w>וְעָל֤וּ</w>
+        <w>מֽוֹשִׁעִים֙</w>
+        <w>בְּהַ֣ר</w>
+        <w>צִיּ֔וֹן</w>
+        <w>לִשְׁפֹּ֖ט</w>
+        <w>אֶת־</w>
+        <w>הַ֣ר</w>
+        <w>עֵשָׂ֑ו</w>
+        <w>וְהָיְתָ֥ה</w>
+        <w>לַֽיהוָ֖ה</w>
+        <w>הַמְּלוּכָֽה׃</w>
+      </v>
       <vs>21</vs>
-      <cs>1</cs>
-    </book>
-  </tanach>
-  <notes>
-    <note>
-      <code>4</code>
-      <gccode>4</gccode>
-      <note>Puncta extraordinaria -- an x05c4 is used to mark such marks in the text when they are above the line and an x05c5 when they are below the line. Shown without a superscript.</note>
-    </note>
-    <note>
-      <code>5</code>
-      <gccode>5</gccode>
-      <note>Large letter(s). Shown as large letters without a superscript.</note>
-    </note>
-    <note>
-      <code>6</code>
-      <gccode>6</gccode>
-      <note>Small letter(s). Shown as small letters without a superscript.</note>
-    </note>
-    <note>
-      <code>7</code>
-      <gccode>7</gccode>
-      <note>Suspended letter(s). Shown as suspended letters without a superscript.</note>
-    </note>
-    <note>
-      <code>8</code>
-      <gccode>8</gccode>
-      <note>Inverted nun in the text. Shown without a superscript.</note>
-    </note>
-    <note>
-      <code>c</code>
-      <gccode>c</gccode>
-      <note>Text is correct relative to LC. Usually this marks a peculiarity of the LC relative to the other Masoretic texts.</note>
-    </note>
-    <note>
-      <code>t</code>
-      <gccode>t</gccode>
-      <note>Transcription uncertain. Examine the LC image for other possible readings.</note>
-    </note>
-    <note>
-      <code>X</code>
-      <gccode>X</gccode>
-      <note>This verse does NOT occur in the Leningrad Codex. Included for continuity of verse numbering.</note>
-    </note>
-  </notes>
+    </c>
+    <vs>21</vs>
+    <cs>1</cs>
+  </book>
+</tanach>
+<notes>
+  <note>
+    <code>4</code>
+    <gccode>4</gccode>
+    <note>Puncta extraordinaria -- an x05c4 is used to mark such marks in the text when they are above the line and an x05c5 when they are below the line. </note>
+  </note>
+  <note>
+    <code>5</code>
+    <gccode>5</gccode>
+    <note>Large letter(s). Shown as large letters.</note>
+  </note>
+  <note>
+    <code>6</code>
+    <gccode>6</gccode>
+    <note>Small letter(s). Shown as small letters.</note>
+  </note>
+  <note>
+    <code>7</code>
+    <gccode>7</gccode>
+    <note>Suspended letter(s). Shown as suspended letters.</note>
+  </note>
+  <note>
+    <code>8</code>
+    <gccode>8</gccode>
+    <note>Inverted nun in the text.</note>
+  </note>
+  <note>
+    <code>c</code>
+    <gccode>c</gccode>
+    <note>Text is correct relative to LC. Usually this marks a peculiarity of the LC relative to the other Masoretic texts.</note>
+  </note>
+  <note>
+    <code>d</code>
+    <gccode>d</gccode>
+    <note>This tipeha is a dehi in other texts.</note>
+  </note>
+  <note>
+    <code>m</code>
+    <gccode>m</gccode>
+    <note>This meteg is a merkha in other texts.</note>
+  </note>
+  <note>
+    <code>t</code>
+    <gccode>t</gccode>
+    <note>Transcription uncertain. Examine the LC image for other possible readings.</note>
+  </note>
+  <note>
+    <code>X</code>
+    <gccode>X</gccode>
+    <note>This verse does NOT occur in the Leningrad Codex. Included for continuity of verse numbering.</note>
+  </note>
+</notes>
 </Tanach>

@@ -1,0 +1,25 @@
+[tool.poetry]
+name = "tei-transform"
+version = "0.0.1"
+description = "Pipeline to transform XML from Tanach.us into TEI resembling the macula-greek TEI"
+authors = ["Biblica's Clear Bible Data Team"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+lxml = "^4.9.3"
+biblelib = "^0.3.2"
+requests = "^2.31.0"
+
+[tool.poetry.group.dev.dependencies]
+ipdb = "^0.13.13"
+ipython = "^8.15.0"
+ruff = "^0.3.3"
+
+[tool.ruff]
+line-length = 100
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
