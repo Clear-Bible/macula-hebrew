@@ -19,7 +19,7 @@ jobs:
         with:
           python-version: '3.10'
       - name: cache poetry installation
-        uses: actions/cache@v2
+        uses: actions/cache@v4
         with:
           path: ~/.local
           key: poetry-1.4.2
@@ -31,7 +31,7 @@ jobs:
           virtualenvs-in-project: true
       - name: cache dependencies
         id: cache-deps
-        uses: actions/cache@v2
+        uses: actions/cache@v4
         with:
           path: ./test/.venv
           key: pydeps-${{ hashFiles('**/poetry.lock') }}-2
@@ -45,7 +45,7 @@ jobs:
         # `-o pipefail` forces an early fail.
         run: set -o pipefail; poetry run pytest | tee output.log
       - name: Archive test run output
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: test-run-output
           path: ./test/output.log
