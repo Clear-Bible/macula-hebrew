@@ -7,7 +7,8 @@ It can be ran against BaseX via the following command:
 
 ```shell
 # assumes macula-hebrew repository root context
-basex -i WLC/nodes/macula-hebrew.xml \
+basex -O xinclude=true \
+    -i WLC/nodes/macula-hebrew.xml \
     -o WLC/tsv/macula-hebrew.tsv \
     WLC/tsv/hebrew-nodes-to-tsv.xq
 ```
