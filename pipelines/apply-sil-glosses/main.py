@@ -5,12 +5,13 @@ Uses lxml for both parsing and serialization. Run the nodes-format pipeline
 afterward to restore consistent XML formatting.
 
 Usage:
-    python main.py <tsv-path> [--dry-run] [--verbose] [--filter PATTERN] [--debug]
+    python main.py <tsv-path> [--dry-run] [--verbose] [--filter PATTERN] [--debug] [--force]
 
 Example:
     python main.py ../create-gloss-mapping/outputs/sil-gloss-mapping.tsv --verbose
     python main.py ../create-gloss-mapping/outputs/sil-gloss-mapping.tsv --filter "*Gen*"
     python main.py ../create-gloss-mapping/outputs/sil-gloss-mapping.tsv --debug
+    python main.py ../create-gloss-mapping/outputs/sil-gloss-mapping.tsv --force
 """
 
 import argparse
@@ -42,12 +43,13 @@ class GlossMismatch:
     expected: str
 
 
-def load_gloss_mapping(tsv_path: Path) -> dict[str, str]:
+def load_gloss_mapping(tsv_path: Path, force: bool = False) -> dict[str, str]:
     """
     Load gloss mapping from TSV file.
 
     Args:
         tsv_path: Path to TSV file with columns: macula_id, gloss
+        force: If True, include rows with empty glosses
 
     Returns:
         Dict mapping macula_id (with 'o' prefix) to gloss
@@ -59,14 +61,17 @@ def load_gloss_mapping(tsv_path: Path) -> dict[str, str]:
         for row in reader:
             macula_id = row["macula_id"]
             gloss = row["gloss"]
-            if gloss:  # Only include non-empty glosses
+            if force or gloss:  # Include empty glosses when force=True
                 mapping[macula_id] = gloss
 
     return mapping
 
 
 def apply_glosses_to_file(
-    nodes_file: Path, morph_glosses: dict[str, str]
+    nodes_file: Path,
+    morph_glosses: dict[str, str],
+    force: bool = False,
+    dry_run: bool = False,
 ) -> tuple[int, int, list[GlossMismatch]]:
     """
     Apply gloss mappings to a single nodes XML file.
@@ -77,6 +82,8 @@ def apply_glosses_to_file(
     Args:
         nodes_file: Path to the nodes XML file
         morph_glosses: Dict mapping macula_id (with 'o' prefix) to gloss
+        force: If True, overwrite mismatched glosses
+        dry_run: If True, count changes without writing to disk
 
     Returns:
         Tuple of (morphs_updated, morphs_already_had_gloss, mismatches)
@@ -104,6 +111,7 @@ def apply_glosses_to_file(
             expected_gloss = morph_glosses[xml_id]
             existing_gloss = m_elem.get("gloss")
 
+            should_update = False
             if existing_gloss is not None:
                 already_had_count += 1
                 # Check if existing gloss matches expected
@@ -115,12 +123,17 @@ def apply_glosses_to_file(
                             expected=expected_gloss,
                         )
                     )
+                    if force:
+                        should_update = True
             else:
-                # Set the gloss attribute
-                m_elem.set("gloss", expected_gloss)
-                updated_count += 1
+                should_update = True
 
-    if updated_count > 0:
+            if should_update:
+                updated_count += 1
+                if not dry_run:
+                    m_elem.set("gloss", expected_gloss)
+
+    if updated_count > 0 and not dry_run:
         # Serialize with lxml (use UTF-8 bytes to include XML declaration)
         xml_bytes = etree.tostring(tree, encoding="UTF-8", xml_declaration=True)
         nodes_file.write_bytes(xml_bytes)
@@ -138,7 +151,9 @@ def _init_worker(morph_glosses: dict[str, str]):
     _worker_morph_glosses = morph_glosses
 
 
-def _process_single_file(nodes_file: Path) -> tuple[str, int, int, list[GlossMismatch]]:
+def _process_single_file(
+    nodes_file: Path, force: bool
+) -> tuple[str, int, int, list[GlossMismatch]]:
     """
     Process a single XML file. Worker function for parallel execution.
 
@@ -148,7 +163,7 @@ def _process_single_file(nodes_file: Path) -> tuple[str, int, int, list[GlossMis
         Tuple of (filename, updated_count, already_had_count, mismatches)
     """
     updated, already_had, mismatches = apply_glosses_to_file(
-        nodes_file, _worker_morph_glosses
+        nodes_file, _worker_morph_glosses, force
     )
     return nodes_file.name, updated, already_had, mismatches
 
@@ -161,6 +176,7 @@ def apply_glosses_with_filter(
     max_workers: int = None,
     debug: bool = False,
     dry_run: bool = False,
+    force: bool = False,
 ) -> tuple[dict[str, tuple[int, int]], list[GlossMismatch]]:
     """
     Apply gloss mappings to nodes XML files matching a filter pattern.
@@ -175,6 +191,7 @@ def apply_glosses_with_filter(
         max_workers: Maximum number of worker threads (default: None = auto)
         debug: If True, skip process pool and run sequentially
         dry_run: If True, don't write changes to files
+        force: If True, overwrite mismatched glosses
 
     Returns:
         Tuple of:
@@ -199,15 +216,9 @@ def apply_glosses_with_filter(
             print(f"  Processing {total_files} files sequentially ({mode})...")
 
         for i, xml_file in enumerate(xml_files, 1):
-            if dry_run:
-                # Parse but don't write - count what would be updated
-                updated, already_had, mismatches = _count_glosses_to_apply(
-                    xml_file, morph_glosses
-                )
-            else:
-                updated, already_had, mismatches = apply_glosses_to_file(
-                    xml_file, morph_glosses
-                )
+            updated, already_had, mismatches = apply_glosses_to_file(
+                xml_file, morph_glosses, force, dry_run
+            )
 
             results[xml_file.name] = (updated, already_had)
             all_mismatches.extend(mismatches)
@@ -229,10 +240,12 @@ def apply_glosses_with_filter(
 
     completed = 0
     with ProcessPoolExecutor(
-        max_workers=max_workers, initializer=_init_worker, initargs=(morph_glosses,)
+        max_workers=max_workers,
+        initializer=_init_worker,
+        initargs=(morph_glosses,),
     ) as executor:
         future_to_file = {
-            executor.submit(_process_single_file, f): f for f in xml_files
+            executor.submit(_process_single_file, f, force): f for f in xml_files
         }
 
         for future in as_completed(future_to_file):
@@ -250,51 +263,6 @@ def apply_glosses_with_filter(
                 print(status)
 
     return results, all_mismatches
-
-
-def _count_glosses_to_apply(
-    nodes_file: Path, morph_glosses: dict[str, str]
-) -> tuple[int, int, list[GlossMismatch]]:
-    """
-    Count glosses that would be applied without modifying the file.
-
-    Used for dry-run mode.
-    """
-    updated_count = 0
-    already_had_count = 0
-    mismatches = []
-
-    try:
-        tree = etree.parse(str(nodes_file))
-    except etree.XMLSyntaxError as e:
-        print(f"  WARNING: XML parse error in {nodes_file.name}: {e}")
-        return 0, 0, []
-
-    root = tree.getroot()
-
-    for m_elem in root.iter("m"):
-        xml_id = m_elem.get(XML_ID)
-        if not xml_id:
-            continue
-
-        if xml_id in morph_glosses:
-            expected_gloss = morph_glosses[xml_id]
-            existing_gloss = m_elem.get("gloss")
-
-            if existing_gloss is not None:
-                already_had_count += 1
-                if existing_gloss != expected_gloss:
-                    mismatches.append(
-                        GlossMismatch(
-                            morph_id=xml_id,
-                            existing=existing_gloss,
-                            expected=expected_gloss,
-                        )
-                    )
-            else:
-                updated_count += 1
-
-    return updated_count, already_had_count, mismatches
 
 
 def main():
@@ -333,6 +301,11 @@ def main():
         action="store_true",
         help="Run sequentially without process pool (easier debugging)",
     )
+    parser.add_argument(
+        "--force",
+        action="store_true",
+        help="Overwrite mismatched glosses and include empty-gloss rows",
+    )
 
     args = parser.parse_args()
 
@@ -347,7 +320,7 @@ def main():
 
     # Step 1: Load gloss mapping
     print(f"Loading gloss mapping from {args.tsv_path}...")
-    morph_glosses = load_gloss_mapping(args.tsv_path)
+    morph_glosses = load_gloss_mapping(args.tsv_path, args.force)
     print(f"  Loaded {len(morph_glosses)} gloss mappings")
 
     if args.dry_run:
@@ -363,6 +336,7 @@ def main():
         max_workers=args.workers,
         debug=args.debug,
         dry_run=args.dry_run,
+        force=args.force,
     )
 
     # Summary
