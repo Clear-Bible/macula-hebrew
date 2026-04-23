@@ -2,6 +2,7 @@ import pytest
 import os
 import codecs
 import re
+import unicodedata
 from lxml import etree
 from test import __nodes_files__, run_xpath_for_file
 
@@ -45,6 +46,13 @@ def test_required_attrs_exist_on_w_elements(node_file):
     for node in nodes:
         for attr in required_attrs:
             assert attr in node.attrib
+
+
+@pytest.mark.parametrize("node_file", __nodes_files__)
+def test_file_is_nfc(node_file):
+    """All text in the file must be Unicode NFC."""
+    text = open(node_file, encoding="utf-8").read()
+    assert unicodedata.normalize("NFC", text) == text, "File contains non-NFC text"
 
 
 @pytest.mark.parametrize("node_file", __nodes_files__)
