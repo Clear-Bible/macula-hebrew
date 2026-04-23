@@ -2,6 +2,7 @@ import pytest
 import os
 import codecs
 import re
+import unicodedata
 from lxml import etree
 from test import __lowfat_files__, run_xpath_for_file
 
@@ -25,6 +26,20 @@ def test_file_is_valid_utf8(lowfat_file):
 @pytest.mark.parametrize("lowfat_file", __lowfat_files__)
 def test_file_is_valid_xml(lowfat_file):
     assert etree.parse(lowfat_file)
+
+
+@pytest.mark.parametrize("lowfat_file", __lowfat_files__)
+def test_file_is_nfc(lowfat_file):
+    """All text in the file must be Unicode NFC."""
+    text = open(lowfat_file, encoding="utf-8").read()
+    assert unicodedata.normalize("NFC", text) == text, "File contains non-NFC text"
+
+
+@pytest.mark.parametrize("lowfat_file", __lowfat_files__)
+def test_no_cgj_anywhere(lowfat_file):
+    """CGJ (U+034F) must not appear anywhere in the file."""
+    text = open(lowfat_file, encoding="utf-8").read()
+    assert "\u034f" not in text, "File contains CGJ (U+034F)"
 
 
 @pytest.mark.parametrize("lowfat_file", __lowfat_files__)
@@ -56,6 +71,20 @@ def test_required_attrs_exist_on_w_elements(lowfat_file):
                     if IS_SUBSUMED_DEFINITE_ARTICLE.match(macula_id):
                         continue
                 raise
+
+
+@pytest.mark.parametrize("lowfat_file", __lowfat_files__)
+def test_w_lemma_not_empty(lowfat_file):
+    """Every <w> element must have a non-empty @lemma."""
+    bad = run_xpath_for_file("//w[not(@lemma) or @lemma='']", lowfat_file)
+    assert not bad, f"Found {len(bad)} <w> elements with missing/empty @lemma"
+
+
+@pytest.mark.parametrize("lowfat_file", __lowfat_files__)
+def test_w_after_not_missing(lowfat_file):
+    """Every <w> element must have an @after attribute."""
+    bad = run_xpath_for_file("//w[not(@after)]", lowfat_file)
+    assert not bad, f"Found {len(bad)} <w> elements missing @after"
 
 
 def test_number_of_lowfat_words():

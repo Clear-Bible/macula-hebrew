@@ -2,8 +2,15 @@ import pytest
 import os
 import codecs
 import re
+import unicodedata
+import collections
 from lxml import etree
 from test import __nodes_files__, run_xpath_for_file
+
+
+XML_ID_PATTERN = re.compile(r"^o\d+ה?$")  # optional ה suffix for subsumed definite articles
+
+VALID_AFTER_VALUES = {" ", "־", "׃", "׀", "׃פ", "׃ס", "ס", "פ", ""}
 
 
 @pytest.mark.parametrize("node_file", __nodes_files__)
@@ -21,6 +28,20 @@ def test_file_is_valid_utf8(node_file):
 @pytest.mark.parametrize("node_file", __nodes_files__)
 def test_file_is_valid_xml(node_file):
     assert etree.parse(node_file)
+
+
+@pytest.mark.parametrize("node_file", __nodes_files__)
+def test_file_is_nfc(node_file):
+    """All text in the file must be Unicode NFC."""
+    text = open(node_file, encoding="utf-8").read()
+    assert unicodedata.normalize("NFC", text) == text, "File contains non-NFC text"
+
+
+@pytest.mark.parametrize("node_file", __nodes_files__)
+def test_no_cgj_anywhere(node_file):
+    """CGJ (U+034F) must not appear anywhere in the file."""
+    text = open(node_file, encoding="utf-8").read()
+    assert "\u034f" not in text, "File contains CGJ (U+034F)"
 
 
 @pytest.mark.parametrize("node_file", __nodes_files__)
@@ -48,9 +69,73 @@ def test_required_attrs_exist_on_w_elements(node_file):
 
 
 @pytest.mark.parametrize("node_file", __nodes_files__)
+def test_m_xml_id_format(node_file):
+    """Every <m> element must have an xml:id of the form o<digits> (with optional ה suffix)."""
+    XML_ID = "{http://www.w3.org/XML/1998/namespace}id"
+    for m in etree.parse(node_file).xpath("//m"):
+        xml_id = m.get(XML_ID, "")
+        assert XML_ID_PATTERN.match(xml_id), f"Bad xml:id on <m>: {repr(xml_id)}"
+
+
+@pytest.mark.parametrize("node_file", __nodes_files__)
+def test_m_lemma_not_empty(node_file):
+    """Every <m> element must have a non-empty @lemma."""
+    bad = run_xpath_for_file("//m[not(@lemma) or @lemma='']", node_file)
+    assert not bad, f"Found {len(bad)} <m> elements with missing/empty @lemma"
+
+
+@pytest.mark.parametrize("node_file", __nodes_files__)
+def test_m_morph_not_empty(node_file):
+    """Every <m> element must have a non-empty @morph."""
+    bad = run_xpath_for_file("//m[not(@morph) or @morph='']", node_file)
+    assert not bad, f"Found {len(bad)} <m> elements with missing/empty @morph"
+
+
+@pytest.mark.parametrize("node_file", __nodes_files__)
+def test_m_after_valid_values(node_file):
+    """Every @after on <m> elements must be one of the known separator values."""
+    for m in etree.parse(node_file).xpath("//m[@after]"):
+        after = m.get("after")
+        assert after in VALID_AFTER_VALUES, (
+            f"Unexpected @after value {repr(after)} on "
+            f"xml:id={m.get('{http://www.w3.org/XML/1998/namespace}id')}"
+        )
+
+
+@pytest.mark.parametrize("node_file", __nodes_files__)
 def test_last_m_in_tree_after_not_missing_or_empty(node_file):
     xpath = "//Tree/descendant::m[last()][not(@after) or @after='']"
     assert not run_xpath_for_file(xpath, node_file)
+
+
+@pytest.mark.parametrize("node_file", __nodes_files__)
+def test_non_final_word_last_m_has_after(node_file):
+    """Last morpheme of each non-final orthographic word must have non-empty @after."""
+    tree = etree.parse(node_file)
+    violations = []
+    for sentence in tree.xpath("//Sentence"):
+        word_groups = collections.OrderedDict()
+        for m in sentence.iter("m"):
+            w = m.get("word", "")
+            if w not in word_groups:
+                word_groups[w] = []
+            word_groups[w].append(m)
+
+        word_ids = list(word_groups.keys())
+        for i, word_id in enumerate(word_ids):
+            if i == len(word_ids) - 1:
+                continue
+            last_m = word_groups[word_id][-1]
+            after = last_m.get("after", None)
+            if after is None or after == "":
+                xml_id = last_m.get(
+                    "{http://www.w3.org/XML/1998/namespace}id", "?"
+                )
+                violations.append(f"word={word_id} xml:id={xml_id}")
+
+    assert not violations, (
+        f"Non-final words with empty/missing @after: {violations[:5]}"
+    )
 
 
 def test_number_of_nodes_words():
