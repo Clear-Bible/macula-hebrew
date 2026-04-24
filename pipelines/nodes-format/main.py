@@ -29,6 +29,10 @@ def reformat(source):
     parsed = proc.parse_xml(xml_text=source.read_text())
     temp = proc.get_string_value(parsed)
 
+    # Strip CGJ (U+034F) — appears in OSHB source lemmas (e.g. יְרוּשָׁלִַ͏ם) but is
+    # invisible, has no effect in SBL Hebrew or Ezra SIL, and should not be in lemmas.
+    temp = temp.replace("\u034f", "")
+
     # re-insert declaration
     temp = f"<?xml version='1.0' encoding='UTF-8'?>\n{temp}"
     source.write_text(temp)
