@@ -126,15 +126,18 @@ def test_no_pc_elements(lowfat_file):
 
 @pytest.mark.parametrize("lowfat_file", __lowfat_files__)
 def test_no_error_elements(lowfat_file):
-    """No <error> elements should appear in the lowfat output.
+    """No <error> or <error_unknown_cat> elements should appear in the output.
 
-    The local:word() function emits <error> when it encounters a Node that
-    has unexpected child elements (neither <m> nor <c>).  Any <error> element
-    in the output signals an unhandled node structure in the transform.
+    - <error> is emitted by local:word() when a Node has unexpected children
+      (neither <m> nor <c>).
+    - <error_unknown_cat> is emitted by local:node() when a Node has a @Cat
+      value not handled by local:node-type() (the '####' fallback).
+
+    Either element in the output signals an unhandled case in the transform.
     """
-    bad = run_xpath_for_file("//error", lowfat_file)
+    bad = run_xpath_for_file("//error | //error_unknown_cat", lowfat_file)
     assert not bad, (
-        f"Found {len(bad)} <error> elements in {lowfat_file} — "
+        f"Found {len(bad)} error element(s) in {lowfat_file} — "
         "unhandled node structure in lowfat transform"
     )
 

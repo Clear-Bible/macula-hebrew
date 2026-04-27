@@ -422,7 +422,9 @@ declare function local:node($node as element(Node))
         case "phrase"  return local:phrase($node)
         case "role"    return local:role($node)
         case "clause"  return local:clause($node)
-        default        return $node
+        (: "####" — unrecognised @Cat; emit an identifiable error element
+           rather than silently passing through the raw <Node>. :)
+        default        return element error_unknown_cat { attribute cat {$node/@Cat}, $node }
 };
 
 
