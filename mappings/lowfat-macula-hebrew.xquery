@@ -223,8 +223,8 @@ declare function local:is-worth-preserving($clause)
    Node if the entire subtree collapses to exactly one morpheme; otherwise
    returns the empty sequence.
 
-   Used by local:phrase and local:role to flatten trivial single-word
-   constituents directly to <w> without a wrapping <wg>. :)
+   Used by local:phrase and local:role to flatten trivial single-morph
+   constituents directly to <m> without a wrapping <wg>. :)
 declare function local:oneword($node)
 {
      if (count($node/Node) > 1)
@@ -243,7 +243,7 @@ declare function local:oneword($node)
      local:clause  — Cat="CL" (full clauses)
      local:phrase  — lowercase Cat values (np, pp, vp, adjp, advp, relp, ...)
      local:role    — uppercase Cat values (S, IO, ADV, O, O2, P, PP, V, VC)
-     local:word    — leaf nodes: <m> morphemes and <c> compound-word groups
+     local:morph   — leaf nodes: <m> morphs and <c> compound-word groups
 
 :)
 
@@ -265,12 +265,12 @@ declare function local:clause($node)
 };
 
 (: Processes a phrase-level node (lowercase Cat: np, pp, vp, adjp, advp, etc.).
-   - Single-word subtree: promote the word directly as <w> (no wrapping <wg>).
-   - Multi-word subtree: <wg class="np" rule="..." head="...">children</wg>. :)
+   - Single-morph subtree: promote the morph directly as <m> (no wrapping <wg>).
+   - Multi-morph subtree: <wg class="np" rule="..." head="...">children</wg>. :)
 declare function local:phrase($node)
 {
     if (local:oneword($node))
-    then (local:word(local:oneword($node)))
+    then (local:morph(local:oneword($node)))
     else
         <wg>
           {
@@ -287,9 +287,11 @@ declare function local:phrase($node)
    Tree) receives no @role — it has no role relative to an enclosing clause.
 
    Three output cases:
-   1. Single-word subtree → <w role="..."> directly.
-   2. Multiple child Nodes → <wg role="...">children</wg>.
-      Note: no @class is emitted here; see internal issue #17.
+   1. Single-morph subtree → <m role="..."> directly.
+   2. Multiple child Nodes → <wg class="..." role="...">children</wg>.
+      @class: sentence-root multi-child nodes get class="cl"; non-root nodes
+      derive @class from the head child's @Cat (using @Head index). Fixes
+      internal issue #17.
    3. Exactly one child Node → <wg role="..." (attrs from child phrase)>
       grandchildren</wg>. Merges the role node with its single child
       phrase to avoid double-wrapping. :)
@@ -301,11 +303,19 @@ declare function local:role($node)
         else attribute role {lower-case($node/@Cat)}
     return
         if (local:oneword($node))
-        then (local:word(local:oneword($node), $role))
+        then (local:morph(local:oneword($node), $role))
         else  if (count($node/Node) > 1)
         then
+            let $class :=
+                if ($node/parent::Tree)
+                then attribute class {'cl'}
+                else
+                    let $head-pos := xs:integer($node/@Head) + 1
+                    return $node/Node[$head-pos]/@Cat ! attribute class {lower-case(.)}
+            return
             <wg>
                 {
+                    $class,
                     $role,
                     $node/Node ! local:node(.)
                 }
@@ -320,41 +330,47 @@ declare function local:role($node)
             </wg>
 };
 
-(: Processes a leaf node, producing a <w> (or <c> for compound words).
+(: Processes a leaf node, producing an <m> (morph) or <c> (compound word).
 
-   $node may be a word-level Node (containing <m> or <c>) or an <m> directly.
+   $node may be a word-level Node (containing <m> or <c> children) or an
+   <m> element directly.
+
+   The terminal unit is a morph in the Haspelmath sense — the surface
+   realization of a morpheme. Element name <m> reflects this precisely.
+   See macula-hebrew-internal issue #20.
 
    Compound words (<c> elements): Hebrew sometimes groups morphemes into a
    compound spanning an orthographic word boundary (e.g. proper nouns like
-   תּוּבַל קַיִן). These produce:
-     <c role="..."><w>...part 1...</w><w>...part 2...</w></c>
-   See internal issue #18 for tracking whether compounds need further work.
+   תּוּבַל קַיִן תּוּבַל קַיִן). These produce:
+     <c class="noun" role="..."><m>...part 1...</m><m>...part 2...</m></c>
+   @class is the lowercase @Cat of the source Node (always "noun" or "adj").
+   See macula-hebrew-internal issue #18.
 
-   Normal output: <w role="..." xml:id="..." morph="..." ...>text</w> :)
-declare function local:word($node)
+   Normal output: <m role="..." xml:id="..." morph="..." ...>text</m> :)
+declare function local:morph($node)
 {
-    local:word($node, ())
+    local:morph($node, ())
 };
 
-declare function local:word($node, $role)
+declare function local:morph($node, $role)
 {
-    if ($node/c) then <c>{$role, $node/c/m ! local:word(.)}</c>
+    if ($node/c) then <c>{$node/@Cat ! attribute class {lower-case(.)}, $role, $node/c/m ! local:morph(.)}</c>
     else if ($node/m)
-    then local:word($node/m, $role)
+    then local:morph($node/m, $role)
     else if ($node/*) then ( element error {$role, $node })
     else
-        <w>
+        <m>
             {
                 $role,
                 local:attributes($node),
                 string($node)
             }
-        </w>
+        </m>
 };
 
 (: Determines the processing category for a Node element.
 
-   "word"   — node contains <m> children directly (terminal morpheme leaf)
+   "morph"  — node contains <m> children directly (terminal morph leaf)
    "phrase" — lowercase @Cat values:
                 adj adv art conj cj cjp det ij ijp intj noun num np nump
                 om omp pp prep pron ptcl rel relp verb vp adjp advp x
@@ -367,7 +383,7 @@ declare function local:word($node, $role)
 declare function local:node-type($node as element(Node))
 {
     if ($node/m)
-      then "word"
+      then "morph"
     else
     switch ($node/@Cat)
         case "adj"
@@ -418,7 +434,7 @@ declare function local:node-type($node as element(Node))
 declare function local:node($node as element(Node))
 {
     switch (local:node-type($node))
-        case "word"    return local:word($node)
+        case "morph"   return local:morph($node)
         case "phrase"  return local:phrase($node)
         case "role"    return local:role($node)
         case "clause"  return local:clause($node)
