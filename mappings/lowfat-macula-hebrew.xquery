@@ -189,6 +189,7 @@ declare function local:attributes($node)
 	$node/@stem ! attribute stem {lower-case(.)},
 	$node/@person ! attribute person {lower-case(.)},
 	$node/@StrongNumberX ! attribute strongnumberx {.},
+	$node/@oshb-strongs ! attribute oshb-strongs {.},
 	$node/@Greek ! attribute greek {.},
 	(: @head: marks this element as the head of its parent phrase/clause.
 	   @Head is 0-based in the source; we shift to 1-based for XPath. :)

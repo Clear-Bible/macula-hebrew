@@ -212,6 +212,20 @@ def test_wg_has_class_or_role(lowfat_file):
     )
 
 
+def test_oshb_strongs_propagated():
+    """427,616 <m> elements must carry @oshb-strongs (propagated from nodes).
+
+    The nodes XML carries @oshb-strongs on every morph that has an OSHB
+    Strong's number. 48,295 morphs (mostly pronominal suffixes and subsumed
+    articles) legitimately have none. The lowfat transform must pass this
+    attribute through via local:attributes(). See macula-hebrew-internal #13.
+    """
+    total = 0
+    for lowfat_file in __lowfat_files__:
+        total += len(run_xpath_for_file("//m[@oshb-strongs]", lowfat_file))
+    assert total == 427616, f"Expected 427,616 <m> elements with @oshb-strongs, got {total}"
+
+
 def test_number_of_lowfat_morphs():
     """Total morph count across all lowfat files must equal 475,911.
 
