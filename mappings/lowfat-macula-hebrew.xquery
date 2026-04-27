@@ -1,45 +1,39 @@
-(:~~~ rule types ~~~:)
+(:~~~ Rule taxonomy ~~~
 
-(: Rule types are not currently used.  Ryder had a version that relied heavily on them.  They are kept here because they may be useful. :)
+  Input `Node` elements carry a @Rule attribute encoding internal structure.
+  This transform dispatches primarily on @Cat values, not @Rule.
+  Only the two variables below are actively consulted during processing.
+  The full rule taxonomy (atomic, conjuncted, group, modifier, complex-clause,
+  wrapper, apposition, auxiliary, single-constituent rules) is documented in
+  the project wiki and available in git history for reference.
 
-(: Ryder: atomic structure rules are simple promotion/conversion rules :)
-declare variable $atomic-structure-rule := ('Adj2Adjp', 'Adj2Advp', 'Adj2NP', 'Adj2Rel', 'AdjP2NP', 'Adjp2O', 'Adjp2P', 'Adjp2V', 'Adv2Adjp', 'Adv2Advp', 'Adv2Cjp', 'Adv2Pp', 'Adv2Ptcl', 'Advp2ADV', 'Advp2P', 'CL2ADV', 'CL2Adjp', 'CL2NP', 'CL2O2x', 'CL2Ox', 'CL2P', 'CL2PP', 'CL2S', 'Cj2Cjp', 'Cjp2ADV', 'Cjp2P', 'Ij2Ijp', 'Ijp2ADV', 'Ijp2advp', 'N2NP', 'N2NP', 'NP2PP', 'Np2ADV', 'Np2O', 'Np2O2', 'Np2P', 'Np2Pp', 'Np2S', 'Num2Nump', 'Nump2ADV', 'Nump2NP', 'ObjMarker', 'P2Advp', 'P2PP', 'Pp2Cjp', 'Pp2Np', 'Pp2P', 'Pp2PP', 'Pp2S', 'Pron2Adjp', 'Pron2NP', 'Ptcl2ADV', 'Ptcl2Np', 'Relp2Np', 'V2ADJP', 'V2AdvP', 'V2VP', 'VerbX', 'Vp2Np', 'Vp2V', 'VpVp2V3', 'adjp2ADV', 'adjp2O2', 'advp2np', 'cjp2np', 'cjp2pp', 'ijp2P', 'ijp2V', 'ijp2np', 'np2adjp', 'np2advp', 'np2cjp', 'np2ijp', 'np2vp', 'pp2ptcl', 'ptcl2P', 'rel2vp', 'vp2ADV');
-(: Ryder: conjuncted structure rules are non-atomic rules that include conjunctions/conjunction phrases :)
-declare variable $conjuncted-structure-rule := ('2CLaCL', '2CLaCLaCL', '2NpaNpaNp', '2PpaPp', '3NpaNp', '4NpaNp', 'ADJPaADJPADJPaADJP', 'ADVaADV', 'ADVaADVaADVaADV', 'AdjpAdjpandAdjp', 'AdjpaAdjp', 'AdjpandAdjpAdjp', 'AdvpaAdvp', 'AdvpandAdvp', 'AdvpandPp', 'CLa2CL', 'CLaCL', 'CjpAdjp', 'CjpAdvp2Advp', 'CjpAdvpCjpAdvp', 'ClClaClaClaClaCl', 'ClaClClaCl', 'ClaClaClCl', 'Conj11Np', 'Conj2Pp', 'Conj3Adjp', 'Conj3CL', 'Conj3Np', 'Conj3Pp', 'Conj4Adjp', 'Conj4CL', 'Conj4Np', 'Conj4Pp', 'Conj5CL', 'Conj5Np', 'Conj5Pp', 'Conj6Np', 'Conj6Pp', 'Conj7Np', 'Conj7Pp', 'Conj8Np', 'Conj9Np', 'NP10NP', 'NP3NP', 'NPNPNPNPaNPNPNPNPNPaNPNPNPNPNP', 'NPNPNPNPaNPaNPaNP', 'NPNPNPaNPNPaNP', 'NPNPNPaNPaNP', 'NPNPNPaNPaNPaNP', 'NPNPaNPNPNPNPNPaNP', 'NPNPaNPNPNPaNP', 'NPNPaNPNPaNP', 'NPNPaNPNPaNPaNP', 'NPNPaNPaNPaNP', 'NPNPaNPaNPaNPaNP', 'NPNPaNPaNPaNPaNPaNP', 'NPaNPNP', 'NPaNPNPNP', 'NPaNPNPNPNP', 'NPaNPNPNPNPNP', 'NPaNPNPNPNPNPNP', 'NPaNPNPNPNPNPaNPNP', 'NPaNPNPNPNPNPaNPaNP', 'NPaNPNPNPNPaNP', 'NPaNPNPNPaNP', 'NPaNPNPaNP', 'NPaNPNPaNPNP', 'NPaNPNPaNPNPaNP', 'NPaNPNPaNPNPaNPaNP', 'NPaNPaNPNP', 'NPaNPaNPNPNPNPNPNPNPNPNPNPNP', 'NPaNPaNPNPNPaNP', 'NPaNPaNPNPaNP', 'NPaNPaNPNPaNPNPNPaNPaNP', 'NPaNPaNPNPaNPNPaNP', 'NPaNPaNPNPaNPaNP', 'NPaNPaNPaNPNP', 'NPaNPaNPaNPNPaNP', 'NPaNPaNPaNPaNPNPNP', 'NPaNPaNPaNPaNPNPaNP', 'NPandPP2np', 'NPnp4NP', 'NPnp5NP', 'NpNp5', 'NpNp6', 'NpNpNpNpNpNpNpaNp', 'NpNpNpNpNpNpaNp', 'NpNpNpNpNpaNp', 'NpNpNpNpNpaNpNp', 'NpNpNpNpNpaNpaNp', 'NpNpNpNpaNpNpaNp', 'NpNpaNpNp', 'NpaNp', 'NumpAndNump', 'NumpNumpNumpaNump', 'NumpNumpaNump', 'NumpNumpaNumpaNump', 'NumpaNumpNump', 'NumpaNumpNumpaNump', 'NumpaNumpaNump', 'NumpaNumpaNumpaNump', 'PP8PP', 'PP9PP', 'PPPP4', 'PPPP5', 'PPandPP', 'PpPp9', 'PpPpPpPpandPp', 'PpPpPpaPpaPpaPpaPp', 'PpPpPpandPp', 'PpPpPpandPpPp', 'PpPpaPpaPpaPp', 'PpPpandPpPp', 'PpaPpPpPpPpaPp', 'PpaPpPpaPp', 'PpandAdvp', 'PpandPpPp', 'Relp3Relp', 'Relp5Relp', 'RelpandRelp', 'VP3VP', 'VPandVP', 'aCLaCL', 'aCLaCLaCL', 'aNpaNp', 'aNpaNpaNp', 'aPpaPp', 'aPpaPpaPp', 'cjpNp', 'cjpPp', 'ppPP5PP', 'ppPP6PP', 'ppappPP5PP');
-(: Ryder: "groups" repeat the same structure multiple times. This test could probably be nuanced a bit more (e.g., should any of these have heads?) :)
-declare variable $group-rule := ('12Np', '2Advp_h1', '2Advp_h2', '2CLaCL', '2CLaCLaCL', '2Np', '2NpaNpaNp', '2Pp', '2Pp', '2PpaPp', '3Adjp', '3NpaNp', '4NpaNp', '7Np', 'ADJPaADJPADJPaADJP', 'ADVaADV', 'ADVaADVaADVaADV', 'AdjpAdjp', 'AdjpAdjpandAdjp', 'AdjpaAdjp', 'AdjpandAdjpAdjp', 'AdvpaAdvp', 'AdvpandAdvp', 'CLa2CL', 'CLaCL', 'CjpAdvpCjpAdvp', 'CjpCjp', (:'ClCl', 'ClCl2', :) 'ClClCl', 'ClClClCl', 'ClClClClCl', 'ClClClClClCl', 'ClClaClaClaClaCl', 'ClaClClaCl', 'ClaClaClCl', 'Conj11Np', 'Conj2Pp', 'Conj3Adjp', 'Conj3CL', 'Conj3Np', 'Conj3Pp', 'Conj4Adjp', 'Conj4CL', 'Conj4Np', 'Conj4Pp', 'Conj5CL', 'Conj5Np', 'Conj5Pp', 'Conj6Np', 'Conj6Pp', 'Conj7Np', 'Conj7Pp', 'Conj8Np', 'Conj9Np', 'IjpIjp', 'NP10NP', 'NP3NP', 'NPNPNPNPaNPNPNPNPNPaNPNPNPNPNP', 'NPNPNPNPaNPaNPaNP', 'NPNPNPaNPNPaNP', 'NPNPNPaNPaNP', 'NPNPNPaNPaNPaNP', 'NPNPaNPNPNPNPNPaNP', 'NPNPaNPNPNPaNP', 'NPNPaNPNPaNP', 'NPNPaNPNPaNPaNP', 'NPNPaNPaNPaNP', 'NPNPaNPaNPaNPaNP', 'NPNPaNPaNPaNPaNPaNP', 'NPaNPNP', 'NPaNPNPNP', 'NPaNPNPNPNP', 'NPaNPNPNPNPNP', 'NPaNPNPNPNPNPNP', 'NPaNPNPNPNPNPaNPNP', 'NPaNPNPNPNPNPaNPaNP', 'NPaNPNPNPNPaNP', 'NPaNPNPNPaNP', 'NPaNPNPaNP', 'NPaNPNPaNPNP', 'NPaNPNPaNPNPaNP', 'NPaNPNPaNPNPaNPaNP', 'NPaNPaNPNP', 'NPaNPaNPNPNPNPNPNPNPNPNPNPNP', 'NPaNPaNPNPNPaNP', 'NPaNPaNPNPaNP', 'NPaNPaNPNPaNPNPNPaNPaNP', 'NPaNPaNPNPaNPNPaNP', 'NPaNPaNPNPaNPaNP', 'NPaNPaNPaNPNP', 'NPaNPaNPaNPNPaNP', 'NPaNPaNPaNPaNPNPNP', 'NPaNPaNPaNPaNPNPaNP', 'NPnp4NP', 'NPnp5NP', 'Np5Np', 'NpNp5', 'NpNp6', 'NpNpNp', 'NpNpNp11', 'NpNpNpNp', 'NpNpNpNpNp', 'NpNpNpNpNpNp', 'NpNpNpNpNpNpNpaNp', 'NpNpNpNpNpNpaNp', 'NpNpNpNpNpaNp', 'NpNpNpNpNpaNpNp', 'NpNpNpNpNpaNpaNp', 'NpNpNpNpaNpNpaNp', 'NpNpaNpNp', 'NpaNp', 'PP8PP', 'PP9PP', 'PPPP4', 'PPPP5', 'PPandPP', 'PpPp', 'PpPp9', 'PpPpPp', 'PpPpPpPp', 'PpPpPpPpPp', 'PpPpPpPpandPp', 'PpPpPpaPpaPpaPpaPp', 'PpPpPpandPp', 'PpPpPpandPpPp', 'PpPpaPpaPpaPp', 'PpPpandPpPp', 'PpaPpPpPpPpaPp', 'PpaPpPpaPp', 'PpandPpPp', 'Relp3Relp', 'Relp5Relp', 'RelpandRelp', 'VP3VP', 'VPandVP', 'aNpaNp', 'aNpaNpaNp', 'aPpaPp', 'aPpaPpaPp', 'ppPP5PP', 'ppPP6PP', 'ppappPP5PP', 'RelpRelp', 'aCLaCL', 'aCLaCLaCL', 'NumpAndNump', 'NumpNump', 'NumpNumpNumpNump', 'NumpNumpNumpaNump', 'NumpNumpaNump', 'NumpNumpaNumpaNump', 'NumpaNumpNump', 'NumpaNumpNumpaNump', 'NumpaNumpaNump', 'NumpaNumpaNumpaNump');
-(: Ryder: modifier structures are headed structures that have rules realized by diverse structural patterns (i.e., comprising mixed types of structures beyond simply conjunctions and repetitions of the same structure) :)
-(: Ryder TODO: modifier structure rules need to be broken down into two groups:
-    1. those that already have a proper dependency structure, and
-    2. those that only group constituents without indicating modifier dependency structure
-    :)
-declare variable $modifier-structure-rule := ('AdjX', 'AdjpAdvp', 'AdjpNp', 'AdjpPp', 'AdjpofNp', 'AdvX', 'AdvpAdjp', 'AdvpCL', 'AdvpNp', 'AdvpNp2advp', 'AdvpNump', 'AdvpPp', 'AdvpPp2', 'AdvpRelp', 'AdvpandPp', 'CjpAdjp', 'CjpAdvp2Advp', 'IjpX', 'NPandPP2np', 'NounX', 'NpAdjp', 'NpAdvp', 'NpCL', 'NpInf', 'NpNump', 'NpPart', 'NpPp', 'NpRelp', 'NumX', 'NumpAdjp', 'NumpNP', 'NumpPp', 'OmpNP', 'OmpRelp', 'PpAdvp', 'PpNp2Np', 'PpNump', 'PpNump2', 'PpRelp', 'PpandAdvp', 'PrepCL', 'PrepNp', 'PrepX', 'PtclCL', 'RelpNp', 'VerbX', 'advpCLtoAdvp', 'cjpCLx', 'relNp', 'NPofNP');
-(: Ryder: complex clauses are clauses (i.e., @Cat='CL') that do not have clause-function rules (e.g., 'S-V-O'). Note that you still need to check whether the node with the @Rule is indeed @Cat='CL', since these rules can show up elsewhere. :)
-declare variable $complex-clause-rule := ('2CLaCL', '2CLaCLaCL', 'CLa2CL', 'CLandCL2', 'ClCl', 'ClCl2', 'aCLaCL', 'aCLaCLaCL', 'cjpCLx', 'ppCL', 'NpCL', 'NpInf', 'NpPart');
-(: Ryder: wrapper clause rules are a subset of complex clause rules. They involve "wrapper" scope of the initial marker over a clause. 'ppCL' for example are typically subordinate clauses with a preposition marker. :)
-declare variable $wrapper-clause-rule := ('AdvpCL', 'cjpCLx', 'PtclCL', 'ppCL', 'relCL');
-(: Ryder: general wrapper rules are just like wrapper clause rules, but they involve wrapping of any non-clause unit. :)
-declare variable $wrapper-rule := ('cjpNp', 'cjpPp', 'QuanNP');
-
-declare variable $apposition-rule := ('Np-Appos');
-declare variable $auxiliary-rule := ('ADV2CL', 'Intj2CL', 'Np2CL', 'P2CL', 'O22CL', 'O2CL', 'S2CL', 'V2CL', 'Relp2CL', 'PP2CL');
-(: 
-
-Ryder notes:
-
-- 'aCLaCL' (but not 'aCLaCLaCL', which has one instance) includes many 'if x or y' constructions. Some of these could be analyzed as wrappers wrapping junction. They should then be removed from $group-rule.
-- 'CLa2CL' includes some apparent clause complexes (e.g., JOS 10:1), whereas others seem to be independant clauses. I assume '2CLaCL' is not the same, since it does no involve promotion to a clause.
+  Rule name conventions in the input trees:
+    - "X2Y"    — a single constituent of type X filling role Y (e.g. N2NP, V2VP)
+    - "XY"     — a modifier structure: X modifies head Y (e.g. PrepNp, DetNP)
+    - "XaY"    — X and Y conjoined with "and"/וְ (e.g. CLaCL, NpaNp)
+    - "ConjNX" — conjunction followed by N constituents of type X (e.g. Conj3Np)
+    - "ClCl"   — two clauses in a complex; ClCl = first is head, ClCl2 = second is head
 
 :)
+
+(: Aramaic determiner rules: in Aramaic (Daniel, Ezra-Nehemiah), the
+   determinateness marker FOLLOWS the noun (post-positive). These nodes
+   receive @articular='true' in the output. Contrast with Hebrew, where the
+   definite article precedes its noun (morph="Td") and is handled at the
+   morpheme level, not the rule level. :)
 declare variable $aramaic-determiner-rule := ('NPDet', 'NumpDet', 'AdjpDet');
-declare variable $hebrew-determiner-rule := ('DetAdjp', 'DetNP', 'DetNump', 'DetVp');
-declare variable $aramaic-structure-rule := ('vpVp2V2', 'Vpvp2V1');
+
+(: Nominalized clause rules: a clause functioning as a noun phrase — embedded
+   as a subject, object, or complement of an enclosing predicate. These nodes
+   receive @clausetype='nominalized-clause' in the output. :)
 declare variable $nominalized-clause-rule := ('CL2Adjp', 'CL2NP');
-declare variable $single-constituent-clause-rule := ('ADV2CL', 'Np2CL', 'Intj2CL', 'O22CL', 'O2CL', 'P2CL', 'PP2CL', 'Relp2CL', 'S2CL', 'V2CL');
 
 
-(: verse functions :)
+(:~~~ Reference functions ~~~:)
 
+(: Maps the 2-digit book prefix of a node ID (e.g. "01") to its USFM book code
+   (e.g. "GEN"). Node ID format: BBCCCVVVMM where BB=book, CCC=chapter,
+   VVV=verse, MM=word position within verse. :)
 declare function local:USFMBook($nodeId)
 {
 	if (string-length($nodeId) < 1)
@@ -47,127 +41,49 @@ declare function local:USFMBook($nodeId)
 		"error5"
 	else
 		switch (xs:integer(substring($nodeId, 1, 2)))
-			case 01
-				return
-					"GEN"
-			case 02
-				return
-					"EXO"
-			case 03
-				return
-					"LEV"
-			case 04
-				return
-					"NUM"
-			case 05
-				return
-					"DEU"
-			case 06
-				return
-					"JOS"
-			case 07
-				return
-					"JDG"
-			case 08
-				return
-					"RUT"
-			case 09
-				return
-					"1SA"
-			case 10
-				return
-					"2SA"
-			case 11
-				return
-					"1KI"
-			case 12
-				return
-					"2KI"
-			case 13
-				return
-					"1CH"
-			case 14
-				return
-					"2CH"
-			case 15
-				return
-					"EZR"
-			case 16
-				return
-					"NEH"
-			case 17
-				return
-					"EST"
-			case 18
-				return
-					"JOB"
-			case 19
-				return
-					"PSA"
-			case 20
-				return
-					"PRO"
-			case 21
-				return
-					"ECC"
-			case 22
-				return
-					"SNG"
-			case 23
-				return
-					"ISA"
-			case 24
-				return
-					"JER"
-			case 25
-				return
-					"LAM"
-			case 26
-				return
-					"EZK"
-			case 27
-				return
-					"DAN"
-			case 28
-				return
-					"HOS"
-			case 29
-				return
-					"JOL"
-			case 30
-				return
-					"AMO"
-			case 31
-				return
-					"OBA"
-			case 32
-				return
-					"JON"
-			case 33
-				return
-					"MIC"
-			case 34
-				return
-					"NAM"
-			case 35
-				return
-					"HAB"
-			case 36
-				return
-					"ZEP"
-			case 37
-				return
-					"HAG"
-			case 38
-				return
-					"ZEC"
-			case 39
-				return
-					"MAL"
-			default return
-				"###"
+			case 01 return "GEN"
+			case 02 return "EXO"
+			case 03 return "LEV"
+			case 04 return "NUM"
+			case 05 return "DEU"
+			case 06 return "JOS"
+			case 07 return "JDG"
+			case 08 return "RUT"
+			case 09 return "1SA"
+			case 10 return "2SA"
+			case 11 return "1KI"
+			case 12 return "2KI"
+			case 13 return "1CH"
+			case 14 return "2CH"
+			case 15 return "EZR"
+			case 16 return "NEH"
+			case 17 return "EST"
+			case 18 return "JOB"
+			case 19 return "PSA"
+			case 20 return "PRO"
+			case 21 return "ECC"
+			case 22 return "SNG"
+			case 23 return "ISA"
+			case 24 return "JER"
+			case 25 return "LAM"
+			case 26 return "EZK"
+			case 27 return "DAN"
+			case 28 return "HOS"
+			case 29 return "JOL"
+			case 30 return "AMO"
+			case 31 return "OBA"
+			case 32 return "JON"
+			case 33 return "MIC"
+			case 34 return "NAM"
+			case 35 return "HAB"
+			case 36 return "ZEP"
+			case 37 return "HAG"
+			case 38 return "ZEC"
+			case 39 return "MAL"
+			default return "###"
 };
 
+(: Constructs a USFM verse reference ("GEN 1:1") from a node ID. :)
 declare function local:USFMVerseId($nodeId)
 {
 	if (string-length($nodeId) < 1)
@@ -182,13 +98,47 @@ declare function local:USFMVerseId($nodeId)
 		)
 };
 
+
+(:~~~ Attribute mapping ~~~:)
+
+(: Flattens the attributes of an <m> (morpheme) element into a sequence of
+   attributes for a lowfat <w> element.
+
+   Source attributes come from two levels:
+     - The <m> element itself: xml:id, morph, lang, lemma, pos, after, gender,
+       number, state, stem, person, type, and gloss/domain fields.
+     - The parent <Node>: StrongNumberX, SenseNumber, Frame, Ref, SubjRef,
+       Greek, GreekStrong (annotation attributes on the containing tree node).
+     - The nearest ancestor <Node>: Unicode (pointed text form).
+
+   Attribute name remappings to lowfat conventions:
+     @word             → @ref
+     @SDBH             → @sdbh
+     @lemma            → @stronglemma  (lexical lemma)
+     @LexDomain        → @lexdomain
+     @ContextualDomain → @contextualdomain
+     @CoreDomain       → @coredomain
+     @SenseNumber      → @sensenumber
+     @Frame            → @frame
+     @Ref              → @participantref
+     @SubjRef          → @subjref
+     @Greek            → @greek
+     @GreekStrong      → @greekstrong
+     @StrongNumberX    → @strongnumberx
+     @Unicode (anc.)   → @unicode
+
+   @class: lower-case of the morpheme's own @Cat when present; otherwise
+   lower-case of the nearest ancestor Node's @Cat (for subsumed elements
+   such as definite articles absorbed into the following word).
+
+   @lemma is also emitted directly as the morphological lemma, distinct from
+   @stronglemma which is the lexical/dictionary lemma.
+
+   @head marks this morpheme's containing Node as the syntactic head of its
+   parent phrase or clause. :)
 declare function local:attributes($node)
-(: FIXME: 
-    1. Exclusions doesn't seem to be used - simplify?
-    2. Conditional logic seems unnecessary here - simplify?
-:)
 {
-    (: `m` attributes :)
+    (: from the <m> element :)
 	$node/@xml:id,
 	$node/@mandarin,
 	$node/@english,
@@ -204,6 +154,7 @@ declare function local:attributes($node)
 	$node/@LexDomain ! attribute lexdomain {.},
 	$node/@ContextualDomain ! attribute contextualdomain {.},
 	$node/@CoreDomain ! attribute coredomain {.},
+	(: from the parent <Node> :)
 	$node/parent::Node/@SenseNumber ! attribute sensenumber {.},
 	$node/parent::Node/@Frame ! attribute frame {.},
 	$node/parent::Node/@Ref ! attribute participantref {.},
@@ -211,13 +162,23 @@ declare function local:attributes($node)
 	$node/parent::Node/@Greek ! attribute greek {.},
 	$node/parent::Node/@GreekStrong ! attribute greekstrong {.},
 	$node/parent::Node/@StrongNumberX ! attribute strongnumberx {.},
+	(: Unicode pointed text from nearest ancestor Node :)
 	$node/ancestor::Node[1]/@Unicode ! attribute unicode {.},
-		
+	(: @class from morpheme's own @Cat, or ancestor's @Cat for subsumed elements :)
 	if ($node/@Cat) then
 		attribute class {lower-case($node/@Cat)}
 	else
 		attribute class {lower-case($node/ancestor::Node[1]/@Cat)},
-			
+	(: rule taxonomy flags (the two rule variables consulted in this transform) :)
+	if ($node/@Rule = $aramaic-determiner-rule) then
+		attribute articular {'true'}
+	else
+		(),
+	if ($node/@Rule = $nominalized-clause-rule) then
+		attribute clausetype {'nominalized-clause'}
+	else
+		(),
+	(: remaining morphological attributes :)
 	$node/@Rule ! attribute rule {.},
 	$node/@Unicode ! attribute unicode {.},
 	$node/@lang ! attribute lang {.},
@@ -228,18 +189,10 @@ declare function local:attributes($node)
 	$node/@stem ! attribute stem {lower-case(.)},
 	$node/@person ! attribute person {lower-case(.)},
 	$node/@StrongNumberX ! attribute strongnumberx {.},
+	$node/@oshb-strongs ! attribute oshb-strongs {.},
 	$node/@Greek ! attribute greek {.},
-	
-	(: Ryder: FIXME: where exactly do we want this articular rule to go? Should we make it a discontinuous subordination phrase? :)
-	if ($node/@Rule = $aramaic-determiner-rule) then
-		attribute articular {'true'}
-	else
-		(),
-	if ($node/@Rule = $nominalized-clause-rule) then
-		attribute clausetype {'nominalized-clause'}
-	else
-		(),
-		
+	(: @head: marks this element as the head of its parent phrase/clause.
+	   @Head is 0-based in the source; we shift to 1-based for XPath. :)
 	let $head := $node/parent::Node/@Head + 1
 	let $headNode := $node/parent::Node/*[$head]
 	where $node is $headNode
@@ -247,6 +200,19 @@ declare function local:attributes($node)
 };
 
 
+(:~~~ Clause utilities ~~~:)
+
+(: Returns true when a clause node (Cat="CL") should be preserved as a <wg>
+   in the output rather than dissolved.
+
+   A clause is preserved when:
+     - Its parent node has type 'role' — the clause fills a named syntactic slot.
+     - OR its @Rule is 'sub-CL' — an explicitly marked subordinate clause.
+     - OR its @Rule is anything other than 'ClCl'/'ClCl2'.
+
+   Bare ClCl/ClCl2 nodes whose parent is not a role node are dissolved: their
+   children are promoted to the parent level to avoid spurious nesting of
+   peer clauses. :)
 declare function local:is-worth-preserving($clause)
 {
     local:node-type($clause/parent::*) = 'role'
@@ -254,8 +220,13 @@ declare function local:is-worth-preserving($clause)
     or not($clause/@Rule=('ClCl','ClCl2'))
 };
 
+(: Traverses down a chain of single-child Nodes. Returns the terminal leaf
+   Node if the entire subtree collapses to exactly one morpheme; otherwise
+   returns the empty sequence.
+
+   Used by local:phrase and local:role to flatten trivial single-morph
+   constituents directly to <m> without a wrapping <wg>. :)
 declare function local:oneword($node)
-(: If the Node governs a single word, return that word. :)
 {
      if (count($node/Node) > 1)
      then ()
@@ -264,26 +235,43 @@ declare function local:oneword($node)
      else $node
 };
 
+
+(:~~~ Output functions ~~~
+
+   Four functions produce the lowfat XML. Each handles one layer of the
+   source tree, dispatched by local:node() via local:node-type():
+
+     local:clause  — Cat="CL" (full clauses)
+     local:phrase  — lowercase Cat values (np, pp, vp, adjp, advp, relp, ...)
+     local:role    — uppercase Cat values (S, IO, ADV, O, O2, P, PP, V, VC)
+     local:morph   — leaf nodes: <m> morphs and <c> compound-word groups
+
+:)
+
+(: Processes a clause node (Cat="CL").
+   - If worth preserving: <wg class="cl" rule="..." head="...">children</wg>
+   - Otherwise: dissolve and emit children directly. :)
 declare function local:clause($node)
-(:  This is probably too simple as written - could do restructuring of clauses based on @rule attributes  :)
 {
       if (local:is-worth-preserving($node))
-      then       
+      then
         <wg>
           {
               local:attributes($node),
               $node/Node ! local:node(.)
           }
         </wg>
-      else 
-        $node/Node ! local:node(.) 
+      else
+        $node/Node ! local:node(.)
 };
 
-
+(: Processes a phrase-level node (lowercase Cat: np, pp, vp, adjp, advp, etc.).
+   - Single-morph subtree: promote the morph directly as <m> (no wrapping <wg>).
+   - Multi-morph subtree: <wg class="np" rule="..." head="...">children</wg>. :)
 declare function local:phrase($node)
 {
     if (local:oneword($node))
-    then (local:word(local:oneword($node)))
+    then (local:morph(local:oneword($node)))
     else
         <wg>
           {
@@ -293,25 +281,42 @@ declare function local:phrase($node)
         </wg>
 };
 
+(: Processes a role node (uppercase Cat: S, IO, ADV, O, O2, P, PP, V, VC).
+
+   @role is the lowercase Cat value (S→s, IO→io, ADV→adv, O→o, O2→o2,
+   P→p, PP→pp, V→v, VC→vc). Exception: the sentence-root node (parent is
+   Tree) receives no @role — it has no role relative to an enclosing clause.
+
+   Three output cases:
+   1. Single-morph subtree → <m role="..."> directly.
+   2. Multiple child Nodes → <wg class="..." role="...">children</wg>.
+      @class: sentence-root multi-child nodes get class="cl"; non-root nodes
+      derive @class from the head child's @Cat (using @Head index). Fixes
+      internal issue #17.
+   3. Exactly one child Node → <wg role="..." (attrs from child phrase)>
+      grandchildren</wg>. Merges the role node with its single child
+      phrase to avoid double-wrapping. :)
 declare function local:role($node)
-(:
-  A role node can have more than one child in some
-  corner cases in the GBI trees, e.g. Gal 4:18, where
-  an ADV node contains ADV conj ADV.  I imagine this
-  occurs only for conjunctions, but I am not sure.
-:)
 {
-    let $role := 
+    let $role :=
         if ($node/parent::Tree)
         then ()
         else attribute role {lower-case($node/@Cat)}
     return
         if (local:oneword($node))
-        then (local:word(local:oneword($node), $role))
+        then (local:morph(local:oneword($node), $role))
         else  if (count($node/Node) > 1)
         then
+            let $class :=
+                if ($node/parent::Tree)
+                then attribute class {'cl'}
+                else
+                    let $head-pos := xs:integer($node/@Head) + 1
+                    return $node/Node[$head-pos]/@Cat ! attribute class {lower-case(.)}
+            return
             <wg>
                 {
+                    $class,
                     $role,
                     $node/Node ! local:node(.)
                 }
@@ -326,44 +331,60 @@ declare function local:role($node)
             </wg>
 };
 
-declare function local:word($node)
+(: Processes a leaf node, producing an <m> (morph) or <c> (compound word).
+
+   $node may be a word-level Node (containing <m> or <c> children) or an
+   <m> element directly.
+
+   The terminal unit is a morph in the Haspelmath sense — the surface
+   realization of a morpheme. Element name <m> reflects this precisely.
+   See macula-hebrew-internal issue #20.
+
+   Compound words (<c> elements): Hebrew sometimes groups morphemes into a
+   compound spanning an orthographic word boundary (e.g. proper nouns like
+   תּוּבַל קַיִן תּוּבַל קַיִן). These produce:
+     <c class="noun" role="..."><m>...part 1...</m><m>...part 2...</m></c>
+   @class is the lowercase @Cat of the source Node (always "noun" or "adj").
+   See macula-hebrew-internal issue #18.
+
+   Normal output: <m role="..." xml:id="..." morph="..." ...>text</m> :)
+declare function local:morph($node)
 {
-    local:word($node, ())
+    local:morph($node, ())
 };
 
-declare function local:word($node, $role)
-(: $role can contain a role attribute or a null sequence :)
+declare function local:morph($node, $role)
 {
-    if ($node/c) then <c role="{$role}">{  $node/c/m ! local:word(.)}</c>
+    if ($node/c) then <c>{$node/@Cat ! attribute class {lower-case(.)}, $role, $node/c/m ! local:morph(.)}</c>
     else if ($node/m)
-    then local:word($node/m, $role)
-    else if ($node/*) then ( element error {$role, $node }) 
-    else if (substring($node, string-length($node), 1) = ( "·", " .", ";", ",",".","—","·",";"))
-    then
-        (: place punctuation in a separate node :)
-        (
-        <w>
-            {
-                $role,
-                local:attributes($node),
-                substring($node, 1, string-length($node) - 1)
-            }
-        </w>,<pc>{substring($node, string-length($node), 1)}</pc>
-        )
+    then local:morph($node/m, $role)
+    else if ($node/*) then ( element error {$role, $node })
     else
-        <w>
+        <m>
             {
                 $role,
                 local:attributes($node),
                 string($node)
             }
-        </w>
+        </m>
 };
 
+(: Determines the processing category for a Node element.
+
+   "morph"  — node contains <m> children directly (terminal morph leaf)
+   "phrase" — lowercase @Cat values:
+                adj adv art conj cj cjp det ij ijp intj noun num np nump
+                om omp pp prep pron ptcl rel relp verb vp adjp advp x
+              (om=object marker, omp=object marker phrase,
+               cj/cjp=conjunction/phrase, rel/relp=relative marker/phrase,
+               ij/ijp=interjection/phrase, x=miscellaneous)
+   "role"   — uppercase @Cat: S IO ADV O O2 P PP V VC
+   "clause" — @Cat="CL"
+   "####"   — unrecognised @Cat; should never occur in well-formed data :)
 declare function local:node-type($node as element(Node))
 {
     if ($node/m)
-      then "word"
+      then "morph"
     else
     switch ($node/@Cat)
         case "adj"
@@ -384,7 +405,6 @@ declare function local:node-type($node as element(Node))
         case "nump"
         case "pp"
         case "vp"
-        (:  the following were found using //@Cat, not sure what they all are ... :)
         case "omp"
         case "om"
         case "cjp"
@@ -394,8 +414,7 @@ declare function local:node-type($node as element(Node))
         case "ijp"
         case "ij"
         case "x"
-            return
-                "phrase"
+            return "phrase"
         case "S"
         case "IO"
         case "ADV"
@@ -405,62 +424,64 @@ declare function local:node-type($node as element(Node))
         case "PP"
         case "V"
         case "VC"
-            return
-                "role"
+            return "role"
         case "CL"
-            return
-                "clause"
+            return "clause"
         default
         return "####"
 };
 
-(:
-
-:)
-
-
+(: Main dispatch: routes each Node to the appropriate output function. :)
 declare function local:node($node as element(Node))
 {
     switch (local:node-type($node))
-        case "word"
-            return
-                local:word($node)
-        case "phrase"
-            return
-                local:phrase($node)
-        case "role"
-            return
-                local:role($node)
-        case "clause"
-            return
-                local:clause($node)
-        default
-        return
-            $node
+        case "morph"   return local:morph($node)
+        case "phrase"  return local:phrase($node)
+        case "role"    return local:role($node)
+        case "clause"  return local:clause($node)
+        (: "####" — unrecognised @Cat; emit an identifiable error element
+           rather than silently passing through the raw <Node>. :)
+        default        return element error_unknown_cat { attribute cat {$node/@Cat}, $node }
 };
 
+
+(:~~~ Text and sentence utilities ~~~:)
+
+(: Concatenates the plain text of all morphemes in $node's subtree, ordered
+   by xml:id (which encodes book/chapter/verse/word position). Each morpheme's
+   text is followed by its @after separator (space, maqaf, sof-pasuq, etc.).
+   Produces the readable text for the <p> element in each <sentence>. :)
 declare function local:straight-text($node)
 {
     let $strings :=
         for $m in $node//m
         order by $m/@xml:id
         return concat($m/text(), $m/@after)
-    return 
+    return
         string-join($strings,"")
 };
 
+(: Wraps a top-level Tree Node as a <sentence> element.
+
+   Output:
+     <sentence id="GEN 1:2">
+       <p><milestone unit="verse" id="GEN 1:2">GEN 1:2</milestone> text...</p>
+       (syntax tree from local:node)
+     </sentence>
+
+   The <p> contains one <milestone> per distinct verse spanned (most sentences
+   are single-verse; a few span verse boundaries). :)
 declare function local:sentence($node)
 {
 	<sentence>
-		{	
+		{
 			attribute id {$node/ancestor::Sentence/@verse},
 			<p>
 				{
 					for $verse in distinct-values($node//Node/@morphId ! local:USFMVerseId(.))
 					return
 						(
-						<milestone
-							unit="verse">
+						<milestone unit="verse">
 							{attribute id {$verse}, $verse}
 						</milestone>
 						,
@@ -470,25 +491,22 @@ declare function local:sentence($node)
 				{ local:straight-text($node) }
 			</p>,
 			local:node($node)
-			
 		}
 	</sentence>
 };
 
-(:~~~ execution ~~~:)
 
-(:processing-instruction xml-stylesheet {'href="../../macula-greek/Nestle1904/lowfat/treedown.css"'},:)
+(:~~~ Execution ~~~:)
+
+(:  If a sentence has multiple interpretations, Sentence/Trees may contain
+    multiple Tree nodes. The first is the preferred interpretation. :)
+
 processing-instruction xml-stylesheet {'href="hebrew-treedown.css"'},
 processing-instruction xml-stylesheet {'href="hebrew-boxwood.css"'},
-<chapter 
+<chapter
 	lang="he"
 	id="{(/descendant::Sentence)[1]/substring(@verse, 1, 5)}">
 	{
-	(:
-            If a sentence has multiple interpretations, Sentence/Trees may contain
-            multiple Tree nodes.  The first is the preferred interpretation.
-        :)
-	
 		for $sentence in //Tree[1]/Node
 		return
 			local:sentence($sentence)

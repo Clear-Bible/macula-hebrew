@@ -1,0 +1,32 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:api.github.com)",
+      "Bash(gh issue:*)",
+      "Bash(gh api:*)",
+      "Read(//Users/jonathan/github/Clear/**)",
+      "Read(//Users/jonathan/github/**)",
+      "Bash(ls /Users/jonathan/github/Clear/macula-greek/*/nodes/)",
+      "Bash(ls /Users/jonathan/github/Clear/macula-greek/*/lowfat/)",
+      "Bash(sed 's/=$//')",
+      "Bash(find /Users/jonathan/github/Clear/macula-hebrew/WLC/nodes -name \"*.xml\" -exec grep -l \"ContextualDomain=\" {} \\\\;)",
+      "Bash(grep -l 'ClType=\"Minor\"' *.xml)",
+      "Bash(grep -l 'cltype=' *.xml)",
+      "Bash(grep -i 'crasi' Nestle1904/nodes/*.xml)",
+      "Bash(grep -v \"^$\")",
+      "Bash(grep -rh \"oshb-strongs\" /Users/jonathan/github/Clear/macula-hebrew/WLC/nodes/*.xml)",
+      "Bash(grep -rh \"cltype\" /Users/jonathan/github/Clear/macula-greek/Nestle1904/lowfat/*.xml)",
+      "Bash(grep -roh 'oshb-strongs=\"[^\"]*\"' /Users/jonathan/github/Clear/macula-hebrew/WLC/nodes/*.xml)",
+      "Bash(grep -roh 'cltype=\"[^\"]*\"' /Users/jonathan/github/Clear/macula-greek/Nestle1904/lowfat/*.xml)",
+      "Bash(grep -roh 'ContextualDomain=\"[^\"]*\"' /Users/jonathan/github/Clear/macula-hebrew/WLC/nodes/*.xml)",
+      "Bash(head -10 grep -rc 'ContextualDomain' /Users/jonathan/github/Clear/macula-hebrew/WLC/nodes/*.xml)",
+      "Bash(grep -roh 'cltype=\"[^\"]*\"' /Users/jonathan/github/Clear/macula-greek/SBLGNT/lowfat/*.xml)",
+      "Bash(grep -oP '\\\\d+$')",
+      "Bash(gh label:*)",
+      "Bash(gh repo:*)",
+      "Bash(git commit:*)",
+      "Bash(sort -t'\"' -k8)"
+    ]
+  }
+}
