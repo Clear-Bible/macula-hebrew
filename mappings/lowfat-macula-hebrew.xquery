@@ -334,7 +334,7 @@ declare function local:word($node)
 declare function local:word($node, $role)
 (: $role can contain a role attribute or a null sequence :)
 {
-    if ($node/c) then <c role="{$role}">{  $node/c/m ! local:word(.)}</c>
+    if ($node/c) then <c role="{$role}" gloss="{if ($node/c/@gloss) then $node/c/@gloss else $node/c/@english}">{  $node/c/m ! local:word(.)}</c>
     else if ($node/m)
     then local:word($node/m, $role)
     else if ($node/*) then ( element error {$role, $node }) 

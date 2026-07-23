@@ -58,6 +58,13 @@ def test_required_attrs_exist_on_w_elements(lowfat_file):
                 raise
 
 
+@pytest.mark.parametrize("lowfat_file", __lowfat_files__)
+def test_required_attrs_exist_on_c_elements(lowfat_file):
+    nodes = run_xpath_for_file("//c", lowfat_file)
+    for node in nodes:
+        assert node.attrib.get("gloss")
+
+
 def test_number_of_lowfat_words():
     total_count = 0
     for lowfat_file in __lowfat_files__:
